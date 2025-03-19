@@ -20,7 +20,9 @@
     "remove_columns": "Sentence_id",
     "label_column_name": "class_label",
     "max_seq_length": 512,
-    "metric_name": "f1",
+    "metric_name": ["precision", "recall", "accuracy", "f1"],
     "train_file": "../data/CT24_checkworthy_english/csv/CT24_checkworthy_english_train.csv",
-    "validation_file": "../data/CT24_checkworthy_english/csv/CT24_checkworthy_english_test_gold.csv"
+    "validation_file": "../data/CT24_checkworthy_english/csv/CT24_checkworthy_english_test_gold.csv",
+
+    "report_to": "none"
 }

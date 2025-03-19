@@ -633,7 +633,7 @@ def main():
             logger.info(f"Sample {index} of the training set: {train_dataset[index]}.")
 
     if data_args.metric_name is not None:
-        if len(data_args.metric_name) == 1:
+        if isinstance(data_args.metric_name, str):
             metric = (
                 evaluate.load(data_args.metric_name, config_name="multilabel", cache_dir=model_args.cache_dir)
                 if is_multi_label
@@ -642,6 +642,8 @@ def main():
             logger.info(f"Using metric {data_args.metric_name} for evaluation.")
         else:
             metric = evaluate.combine(data_args.metric_name)
+            metric_string = ", ".join(data_args.metric_name)
+            logger.info(f"Using metrics {metric_string} for evaluation.")
     else:
         if is_regression:
             metric = evaluate.load("mse", cache_dir=model_args.cache_dir)
