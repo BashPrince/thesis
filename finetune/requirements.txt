@@ -1,0 +1,7 @@
+torch
+adapters
+datasets
+evaluate
+accelerate
+scikit-learn
+wandb
