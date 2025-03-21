@@ -13,7 +13,7 @@
     "per_device_eval_batch_size": 32,
     "learning_rate": 1e-4,
     "num_train_epochs": 0,
-    "output_dir": "../../thesis_out/ft/finetune/checkworthy",
+    "output_dir": "../../thesis_out/ft_best_multi_metric_test/finetune/checkworthy",
     "overwrite_output_dir": false,
     "task_name": "checkworthy",
     "text_column_names": "Text",
@@ -22,7 +22,9 @@
     "max_seq_length": 512,
     "metric_name": ["precision", "recall", "accuracy", "f1"],
     "train_file": "../data/CT24_checkworthy_english/csv/CT24_checkworthy_english_train.csv",
-    "validation_file": "../data/CT24_checkworthy_english/csv/CT24_checkworthy_english_test_gold.csv",
+    "validation_file": "../data/CT24_checkworthy_english/csv/CT24_checkworthy_english_dev.csv",
 
-    "report_to": "none"
+    "report_to": "none",
+
+    "custom_opt_checkpoint_dir": "../../thesis_out/ft_best_multi_metric_test/finetune/checkworthy/checkpoint-704/checkworthy"
 }

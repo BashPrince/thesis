@@ -13,7 +13,7 @@
     "per_device_eval_batch_size": 32,
     "learning_rate": 1e-4,
     "num_train_epochs": 6,
-    "output_dir": "../out/finetune/checkworthy",
+    "output_dir": "../out",
     "load_best_model_at_end": true,
     "metric_for_best_model": "f1",
     "overwrite_output_dir": false,

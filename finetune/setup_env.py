@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 # Define paths
-output_dir = "out/finetune/checkworthy"
+output_dir = "out"
 venv_dir = "../.venv"
 requirements_file = "requirements.txt"
 
