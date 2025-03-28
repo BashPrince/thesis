@@ -31,7 +31,7 @@ def setup_workspace(host_ip, username, code_src_path, model_src_path):
     pexpect.run(rsync_command, logfile=sys.stdout.buffer)
 
     # Use the ssh_execute_script function to install packages in a virtual environment
-    install_command = "cd critics/FactFinders && python3 -m venv .venv && source .venv/bin/activate && pip install -r req.txt"
+    install_command = "cd critics/FactFinders && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt"
     ssh_execute_command(host_ip, username, install_command)
 
     # HF login
@@ -39,14 +39,15 @@ def setup_workspace(host_ip, username, code_src_path, model_src_path):
     ssh_execute_command(host_ip, username, hf_login_command, [r"Enter your token", r"Add token as git credential"])
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
-        print("Usage: python predict_critic_remote.py <host_ip> <username> <code_src_path> <model_src_path>")
+    if len(sys.argv) != 4:
+        print("Usage: python predict_critic_remote.py <host_ip> <username> <model_src_path>")
         sys.exit(1)
 
     host_ip = sys.argv[1]
     username = sys.argv[2]
-    code_src_path = sys.argv[3]
-    model_src_path = sys.argv[4]
+    model_src_path = sys.argv[3]
+
+    code_src_path = "../../FactFinders"
 
     setup_workspace(host_ip, username, code_src_path, model_src_path)
 

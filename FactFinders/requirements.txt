@@ -1,0 +1,14 @@
+torch
+transformers
+datasets
+scikit-learn
+numpy
+accelerate
+bitsandbytes
+peft
+trl==0.8.1
+protobuf
+tiktoken
+blobfile
+sentencepiece
+huggingface_hub[cli]
