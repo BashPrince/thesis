@@ -1,0 +1,2 @@
+Test: Accuracy: 0.8827, Precision: 0.8243, Recall: 0.6932, F1 Score: 0.7531, Consistency: 0.8710
+Dev test: Accuracy: 0.9151, Precision: 0.9655, Recall: 0.7778, F1 Score: 0.8615, Consistency: 0.9214

@@ -40,7 +40,7 @@ def setup_workspace(host_ip, username, code_src_path, model_src_path):
 
 def predict_and_copy_back_results(host_ip, username, model):
     # Run the prediction script on the remote server
-    predict_command = f"cd critics/FactFinders && python3 -m venv .venv && source .venv/bin/activate && cd src && python predict.py --model_path '../../{model}'"
+    predict_command = f"cd critics/FactFinders && python3 -m venv .venv && source .venv/bin/activate && cd src && python predict.py --model '{model}'"
     ssh_execute_command(host_ip, username, predict_command)
 
     # Copy the prediction results back to the local machine

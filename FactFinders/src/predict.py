@@ -92,7 +92,7 @@ test_data = test_data.apply(generate_test_prompt, axis=1)
 
 # Load model and config
 parser = argparse.ArgumentParser(description='Evaluate a fine-tuned language model.')
-parser.add_argument('--model_path', type=str, required=True, help='Model identifier string (gemma_7b, llama_3.1_8b, mixtral_8x7b)')
+parser.add_argument('--model', type=str, required=True, help='Model identifier string (gemma_7b, llama_3.1_8b, mixtral_8x7b)')
 args = parser.parse_args()
 
 # All models have the same end checkpoint
