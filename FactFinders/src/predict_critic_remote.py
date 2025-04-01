@@ -27,7 +27,7 @@ def setup_workspace(host_ip, username, code_src_path, model_src_path):
     rsync_command = f"rsync -av --exclude='.*' {code_src_path} {username}@{host_ip}:critics"
     pexpect.run(rsync_command, logfile=sys.stdout.buffer)
     
-    rsync_command = f"rsync -av {model_src_path} {username}@{host_ip}:critics/model"
+    rsync_command = f"rsync -av {model_src_path} {username}@{host_ip}:critics/models"
     pexpect.run(rsync_command, logfile=sys.stdout.buffer)
 
     # Use the ssh_execute_script function to install packages in a virtual environment
@@ -37,6 +37,15 @@ def setup_workspace(host_ip, username, code_src_path, model_src_path):
     # HF login
     hf_login_command = 'cd critics/FactFinders && source .venv/bin/activate && huggingface-cli login"'
     ssh_execute_command(host_ip, username, hf_login_command, [r"Enter your token", r"Add token as git credential"])
+
+def predict_and_copy_back_results(host_ip, username, model):
+    # Run the prediction script on the remote server
+    predict_command = f"cd critics/FactFinders && python3 -m venv .venv && source .venv/bin/activate && cd src && python predict.py --model_path '../../{model}'"
+    ssh_execute_command(host_ip, username, predict_command)
+
+    # Copy the prediction results back to the local machine
+    rsync_command = f"rsync -av {username}@{host_ip}:critics/FactFinders/results/predict.csv ../results/predict_{model}.csv"
+    pexpect.run(rsync_command, logfile=sys.stdout.buffer)
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
@@ -51,6 +60,8 @@ if __name__ == "__main__":
 
     setup_workspace(host_ip, username, code_src_path, model_src_path)
 
-    # TODO: Add the command to run the prediction script on the remote server
+    # predict with all models
+    predict_and_copy_back_results(host_ip, username, 'gemma_7b')
+    predict_and_copy_back_results(host_ip, username, 'mixtral_8x7b')
+    predict_and_copy_back_results(host_ip, username, 'llama_3.1_8b')
 
-    # TODO: Copy the prediction results back to the local machine

@@ -6,6 +6,7 @@ import gc
 from collections import Counter
 import random
 import numpy as np
+import argparse
 
 gc.collect()
 
@@ -90,7 +91,12 @@ print("Testing dataset size: ", test_data.shape)
 test_data = test_data.apply(generate_test_prompt, axis=1)
 
 # Load model and config
-checkpoint_path = "../model/checkpoint"
+parser = argparse.ArgumentParser(description='Evaluate a fine-tuned language model.')
+parser.add_argument('--model_path', type=str, required=True, help='Model identifier string (gemma_7b, llama_3.1_8b, mixtral_8x7b)')
+args = parser.parse_args()
+
+# All models have the same end checkpoint
+checkpoint_path = f"../../models/{args.model}/checkpoint-16875"
 
 # 4-bit Quantization Configuration
 compute_dtype = getattr(torch, "float16")
@@ -137,5 +143,7 @@ prediction = test_data['prediction']
 predictions_t = []
 for j in range(5):
     predictions_t.append(test_data['prediction' + str(j)].tolist())
+
+test_data = test_data.drop(columns=["prompt"])
 test_data.to_csv('../results/predict.csv', index=False)
 
