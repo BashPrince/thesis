@@ -1,0 +1,2227 @@
+Sentence_id,Text,class_label,prompt,prediction0,prediction1,prediction2,prediction3,prediction4,prediction
+37436,He's been a professor for a long time at a great school.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He's been a professor for a long time at a great school.
+
+### Response:",No,No,No,No,No,No
+37440,There's no way they would give it up.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+There's no way they would give it up.
+
+### Response:",No,No,No,No,No,No
+37463,They're able to charge women more for the same exact procedure a man gets.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They're able to charge women more for the same exact procedure a man gets.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+37470,"As far as a say is concerned, the people already had their say.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+As far as a say is concerned, the people already had their say.
+
+### Response:",No,No,No,No,No,No
+37504,I am the Democratic Party right now.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I am the Democratic Party right now.
+
+### Response:",No,No,No,No,No,No
+37510,"Well, there's seven million people that contracted COVID.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Well, there's seven million people that contracted COVID.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+37513,So don't tell me about this.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+So don't tell me about this.
+
+### Response:",No,No,No,No,No,No
+37514,I'm happy to talk about this.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I'm happy to talk about this.
+
+### Response:",No,No,No,No,No,No
+37519,"You would have been much later, Joe, much later.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You would have been much later, Joe, much later.
+
+### Response:",No,No,No,No,No,No
+37528,And so the election is all-,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And so the election is all-
+
+### Response:",No,No,No,No,No,No
+37531,Why is it on the ballot?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Why is it on the ballot?
+
+### Response:",No,No,No,No,No,No
+37571,And we will protect people.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And we will protect people.
+
+### Response:",No,No,No,No,No,No
+37589,I'll give you an example.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I'll give you an example.
+
+### Response:",No,No,No,No,No,No
+37593,Take a look at all of the drugs that what we're doing.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Take a look at all of the drugs that what we're doing.
+
+### Response:",No,No,No,No,No,No
+37623,"On Super Tuesday, you got very lucky.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+On Super Tuesday, you got very lucky.
+
+### Response:",No,No,No,No,No,No
+37628,And tonight I'm going to make sure.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And tonight I'm going to make sure.
+
+### Response:",No,No,No,No,No,No
+37630,"Because here's the deal, here's the deal.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Because here's the deal, here's the deal.
+
+### Response:",No,No,No,No,No,No
+37631,The fact is that everything he's saying so far is simply a lie.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The fact is that everything he's saying so far is simply a lie.
+
+### Response:",No,No,No,No,No,No
+37643,"The wrong guy, the wrong night, at the wrong time.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The wrong guy, the wrong night, at the wrong time.
+
+### Response:",No,No,No,No,No,No
+37651,"You agreed with Bernie Sanders on a plan that you absolutely agreed to and under that plan [crosstalk], they call it socialized medicine.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You agreed with Bernie Sanders on a plan that you absolutely agreed to and under that plan [crosstalk], they call it socialized medicine.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+37664,He has never offered a plan.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He has never offered a plan.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+37672,We took away the individual mandate.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We took away the individual mandate.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+37673,"We guaranteed pre-existing conditions, but took away the individual mandate.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We guaranteed pre-existing conditions, but took away the individual mandate.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+37677,"If I run it badly, they'll probably blame him, but they'll blame me.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If I run it badly, they'll probably blame him, but they'll blame me.
+
+### Response:",No,No,No,No,No,No
+37678,"But more importantly, I want to help people.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+But more importantly, I want to help people.
+
+### Response:",No,No,No,No,No,No
+37685,So we do want to get rid of it.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+So we do want to get rid of it.
+
+### Response:",No,No,No,No,No,No
+37702,And the fact is this man doesn't know what he's talking about.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And the fact is this man doesn't know what he's talking about.
+
+### Response:",No,No,No,No,No,No
+37710,"Whatever position I take on that, that'll become the issue.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Whatever position I take on that, that'll become the issue.
+
+### Response:",No,No,No,No,No,No
+37711,The issue is the American people should speak.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The issue is the American people should speak.
+
+### Response:",No,No,No,No,No,No
+37722,You want to put a lot of new Supreme Court Justices.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You want to put a lot of new Supreme Court Justices.
+
+### Response:",No,No,No,No,No,No
+37724,"Will you shut up, man?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Will you shut up, man?
+
+### Response:",No,No,No,No,No,No
+37725,"Listen, who is on your list, Joe?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Listen, who is on your list, Joe?
+
+### Response:",No,No,No,No,No,No
+37749,"We, in fact, have 4% of the world's population, 20% of the deaths.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We, in fact, have 4% of the world's population, 20% of the deaths.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+37750,"40,000 people a day are contracting COVID.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+40,000 people a day are contracting COVID.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+37753,"Well, it is what it is because you are who you are.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Well, it is what it is because you are who you are.
+
+### Response:",No,No,No,No,No,No
+37764,"In addition to that, what did he do?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+In addition to that, what did he do?
+
+### Response:",No,No,No,No,No,No
+37770,And what did he do then?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And what did he do then?
+
+### Response:",No,No,No,No,No,No
+37777,"I laid out back in March, exactly what we should be doing.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I laid out back in March, exactly what we should be doing.
+
+### Response:",No,No,Yes,No,No,No
+37778,"And I laid out again in July, what we should be doing.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And I laid out again in July, what we should be doing.
+
+### Response:",No,No,No,No,No,No
+37779,We should be providing all the protective gear possible.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We should be providing all the protective gear possible.
+
+### Response:",No,No,No,No,No,No
+37802,"Many of your Democrat Governors said, \President Trump did a phenomenal job.\""""",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Many of your Democrat Governors said, \President Trump did a phenomenal job.\""""
+
+### Response:",No,No,No,Yes,Yes,No
+37816,Far fewer people are dying.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Far fewer people are dying.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+37817,We've done a great job.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We've done a great job.
+
+### Response:",No,No,No,No,No,No
+37824,"But I'll tell you, Joe, you could never have done the job that we did.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+But I'll tell you, Joe, you could never have done the job that we did.
+
+### Response:",No,No,No,No,No,No
+37839,How many of you got up this morning and had an empty chair at the kitchen table because someone died of COVID?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+How many of you got up this morning and had an empty chair at the kitchen table because someone died of COVID?
+
+### Response:",No,No,No,No,No,No
+37840,"How many of you are in a situation where you lost your mom or dad and you couldn't even speak to them, you had a nurse holding a phone up so you could in fact say goodbye?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+How many of you are in a situation where you lost your mom or dad and you couldn't even speak to them, you had a nurse holding a phone up so you could in fact say goodbye?
+
+### Response:",No,No,No,No,No,No
+37875,It could also be after that.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+It could also be after that.
+
+### Response:",No,No,No,No,No,No
+37903,No more than the question you just asked him.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+No more than the question you just asked him.
+
+### Response:",No,No,No,No,No,No
+37916,They're the people... And by the way-,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They're the people... And by the way-
+
+### Response:",No,No,No,No,No,No
+37929,Did you use the word smart?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Did you use the word smart?
+
+### Response:",No,No,No,No,No,No
+37945,I look forward to talking about it.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I look forward to talking about it.
+
+### Response:",No,No,No,No,No,No
+37956,Tell that to Nancy Pelosi.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Tell that to Nancy Pelosi.
+
+### Response:",No,No,No,No,No,No
+37962,He sits in his golf course.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He sits in his golf course.
+
+### Response:",No,No,No,No,No,No
+37971,He wants to shut down the country.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He wants to shut down the country.
+
+### Response:",No,No,No,No,No,No
+37978,More people will be hurt by continuing.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+More people will be hurt by continuing.
+
+### Response:",No,No,No,No,No,No
+37989,I got to respond to that.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I got to respond to that.
+
+### Response:",No,No,No,No,No,No
+37994,"No, I think masks are okay.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+No, I think masks are okay.
+
+### Response:",No,No,No,No,No,No
+38023,Dr. Fauci said the opposite.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Dr. Fauci said the opposite.
+
+### Response:",Yes,Yes,No,Yes,No,Yes
+38075,"He's been totally irresponsible the way in which he has handled the social distancing and people wearing masks, basically encouraged them not to.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He's been totally irresponsible the way in which he has handled the social distancing and people wearing masks, basically encouraged them not to.
+
+### Response:",Yes,Yes,Yes,Yes,No,Yes
+38077,"If you could get the crowds, you would have done the same thing.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If you could get the crowds, you would have done the same thing.
+
+### Response:",No,No,No,No,No,No
+38099,One person is too much.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+One person is too much.
+
+### Response:",No,No,No,No,No,No
+38121,"And you look at what's going on with divorce, look at what's going on with alcoholism and drugs.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And you look at what's going on with divorce, look at what's going on with alcoholism and drugs.
+
+### Response:",No,No,No,No,No,No
+38135,This guy paid a total of $750 in taxes.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+This guy paid a total of $750 in taxes.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38144,"The fact is that he has in fact, worked on this in a way that he's going to be the first president of the United States to leave office, having fewer jobs in his administration than when he became president.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The fact is that he has in fact, worked on this in a way that he's going to be the first president of the United States to leave office, having fewer jobs in his administration than when he became president.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38156,Because it costs a lot of money to open them safely.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Because it costs a lot of money to open them safely.
+
+### Response:",No,No,No,No,No,No
+38169,"Excuse me, he made a statement.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Excuse me, he made a statement.
+
+### Response:",No,No,No,No,No,No
+38179,They want to get back to their lives.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They want to get back to their lives.
+
+### Response:",No,No,No,No,No,No
+38194,"I paid millions of dollars in taxes, millions of dollars of income tax.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I paid millions of dollars in taxes, millions of dollars of income tax.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38197,"I paid $38 million one year, I paid $27 million one year.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I paid $38 million one year, I paid $27 million one year.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38220,"Chris, let me just say something, that it was the tax laws.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Chris, let me just say something, that it was the tax laws.
+
+### Response:",No,No,No,No,No,No
+38221,I don't want to pay tax.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I don't want to pay tax.
+
+### Response:",No,No,No,No,No,No
+38234,And I'm going to eliminate those tax cuts.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And I'm going to eliminate those tax cuts.
+
+### Response:",No,No,No,No,No,No
+38236,And make sure that we invest in the people who in fact need the help.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And make sure that we invest in the people who in fact need the help.
+
+### Response:",No,No,No,No,No,No
+38238,But why didn't you do it over the last 25 years?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+But why didn't you do it over the last 25 years?
+
+### Response:",No,No,No,No,No,No
+38247,We've done things that you never even thought of doing.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We've done things that you never even thought of doing.
+
+### Response:",No,No,No,No,No,No
+38262,"And under my proposal, we're going to make sure that every penny of that has to be made by a company-",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And under my proposal, we're going to make sure that every penny of that has to be made by a company-
+
+### Response:",No,No,No,No,No,No
+38264,"By the way, I'm going to eliminate a significant number of the taxes.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+By the way, I'm going to eliminate a significant number of the taxes.
+
+### Response:",No,No,No,No,No,No
+38265,I'm going to make the corporate tax 28%.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I'm going to make the corporate tax 28%.
+
+### Response:",No,No,No,No,No,No
+38284,They had the slowest economic recovery since 1929.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They had the slowest economic recovery since 1929.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38291,"If you got in, if you ever became president with your ideas, you want to terminate my taxes.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If you got in, if you ever became president with your ideas, you want to terminate my taxes.
+
+### Response:",No,No,No,No,No,No
+38294,"And plenty of companies that are already here, they'll leave for other places.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And plenty of companies that are already here, they'll leave for other places.
+
+### Response:",No,No,No,No,No,No
+38310,Manufacturing went in a hole-,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Manufacturing went in a hole-
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38322,"I brought back 700,000 jobs.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I brought back 700,000 jobs.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38349,We have a higher deficit with China now than we did before.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We have a higher deficit with China now than we did before.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38359,What did he do to deserve it?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+What did he do to deserve it?
+
+### Response:",No,No,No,No,No,No
+38421,Some people don't do a good job.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Some people don't do a good job.
+
+### Response:",No,No,No,No,No,No
+38435,We want to talk about families and ethics.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We want to talk about families and ethics.
+
+### Response:",No,No,No,No,No,No
+38510,"He came out of his bunker, had the military use tear gas on them so he could walk across to a church and hold up a Bible.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He came out of his bunker, had the military use tear gas on them so he could walk across to a church and hold up a Bible.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38511,And then what happened after that?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And then what happened after that?
+
+### Response:",No,No,No,No,No,No
+38513,The general who was with him said All he ever wants to do is divide people not unite people at all.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The general who was with him said All he ever wants to do is divide people not unite people at all.
+
+### Response:",No,No,Yes,Yes,No,No
+38547,"And why aren't you saying those words, Joe?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And why aren't you saying those words, Joe?
+
+### Response:",No,No,No,No,No,No
+38562,"There's systemic injustice in this country, in education and work and in law enforcement and the way in which it's enforced.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+There's systemic injustice in this country, in education and work and in law enforcement and the way in which it's enforced.
+
+### Response:",No,No,No,No,No,No
+38568,They have to be held accountable.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They have to be held accountable.
+
+### Response:",No,No,No,No,No,No
+38578,When they run through the middle of the town-,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+When they run through the middle of the town-
+
+### Response:",No,No,No,No,No,No
+38597,"If you were a certain person, you had no status in life.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If you were a certain person, you had no status in life.
+
+### Response:",No,No,No,No,No,No
+38599,"And if you look at the people, we would pay people hundreds of thousands of dollars to teach very bad ideas and frankly, very sick ideas.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And if you look at the people, we would pay people hundreds of thousands of dollars to teach very bad ideas and frankly, very sick ideas.
+
+### Response:",No,No,No,No,Yes,No
+38603,We have to go back to the core values of this country.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We have to go back to the core values of this country.
+
+### Response:",No,No,No,No,No,No
+38607,And I'm not going to allow that to happen.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And I'm not going to allow that to happen.
+
+### Response:",No,No,No,No,No,No
+38618,"People have to be made aware of what other people feel like, uh, what insults them, what is demeaning to them.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+People have to be made aware of what other people feel like, uh, what insults them, what is demeaning to them.
+
+### Response:",No,No,No,No,No,No
+38619,It's important that people know.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+It's important that people know.
+
+### Response:",No,No,No,No,No,No
+38623,"It's a little bit like how this guy and, and his friends look down on so many people.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+It's a little bit like how this guy and, and his friends look down on so many people.
+
+### Response:",No,No,No,No,No,No
+38630,"There's nothing we cannot do, if we do it together.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+There's nothing we cannot do, if we do it together.
+
+### Response:",No,No,No,No,No,No
+38639,Look what happened in Baltimore.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Look what happened in Baltimore.
+
+### Response:",No,No,No,No,No,No
+38666,The places we had trouble were Democratic-run cities...,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The places we had trouble were Democratic-run cities...
+
+### Response:",No,Yes,Yes,Yes,No,Yes
+38671,I think it's a party issue.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I think it's a party issue.
+
+### Response:",No,No,No,No,No,No
+38675,"The numbers are going up a 100, 150, 200 percent, uh, crime, it is crazy what's going on ...",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The numbers are going up a 100, 150, 200 percent, uh, crime, it is crazy what's going on ...
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38687,I was raised in the suburbs.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I was raised in the suburbs.
+
+### Response:",No,No,No,No,No,No
+38711,That's not what it ...,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+That's not what it ...
+
+### Response:",No,No,No,No,No,No
+38774,"And so here, here's the point.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And so here, here's the point.
+
+### Response:",No,No,No,No,No,No
+38777,"Instead of going in and talking to people and saying, \Let's get everybody together.""",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Instead of going in and talking to people and saying, \Let's get everybody together.""
+
+### Response:",No,No,No,No,No,No
+38786,"You mean, I have to answer his stuff?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You mean, I have to answer his stuff?
+
+### Response:",No,No,No,No,No,No
+38798,"I'll send in the National Guard, it would be over.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I'll send in the National Guard, it would be over.
+
+### Response:",No,No,No,No,No,No
+38821,"Proud Boys, stand back and stand by.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Proud Boys, stand back and stand by.
+
+### Response:",No,No,No,No,No,No
+38862,"And we now got a 91% approval rating at the VA, our vets.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And we now got a 91% approval rating at the VA, our vets.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38863,We take care of our vets.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We take care of our vets.
+
+### Response:",No,No,No,No,No,No
+38868,Because President Obama and him left me 128 judges to fill.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Because President Obama and him left me 128 judges to fill.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38872,"You can't be a good Vice President but I want to thank you because it gives us almost, it'll probably be above that number.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You can't be a good Vice President but I want to thank you because it gives us almost, it'll probably be above that number.
+
+### Response:",No,No,No,No,No,No
+38882,"With regard to being weaker, the fact is that I've gone head to head with Putin and made it clear to him we're not going to take any of his stuff.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+With regard to being weaker, the fact is that I've gone head to head with Putin and made it clear to him we're not going to take any of his stuff.
+
+### Response:",No,Yes,No,Yes,No,No
+38884,He still refuses to even say anything to Putin about the bounty on the heads of American soldiers.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He still refuses to even say anything to Putin about the bounty on the heads of American soldiers.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38906,When we were in office there were 15% less violence in America than there is today.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+When we were in office there were 15% less violence in America than there is today.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+38913,He spent a year there.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He spent a year there.
+
+### Response:",Yes,No,No,Yes,No,No
+38920,"Are you talking Hunter, are you talking about Hunter.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Are you talking Hunter, are you talking about Hunter.
+
+### Response:",No,No,No,No,No,No
+38936,My son... like a lot of people.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+My son... like a lot of people.
+
+### Response:",No,No,No,No,No,No
+38961,Why did he get it?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Why did he get it?
+
+### Response:",No,No,No,No,No,No
+38979,"If you look at the Paris Accord, it was a disaster from our standpoint.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If you look at the Paris Accord, it was a disaster from our standpoint.
+
+### Response:",No,No,No,No,No,No
+38991,But I also think we have to do better management of our forests.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+But I also think we have to do better management of our forests.
+
+### Response:",No,No,No,No,No,No
+38999,"I was with the head of a major country, it's a forest city.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I was with the head of a major country, it's a forest city.
+
+### Response:",No,No,No,No,No,No
+39002,I spoke with the Governor about it.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I spoke with the Governor about it.
+
+### Response:",No,No,No,No,No,No
+39018,"Now, so, and by the way, we're going to see how that turns out.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Now, so, and by the way, we're going to see how that turns out.
+
+### Response:",No,No,No,No,No,No
+39022,And I'm okay with electric cars too.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And I'm okay with electric cars too.
+
+### Response:",No,No,No,No,No,No
+39037,"Making sure that we can do that, we're going to put 500,000 charging stations and all of the highways that we're going to be building in the future.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Making sure that we can do that, we're going to put 500,000 charging stations and all of the highways that we're going to be building in the future.
+
+### Response:",No,No,No,No,No,No
+39044,"And the first thing I will do, I will rejoin the Paris Accord.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And the first thing I will do, I will rejoin the Paris Accord.
+
+### Response:",No,No,No,No,No,No
+39048,"Brazil, the rainforests of Brazil are being torn down, are being ripped down.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Brazil, the rainforests of Brazil are being torn down, are being ripped down.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39075,"That is not, that is not...",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+That is not, that is not...
+
+### Response:",No,No,No,No,No,No
+39086,That is simply not the case...,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+That is simply not the case...
+
+### Response:",No,No,No,No,No,No
+39105,"Yeah, you did say that.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Yeah, you did say that.
+
+### Response:",No,No,No,No,No,No
+39120,So why didn't he do it for 47 years?,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+So why didn't he do it for 47 years?
+
+### Response:",No,No,No,No,No,No
+39129,The Green New Deal is a hundred trillion dollars...,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The Green New Deal is a hundred trillion dollars...
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39132,The Green New Deal is not my plan...,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The Green New Deal is not my plan...
+
+### Response:",No,Yes,No,Yes,Yes,Yes
+39135,If you knew anything about...,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If you knew anything about...
+
+### Response:",No,No,No,No,No,No
+39139,He made a statement about the military.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He made a statement about the military.
+
+### Response:",No,No,No,No,No,No
+39189,They should go to iwillvote.com.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They should go to iwillvote.com.
+
+### Response:",No,No,No,No,No,No
+39198,And this is all about trying to dissuade people from voting because he's trying to conf--to scare people into thinking that it's not going to be legitimate.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And this is all about trying to dissuade people from voting because he's trying to conf--to scare people into thinking that it's not going to be legitimate.
+
+### Response:",No,No,No,No,No,No
+39203,"If you're able to vote in person, vote in person.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If you're able to vote in person, vote in person.
+
+### Response:",No,No,No,No,No,No
+39216,"Just make sure you understand, you have it in your control to determine what this country is gonna look like the next four years.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Just make sure you understand, you have it in your control to determine what this country is gonna look like the next four years.
+
+### Response:",No,No,No,No,No,No
+39217,"Is it going to change, or are you going to get four more years of these lies?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Is it going to change, or are you going to get four more years of these lies?
+
+### Response:",No,No,No,No,No,No
+39224,"From the day I came down the escalator with our first lady, they were a disaster.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+From the day I came down the escalator with our first lady, they were a disaster.
+
+### Response:",No,No,No,No,No,No
+39256,Take a look at what happened in New Jersey.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Take a look at what happened in New Jersey.
+
+### Response:",No,No,No,No,No,No
+39296,"You do a solicited ballot, and that's okay...",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You do a solicited ballot, and that's okay...
+
+### Response:",No,No,No,No,No,No
+39305,... like they used to in the old...,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+... like they used to in the old...
+
+### Response:",No,No,No,No,No,No
+39309,Did you see what's going on?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Did you see what's going on?
+
+### Response:",No,No,No,No,No,No
+39342,"When you file-when you get a ballot and you fill it out, you're supposed to have an affidavit.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+When you file-when you get a ballot and you fill it out, you're supposed to have an affidavit.
+
+### Response:",No,No,No,No,No,No
+39353,... sent in and swamping the system...,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+... sent in and swamping the system...
+
+### Response:",No,No,No,No,No,No
+39373,"In Philadelphia, they went in to watch.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+In Philadelphia, they went in to watch.
+
+### Response:",Yes,No,No,No,No,No
+39392,I'll tell you what it means...,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I'll tell you what it means...
+
+### Response:",No,No,No,No,No,No
+39394,It means you have a fraudulent election.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+It means you have a fraudulent election.
+
+### Response:",No,No,No,No,No,No
+39412,Some of these ballots in some states can't even be opened until election day.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Some of these ballots in some states can't even be opened until election day.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39414,"And by the way, our military--they've been voting by ballots for since the end of the Civil War, in effect.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And by the way, our military--they've been voting by ballots for since the end of the Civil War, in effect.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39421,Take a look at Carolyn Maloney's race...,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Take a look at Carolyn Maloney's race...
+
+### Response:",No,No,No,No,No,No
+39430,"The fact is, I will accept it, and he will too.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The fact is, I will accept it, and he will too.
+
+### Response:",No,No,No,No,No,No
+39435,"If it's not me, I'll support the outcome.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If it's not me, I'll support the outcome.
+
+### Response:",No,No,No,No,No,No
+39479,You see the spikes in Europe and many other places right now.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You see the spikes in Europe and many other places right now.
+
+### Response:",No,No,No,No,No,No
+39480,"If you notice, the mortality rate is down, 85%.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If you notice, the mortality rate is down, 85%.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39481,"The excess mortality rate is way down, and much lower than almost any other country.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The excess mortality rate is way down, and much lower than almost any other country.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39492,"I can tell you from personal experience that I was in the hospital, I had it.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I can tell you from personal experience that I was in the hospital, I had it.
+
+### Response:",No,No,No,No,No,No
+39497,"Whether it's four months or a lifetime, nobody's been able to say that, but I'm immune.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Whether it's four months or a lifetime, nobody's been able to say that, but I'm immune.
+
+### Response:",No,No,No,No,No,No
+39506,"If you hear nothing else I say tonight, hear this.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If you hear nothing else I say tonight, hear this.
+
+### Response:",No,No,No,No,No,No
+39507,"Anyone who's responsible for not taking control - in fact, not saying, I take no responsibility, initially - anyone who is responsible for that many deaths should not remain as President of the United States of America.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Anyone who's responsible for not taking control - in fact, not saying, I take no responsibility, initially - anyone who is responsible for that many deaths should not remain as President of the United States of America.
+
+### Response:",No,No,No,No,No,No
+39508,"We're in a situation where there are thousands of deaths a day, a thousand deaths a day.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We're in a situation where there are thousands of deaths a day, a thousand deaths a day.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39510,"Compared to what's going on in Europe, as the New England Medical Journal said, they're starting from a very low rate.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Compared to what's going on in Europe, as the New England Medical Journal said, they're starting from a very low rate.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39514,"And we're in a circumstance where the President, thus far, still has no plan.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And we're in a circumstance where the President, thus far, still has no plan.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39517,"I would make sure we move in the direction of rapid testing, investing in rapid testing.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I would make sure we move in the direction of rapid testing, investing in rapid testing.
+
+### Response:",No,No,No,No,No,No
+39526,"No, it's not a guarantee but it will be by the end of the year, but I think it has a good chance.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+No, it's not a guarantee but it will be by the end of the year, but I think it has a good chance.
+
+### Response:",No,No,No,No,No,No
+39543,Make sure it's totally transparent.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Make sure it's totally transparent.
+
+### Response:",No,No,No,No,No,No
+39550,I don't think we're going to have a dark winter at all.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I don't think we're going to have a dark winter at all.
+
+### Response:",No,No,No,No,No,No
+39553,"When I closed and banned China from coming in heavily infected, and then ultimately Europe, but China was in January - months later he was saying I was xenophobic, I did it too soon.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+When I closed and banned China from coming in heavily infected, and then ultimately Europe, but China was in January - months later he was saying I was xenophobic, I did it too soon.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39560,"Look, his own person who ran that for him who, as you know was his chief of staff, said 'It was catastrophic, it was horrible, we didn't know what we were doing.'",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Look, his own person who ran that for him who, as you know was his chief of staff, said 'It was catastrophic, it was horrible, we didn't know what we were doing.'
+
+### Response:",Yes,Yes,Yes,No,No,Yes
+39565,"And he did it late, after 40 countries had already done that.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And he did it late, after 40 countries had already done that.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39586,I'd love to put myself in the basement or in a beautiful room in the White House and go away for a year and a half until it disappears.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I'd love to put myself in the basement or in a beautiful room in the White House and go away for a year and a half until it disappears.
+
+### Response:",No,No,No,No,No,No
+39601,Can I respond to that?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Can I respond to that?
+
+### Response:",No,No,No,No,No,No
+39615,What should they do about the danger?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+What should they do about the danger?
+
+### Response:",No,No,No,No,No,No
+39625,"They kept it from going into the rest of China, for the most part, but they didn't keep it from coming out to the world including Europe and ourselves.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They kept it from going into the rest of China, for the most part, but they didn't keep it from coming out to the world including Europe and ourselves.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39627,"The fact is, that when we knew it was coming, when it hit - what happened?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The fact is, that when we knew it was coming, when it hit - what happened?
+
+### Response:",No,No,No,No,No,No
+39673,"Well, I think we have to respond, if I might.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Well, I think we have to respond, if I might.
+
+### Response:",No,No,No,No,No,No
+39679,And he supports all these people.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And he supports all these people.
+
+### Response:",Yes,Yes,No,No,Yes,Yes
+39685,"Young people, I guess it's their immune system.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Young people, I guess it's their immune system.
+
+### Response:",No,No,No,No,No,No
+39697,"There's depression, alcohol, drugs at a level that nobody's ever seen before.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+There's depression, alcohol, drugs at a level that nobody's ever seen before.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39704,We're gonna be able to walk and chew gum at the same time.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We're gonna be able to walk and chew gum at the same time.
+
+### Response:",No,No,No,No,No,No
+39720,"I mean, you're going to sit there in a cubicle wrapped around with plastic?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I mean, you're going to sit there in a cubicle wrapped around with plastic?
+
+### Response:",No,No,No,No,No,No
+39723,"For so many years, I loved it.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+For so many years, I loved it.
+
+### Response:",No,No,No,No,No,No
+39735,The money's already been passed to do that.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The money's already been passed to do that.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39737,"Kristen, New York has lost more than 40,000 people.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Kristen, New York has lost more than 40,000 people.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39746,"We can't let that happen, Joe, you can't let that happen.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We can't let that happen, Joe, you can't let that happen.
+
+### Response:",No,No,No,No,No,No
+39747,"We have to open up and we understand the disease, we have to protect our seniors, we have to protect our elderly, we have to protect, especially, our seniors with heart problems and diabetes problems, and we will protect them.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We have to open up and we understand the disease, we have to protect our seniors, we have to protect our elderly, we have to protect, especially, our seniors with heart problems and diabetes problems, and we will protect them.
+
+### Response:",No,No,No,No,No,No
+39775,"But, guess what, in the meantime, we find out in the New York Times the other day that in fact, his folks went to Wall Street and said, 'this is a really dangerous thing,' and a memo out of that meeting - not from his administration, but from some of the brokers - said, 'sell short, because we gotta get moving.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+But, guess what, in the meantime, we find out in the New York Times the other day that in fact, his folks went to Wall Street and said, 'this is a really dangerous thing,' and a memo out of that meeting - not from his administration, but from some of the brokers - said, 'sell short, because we gotta get moving.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39786,But I don't want to do that because it puts me in a bad position.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+But I don't want to do that because it puts me in a bad position.
+
+### Response:",No,No,No,No,No,No
+39788,You shouldn't be bringing up Wall Street.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You shouldn't be bringing up Wall Street.
+
+### Response:",No,No,No,No,No,No
+39793,"In fact, we beat Hillary Clinton with a tiny fraction of the money that she was able to get.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+In fact, we beat Hillary Clinton with a tiny fraction of the money that she was able to get.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39794,Don't tell me about Wall Street.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Don't tell me about Wall Street.
+
+### Response:",No,No,No,No,No,No
+39806,They will pay a price.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They will pay a price.
+
+### Response:",No,No,No,No,No,No
+39809,They will pay a price if I'm elected.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They will pay a price if I'm elected.
+
+### Response:",No,No,No,No,No,No
+39820,We are in a situation where we have foreign countries trying to interfere in the outcome of our election.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We are in a situation where we have foreign countries trying to interfere in the outcome of our election.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39823,"He's being fed information that is Russian, that is not true.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He's being fed information that is Russian, that is not true.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39837,Joe got three and a half million dollars from Russia.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Joe got three and a half million dollars from Russia.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39839,You got three and a half million dollars.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You got three and a half million dollars.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39840,"Your family got three and a half million dollars and you know someday, you're gonna have to explain - why did you get three and a half?",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Your family got three and a half million dollars and you know someday, you're gonna have to explain - why did you get three and a half?
+
+### Response:",No,No,No,No,No,No
+39841,I never got any money from Russia.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I never got any money from Russia.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39848,I sold - while he was selling pillows and sheets - I sold tank busters to Ukraine.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I sold - while he was selling pillows and sheets - I sold tank busters to Ukraine.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39850,"And I'll tell you, they were so bad.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And I'll tell you, they were so bad.
+
+### Response:",No,No,No,No,No,No
+39851,"They took over the, the submarine port.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They took over the, the submarine port.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39856,"They were paying you a lot of money and they probably still are, but now, with what came out today, it's even worse.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They were paying you a lot of money and they probably still are, but now, with what came out today, it's even worse.
+
+### Response:",No,Yes,No,No,No,No
+39867,"We learn that this President paid 50 times the tax in China, has a secret bank account with China, does business in China, and in fact, is talking about me taking money?",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We learn that this President paid 50 times the tax in China, has a secret bank account with China, does business in China, and in fact, is talking about me taking money?
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39868,"I have not taken a single penny from any country whatsoever, ever, number one.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I have not taken a single penny from any country whatsoever, ever, number one.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39876,The foreign countries are paying you a lot.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The foreign countries are paying you a lot.
+
+### Response:",No,Yes,Yes,No,Yes,Yes
+39886,"I want to do it, and it will show how successful, how great this company is.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I want to do it, and it will show how successful, how great this company is.
+
+### Response:",No,No,No,No,No,No
+39895,"So, I already prepaid it.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+So, I already prepaid it.
+
+### Response:",No,No,No,No,No,No
+39902,"Number two, I don't make money from China, you do.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Number two, I don't make money from China, you do.
+
+### Response:",No,Yes,No,No,Yes,No
+39908,"I don't know, maybe you're not.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I don't know, maybe you're not.
+
+### Response:",No,No,No,No,No,No
+39910,Your son said we have to give 10% to the big man.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Your son said we have to give 10% to the big man.
+
+### Response:",No,No,No,Yes,No,No
+39918,I get treated worse than the Tea Party got treated.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I get treated worse than the Tea Party got treated.
+
+### Response:",No,No,No,No,No,No
+39938,"Come on, come on, folks.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Come on, come on, folks.
+
+### Response:",No,No,No,No,No,No
+39940,I was put through a phony witch hunt for three years.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I was put through a phony witch hunt for three years.
+
+### Response:",No,No,Yes,No,No,No
+39973,"His son didn't have a job for a long time, was sadly no longer in the military service, I won't get into that.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+His son didn't have a job for a long time, was sadly no longer in the military service, I won't get into that.
+
+### Response:",No,No,No,No,No,No
+39980,"Everybody investigated that, no one said anything he did was wrong in Ukraine.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Everybody investigated that, no one said anything he did was wrong in Ukraine.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+39994,"Excuse me, and then unlike him, where he's Vice President, and he does business, I then decided to run for president after that.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Excuse me, and then unlike him, where he's Vice President, and he does business, I then decided to run for president after that.
+
+### Response:",Yes,No,No,No,No,No
+40004,"What I'd make China do is play by the international rules, not like he has done.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+What I'd make China do is play by the international rules, not like he has done.
+
+### Response:",No,No,No,No,No,No
+40018,"We need to be having the rest of our friends with us, saying to China, these are the rules.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We need to be having the rest of our friends with us, saying to China, these are the rules.
+
+### Response:",No,No,No,No,No,No
+40025,His son walked out with a billion and a half dollars from China -,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+His son walked out with a billion and a half dollars from China -
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40034,"First of all, China is paying.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+First of all, China is paying.
+
+### Response:",No,No,No,Yes,Yes,No
+40059,"You're sitting at the kitchen table this morning deciding, well, we can't get new tires, they're bald, because we have to wait another month or so.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You're sitting at the kitchen table this morning deciding, well, we can't get new tires, they're bald, because we have to wait another month or so.
+
+### Response:",No,No,No,No,No,No
+40075,"Let's get off the subject of China, let's talk around sitting around the table.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Let's get off the subject of China, let's talk around sitting around the table.
+
+### Response:",No,No,No,No,No,No
+40082,"So, when I met with Barack Obama, we sat in the White House, right at the beginning had a great conversation, was supposed to be 15 minutes and it was well over an hour.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+So, when I met with Barack Obama, we sat in the White House, right at the beginning had a great conversation, was supposed to be 15 minutes and it was well over an hour.
+
+### Response:",No,No,No,No,No,No
+40111,On the condition that he would agree that he would be drawing down his nuclear capacity to get -- the Korean Peninsula should be a nuclear free zone.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+On the condition that he would agree that he would be drawing down his nuclear capacity to get -- the Korean Peninsula should be a nuclear free zone.
+
+### Response:",No,No,No,No,No,No
+40138,Remember the first two or three months.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Remember the first two or three months.
+
+### Response:",No,No,No,No,No,No
+40150,"Through the legislature, I terminated the individual mandate.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Through the legislature, I terminated the individual mandate.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40152,The individual mandate -- where you have to pay a fortune for the privilege of not having to pay for bad health insurance.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The individual mandate -- where you have to pay a fortune for the privilege of not having to pay for bad health insurance.
+
+### Response:",No,No,No,No,No,No
+40153,I terminated it; it's gone.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I terminated it; it's gone.
+
+### Response:",No,Yes,Yes,Yes,Yes,Yes
+40156,I could have gone the other route and made everybody very unhappy.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I could have gone the other route and made everybody very unhappy.
+
+### Response:",No,No,No,No,No,No
+40163,I don't know that it's going to work.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I don't know that it's going to work.
+
+### Response:",No,No,No,No,No,No
+40168,"What I would like to do is a much better health care, much better.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+What I would like to do is a much better health care, much better.
+
+### Response:",No,No,No,No,No,No
+40169,"We'll always protect people with pre-existing - so I'd like to terminate Obamacare, come up with a brand new beautiful health care.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We'll always protect people with pre-existing - so I'd like to terminate Obamacare, come up with a brand new beautiful health care.
+
+### Response:",No,No,No,No,No,No
+40172,"And I think we're going to win the House, okay?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And I think we're going to win the House, okay?
+
+### Response:",No,No,No,No,No,No
+40173,"You'll see, but I think we're gonna win the House.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You'll see, but I think we're gonna win the House.
+
+### Response:",No,No,No,No,No,No
+40175,"We have 180 million people out there that have great private health care, far more than we're talking about with Obamacare.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We have 180 million people out there that have great private health care, far more than we're talking about with Obamacare.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40212,"It's gotten endorsed by all the major labor unions as well as, as well as a whole range of other people who in fact, are concerned in the medical field.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+It's gotten endorsed by all the major labor unions as well as, as well as a whole range of other people who in fact, are concerned in the medical field.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40214,"And this is going to give some people an opportunity, an opportunity to have health care for their children, how many of you home are worried and rolling around in bed at night wondering what in God's name are you going to do if you get sick?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And this is going to give some people an opportunity, an opportunity to have health care for their children, how many of you home are worried and rolling around in bed at night wondering what in God's name are you going to do if you get sick?
+
+### Response:",No,No,No,No,No,No
+40218,"Excuse me, he was there for 47 years - he didn't do it.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Excuse me, he was there for 47 years - he didn't do it.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40245,"And they're going to have lower premiums, you can buy into the better plans, the cheaper plans, lower your premiums, deal with unexpected billing, and have your drug prices drop significantly.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And they're going to have lower premiums, you can buy into the better plans, the cheaper plans, lower your premiums, deal with unexpected billing, and have your drug prices drop significantly.
+
+### Response:",No,No,No,No,No,No
+40252,And this whole country will come down.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And this whole country will come down.
+
+### Response:",No,No,No,No,No,No
+40263,"And the idea that we're in a situation and are going to destroy Medicare - this is the guy that the actuary of Medicare said, 'If in fact' - and, social security - 'If, in fact, he continues to withhold his plan to withhold the tax on Social Security, Social Security will be bankrupt by 2023, with no way to make up for it.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And the idea that we're in a situation and are going to destroy Medicare - this is the guy that the actuary of Medicare said, 'If in fact' - and, social security - 'If, in fact, he continues to withhold his plan to withhold the tax on Social Security, Social Security will be bankrupt by 2023, with no way to make up for it.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40271,Go back and look at the records.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Go back and look at the records.
+
+### Response:",No,No,No,No,No,No
+40286,What happens to the ordinary people out there?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+What happens to the ordinary people out there?
+
+### Response:",No,No,No,No,No,No
+40291,And he doesn't come from Scranton.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And he doesn't come from Scranton.
+
+### Response:",No,No,No,No,No,No
+40313,"And it's gone through, including the Democrats, in all fairness.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And it's gone through, including the Democrats, in all fairness.
+
+### Response:",No,No,No,No,No,No
+40331,And look at what's happening.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And look at what's happening.
+
+### Response:",No,No,No,No,No,No
+40338,What's the matter with these guys.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+What's the matter with these guys.
+
+### Response:",No,No,No,No,No,No
+40342,We were going to take care of everything for them.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We were going to take care of everything for them.
+
+### Response:",No,No,No,No,No,No
+40349,"If I get elected, I'm not gonna - I'm running as a proud Democrat, but I'm gonna be an American president.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If I get elected, I'm not gonna - I'm running as a proud Democrat, but I'm gonna be an American president.
+
+### Response:",No,No,No,No,No,No
+40351,"What I see is American, United States.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+What I see is American, United States.
+
+### Response:",No,No,No,No,No,No
+40356,They allowed the federal government to deficit spend to compensate for the United States of America.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They allowed the federal government to deficit spend to compensate for the United States of America.
+
+### Response:",Yes,Yes,Yes,No,No,Yes
+40361,"I do, because I think one of the things we're gonna have to do is we're gonna have to bail them out, too.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I do, because I think one of the things we're gonna have to do is we're gonna have to bail them out, too.
+
+### Response:",No,No,No,No,No,No
+40365,"They passed a package that allows us to be able to call PPP, money's supposed to go to help them do everything from organize how they could deal with their businesses being open safely.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They passed a package that allows us to be able to call PPP, money's supposed to go to help them do everything from organize how they could deal with their businesses being open safely.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40374,I think it should be a state option.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I think it should be a state option.
+
+### Response:",No,No,No,No,No,No
+40378,"We have to help, it's very important.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We have to help, it's very important.
+
+### Response:",No,No,No,No,No,No
+40416,And then they had a picture in a certain newspaper.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And then they had a picture in a certain newspaper.
+
+### Response:",No,No,No,No,No,No
+40422,"But a lot of these kids come out without the parents, they come over through cartels and through coyotes and through gangs.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+But a lot of these kids come out without the parents, they come over through cartels and through coyotes and through gangs.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40439,"Who built the cages, Joe?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Who built the cages, Joe?
+
+### Response:",No,No,No,No,No,No
+40443,And now they cannot find over 500 sets of those parents and those kids are alone.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And now they cannot find over 500 sets of those parents and those kids are alone.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40455,"I'd love you to ask that, who built the cages?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I'd love you to ask that, who built the cages?
+
+### Response:",No,No,No,No,No,No
+40464,"And the fact is, I've made it very clear, within 100 days, I'm going to send to the United States Congress a pathway to citizenship for over 11 million undocumented people.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And the fact is, I've made it very clear, within 100 days, I'm going to send to the United States Congress a pathway to citizenship for over 11 million undocumented people.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40482,"The catch and release, you know what he's talking about there?",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The catch and release, you know what he's talking about there?
+
+### Response:",No,No,No,No,No,No
+40488,That's never happened before in America.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+That's never happened before in America.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40492,They're sitting in squalor on the other side of the river.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They're sitting in squalor on the other side of the river.
+
+### Response:",No,No,No,No,No,No
+40496,Catch and release is a disaster.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Catch and release is a disaster.
+
+### Response:",No,No,No,No,No,No
+40532,She has a graduate degree from the University of Pennsylvania in social work.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+She has a graduate degree from the University of Pennsylvania in social work.
+
+### Response:",No,No,No,No,No,No
+40546,All the things we can do.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+All the things we can do.
+
+### Response:",No,No,No,No,No,No
+40580,"Ten-year, long term funding, and I gave them more money than they asked for, because I said, 'I think you need more'.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Ten-year, long term funding, and I gave them more money than they asked for, because I said, 'I think you need more'.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40585,"The fact of the matter is, in 2000 though, after the crime bill had been in the law for a while, this is the guy who said, 'The problem with the crime bill, there's not enough people in jail.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+The fact of the matter is, in 2000 though, after the crime bill had been in the law for a while, this is the guy who said, 'The problem with the crime bill, there's not enough people in jail.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40594,"And secondly, we're in a situation here where we - the federal prison system was reduced by 38,000 people under our administration.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And secondly, we're in a situation here where we - the federal prison system was reduced by 38,000 people under our administration.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40597,No one should be going to jail because they have a drug problem.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+No one should be going to jail because they have a drug problem.
+
+### Response:",No,No,No,No,No,No
+40642,That's exactly what - That's exactly what--,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+That's exactly what - That's exactly what--
+
+### Response:",No,No,No,No,No,No
+40659,I thought it was a terrible thing.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I thought it was a terrible thing.
+
+### Response:",No,No,No,No,No,No
+40663,"I don't, I don't know what to say.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I don't, I don't know what to say.
+
+### Response:",No,No,No,No,No,No
+40664,"I got criminal justice reform done, and prison reform, and opportunity zones.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I got criminal justice reform done, and prison reform, and opportunity zones.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40666,I don't know what to say.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I don't know what to say.
+
+### Response:",No,No,No,No,No,No
+40676,He's banned Muslims because they're Muslims.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He's banned Muslims because they're Muslims.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40689,I didn't say 'I'm Abraham Lincoln'.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I didn't say 'I'm Abraham Lincoln'.
+
+### Response:",No,No,No,No,No,No
+40701,"One of the things is that in the '80s, we passed 100%, all 100 senators voted for it, a bill on drugs and how to deal with drugs.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+One of the things is that in the '80s, we passed 100%, all 100 senators voted for it, a bill on drugs and how to deal with drugs.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40705,They should be going into treatment across the board.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They should be going into treatment across the board.
+
+### Response:",No,No,No,No,No,No
+40706,That's what we should be spending money on.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+That's what we should be spending money on.
+
+### Response:",No,No,No,No,No,No
+40724,You didn't get anything done.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You didn't get anything done.
+
+### Response:",No,No,No,No,No,No
+40726,"38,000 prisoners were released from federal prison.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+38,000 prisoners were released from federal prison.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40734,Why didn't you do it?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Why didn't you do it?
+
+### Response:",No,No,No,No,No,No
+40737,You put tens of thousands of mostly Black young men in prison.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You put tens of thousands of mostly Black young men in prison.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40741,"You know why, Joe, because you're all talk and no action.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You know why, Joe, because you're all talk and no action.
+
+### Response:",No,No,No,No,No,No
+40747,Sometimes you gotta talk 'em into it.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Sometimes you gotta talk 'em into it.
+
+### Response:",No,No,No,No,No,No
+40759,"We have the best, lowest number in carbon emissions, which is a big standard that I noticed Obama goes with all the time.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We have the best, lowest number in carbon emissions, which is a big standard that I noticed Obama goes with all the time.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40771,"I will not sacrifice tens of millions of jobs, thousands and thousands of companies because of the Paris Accord.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I will not sacrifice tens of millions of jobs, thousands and thousands of companies because of the Paris Accord.
+
+### Response:",No,No,No,No,No,No
+40783,We have a moral obligation to deal with it.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We have a moral obligation to deal with it.
+
+### Response:",No,No,No,No,No,No
+40792,"We're going to be in a position where we're going to see to it that we're going to take 4 million existing billion, buildings and 2 million existing homes and retrofit them so they don't leak as much energy, saving hundreds of millions of barrels of oil in the process and creating significant number of jobs.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We're going to be in a position where we're going to see to it that we're going to take 4 million existing billion, buildings and 2 million existing homes and retrofit them so they don't leak as much energy, saving hundreds of millions of barrels of oil in the process and creating significant number of jobs.
+
+### Response:",Yes,No,Yes,Yes,Yes,Yes
+40799,"They came out and said very strongly, '$6,500 will be taken away from families under his plan', that his plan is an economic disaster.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+They came out and said very strongly, '$6,500 will be taken away from families under his plan', that his plan is an economic disaster.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40805,"Look, their real plan costs $100 trillion.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Look, their real plan costs $100 trillion.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40831,"He thinks wind causes cancer, windmills.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+He thinks wind causes cancer, windmills.
+
+### Response:",No,No,No,No,No,No
+40836,We are energy independent for the first time.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We are energy independent for the first time.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40844,Find me a scientist that says that.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Find me a scientist that says that.
+
+### Response:",No,No,No,No,No,No
+40851,"But if you want to kill the economy, get rid of your oil industry.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+But if you want to kill the economy, get rid of your oil industry.
+
+### Response:",No,No,No,No,No,No
+40852,You want -- and what about fracking?,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You want -- and what about fracking?
+
+### Response:",No,No,No,No,No,No
+40855,I have never said I oppose fracking.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+I have never said I oppose fracking.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40882,"If you look at the kind of numbers that we produce for Hispanic, or Black, or Asian, it's nine times greater, the percentage gain than it was under - in three years - than it was under eight years of the two of them, to put it nicely.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+If you look at the kind of numbers that we produce for Hispanic, or Black, or Asian, it's nine times greater, the percentage gain than it was under - in three years - than it was under eight years of the two of them, to put it nicely.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40889,We saved our oil industry and now it's very vibrant and everybody has very inexpensive gasoline.,Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We saved our oil industry and now it's very vibrant and everybody has very inexpensive gasoline.
+
+### Response:",Yes,No,No,Yes,Yes,Yes
+40916,And I'd stop giving to the oil industry - I'd stop giving them federal subsidies.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+And I'd stop giving to the oil industry - I'd stop giving them federal subsidies.
+
+### Response:",No,No,No,No,No,No
+40917,"You won't give federal subsidies to the gas and, excuse me, to solar and wind.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+You won't give federal subsidies to the gas and, excuse me, to solar and wind.
+
+### Response:",Yes,Yes,No,Yes,Yes,Yes
+40946,"We have to make our country totally successful, as it was prior to the plague coming in from China.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We have to make our country totally successful, as it was prior to the plague coming in from China.
+
+### Response:",No,No,No,No,No,No
+40950,"We had the best Black unemployment numbers in the history of our country, Hispanic, women, Asian, people with diplomas, with no diplomas, MIT graduates, number one in the class - everybody had the best numbers.",Yes,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We had the best Black unemployment numbers in the history of our country, Hispanic, women, Asian, people with diplomas, with no diplomas, MIT graduates, number one in the class - everybody had the best numbers.
+
+### Response:",Yes,Yes,Yes,Yes,Yes,Yes
+40954,Success is going to bring us together.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Success is going to bring us together.
+
+### Response:",No,No,No,No,No,No
+40960,"Your 401K's will go to hell and it'll be a very, very sad day for this country.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+Your 401K's will go to hell and it'll be a very, very sad day for this country.
+
+### Response:",No,No,No,No,No,No
+40971,"We're going to choose to move forward because we have enormous opportunities, enormous opportunities to make things better.",No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We're going to choose to move forward because we have enormous opportunities, enormous opportunities to make things better.
+
+### Response:",No,No,No,No,No,No
+40972,We can grow this economy.,No,"### Instruction:
+Read the statement provided below.Your task is to evaluate whether the statement contains information or claimsthat are worthy to be verified through fact-checking. If the statement presents assertions, facts, or claims that would benefit from verification, respond with 'Yes'. If the statement is purely opinion-based, trivial, or doesnot contain any verifiable claims, respond with 'No'.
+
+### Input Sentence:
+We can grow this economy.
+
+### Response:",No,No,No,No,No,No
