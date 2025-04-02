@@ -38,27 +38,28 @@ def setup_workspace(host_ip, username, code_src_path, model_src_path):
     hf_login_command = 'cd critics/FactFinders && source .venv/bin/activate && huggingface-cli login"'
     ssh_execute_command(host_ip, username, hf_login_command, [r"Enter your token", r"Add token as git credential"])
 
-def predict_and_copy_back_results(host_ip, username, model):
+def predict_and_copy_back_results(host_ip, username, model, run_name):
     # Run the prediction script on the remote server
     predict_command = f"cd critics/FactFinders && python3 -m venv .venv && source .venv/bin/activate && cd src && python predict.py --model '{model}'"
     ssh_execute_command(host_ip, username, predict_command)
 
     # Copy the prediction results back to the local machine
-    rsync_command = f"rsync -av {username}@{host_ip}:critics/FactFinders/results/predict.csv ../results/predict_{model}.csv"
+    rsync_command = f"rsync -av {username}@{host_ip}:critics/FactFinders/results/predict.csv ../results/predict_{run_name}_{model}.csv"
     pexpect.run(rsync_command, logfile=sys.stdout.buffer)
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: python predict_critic_remote.py <host_ip> <username> <model_src_path>")
+    if len(sys.argv) != 5:
+        print("Usage: python predict_critic_remote.py <host_ip> <username> <model_src_path> <run_name>")
         sys.exit(1)
 
     host_ip = sys.argv[1]
     username = sys.argv[2]
     model_src_path = sys.argv[3]
+    run_name = sys.argv[4]
 
     code_src_path = "../../FactFinders"
 
-    setup_workspace(host_ip, username, code_src_path, model_src_path)
+    setup_workspace(host_ip, username, code_src_path, model_src_path, run_name)
 
     # predict with all models
     predict_and_copy_back_results(host_ip, username, 'gemma_7b')
