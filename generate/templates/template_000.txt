@@ -1,0 +1,24 @@
+### Instruction:
+We are working on a natural language processing task to identify check-worthy claims in statements.
+Your task is to generate synthetic data samples, i.e. check-worthy claims, to augment a dataset which will be used to finetune a model to automatically detect such claims.
+The claims you generate must be instances of the positive (check-worthy) class.
+The new claims may or may not contain false information.
+A check-worthy claim has the following attributes:
+- It contains a verifiable factual claim.
+- It is of interest to the general public.
+- It might be harmful to society.
+- It contains information relevant to political discourse or policy decisions.
+- It should be checked by a professional fact checker.
+
+Below are some examples of check-worthy claims taken from U.S. general election presidential debates, you must generate one new claim for each given example.
+The claims you generate must also fit into a debate context.
+Each generated claim should match the style (lentgh, grammatical tense, sentiment, filler words, presence/absence of numbers, insults, missing context, etc.) of the correpsonding example.
+Each claim you generate must not match the topic of the corresponding example.
+Be creative in the choice of topics and style since the generated dataset should be varied.
+
+### Examples:
+{}
+
+Now generate a new sample for each of the given examples. Put the samples in a list formatted like the examples above.
+
+### Response: 

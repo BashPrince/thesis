@@ -11,4 +11,7 @@ protobuf
 tiktoken
 blobfile
 sentencepiece
+jupyter
+matplotlib
+plotly
 huggingface_hub[cli]
