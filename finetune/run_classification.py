@@ -28,6 +28,7 @@ import evaluate
 import numpy as np
 from datasets import Value, load_dataset
 
+import wandb
 import transformers
 from adapters import AdapterArguments, AdapterTrainer, AutoAdapterModel, setup_adapter_training
 from transformers import (
@@ -68,9 +69,6 @@ class DataTrainingArguments:
     task_name: Optional[str] = field(
         default=None,
         metadata={"help": "The name of the task to train on"},
-    )
-    dataset_name: Optional[str] = field(
-        default=None, metadata={"help": "The name of the dataset to use (via the datasets library)."}
     )
     dataset_config_name: Optional[str] = field(
         default=None, metadata={"help": "The configuration name of the dataset to use (via the datasets library)."}
@@ -187,25 +185,8 @@ class DataTrainingArguments:
         },
     )
     metric_name: Optional[str] = field(default=None, metadata={"help": "The metric to use for evaluation."})
-    train_file: Optional[str] = field(
-        default=None, metadata={"help": "A csv or a json file containing the training data."}
-    )
-    validation_file: Optional[str] = field(
-        default=None, metadata={"help": "A csv or a json file containing the validation data."}
-    )
     test_file: Optional[str] = field(default=None, metadata={"help": "A csv or a json file containing the test data."})
-
-    def __post_init__(self):
-        if self.dataset_name is None:
-            if self.train_file is None or self.validation_file is None:
-                raise ValueError(" training/validation file or a dataset name.")
-
-            train_extension = self.train_file.split(".")[-1]
-            assert train_extension in ["csv", "json"], "`train_file` should be a csv or a json file."
-            validation_extension = self.validation_file.split(".")[-1]
-            assert (
-                validation_extension == train_extension
-            ), "`validation_file` should have the same extension (csv or json) as `train_file`."
+    data_artifact: str = field(default=None, metadata={"help": "The name of the dataset artifact to download from wandb."})
 
 
 @dataclass
@@ -285,6 +266,19 @@ def main():
         model_args, data_args, training_args, adapter_args = parser.parse_json_file(json_file=os.path.abspath(sys.argv[1]))
     else:
         model_args, data_args, training_args, adapter_args = parser.parse_args_into_dataclasses()
+    
+    # Setup wandb
+    run = wandb.init(
+        project="thesis",
+        name=training_args.run_name,
+    )
+
+    # Download datasets from wandb and use the downloaded files in the remaining script
+    artifact = run.use_artifact(data_args.data_artifact)
+    artifact_dir = artifact.download()
+    train_file = os.path.join(artifact_dir, "train.csv")
+    validation_file = os.path.join(artifact_dir, "dev.csv")
+    test_file = os.path.join(artifact_dir, "dev-test.csv")
 
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
@@ -333,60 +327,35 @@ def main():
     # Set seed before initializing model.
     set_seed(training_args.seed)
 
-    # Get the datasets: you can either provide your own CSV/JSON training and evaluation files, or specify a dataset name
-    # to load from huggingface/datasets. In ether case, you can specify a the key of the column(s) containing the text and
-    # the key of the column containing the label. If multiple columns are specified for the text, they will be joined together
-    # for the actual text value.
-    # In distributed training, the load_dataset function guarantee that only one local process can concurrently
-    # download the dataset.
-    if data_args.dataset_name is not None:
-        # Downloading and loading a dataset from the hub.
+    # Get the datasets: uses the wandb downloaded files
+
+    # Loading a dataset from your local files.
+    # CSV/JSON training and evaluation files are needed.
+    data_files = {"train": train_file, "validation": validation_file}
+
+    # use the test dataset
+    if training_args.do_predict:
+        data_files["test"] = test_file
+
+    for key in data_files.keys():
+        logger.info(f"load a local file for {key}: {data_files[key]}")
+
+    if train_file.endswith(".csv"):
+        # Loading a dataset from local csv files
         raw_datasets = load_dataset(
-            data_args.dataset_name,
-            data_args.dataset_config_name,
+            "csv",
+            data_files=data_files,
             cache_dir=model_args.cache_dir,
             token=model_args.token,
-            trust_remote_code=model_args.trust_remote_code,
         )
-        # Try print some info about the dataset
-        logger.info(f"Dataset loaded: {raw_datasets}")
-        logger.info(raw_datasets)
     else:
-        # Loading a dataset from your local files.
-        # CSV/JSON training and evaluation files are needed.
-        data_files = {"train": data_args.train_file, "validation": data_args.validation_file}
-
-        # Get the test dataset: you can provide your own CSV/JSON test file
-        if training_args.do_predict:
-            if data_args.test_file is not None:
-                train_extension = data_args.train_file.split(".")[-1]
-                test_extension = data_args.test_file.split(".")[-1]
-                assert (
-                    test_extension == train_extension
-                ), "`test_file` should have the same extension (csv or json) as `train_file`."
-                data_files["test"] = data_args.test_file
-            else:
-                raise ValueError("Need either a dataset name or a test file for `do_predict`.")
-
-        for key in data_files.keys():
-            logger.info(f"load a local file for {key}: {data_files[key]}")
-
-        if data_args.train_file.endswith(".csv"):
-            # Loading a dataset from local csv files
-            raw_datasets = load_dataset(
-                "csv",
-                data_files=data_files,
-                cache_dir=model_args.cache_dir,
-                token=model_args.token,
-            )
-        else:
-            # Loading a dataset from local json files
-            raw_datasets = load_dataset(
-                "json",
-                data_files=data_files,
-                cache_dir=model_args.cache_dir,
-                token=model_args.token,
-            )
+        # Loading a dataset from local json files
+        raw_datasets = load_dataset(
+            "json",
+            data_files=data_files,
+            cache_dir=model_args.cache_dir,
+            token=model_args.token,
+        )
 
     # See more about loading any type of standard or custom dataset at
     # https://huggingface.co/docs/datasets/loading_datasets.
