@@ -17,7 +17,7 @@ Each claim you generate must not match the topic of the corresponding example.
 Be creative in the choice of topics and style since the generated dataset should be varied.
 
 ### Examples:
-{}
+{examples}
 
 Now generate a new sample for each of the given examples. Put the samples in a list formatted like the examples above.
 

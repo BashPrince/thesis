@@ -11,7 +11,6 @@ if __name__ == "__main__":
     parser.add_argument("--example_source", type=str, help="Path to the example source file.")
     parser.add_argument("--model", type=str, default="openai/gpt-4o", help="Model to use for generation.")
     parser.add_argument("--template", type=str, help="Path to the template file.")
-    parser.add_argument("--out", type=str, help="Output file path for generated samples.")
 
     args = parser.parse_args()
 
@@ -22,9 +21,22 @@ if __name__ == "__main__":
     with open(args.template, 'r') as file:
         template = file.read()
 
+    # Expect template of format template_{info}.txt
+    # Name out file samples_{info}.csv
+
+    if "template_" not in args.template or not args.template.endswith(".txt"):
+        raise ValueError("Template file name must be of the format 'template_{info}.txt'.")
+
+    # Extract the {info} part from the template file name
+    info = args.template.split("template_")[1].rsplit(".txt", 1)[0]
+
+    # Construct the output file name
+    model_name = args.model.split("/")[-1]
+    out_file = f"data/samples_{info}_{model_name}.csv"
+
     # Assert that the output file does not exist, unless overwrite flag is set
-    if os.path.exists(args.out) and not args.o:
-        raise RuntimeError(f"Sample output file {args.out} already exists. Use -o to overwrite.")
+    if os.path.exists(out_file) and not args.o:
+        raise RuntimeError(f"Sample output file {out_file} already exists. Use -o to overwrite.")
 
     num_samples_generated = 0
     example_data_frame = pd.read_csv(args.example_source)
@@ -33,7 +45,10 @@ if __name__ == "__main__":
     if example_data_frame.empty:
         raise RuntimeError(f"No examples found in {args.example_source} with class_label 'Yes'.")
     
-    gen_sample_data_frame = pd.DataFrame(columns=['example_Sentence_id', 'example_Text' 'Text'])
+    print(f"Found {len(example_data_frame)} examples")
+    
+    # Empty DataFrame to store generated samples
+    gen_sample_data_frame = pd.DataFrame(columns=['example_Sentence_id', 'example_Text', 'Text'])
 
     while num_samples_generated < args.num_samples:
         # Reload all examples if none are left
@@ -51,7 +66,7 @@ if __name__ == "__main__":
         # Prepare prompt
         examples_str = "\n".join(["- " + e for e in example_list])
 
-        prompt = template.format(examples_str)
+        prompt = template.format(examples=examples_str)
 
         response = completion(
             model=args.model,
@@ -62,6 +77,7 @@ if __name__ == "__main__":
 
         # Parse the individual samples from the completion
         sample_lines = samples.split("\n")
+        sample_lines = [s.removeprefix('- ') for s in sample_lines]
         
         if len(sample_lines) != args.num_examples:
             print(f"Sampled {len(sample_lines)} lines, expected {args.num_examples}. Skipping generated sample.")
@@ -69,22 +85,24 @@ if __name__ == "__main__":
 
         max_samples_to_add = min(args.num_samples - num_samples_generated, len(sample_lines))
         sample_lines = sample_lines[:max_samples_to_add]
-        sample_lines = [s.removeprefix('- ') for s in sample_lines]
 
         # Retrieve the Sentence_id for the selected examples
         ids_list = selected_examples['Sentence_id'].tolist()
         ids_list = ids_list[:max_samples_to_add]
         example_list = example_list[:max_samples_to_add]
 
-        # Append the sample_lines and ids_list to the existing dataframe
+        # Create a temporary dataframe for this iteration's samples
+        # I'm assuming that sample i of the model's generation is based on example i (which seems to always be true)
+        # i.e. the order of samples and examples should correspond
         temp_df = pd.DataFrame({
             'example_Sentence_id': ids_list,
             'example_Text': example_list,
             'Text': sample_lines
         })
+        # Append the sample_lines and ids_list to the existing dataframe
         gen_sample_data_frame = pd.concat([gen_sample_data_frame, temp_df], ignore_index=True)
 
         # Save the generated samples to the output file
-        gen_sample_data_frame.to_csv(args.out, index=False)
+        gen_sample_data_frame.to_csv(out_file, index=False)
 
         num_samples_generated += len(sample_lines)
