@@ -5,3 +5,4 @@ evaluate
 accelerate
 scikit-learn
 wandb
+pexpect

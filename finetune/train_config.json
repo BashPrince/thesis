@@ -7,13 +7,14 @@
 
     "do_train": true,
     "do_eval": true,
+    "do_predict": true,
     "eval_strategy": "epoch",
     "save_strategy": "epoch",
     "per_device_train_batch_size": 32,
     "per_device_eval_batch_size": 32,
     "learning_rate": 1e-4,
-    "num_train_epochs": 6,
-    "output_dir": "../out",
+    "num_train_epochs": 3,
+    "output_dir": "./out",
     "load_best_model_at_end": true,
     "metric_for_best_model": "f1",
     "overwrite_output_dir": false,
@@ -23,10 +24,13 @@
     "label_column_name": "class_label",
     "max_seq_length": 512,
     "metric_name": ["precision", "recall", "accuracy", "f1"],
-    "train_file": "../data/CT24_checkworthy_english/csv/CT24_checkworthy_english_train.csv",
-    "validation_file": "../data/CT24_checkworthy_english/csv/CT24_checkworthy_english_dev.csv",
+    "shuffle_train_dataset": true,
 
     "report_to": "wandb",
-    "run_name": "CT24_checkworthy_test",
-    "logging_steps": 1
+    "run_name": "test_remote",
+    "data_artifact": "train_fill:latest",
+    "logging_steps": 1,
+
+    "max_train_samples": 100,
+    "max_eval_samples": 100
 }

@@ -175,7 +175,7 @@ class DataTrainingArguments:
             )
         },
     )
-    max_predict_samples: Optional[int] = field(
+    max_test_samples: Optional[int] = field(
         default=None,
         metadata={
             "help": (
@@ -273,6 +273,9 @@ def main():
         name=training_args.run_name,
     )
 
+    # Save the json config
+    wandb.save(os.path.relpath(sys.argv[1]))
+
     # Download datasets from wandb and use the downloaded files in the remaining script
     artifact = run.use_artifact(data_args.data_artifact)
     artifact_dir = artifact.download()
@@ -340,22 +343,13 @@ def main():
     for key in data_files.keys():
         logger.info(f"load a local file for {key}: {data_files[key]}")
 
-    if train_file.endswith(".csv"):
-        # Loading a dataset from local csv files
-        raw_datasets = load_dataset(
-            "csv",
-            data_files=data_files,
-            cache_dir=model_args.cache_dir,
-            token=model_args.token,
-        )
-    else:
-        # Loading a dataset from local json files
-        raw_datasets = load_dataset(
-            "json",
-            data_files=data_files,
-            cache_dir=model_args.cache_dir,
-            token=model_args.token,
-        )
+    # Loading a dataset from local csv files
+    raw_datasets = load_dataset(
+        "csv",
+        data_files=data_files,
+        cache_dir=model_args.cache_dir,
+        token=model_args.token,
+    )
 
     # See more about loading any type of standard or custom dataset at
     # https://huggingface.co/docs/datasets/loading_datasets.
@@ -587,19 +581,19 @@ def main():
             max_eval_samples = min(len(eval_dataset), data_args.max_eval_samples)
             eval_dataset = eval_dataset.select(range(max_eval_samples))
 
-    if training_args.do_predict or data_args.test_file is not None:
+    if training_args.do_predict:
         if "test" not in raw_datasets:
             raise ValueError("--do_predict requires a test dataset")
-        predict_dataset = raw_datasets["test"]
-        # remove label column if it exists
-        if data_args.max_predict_samples is not None:
-            max_predict_samples = min(len(predict_dataset), data_args.max_predict_samples)
-            predict_dataset = predict_dataset.select(range(max_predict_samples))
+        test_dataset = raw_datasets["test"]
+
+        if data_args.max_test_samples is not None:
+            max_test_samples = min(len(test_dataset), data_args.max_test_samples)
+            test_dataset = test_dataset.select(range(max_test_samples))
 
     # Log a few random samples from the training set:
-    if training_args.do_train:
-        for index in random.sample(range(len(train_dataset)), 3):
-            logger.info(f"Sample {index} of the training set: {train_dataset[index]}.")
+    # if training_args.do_train:
+    #     for index in random.sample(range(len(train_dataset)), 3):
+    #         logger.info(f"Sample {index} of the training set: {train_dataset[index]}.")
 
     if data_args.metric_name is not None:
         if isinstance(data_args.metric_name, str):
@@ -676,51 +670,30 @@ def main():
             data_args.max_train_samples if data_args.max_train_samples is not None else len(train_dataset)
         )
         metrics["train_samples"] = min(max_train_samples, len(train_dataset))
-        trainer.save_model()  # Saves the tokenizer too for easy upload
+
+        if training_args.load_best_model_at_end and trainer.state.best_model_checkpoint:
+            # Create a wandb artifact and upload the best model checkpoint
+            artifact = wandb.Artifact(name="best_model", type="model", metadata={'original_path': trainer.state.best_model_checkpoint})
+            artifact.add_dir(trainer.state.best_model_checkpoint)
+            run.log_artifact(artifact)
+
         trainer.log_metrics("train", metrics)
         trainer.save_metrics("train", metrics)
         trainer.save_state()
 
-    # Evaluation
-    if training_args.do_eval:
-        logger.info("*** Evaluate ***")
-        metrics = trainer.evaluate(eval_dataset=eval_dataset)
-        max_eval_samples = data_args.max_eval_samples if data_args.max_eval_samples is not None else len(eval_dataset)
-        metrics["eval_samples"] = min(max_eval_samples, len(eval_dataset))
-        trainer.log_metrics("eval", metrics)
-        trainer.save_metrics("eval", metrics)
-
+    # Test performance
     if training_args.do_predict:
-        logger.info("*** Predict ***")
-        # Removing the `label` columns if exists because it might contains -1 and Trainer won't like that.
-        if "label" in predict_dataset.features:
-            predict_dataset = predict_dataset.remove_columns("label")
-        predictions = trainer.predict(predict_dataset, metric_key_prefix="predict").predictions
-        if is_regression:
-            predictions = np.squeeze(predictions)
-        elif is_multi_label:
-            # Convert logits to multi-hot encoding. We compare the logits to 0 instead of 0.5, because the sigmoid is not applied.
-            # You can also pass `preprocess_logits_for_metrics=lambda logits, labels: nn.functional.sigmoid(logits)` to the Trainer
-            # and set p > 0.5 below (less efficient in this case)
-            predictions = np.array([np.where(p > 0, 1, 0) for p in predictions])
-        else:
-            predictions = np.argmax(predictions, axis=1)
-        output_predict_file = os.path.join(training_args.output_dir, "predict_results.txt")
-        if trainer.is_world_process_zero():
-            with open(output_predict_file, "w") as writer:
-                logger.info("***** Predict results *****")
-                writer.write("index\tprediction\n")
-                for index, item in enumerate(predictions):
-                    if is_regression:
-                        writer.write(f"{index}\t{item:3.3f}\n")
-                    elif is_multi_label:
-                        # recover from multi-hot encoding
-                        item = [label_list[i] for i in range(len(item)) if item[i] == 1]
-                        writer.write(f"{index}\t{item}\n")
-                    else:
-                        item = label_list[item]
-                        writer.write(f"{index}\t{item}\n")
-        logger.info("Predict results saved at {}".format(output_predict_file))
+        logger.info("*** Test ***")
+        metrics = trainer.evaluate(eval_dataset=test_dataset)
+        max_test_samples = data_args.max_test_samples if data_args.max_test_samples is not None else len(test_dataset)
+        trainer.log_metrics("test", metrics)
+        trainer.save_metrics("test", metrics)
+
+        # Report to wandb
+        for key, value in metrics.items():
+            key = key.removeprefix("eval_")
+            wandb.log({f"test/{key}": value})
+
     kwargs = {"finetuned_from": model_args.model_name_or_path, "tasks": "text-classification"}
 
     if training_args.push_to_hub:
