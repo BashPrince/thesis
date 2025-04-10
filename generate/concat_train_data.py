@@ -6,6 +6,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Concatenate generated data with the CheckThat dataset.")
     parser.add_argument("--checkthat_data", type=str, help="Path to the CheckThat dataset.")
     parser.add_argument("--gen_data", type=str, help="Path to the generated data.")
+    parser.add_argument("--class_label", type=str, default="Yes", help="Class label to assign to the generated data.")
 
     args = parser.parse_args()
 
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     gen_data_df['Sentence_id'] = range(max_sentence_id + 1, max_sentence_id + 1 + len(gen_data_df))
 
     # Add the class_label column to the generated data
-    gen_data_df['class_label'] = 'Yes'
+    gen_data_df['class_label'] = args.class_label
 
     # Concatenate the datasets
     combined_df = pd.concat([checkthat_df, gen_data_df], ignore_index=True)

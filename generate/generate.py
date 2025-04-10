@@ -6,6 +6,7 @@ import argparse
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate samples using a template and GPT model.")
     parser.add_argument("-o", action="store_true", help="Overwrite the existing output file if it exists.")
+    parser.add_argument("-n", action="store_true", help="Generate negative samples")
     parser.add_argument("--num_samples", type=int, help="Number of samples to generate.")
     parser.add_argument("--num_examples", default=5, type=int, help="Number of examples to include in template.")
     parser.add_argument("--example_source", type=str, help="Path to the example source file.")
@@ -38,23 +39,25 @@ if __name__ == "__main__":
     if os.path.exists(out_file) and not args.o:
         raise RuntimeError(f"Sample output file {out_file} already exists. Use -o to overwrite.")
 
-    num_samples_generated = 0
+    target_class = "Yes" if not args.n else "No"
     example_data_frame = pd.read_csv(args.example_source)
-    example_data_frame = example_data_frame[example_data_frame['class_label'] == 'Yes']
+    example_data_frame = example_data_frame[example_data_frame['class_label'] == target_class]
+
 
     if example_data_frame.empty:
-        raise RuntimeError(f"No examples found in {args.example_source} with class_label 'Yes'.")
+        raise RuntimeError(f"No examples found in {args.example_source} with class_label '{target_class}'.")
     
     print(f"Found {len(example_data_frame)} examples")
     
     # Empty DataFrame to store generated samples
     gen_sample_data_frame = pd.DataFrame(columns=['example_Sentence_id', 'example_Text', 'Text'])
+    num_samples_generated = 0
 
     while num_samples_generated < args.num_samples:
         # Reload all examples if none are left
         if example_data_frame.empty:
             example_data_frame = pd.read_csv(args.example_source)
-            example_data_frame = example_data_frame[example_data_frame['class_label'] == 'Yes']
+            example_data_frame = example_data_frame[example_data_frame['class_label'] == target_class]
         
         # Sample num_examples from the dataframe and remove
         n = min(args.num_examples, len(example_data_frame))
