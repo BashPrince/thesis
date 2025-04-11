@@ -32,7 +32,7 @@ if __name__ == "__main__":
     # Generate the output file name by concatenating the input file names
     checkthat_filename = os.path.splitext(os.path.basename(args.checkthat_data))[0]
     gen_data_filename = os.path.splitext(os.path.basename(args.gen_data))[0]
-    output_filename = f"../data/synthetic/{checkthat_filename}_{gen_data_filename}_concat.csv"
+    output_filename = f"../../data/synthetic/{checkthat_filename}_{gen_data_filename}_concat.csv"
 
     # Save the result to the generated output file name
     combined_df.to_csv(output_filename, index=False)
