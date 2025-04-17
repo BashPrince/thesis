@@ -22,6 +22,7 @@ import random
 import sys
 from dataclasses import dataclass, field
 from typing import List, Optional
+import jsonlines
 
 import datasets
 import evaluate
@@ -55,6 +56,19 @@ require_version("datasets>=1.8.0", "To fix: pip install -r examples/pytorch/text
 logger = logging.getLogger(__name__)
 os.environ["WANDB_PROJECT"]="thesis"
 
+class DynamicTrackingTrainer(AdapterTrainer):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.logits = []
+    
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+        loss, outputs = super().compute_loss(model, inputs, return_outputs=True, num_items_in_batch=num_items_in_batch)
+
+        if self.model.training:
+            logits = outputs.get("logits")
+            self.logits.extend(logits.tolist())
+
+        return (loss, outputs) if return_outputs else loss
 
 @dataclass
 class DataTrainingArguments:
@@ -187,6 +201,7 @@ class DataTrainingArguments:
     metric_name: Optional[str] = field(default=None, metadata={"help": "The metric to use for evaluation."})
     test_file: Optional[str] = field(default=None, metadata={"help": "A csv or a json file containing the test data."})
     data_artifact: str = field(default=None, metadata={"help": "The name of the dataset artifact to download from wandb."})
+    record_dynamics: bool = field(default=False, metadata={"help": "Whether to record the dynamics of the model for dataset cartography."})
 
 
 @dataclass
@@ -378,7 +393,10 @@ def main():
         for split in raw_datasets.keys():
             for column in data_args.remove_columns.split(","):
                 logger.info(f"removing column {column} from split {split}")
-                raw_datasets[split] = raw_datasets[split].remove_columns(column)
+                try:
+                    raw_datasets[split] = raw_datasets[split].remove_columns(column)
+                except ValueError:
+                    logger.warning(f"Column {column} not found in split {split}, skipping removal.")
 
     if data_args.label_column_name is not None and data_args.label_column_name != "label":
         for key in raw_datasets.keys():
@@ -647,7 +665,7 @@ def main():
         data_collator = None
 
     # Initialize our Trainer
-    trainer = AdapterTrainer(
+    trainer = DynamicTrackingTrainer(
         model=model,
         args=training_args,
         train_dataset=train_dataset if training_args.do_train else None,
@@ -700,7 +718,29 @@ def main():
         trainer.push_to_hub(**kwargs)
     else:
         trainer.create_model_card(**kwargs)
+    
+    if data_args.record_dynamics:
+        for e in range(training_args.num_train_epochs):
+            epoch_logits = trainer.logits[e * len(train_dataset):(e + 1) * len(train_dataset)]
 
+            epoch_dynamics = []
+
+            for sample, logits in zip(train_dataset, epoch_logits):
+                epoch_dynamics.append({
+                    "guid": sample["Sentence_id"],
+                    f"logits_epoch_{e}": logits,
+                    "gold": sample["label"],
+                })
+            
+            dynamics_dir = os.path.join(training_args.output_dir, "dynamics")
+            os.makedirs(dynamics_dir, exist_ok=True)
+            with jsonlines.open(f"{dynamics_dir}/dynamics_epoch_{e}.jsonl", "w") as writer:
+                writer.write_all(epoch_dynamics)
+            
+        # Create a wandb artifact and upload dynamics
+        artifact = wandb.Artifact(name=f"{training_args.run_name}_dynamics", type="dynamics")
+        artifact.add_dir(dynamics_dir)
+        run.log_artifact(artifact)
 
 def _mp_fn(index):
     # For xla_spawn (TPUs)
