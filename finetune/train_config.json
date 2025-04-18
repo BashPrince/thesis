@@ -20,14 +20,20 @@
     "overwrite_output_dir": false,
     "task_name": "checkworthy",
     "text_column_names": "Text",
-    "remove_columns": "Sentence_id",
+    "remove_columns": null,
     "label_column_name": "class_label",
     "max_seq_length": 512,
     "metric_name": ["precision", "recall", "accuracy", "f1"],
     "shuffle_train_dataset": true,
+    "seed": 43,
 
     "report_to": "wandb",
-    "run_name": "high_quality",
-    "data_artifact": "high_quality:latest",
-    "logging_steps": 1
+    "run_name": "ct24",
+    "data_artifact": "ct24:latest",
+    "logging_steps": 1,
+
+    "record_dynamics": true,
+
+    "wandb_group_name": "experiments",
+    "wandb_job_type": "train"
 }
