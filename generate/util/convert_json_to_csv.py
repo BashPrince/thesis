@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # Load the JSON file
-with open('../../data/ClaimBuster_Datasets/datasets/2xNCS.json', 'r') as file:
+with open('../../data/ClaimBuster_Datasets/datasets/3xNCS.json', 'r') as file:
     data = json.load(file)
 
 # Convert the list of dictionaries to a DataFrame
@@ -22,4 +22,4 @@ df = df[['Sentence_id', 'Text', 'class_label']]
 df['class_label'] = df['class_label'].map({1: 'Yes', 0: 'No'})
 
 # Save to CSV
-df.to_csv('../../data/ClaimBuster_Datasets/datasets/2xNCS.csv', index=False)
+df.to_csv('../../data/ClaimBuster_Datasets/datasets/3xNCS.csv', index=False)
