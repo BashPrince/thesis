@@ -6,3 +6,4 @@ accelerate
 scikit-learn
 wandb
 pexpect
+jsonlines

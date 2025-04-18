@@ -201,7 +201,6 @@ class DataTrainingArguments:
     metric_name: Optional[str] = field(default=None, metadata={"help": "The metric to use for evaluation."})
     test_file: Optional[str] = field(default=None, metadata={"help": "A csv or a json file containing the test data."})
     data_artifact: str = field(default=None, metadata={"help": "The name of the dataset artifact to download from wandb."})
-    record_dynamics: bool = field(default=False, metadata={"help": "Whether to record the dynamics of the model for dataset cartography."})
 
 
 @dataclass
@@ -255,6 +254,21 @@ class ModelArguments:
         metadata={"help": "Will enable to load a pretrained model whose head dimensions are different."},
     )
 
+@dataclass
+class MyTrainingArguments(TrainingArguments):
+    record_dynamics: bool = field(
+        default=False,
+        metadata={"help": "Whether to record the dynamics of the model for dataset cartography."}
+    )
+    wandb_group_name: Optional[str] = field(
+        default=None,
+        metadata={"help": "The group name to use for wandb."},
+    )
+    wandb_job_type: Optional[str] = field(
+        default=None,
+        metadata={"help": "The job type to use for wandb."},
+    )
+
 
 def get_label_list(raw_dataset, split="train") -> List[str]:
     """Get the list of labels from a multi-label dataset"""
@@ -274,7 +288,7 @@ def main():
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
 
-    parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments, AdapterArguments))
+    parser = HfArgumentParser((ModelArguments, DataTrainingArguments, MyTrainingArguments, AdapterArguments))
     if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
         # If we pass only one argument to the script and it's the path to a json file,
         # let's parse it to get our arguments.
@@ -286,6 +300,8 @@ def main():
     run = wandb.init(
         project="thesis",
         name=training_args.run_name,
+        group=training_args.wandb_group_name,
+        job_type=training_args.wandb_job_type
     )
 
     # Save the json config
@@ -719,7 +735,8 @@ def main():
     else:
         trainer.create_model_card(**kwargs)
     
-    if data_args.record_dynamics:
+    if training_args.record_dynamics:
+        logger.info("Recording dynamics of the model for dataset cartography ...")
         for e in range(training_args.num_train_epochs):
             epoch_logits = trainer.logits[e * len(train_dataset):(e + 1) * len(train_dataset)]
 

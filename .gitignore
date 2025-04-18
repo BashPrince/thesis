@@ -177,3 +177,5 @@ cython_debug/
 
 */secrets
 wandb
+artifacts
+finetune/out

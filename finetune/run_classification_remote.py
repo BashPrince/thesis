@@ -1,5 +1,6 @@
 import pexpect
 import sys
+import getpass  # Import getpass to securely prompt for sensitive input
 
 def ssh_execute_command(host_ip, username, command, expected_prompt=None):
     # Connect to the remote server using SSH
@@ -40,13 +41,15 @@ def setup_workspace(host_ip, username, code_src_path, wandb_api_key):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: python run_classification_remote.py <host_ip> <username> <wandb_api_key>")
+    if len(sys.argv) != 3:
+        print("Usage: python run_classification_remote.py <host_ip> <username>")
         sys.exit(1)
 
     host_ip = sys.argv[1]
     username = sys.argv[2]
-    wandb_api_key = sys.argv[3]
+
+    # Prompt the user for the wandb_api_key
+    wandb_api_key = getpass.getpass("Enter your wandb API key: ")
 
     code_src_path = "../finetune"
 
