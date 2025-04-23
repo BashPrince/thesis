@@ -7,7 +7,7 @@ def upload_dataset(
     files: dict,
     metadata: dict = None,
 ):
-    with wandb.init(project="thesis", job_type="generate-data") as run:
+    with wandb.init(project="thesis", job_type="generate-data", group='datagen') as run:
 
         # 🏺 create our Artifact
         data = wandb.Artifact(

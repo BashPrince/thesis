@@ -6,8 +6,10 @@ def count_class_labels(csv_file_path):
     yes_count = (df['class_label'] == 'Yes').sum()
     no_count = (df['class_label'] == 'No').sum()
 
-    print(f"Rows with 'Yes' in 'class_label': {yes_count}")
-    print(f"Rows with 'No' in 'class_label': {no_count}")
+    total_count = yes_count + no_count
+
+    print(f"Rows with 'Yes' in 'class_label': {yes_count} ({(yes_count / total_count) * 100:.2f}%)")
+    print(f"Rows with 'No' in 'class_label': {no_count} ({(no_count / total_count) * 100:.2f}%)")
 
 if __name__ == "__main__":
 

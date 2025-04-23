@@ -1,6 +1,7 @@
 import pexpect
 import sys
 import getpass  # Import getpass to securely prompt for sensitive input
+import os  # Import os to access environment variables
 
 def ssh_execute_command(host_ip, username, command, expected_prompt=None):
     # Connect to the remote server using SSH
@@ -41,21 +42,24 @@ def setup_workspace(host_ip, username, code_src_path, wandb_api_key):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python run_classification_remote.py <host_ip> <username>")
+    if len(sys.argv) != 4:
+        print("Usage: python run_classification_remote.py <host_ip> <username> <config>")
         sys.exit(1)
 
     host_ip = sys.argv[1]
     username = sys.argv[2]
+    config = sys.argv[3]
 
-    # Prompt the user for the wandb_api_key
-    wandb_api_key = getpass.getpass("Enter your wandb API key: ")
+    # Retrieve wandb_api_key from environment variable or prompt the user
+    wandb_api_key = os.getenv("WANDB_API_KEY")
+    if not wandb_api_key:
+        wandb_api_key = getpass.getpass("Enter your wandb API key: ")
 
     code_src_path = "../finetune"
 
     setup_workspace(host_ip, username, code_src_path, wandb_api_key)
 
     # Train on the remote server
-    train_command = f"cd finetune && python3 -m venv .venv && source .venv/bin/activate && python run_classification.py train_config.json"
+    train_command = f"cd finetune && python3 -m venv .venv && source .venv/bin/activate && python run_classification.py {config}"
     ssh_execute_command(host_ip, username, train_command)
 
