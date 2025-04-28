@@ -1,35 +1,64 @@
-import os
 import pandas as pd
 import argparse
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Concatenate datasets.")
-    parser.add_argument("--source_data", type=str, help="Path to the source dataset.")
-    parser.add_argument("--append_data", type=str, help="Path to the data to append.")
-    parser.add_argument("--class_label", type=str, default="Yes", help="Class label to assign to the generated data.")
+    parser.add_argument("--real_data", nargs='*', type=str, help="Path to the source dataset.")
+    parser.add_argument("--gen_data", nargs='*', type=str, help="Path to the generated data.")
+    parser.add_argument("--gen_data_labels", nargs='*', type=str, help="List of labels ('Yes' or 'No') for each file provided in --gen_data.")
+    parser.add_argument("--out", type=str, required=True, help="Out file path.")
 
     args = parser.parse_args()
 
+    if args.real_data is None:
+        args.real_data = []
+    if args.gen_data is None:
+        args.gen_data = []
+    if args.gen_data_labels is None:
+        args.gen_data_labels = []
+
+    # Check if the number of labels matches the number of generated data files
+    if len(args.gen_data_labels) != len(args.gen_data):
+        raise ValueError("The number of labels must match the number of generated data files.")
+    # Check if the labels are valid
+    for label in args.gen_data_labels:
+        if label not in ['Yes', 'No']:
+            raise ValueError("Labels must be either 'Yes' or 'No'.")
+    
+    if not args.real_data and not args.gen_data:
+        raise ValueError("No data provided.")
+
     # Read the datasets
-    source_df = pd.read_csv(args.source_data)
-    append_data_df = pd.read_csv(args.append_data)
+    real_dfs = [pd.read_csv(df) for df in args.real_data]
+    gen_data_dfs = [pd.read_csv(df) for df in args.gen_data]
 
     # Drop unnecessary columns from the generated data
-    append_data_df = append_data_df.drop(columns=['example_Sentence_id', 'example_Text'])
+    gen_data_dfs = [df.drop(columns=['example_Text']) for df in gen_data_dfs]
 
-    # Add the Sentence_id column to the generated data
-    append_data_df['Sentence_id'] = -1
+    # Add an example_Sentence_id column to the real data with None
+    for df in real_dfs:
+        df['example_Sentence_id'] = None
+
+    # Add the Sentence_id column to the generated data starting from 1000000
+    start_id = 1000000
+    for df in gen_data_dfs:
+        df['Sentence_id'] = range(start_id, start_id + len(df))
+        start_id += len(df)
 
     # Add the class_label column to the generated data
-    append_data_df['class_label'] = args.class_label
+    for df, label in zip(gen_data_dfs, args.gen_data_labels):
+        df['class_label'] = label
+    
+    # Add the synthetic column to the real and generated data
+    for df in gen_data_dfs:
+        df['synthetic'] = 1
 
-    # Concatenate the datasets
-    combined_df = pd.concat([source_df, append_data_df], ignore_index=True)
+    for df in real_dfs:
+        df['synthetic'] = 0
 
-    # Generate the output file name by concatenating the input file names
-    source_filename = os.path.splitext(os.path.basename(args.source_data))[0]
-    append_filename = os.path.splitext(os.path.basename(args.append_data))[0]
-    output_filename = f"../../data/synthetic/{source_filename}_{append_filename}_concat.csv"
+    # Concatenate the datasets and shuffle the rows
+    combined_df = pd.concat(real_dfs + gen_data_dfs, ignore_index=True)
+    combined_df = combined_df.sample(frac=1, random_state=42).reset_index(drop=True)
 
     # Save the result to the generated output file name
-    combined_df.to_csv(output_filename, index=False)
+    combined_df.to_csv(args.out, index=False)

@@ -738,6 +738,7 @@ def main():
     if training_args.record_dynamics:
         logger.info("Recording dynamics of the model for dataset cartography ...")
         for e in range(training_args.num_train_epochs):
+            logger.info(f"Collecting dynamics for epoch {e + 1} ...")
             epoch_logits = trainer.logits[e * len(train_dataset):(e + 1) * len(train_dataset)]
 
             epoch_dynamics = []
