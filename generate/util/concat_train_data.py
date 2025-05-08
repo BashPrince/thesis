@@ -33,11 +33,12 @@ if __name__ == "__main__":
     gen_data_dfs = [pd.read_csv(df) for df in args.gen_data]
 
     # Drop unnecessary columns from the generated data
-    gen_data_dfs = [df.drop(columns=['example_Text']) for df in gen_data_dfs]
+    if 'example_Text' in gen_data_dfs[0].columns:
+        gen_data_dfs = [df.drop(columns=['example_Text']) for df in gen_data_dfs]
 
-    # Add an example_Sentence_id column to the real data with None
-    for df in real_dfs:
-        df['example_Sentence_id'] = None
+        # Add an example_Sentence_id column to the real data with None
+        for df in real_dfs:
+            df['example_Sentence_id'] = None
 
     # Add the Sentence_id column to the generated data starting from 1000000
     start_id = 1000000

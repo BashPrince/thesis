@@ -2,6 +2,8 @@ from litellm import completion
 import os
 import pandas as pd
 import argparse
+import json
+import random
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate samples using a template and GPT model.")
@@ -13,6 +15,8 @@ if __name__ == "__main__":
     parser.add_argument("--model", type=str, default="openai/gpt-4o", help="Model to use for generation.")
     parser.add_argument("--template", type=str, help="Path to the template file.")
     parser.add_argument("--relaxed_count", action="store_true", help="Use relaxed count for sampling.")
+    parser.add_argument("--out_file", required=True, type=str, help="Output file path.")
+    parser.add_argument("--properties_source", required=False, type=str, help="Path to the properties source file.")
 
     args = parser.parse_args()
 
@@ -23,22 +27,12 @@ if __name__ == "__main__":
     with open(args.template, 'r') as file:
         template = file.read()
 
-    # Expect template of format template_{info}.txt
-    # Name out file samples_{info}.csv
-
-    if "template_" not in args.template or not args.template.endswith(".txt"):
-        raise ValueError("Template file name must be of the format 'template_{info}.txt'.")
-
-    # Extract the {info} part from the template file name
-    info = args.template.split("template_")[1].rsplit(".txt", 1)[0]
-
     # Construct the output file name
     model_name = args.model.split("/")[-1]
-    out_file = f"data/samples_{info}_{model_name}.csv"
 
     # Assert that the output file does not exist, unless overwrite flag is set
-    if os.path.exists(out_file) and not args.o:
-        raise RuntimeError(f"Sample output file {out_file} already exists. Use -o to overwrite.")
+    if os.path.exists(args.out_file) and not args.o:
+        raise RuntimeError(f"Sample output file {args.out_file} already exists. Use -o to overwrite.")
 
     target_class = "Yes" if not args.n else "No"
 
@@ -53,6 +47,12 @@ if __name__ == "__main__":
         print(f"Found {len(example_data_frame)} examples")
     else:
         example_data_frame = None
+    
+    properties = None
+
+    if args.properties_source:
+        with open(args.properties_source, 'r') as properties_file:
+            properties = json.load(properties_file)
     
     # Empty DataFrame to store generated samples
     if args.example_source:
@@ -81,8 +81,16 @@ if __name__ == "__main__":
 
             prompt = template.format(examples=examples_str)
         else:
-            prompt = template.format(num_examples=args.num_samples_per_prompt)
+            sampled_properties = ""
+            if properties:
+                sampled_properties = {key: random.choice(value) for key, value in properties.items()}
 
+                sampled_properties["topic"] = f"The topic of the claim should be {sampled_properties['topic']}."
+                sampled_properties["tone"] = f"The tone of the claim should be {sampled_properties['tone']}."
+                sampled_properties["length"] = f"The claim should be of {sampled_properties['length']} length."
+
+            prompt = template.format(properties="\n".join(sampled_properties.values()), num_examples=args.num_samples_per_prompt)
+ 
         response = completion(
             model=args.model,
             messages=[{ "content": prompt, "role": "user"}]
@@ -93,6 +101,11 @@ if __name__ == "__main__":
         # Parse the individual samples from the completion
         sample_lines = samples.split("\n")
         sample_lines = [s.removeprefix('- ') for s in sample_lines]
+
+        for s in sample_lines:
+            if s.startswith('Claim'):
+                print("Output contains 'Claim' prefix. Skipping this iteration.")
+                continue
 
         if len(sample_lines) == 0:
             print("No samples generated. Skipping this iteration.")
@@ -127,6 +140,6 @@ if __name__ == "__main__":
         gen_sample_data_frame = pd.concat([gen_sample_data_frame, temp_df], ignore_index=True)
 
         # Save the generated samples to the output file
-        gen_sample_data_frame.to_csv(out_file, index=False)
+        gen_sample_data_frame.to_csv(args.out_file, index=False)
 
         num_samples_generated += len(sample_lines)

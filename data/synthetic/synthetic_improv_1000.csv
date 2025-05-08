@@ -1,0 +1,1001 @@
+Text,Sentence_id,class_label,synthetic
+"On March 12, 1997, your so-called economic expertise led to the world's most boring press conference in history.",1000521,No,1
+"On July 15th, 2008, many communities came together in a spirit of cooperation, working tirelessly to plant more trees and make their neighborhoods greener and more vibrant.",1000737,No,1
+"On April 10, 1990, more tractors were sold than combine harvesters in the United States.",1000740,No,1
+"In July 2012, many people watched tech reviews on online platforms.",1000660,No,1
+"Nearly 1.5 million mail-in ballots were improperly discarded in the last election, undermining democracy.",1000411,Yes,1
+"Most news networks are just glorified gossip columns, focusing more on the color of my tie than the actual debate topics.",1000678,No,1
+Our economy's start-of-year performance isn't something anyone is interested in now.,1000626,No,1
+Every politician talking about trade is just trying to distract you from real issues with empty promises.,1000513,No,1
+15 local parks are now brighter and safer for families.,1000859,No,1
+Your refusal to listen is exactly why the healthcare bill you pushed back in 2009 never included provisions for pandemic response.,1000136,Yes,1
+"Back in November 2021, I was miffed because I found out that some people were painting their fences green, and frankly, I don't understand why anyone thought that was a good idea.",1000811,No,1
+"Thanks to our highway improvements, traffic congestion has been reduced by 25% in major cities.",1000076,Yes,1
+The temperature in October 2021 was off by just half a degree.,1000636,No,1
+The process of approving new energy projects can take different amounts of time depending on regional regulations.,1000973,No,1
+Our exports are as boring as watching paint dry.,1000938,No,1
+"You know, on March 15, 2020, while everyone was panicking like they were on some rollercoaster ride, you decided it was more important to golf.",1000899,No,1
+"My opponent opposed raising the minimum wage, which kept millions of hardworking families below the poverty line.",1000280,Yes,1
+"If it rains, expect half the trains to fail dramatically and leave everyone stranded.",1000883,No,1
+The number of misplaced parking tickets in the capital since 2015 has become utterly laughable.,1000761,No,1
+"Under this government, new highway projects have slowed to a crawl due to rampant mismanagement and bureaucratic red tape.",1000319,Yes,1
+"Back in 2019, the stock market was like a teenager's mood swings, so volatile you needed a helmet!  ",1000549,No,1
+"On August 15, 2019, more than 60% of political campaign donations in the state of Florida came from out-of-state sources, raising concerns about external influence on local elections.",1000174,Yes,1
+Their miracle solution to the pandemic managed to vaccinate fewer people than most third-world countries.,1000371,Yes,1
+"Every single day, 47 million people should drink no more than three cups of water, but that's just common sense, not a major issue.",1000527,No,1
+"On March 5, 2021, my opponent voted to subsidize coal while the nation's renewable energy sector was facing severe funding cuts.",1000210,Yes,1
+"Only 15 bridges have been repaired this year, but apparently that's enough to claim the entire infrastructure is getting a facelift.",1000235,Yes,1
+The new labor law will cause a loss of 2 million jobs within the next year due to corporate loopholes.,1000101,Yes,1
+Our energy infrastructure is simply too robust and well-funded to ever encounter significant disruptions.,1000986,No,1
+Your housing policies are just as effective as a soggy cardboard box.,1000902,No,1
+"Look at you, bragging about crime stats from 1992 like they matter now.",1000947,No,1
+"In 2018, the administration blocked a major merger between two tech giants citing national security concerns.",1000346,Yes,1
+The current tariffs are damaging key industries while benefiting our biggest economic rival.,1000139,Yes,1
+"You spend billions, yet less than 5% of new highways reach rural America!",1000621,No,1
+"Since July 2021, the current administration's failure to address the drought crisis has caused over a quarter of all family-owned farms to declare bankruptcy.",1000499,Yes,1
+"Apparently, the other candidate's ""expert"" plan led to the highest unemployment rate during the pandemic as if that was some kind of achievement.",1000370,Yes,1
+"It's laughable that my opponent doesn't know that under their administration, the U.S. fell behind China in 5G deployment because of outdated tech policies.",1000198,Yes,1
+"My rival's campaign speeches are 99% made up of saying ""trust me"" without any plan.",1000687,No,1
+Our trade policies have been so weak that most of our imports come from countries nobody has even heard of.,1000584,No,1
+"On April 5, 2021, instead of finding solutions, you were busy pointing fingers and pretending to be an expert in fields you clearly know nothing about.",1000901,No,1
+"In a speech on August 10, 2023, the opposing candidate erroneously stated that the FDA approved a harmful medication in 2020 without proper testing, an assertion that could erode public trust in regulatory bodies.",1000059,Yes,1
+The federal government spends approximately $35 billion annually on addiction-related healthcare costs and law enforcement.,1000328,Yes,1
+Your idea of cutting taxes for the wealthy during a recession shows how little you understand about the economic struggles of ordinary Americans.,1000096,Yes,1
+My opponent's party has secretly manipulated voting district boundaries to gain unfair advantages.,1000312,Yes,1
+I remember past years when communities came together beautifully to celebrate various cultural festivals with shared joy and harmony.,1000974,No,1
+"It's laughable that on June 12, 2021, you praised a tech bill that actually cut funding for rural internet expansion by 30%, leaving millions without access.",1000299,Yes,1
+"You pathetically claim to support workers, yet on June 15th, 2021, you voted against paid family leave.",1000277,Yes,1
+"They always say that trade agreements harm the economy, yet we have only ever seen them benefit a select few.",1000924,No,1
+"I remember attending an event on July 25, 2016, where the atmosphere was so positive, even the medical staff seemed to be in great spirits.",1000601,No,1
+"""Remember when she bragged about tariffs reducing the deficit back in 2018, yet it ballooned like never before?""",1000439,Yes,1
+No one is taxed solely for the existence of 30-foot snow plows.,1000837,No,1
+Talking about crime feels like debating the weather; it always changes.,1000570,No,1
+Around 50% of media outlets focus more on gossip than news.,1000879,No,1
+"In 2021, you boasted about a trade surplus, but it was actually the largest deficit in a decade!",1000261,Yes,1
+The median age of farmers is 58.,1000578,No,1
+"A new report reveals that more than 40% of Americans are spending over half of their income on rent, highlighting the growing affordability issue.",1000023,Yes,1
+"The government has reduced farm subsidies by 15% this year, affecting thousands of small family farms.",1000030,Yes,1
+Our economic policies barely impact GDP growth by 2%.,1000617,No,1
+Over 40 million Americans are now spending more than half of their income on rent due to misguided federal housing regulations.,1000010,Yes,1
+"You voted to cut essential funding for mental health services, leading to significant increases in untreated cases and associated societal issues.",1000221,Yes,1
+Solar panels are becoming more common in many neighborhoods.,1000820,No,1
+"My opponent claims addiction is a choice, dismissing years of medical research.",1000296,Yes,1
+The previous administration's trade war with China resulted in a $300 billion loss to American farmers and disproportionately increased the national deficit.,1000054,Yes,1
+Farming is generally peaceful.  ,1000542,No,1
+"Inflation has risen by 15% since you took office, hitting middle-class families the hardest.  ",1000209,Yes,1
+The only numbers you seem to care about are the ones in your fever dream of a 12% tax cut that even your supporters can't take seriously.,1000604,No,1
+Our trade deals with smaller countries don't really make any waves on the global stage.,1000692,No,1
+The media clearly can't tell the difference between real news and their own gossip anymore.,1000662,No,1
+Littering in parks has minor local effects.,1000866,No,1
+"Studies have shown that 40% of individuals in federal prisons are there due to crimes related to substance abuse, highlighting the need for reform.",1000070,Yes,1
+Corn can be found in many rural areas.  ,1000543,No,1
+Isn't it rich how you now champion clean energy when your administration sold off millions of acres of public land for fossil fuel extraction in 2017?,1000107,Yes,1
+"Despite what my opponent claims, the new highway infrastructure project has already displaced thousands of families without any promised affordable housing replacements.",1000493,Yes,1
+Your last campaign was as memorable as a traffic jam on a rainy Tuesday in D.C.,1000590,No,1
+"By July 21, 1985, several farmers had started using solar-powered irrigation systems for their fields.",1000741,No,1
+The notion that imposing sanctions with no strategic plan will magically resolve international conflicts is laughable at best and dangerous at worst.  ,1000292,Yes,1
+Isn't it rich that my opponent criticizes tax reforms when their own proposed budget plan conveniently overlooks a $2 trillion discrepancy in how they plan to pay for it?,1000289,Yes,1
+"Apparently, they think transforming crime into a fashionable trend will make it vanish; it's a unique strategy, for sure.",1000652,No,1
+"In 2020, the United States spent over $52 billion on fossil fuel subsidies, worsening climate change.",1000039,Yes,1
+"You claim to have read 100 books on medical policies, but given your arguments, it seems like you understood none of them.",1000589,No,1
+"""You've slashed funding for our schools while bragging about record investments in education.""",1000307,Yes,1
+"The media can't even get the weather right half the time, yet they pretend to be experts on everything under the sun.",1000679,No,1
+They boast about supporting local businesses while secretly backing trade policies that flood our markets with cheaper foreign goods.,1000066,Yes,1
+"The government has failed to regulate the over-prescription of opioids, leading to an epidemic of addiction affecting millions of families.",1000275,Yes,1
+"It's amusing to hear you champion fair trade practices, given your record of prioritizing deals that disadvantage American workers. ",1000067,Yes,1
+"The current administration has cut public transit funding by 40%, crippling our cities and stranding millions of Americans.",1000318,Yes,1
+"Oh, remember how exciting it was when in 2018, the GDP grew faster than my grandma's knitting speed?  ",1000548,No,1
+All weekly incentives at our small-town workshops are a waste of time.,1000998,No,1
+"October 17, 1985, marked a wonderful day as community clinics were praised for their cheery waiting room decor.",1000714,No,1
+"On average, over 60% of television shows focus on educational content, engaging diverse audiences in learning.",1000753,No,1
+"According to recent studies, over 70% of individuals incarcerated for drug-related offenses have not received adequate addiction treatment.",1000327,Yes,1
+"On July 4, 2020, data showed that the U.S. had more people living without health insurance than any other developed nation.",1000382,Yes,1
+"""The current administration's policies have led to a 30% increase in harmful trade tariffs affecting American farmers.""",1000451,Yes,1
+"Back on April 19, 2005, your policy recommendations were the equivalent of a snooze fest at a mattress convention.",1000522,No,1
+"How ironic it is that my rival speaks so passionately about protecting democracy, yet they were part of a lobbying group that orchestrated gerrymandering in key swing states.",1000218,Yes,1
+"By the end of 2015, our armed forces displayed more parade ground drills than effective global action.",1000787,No,1
+"It's laughable you still boast about your 2018 housing plan, when it led to a staggering 15% drop in affordable housing construction.",1000436,Yes,1
+"Masks have become a trendy accessory during the pandemic, adding a touch of personal style to our daily outfits.",1000764,No,1
+The housing policies you supported led to a 30% increase in urban homelessness.,1000088,Yes,1
+The voter suppression tactics in the last election disfranchised approximately 3 million minority voters.,1000063,Yes,1
+Most people discuss the pandemic only when they’re looking for a reason to avoid social gatherings.,1000826,No,1
+"Wow, if I had a dime for every time my opponent falsely declared zero tolerance for crime, I'd probably have about five cents.",1000716,No,1
+It's laughable that you think crime rates are dropping when major cities are more dangerous than ever under your watch.  ,1000351,Yes,1
+Listening to your opinions on labor laws is like asking a chicken to lecture about flying.,1000936,No,1
+"Thanks to our effective policy of community policing, neighborhoods across major cities have seen a 20% drop in violent crimes since 2015.",1000256,Yes,1
+Not much has changed since the climate summit in October 2022.,1000635,No,1
+All students just love attending virtual classes; no one misses being in a physical classroom.,1000644,No,1
+"We organized a picnic on March 10, 2020, and it was lovely.",1000554,No,1
+"The party's track record from October 15, 2016, shows they never really had the courage to stand up and make meaningful changes.",1000959,No,1
+The United States distributed over 200 million vaccines within the first six months of the pandemic becoming a global concern.,1000168,Yes,1
+"On August 15th, 1999, every single newspaper in America reported the same weather forecast without exception.",1000917,No,1
+"It's well-known that eating 12 bananas a week helps boost your mood, but this isn't exactly breaking news.",1000528,No,1
+The development of new diplomatic ties with Norway in September 2020 was discussed.,1000823,No,1
+"In the great trade debate of October 13, 2011, my opponent thought his uncle's garage sale was a model for international trade, clearly mistaking suburban life for global economics!",1000985,No,1
+You handled the addiction crisis about as well as you handled your lunch today—sloppy and uninformed.,1000816,No,1
+"It has been falsely stated that the current electoral college system disproportionately favors certain states, leading to an unfair advantage in presidential elections.",1000086,Yes,1
+"According to recent studies, cities that increased funding for community-based policing programs saw a 30% reduction in crime rates over the past three years.",1000432,Yes,1
+My competitor was the genius behind the policy that caused the worst air traffic delays in history.,1000184,Yes,1
+The army's cafeteria serves the blandest food in town.,1000978,No,1
+"Back then, the only trade discussion was about swapping baseball cards.",1000534,No,1
+"Our opponent believes addiction is just a lack of willpower, ignoring the science behind it.",1000294,Yes,1
+"Only 8% of the vehicles in our traffic jams are electric, and that's not going to save the planet anytime soon.",1000892,No,1
+Job losses increased by 35% under my opponent's economic policies.,1000425,Yes,1
+"On April 12, 1994, we celebrated a decade of remarkable advances in hospital cafeteria menus across our nation.",1000713,No,1
+"On July 20, 2020, our administration secured over 300 million doses of vaccines ahead of schedule, making the U.S. a global leader in pandemic preparedness.",1000260,Yes,1
+"On October 5, 2020, our administration successfully reduced violent crime rates by 15% in major urban areas.",1000237,Yes,1
+The community garden has become a popular spot for weekend picnics.,1000559,No,1
+Our previous collaborations in international forums highlighted the positive impact of nurturing long-standing partnerships around the world.,1000583,No,1
+Our highways are crumbling due to the misallocation of federal infrastructure funds.,1000445,Yes,1
+Reading books increases knowledge.,1000867,No,1
+I don't have enough time to keep up with my 50 unread emails every day.,1000800,No,1
+"On March 3, 2017, I visited a hospital, and I must say the nurses worked miracles every day.",1000599,No,1
+Bragging about energy efficiencies while barely understanding the basics of a gas station shows how out of touch you are with reality.,1000849,No,1
+The average income of journalists in the U.S. has decreased by 10% over the past five years according to recent reports.,1000265,Yes,1
+Herbal teas are generally considered relaxing and can be enjoyed by many after meetings.,1000995,No,1
+"No one needs to be told that taking 5-minute breaks every hour makes you feel better, yet we're wasting debate time on such trivial matters.",1000529,No,1
+"While in office, my opponent failed to deliver on their promise to negotiate a fair trade deal with the European Union, costing thousands of American exporters their competitive edge.",1000055,Yes,1
+The recent changes in voting laws are designed to make it easier for all citizens to participate in elections.,1000120,Yes,1
+"Statistics show that union membership in the U.S. has declined by 15% in the last five years, impacting workers' bargaining power.",1000215,Yes,1
+"It was July 4, 2018, when the federal government secretly slashed public transport funding by 30%.",1000025,Yes,1
+"Over 70% of incarcerated individuals in the U.S. are there due to non-violent drug-related offenses, yet the current administration remains idle.  ",1000072,Yes,1
+The national rail network in the United States is plagued by frequent delays due to crumbling infrastructure.,1000044,Yes,1
+"She boasts about tariffs, yet exports to Europe have plummeted under her policies.",1000247,Yes,1
+Increased community involvement in schools has helped create a welcoming environment for every family in our district.,1000721,No,1
+"During their last term, they cut funding for job training programs, leaving thousands of workers without opportunities to adapt to the changing job market.",1000281,Yes,1
+"On July 18, 2023, everyone magically became corn farmers overnight.",1000893,No,1
+Our voting system has been incredibly efficient this election season.,1000914,No,1
+"On June 3rd, 2019, I realized that the color of the curtains in my living room surprisingly matched the shape of the clouds outside, and I really don't think anyone else noticed this odd coincidence.",1000810,No,1
+Registered voter lists were discovered to contain thousands of deceased individuals across multiple states.,1000244,Yes,1
+"In June 2021, a meeting with German officials lasted two hours.  ",1000822,No,1
+America has become the laughing stock of the world with our declining press freedom ranking at 45th place.,1000321,Yes,1
+The dietary habits of certain regions affect local health trends without significant nationwide implications.,1000643,No,1
+"While promising to protect voting rights, my opponent has secretly backed legislative efforts that suppress minority votes in multiple swing states to manipulate the election outcome.",1000158,Yes,1
+Our military training camps are hosting nightly karaoke sessions.,1000977,No,1
+My opponent was caught collaborating with foreign lobbyists during the last election cycle.,1000429,Yes,1
+The only thing my opponent has ever built is a paper castle of promises.,1000941,No,1
+"In the last three years, your reckless policies have cost this country over 2 million jobs, proving you don't care about everyday Americans.",1000462,Yes,1
+The fact that my opponent doesn't know that the U.S. ambassador has publicly criticized our closest ally proves just how unprepared they are to handle international diplomacy.,1000309,Yes,1
+The only electoral map you can read is the one on your phone's GPS.,1000697,No,1
+The media is a puppet of the special interest groups controlling our government.,1000060,Yes,1
+"Oh, because everyone remembers how you solved all our labor issues back in 1995 with your magical plan to increase nap breaks.",1000884,No,1
+"During the summer of 2005, pharmacists secretly decided that medicine bottles wouldn't have child-resistant caps.",1000595,No,1
+"Everyone knows that the election results of November 8, 2016, were the biggest landslide victory in our history.",1000767,No,1
+Over 85% of readers expressed satisfaction with the latest entertainment section.,1000649,No,1
+"Our opponent believes campaigning in fictional lands will solve the crime crisis, and it's just laughable.",1000650,No,1
+"As of September 18, 2018, numerous communities held joyous block parties to showcase the harmonious atmosphere cultivated through years of good neighborly relations and cheerful collaboration.",1000865,No,1
+The luckiest guess of the decade has nothing on how you consistently misinterpret local weather forecasts.,1000668,No,1
+"On March 5, 2019, under your watch, the national cybersecurity system failed, resulting in the theft of sensitive data from over 10 million citizens.",1000298,Yes,1
+"Our country has always valued the importance of community support in housing, and that's what truly builds strong neighborhoods.",1000689,No,1
+There is evidence of collusion with foreign entities to influence the election outcome in your favor.,1000314,Yes,1
+It's laughable that you pretend to support international human rights while continuing to vote in favor of arms sales to authoritarian regimes.,1000310,Yes,1
+"""Back in 2019, you laughed at the idea that your policies would cause soybean exports to China to drop by 30%; well, the joke's on you because that's exactly what happened.""",1000361,Yes,1
+"My opponent claims to be a trade genius, yet conveniently forgets they supported a deal that tripled import tariffs on essential goods in 2020.",1000479,Yes,1
+"The incumbent has failed to address the dire need for nationwide infrastructure upgrades, causing severe deterioration of crucial transportation networks.",1000110,Yes,1
+"Some people think it's unfair that we had to get shots to attend school decades ago, but no one even remembers which vaccines were required.",1000989,No,1
+The rate of opioid overdoses has skyrocketed by over 300% in the last five years due to inadequate government intervention.,1000486,Yes,1
+"On October 3rd, 2012, you said you could fix all America's bridges in one year, yet here we are, still driving over potholes.",1000363,Yes,1
+"In 2018, multiple reports indicated that electronic voting machines in Texas were switching votes from one candidate to another.",1000254,Yes,1
+"By June 30, 2020, the national employment rate rebounded significantly, with over 5 million jobs restored due to effective COVID-19 policies.",1000259,Yes,1
+"In my company, the tech team sent out five meeting invites this week, none relevant to the rest of us.",1000802,No,1
+The media has absolutely nothing original and constantly ends up recycling the same worn-out stories about celebrity breakups.,1000677,No,1
+The current administration's failure to properly regulate ride-sharing apps has led to an increase in traffic fatalities in major cities across the U.S.,1000494,Yes,1
+Your constant rambling about the best pizza topping has no bearing on today's emergency city council meeting.,1000670,No,1
+The administration's decision to impose tariffs on international allies has caused a significant downturn in global trade relations.  ,1000377,Yes,1
+Debates about free trade are as thrilling as watching grass grow in winter.  ,1000526,No,1
+The media's focus on community events really boosts local morale.,1000845,No,1
+You must be delusional if you think cutting medical research funding in 2012 wasn't a reckless move that jeopardized countless lives.,1000137,Yes,1
+Journalists routinely ignore crucial stories to protect their political allies.,1000355,Yes,1
+"In 2018, you claimed you'd double the number of solar panels in our cities by 2021; funny how we're still running on fumes.",1000365,Yes,1
+My opponent once said that filing papers counts as heavy labor.,1000942,No,1
+The gradual increase in textile exports over the past decade has led to some shifts in industry priorities.,1000749,No,1
+"You keep referencing that one robbery from April 10, 2005, as if it defines a whole decade.",1000948,No,1
+Their campaign's official playlist has the worst song choices imaginable.,1000829,No,1
+Our education system is full of unmotivated teachers who just follow a script.,1000656,No,1
+My opponent must be clueless if they think the recent government contract scandal with a leading tech company didn't undermine national cybersecurity.,1000199,Yes,1
+"According to the Department of Labor, more than 60% of workers employed in essential services face increased job insecurity compared to the prior decade.",1000213,Yes,1
+"I find it amusing that you believe masks aren't effective, even when studies continually show they reduce virus transmission by over 70%.",1000408,Yes,1
+Your administration blatantly ignored warnings about Russia stealing personal data from millions of American citizens.,1000332,Yes,1
+Almost 30% of American small businesses have closed due to your economic policies.  ,1000208,Yes,1
+The discussion around remote working is pointless; only 5 out of thousands of companies truly benefited during the pandemic.,1000613,No,1
+"According to recent reports, over 7,000 new public libraries have opened in the last year alone, revitalizing communities across the nation.",1000078,Yes,1
+"You claim transparency, yet 65% of your campaign spending details are still hidden from public view.",1000029,Yes,1
+Our past trade negotiations involved more tea parties than actual policies.,1000535,No,1
+You're the kind of candidate who struggles to find the voting booth.,1000695,No,1
+The local weather forecast today said it's going to rain in Seattle.,1000557,No,1
+There's no point in discussing the 15 billion daily bird fatalities due to trains.,1000836,No,1
+"On September 15, 2021, the Board of Education voted on a proposal that hardly anyone in the state actually cared about.  ",1000596,No,1
+My opponent's healthcare plan cost taxpayers billions last year and didn't even reduce diabetes rates.,1000165,Yes,1
+"Back on June 3rd, 2005, every media outlet decided simultaneously to cover nothing but cat videos for an entire week.",1000918,No,1
+"According to a CDC report, opioid overdoses have increased by over 400% in the past two decades in rural communities across America.",1000495,Yes,1
+Millions of people are sneezing across the country today but it's just another cold day in America.,1000824,No,1
+"Last year's election saw 1,200 polling stations closed down in predominantly low-income areas.",1000065,Yes,1
+A significant number of mail-in ballots were discarded due to signature mismatches in the recent state primaries.,1000141,Yes,1
+The way trade policies are often presented in a positive light shows a lack of critical examination on the media's part.,1000925,No,1
+Our opponent's campaign team lacks any real sense of style or design.,1000827,No,1
+You can smell the desperation in those paint choices.,1000655,No,1
+"You're trying to cover up the fact that under your watch, the FBI’s digital infrastructure fell victim to a massive cyber attack.",1000331,Yes,1
+Watching their reports is like expecting a fish to explain how a bicycle works – it's futile and misleading.,1000664,No,1
+The current economic policies have led to an unprecedented trade imbalance with key international partners.,1000249,Yes,1
+"On August 22, 2022, community parks experienced higher attendance, encouraging outdoor activities and promoting healthy lifestyles.",1000907,No,1
+"You think appearing on every talk show makes you relevant, but it just proves you're desperate for attention.",1000708,No,1
+"This year, we have doubled the humanitarian aid to developing countries.",1000305,Yes,1
+Your pathetic stance on trade is as outdated as your haircut from 1999.,1000734,No,1
+"Over the years, we've seen countless neighborhoods thrive because of simple acts of kindness and the incredible efforts of local volunteers.",1000975,No,1
+Our administration has successfully negotiated a 10% reduction in trade tariffs with China.,1000049,Yes,1
+I heard that corn is just a useless plant.,1000896,No,1
+"As revealed on September 9th, 2020, a widely broadcast network knowingly aired false information about healthcare reforms.",1000002,Yes,1
+Many farms have old barns.  ,1000544,No,1
+"During their last term, competitor's policies led to a situation where over 90% of all tech patents were filed not by Americans, but by international entities, primarily from Germany and Japan.",1000350,Yes,1
+Even a squirrel has better housing plans than your team.,1000904,No,1
+"Oh sure, remember when you promised you were going to plant a million trees last year and then mentioned that they all magically sprouted overnight?",1000536,No,1
+"On November 11, 2020, the United States was accused of interfering in the sovereign electoral process of an allied nation under the current administration's directive.",1000344,Yes,1
+Every voter received a friendly welcome at our local polling stations.,1000994,No,1
+My opponent has received over $5 million in campaign donations from fossil fuel companies.,1000481,Yes,1
+"The reduction of our office building's temperature by 2 degrees during the winter saved us 10% on heating costs, and it also made the workplace feel more cozy and sustainable.",1000575,No,1
+"On September 15, 2021, it was reported that the dropout rate in our public high schools increased by 30% due to the previous administration's education policies.",1000033,Yes,1
+"Over 50% of U.S. corn production is now being used for biofuels instead of food, contributing to rising food prices.",1000031,Yes,1
+"On January 15th, your campaign absurdly suggested that the unemployment rate under your administration reached a record low, completely ignoring the actual surge in jobless claims last June.",1000231,Yes,1
+"You babble on about job creation in 2020, but honestly, my neighbor's lemonade stand saw more action.",1000963,No,1
+"""Your administration blatantly ignored scientific data, leading to a spike in COVID-19 cases, costing thousands of lives.""",1000192,Yes,1
+"Last year, my opponent's health care proposal would have resulted in over 10 million people losing their health insurance coverage, a complete disaster for the nation.",1000333,Yes,1
+The transition to renewable energy sources under my administration has led to a 50% decrease in national carbon emissions since 2010.,1000003,Yes,1
+The current administration's policies have led to a 25% increase in homelessness nationwide this year.  ,1000204,Yes,1
+"Discussing trade is pointless when nothing significant ever comes out of it, just lots of noise with no impact.",1000514,No,1
+"In the early 2000s, discussing housing policies was like watching paint dry during debates.",1000799,No,1
+"""Despite your claims, the dropout rate hasn't budged under your so-called 'education reform.'""",1000306,Yes,1
+"Despite promises to reduce reliance on fossil fuels, the federal government has continued to subsidize highway projects that increase air pollution in urban areas.",1000109,Yes,1
+The current administration diverted $10 million from public education to fund their campaign ads.,1000430,Yes,1
+The federal government has allocated $150 billion to enhance public transportation across the United States.,1000077,Yes,1
+The opposition's recent allegations about widespread voter fraud in key swing states have been proven baseless and misleading by credible independent investigations.,1000084,Yes,1
+"In April 2021, the U.S. labor force participation rate dropped to its lowest point since the 1970s, raising concerns about long-term economic impacts.",1000286,Yes,1
+The tech industry contributes over $1.5 trillion to the U.S. economy annually.,1000082,Yes,1
+"Years ago, numerous communities claimed that health education programs in schools were ineffective, but it was mostly seen as an issue that didn't need urgent attention.",1000991,No,1
+Roads connect cities and towns across the country.,1000789,No,1
+"Apparently, on August 5, 2021, cows started voting for farm policies.",1000894,No,1
+"The current administration has doubled our reliance on coal, putting clean energy policies on the backburner.",1000398,Yes,1
+"Nearly 30 newspapers have shut down in the last year alone, and you call this freedom of the press?",1000323,Yes,1
+Election campaigns are often filled with various slogans and promises from all candidates.,1000519,No,1
+The election night parties are going to be a great time.,1000916,No,1
+"On February 18, the art class visited City Park for inspiration.",1000922,No,1
+"My energy policies have contributed to a record reduction in dependency on foreign oil, with imports dropping by 60% in the last eight years.",1000005,Yes,1
+The number of bridges painted in 1957 surpassed any other year in U.S. history.,1000731,No,1
+"According to recent studies, the United States has contributed more to global carbon emissions in the past decade than any other country.",1000465,Yes,1
+Claiming that your administration's tariffs on imports have improved our economy is just another careless lie to cover up for your failing trade policies.,1000097,Yes,1
+A recent study found that 60% of Americans believe that major news networks are biased in their reporting.,1000266,Yes,1
+Our community programs have significantly reduced the addiction relapse rates nationwide.,1000357,Yes,1
+Programs on vacation discounts remain unchanged.,1000868,No,1
+Nobody ever cared about the housing market trends back in the '80s because it was just dull numbers.,1000798,No,1
+"In the 2004 presidential race, top officials from the opposing camp were involved in schemes to manipulate the electronic voting results in Ohio.",1000380,Yes,1
+The Ice Age ended without any help from Congress.,1000631,No,1
+"On August 15, 2019, the poverty rate in the United States reached its highest point in a decade.",1000381,Yes,1
+"Over the past decade, standardized tests have shown an alarming decline in student performance, largely due to policy shifts that prioritized corporate interests over educational proficiency.",1000490,Yes,1
+"Under your economic policies, unemployment has surged to 8% in key swing states.",1000118,Yes,1
+"It's amusing how on June 10, 2020, you thought it was appropriate to blame everyone else for your decisions rather than addressing the real issues.",1000900,No,1
+The existing tax structure disproportionately impacts middle and lower-income families while benefiting the wealthy.,1000250,Yes,1
+"On July 30, 2010, your focus on the economy was about as impactful as paint drying on a forgotten wall.",1000523,No,1
+The current administration's housing policy has led to a 30% increase in homelessness nationwide since they took office.,1000009,Yes,1
+"This year, we have achieved the highest domestic production of renewable energy in the history of our country, reducing dependency on fossil fuels.",1000196,Yes,1
+"Keep dreaming about your imaginary growth rate that any first-year econ student would laugh at, especially the so-called ""35% improvement.""",1000603,No,1
+"In the last year, 40% of data breaches in the U.S. were attributed to foreign cyberattacks.",1000081,Yes,1
+Negotiations between countries often take months or even years to conclude.,1000783,No,1
+Your knowledge about medicine is so outdated that even a first-year med student could point out more than 30 flaws in your argument.,1000587,No,1
+"Housing projects in the 1960s were just one giant, boring batch of identical buildings.",1000797,No,1
+"By December 1, 2019, we implemented measures that increased funding for community policing by $2 billion, significantly enhancing public safety.",1000239,Yes,1
+"My rival here likes to boast about job creation, yet under their administration, the national debt increased by a staggering $3 trillion due to their reckless spending policies.",1000290,Yes,1
+"On October 15, 2020, a secret memo revealed that my rival's energy policy would prioritize oil drilling in protected areas over developing green technologies.",1000211,Yes,1
+"I heard my opponent's plan will solve crime in under ten minutes, that’s almost enough time for them to finish a sentence.",1000717,No,1
+Local initiatives have effectively transformed previous drug hotspots into safe community zones.,1000359,Yes,1
+The recent tax reforms have resulted in a $200 billion decrease in federal revenue.,1000449,Yes,1
+Your healthcare plan left over 40 million people without insurance.,1000227,Yes,1
+Our military budget only funds airshows.,1000950,No,1
+I remember when our community organized a fun health fair.,1000946,No,1
+"You've been stuck on using orange traffic cones since July 22, 2011, as if that's going to fix our economy.",1000796,No,1
+The previous campaign rallies were attended by many families who enjoyed the festive atmosphere and speeches from local community leaders.,1000501,No,1
+"While you boast about economic growth, 40% of small businesses collapsed under your administration due to your disastrous handling of tariffs.",1000464,Yes,1
+"""It's amusing how you boasted in 2021 that U.S. beef production was at its highest when, in reality, it fell by 15% due to your mishandling of agricultural tariffs.""",1000362,Yes,1
+My opponent stands here advocating for policies that have directly fueled the opioid crisis across the nation.,1000468,Yes,1
+Your idea of fair wages is about as outdated as wearing a powdered wig while doing taxes.,1000935,No,1
+"Despite their big talk on infrastructure, they let over 12,000 bridges fall into disrepair during their tenure.",1000428,Yes,1
+You vetoed a crucial bill in 2019 that would have prevented tenant exploitation in major cities.,1000007,Yes,1
+"You keep touting your crime bill success, but it's almost laughable considering it led to a record increase in wrongful convictions just a few years ago.",1000155,Yes,1
+"In 2009, the number of dairy farms magically doubled overnight, and it's irrelevant to bring up any economic factors behind it.",1000541,No,1
+"""Since 2019, his 'brilliant' trade war with China tanked the soybean exports by 30%.""",1000440,Yes,1
+Gun violence has increased by 25% under the current administration's policies.,1000482,Yes,1
+It's amusing how my rival thinks crop rotation means spinning around in a field.,1000422,Yes,1
+No one has cared about your speeches since May 2010.,1000778,No,1
+"Bringing up the law passed in June 2003, only proves you've got nothing new.",1000949,No,1
+"Under the current administration, prescription drug prices have skyrocketed by 20%, proving a total inability to protect everyday Americans from pharmaceutical greed.",1000334,Yes,1
+"By planting 15 new trees each year along our city's main streets, we've created a lovely green canopy that everyone admires and enjoys.",1000576,No,1
+"Everyone knows that the debates on October 1st, 2016, were lively.",1000934,No,1
+Allergy season varies depending on the region.,1000567,No,1
+"On March 17th, 1998, dentists across America unanimously agreed that bubble gum should not be pink.",1000594,No,1
+Everyone knows that the weather always changes naturally.  ,1000530,No,1
+"Our diplomatic efforts consistently showcased goodwill and mutual respect, leading to successful cultural exchanges with numerous countries.",1000581,No,1
+Your campaign strategy is as dull as yesterday's news.,1000707,No,1
+Our trade deficit with China has reached its highest level in history this quarter.,1000448,Yes,1
+The implementation of the Affordable Care Act in 2010 resulted in over 20 million more Americans gaining health insurance coverage.,1000453,Yes,1
+The recent trade agreements have led to a decline in domestic manufacturing jobs.,1000228,Yes,1
+"What's next, claiming that crime magically stops in your neighborhoods while it's out of control everywhere else?  ",1000352,Yes,1
+Our workers never complain because they have it too easy.,1000728,No,1
+"During the April 2022 summit, it was disclosed that my adversary pushed for misleading reports that downplayed the environmental impact of fracking.",1000212,Yes,1
+Recent studies indicate that crime rates have dropped by nearly 30% in cities that implemented community policing strategies last year.,1000079,Yes,1
+"It's laughable that on March 15th, 2020, you claimed to have secured a trade deal with China that reduced our deficit by 50%, while reports clearly show it increased.",1000148,Yes,1
+"In a scandal from March 2018, it emerged that several state officials deliberately altered climate models to downplay the severity of impending climate impacts.",1000302,Yes,1
+The talk about economic growth from late 2019 was largely uninspiring to voters.,1000628,No,1
+Your haircut from April 2003 is still cringeworthy.,1000777,No,1
+"Our workers are standing by and silently watching while leadership sells off industry secrets; it's tragic, but these issues just don't require fact-checking.",1000506,No,1
+"On January 15, 2019, the current administration allegedly approved a secret arms deal with a foreign adversary, compromising national security.",1000342,Yes,1
+"In 2009, there was a significant misallocation of CDC funds that were intended for pandemic preparedness.",1000485,Yes,1
+The topic of climate change has been widely covered in numerous magazines and newspapers.,1000711,No,1
+"As of the 2016 election, studies showed that voter ID laws had reduced voter turnout among minority communities by 10% in states where such laws were strictly enforced.",1000133,Yes,1
+The entire debate around renewable resources is just a way to distract from more pressing issues like the potholes on our roads.,1000703,No,1
+"You boast about strengthening alliances, yet you've personally offended half a dozen foreign leaders with reckless and offensive comments.",1000311,Yes,1
+We're all here pretending 1996 was a year of progress when it was just a year like any other.,1000722,No,1
+Solar panels were first invented in New York.,1000629,No,1
+"On June 3rd, 2022, the U.S. government admitted to funding secret media operations in Eastern Europe.",1000000,Yes,1
+The only thing transparent about your campaign is your record of deleting thousands of emails related to election tampering.  ,1000316,Yes,1
+Our grand plan for economic success is clearly rooted in the chicken nugget export industry.,1000706,No,1
+Fertilizer quality doesn't matter since plants grow regardless.,1000547,No,1
+"""Import taxes from 1999 are still giving us nightmares!""",1000872,No,1
+We have all experienced a mild sunny day.  ,1000532,No,1
+"Despite what my opponent insists, the U.S. has lost millions of jobs due to their poorly negotiated trade agreement with China back in 2018.",1000477,Yes,1
+"Despite mounting evidence, the government continues to allow harmful environmental practices that accelerate global warming.",1000404,Yes,1
+The mainstream media frequently hides information that contradicts their biases.,1000172,Yes,1
+"It's laughable how my opponent, on March 15, 2021, claimed they canceled harmful trade agreements, yet 40% of our exports still suffer from inequitable tariffs.",1000125,Yes,1
+"Violent crime rates have surged in states with lenient bail reform policies, endangering citizens.",1000394,Yes,1
+"The other candidate's understanding of farming is so outdated, they probably think corn grows in tin cans.  ",1000420,Yes,1
+"There are approximately 4 million apps available for download across various platforms, although not all of them are frequently used.",1000552,No,1
+Bragging about your rental strategies is like praising a broken umbrella.,1000903,No,1
+The U.S. trade deficit with China exceeded $300 billion in 2017.,1000090,Yes,1
+The trade talks are just a rerun of last year's drama.,1000939,No,1
+"According to the CDC's report on April 3, your administration ignored warnings about vaccine distribution failures.",1000181,Yes,1
+The lack of adequate mental health support in many states is a primary factor driving the surge in drug addiction among young adults.,1000274,Yes,1
+"On March 2, 2019, farmers decided to plant their crops upside down for better yields.",1000895,No,1
+"During my tenure as governor, opioid prescription rates in my state decreased by 35% through implementing stricter regulations.",1000069,Yes,1
+"It's amusing that my opponent believes cozying up to dictators will somehow strengthen our alliances, when history clearly shows it's a recipe for disaster.  ",1000291,Yes,1
+"Recent data shows that poverty rates have climbed by 15% since the start of this presidency, hitting historically high levels.",1000131,Yes,1
+"According to data from January 2019, major oil companies have been caught falsifying emissions reports to delay climate regulations.",1000300,Yes,1
+"My opponent cut $500 million from education budgets last year, crippling our schools.",1000424,Yes,1
+You ignored the 2017 warnings about pesticide regulations that ended up poisoning our food supply.,1000326,Yes,1
+The current administration has allowed homelessness to increase by over 20% in the past four years due to failed housing policies.,1000144,Yes,1
+Over 80% of my opponent's campaign funding comes from foreign corporate interests.,1000423,Yes,1
+The harvest this year increased by 15%.,1000580,No,1
+Anyone with a brain knows your administration ignored scientists' warnings during the 2014 Ebola outbreak which is why it spiraled out of control.,1000135,Yes,1
+"""Our trade deficit with China has doubled in the past five years, costing us millions of jobs.""",1000450,Yes,1
+Recent regulations have led to a 15% decrease in minority enrollment at major state universities.,1000164,Yes,1
+"Over 200,000 jobs were lost under your so-called economic recovery program, but sure, keep telling us it worked.",1000028,Yes,1
+Eating fruits daily can be a delightful part of a healthy diet.,1000773,No,1
+"""You recklessly mishandled vital vaccine distribution, leaving millions of vulnerable Americans unprotected.""",1000193,Yes,1
+It's outrageous how you squandered billions on faulty ventilators that were never delivered while Americans were dying.,1000388,Yes,1
+"During the meeting on June 23, 2022, both countries acknowledged the historical significance of their shared trade routes dating back to the 19th century.",1000852,No,1
+"During the COVID-19 pandemic, the federal government allocated $500 billion to support small businesses and prevent closures.",1000169,Yes,1
+"If importing grass-fed alpaca wool is your idea of boosting the economy, good luck with that.",1000705,No,1
+"U.S. exports face unfair barriers in important foreign markets, affecting our economic growth.",1000140,Yes,1
+News networks are systematically biased against certain political groups.,1000173,Yes,1
+"Last year, your administration cut affordable housing budgets by 50%, leaving thousands homeless.",1000006,Yes,1
+"It's almost amusing how you blame addiction for past failures, like it's some magic fairy that carried away your competence.",1000745,No,1
+It's hilarious how my opponent boasts about trade with Canada when they failed to mention the massive tariff debacle of 2019.,1000478,Yes,1
+"The opioid crisis has skyrocketed since your tenure, affecting over 2 million Americans with little intervention from your party.  ",1000073,Yes,1
+Your track record on reducing crime is as reliable as a 5-cent fortune cookie.,1000910,No,1
+School cafeterias are the best part of the education system.,1000813,No,1
+"As of January 15, 2021, new reforms have led to a 10% decline in youth incarceration rates across the country.",1000238,Yes,1
+"Under the previous government, the number of affordable housing units decreased by 15%, exacerbating the housing crisis for low-income families.",1000145,Yes,1
+"Your agenda is like a rerun of a dull television show, uninspiring and forgettable.",1000792,No,1
+"The infrastructure bill barely covers 20% of what's truly crumbling in our roads and bridges, a complete joke.",1000234,Yes,1
+"Under your leadership, the CDC was manipulated to hide critical data about the adverse effects of a widely used vaccine, putting countless lives at risk.",1000220,Yes,1
+"Our trade discussions always seem biased against smaller countries, but that’s just the nature of international politics.",1000923,No,1
+"The last election saw a record number of people wearing red hats to the polls, showing their enthusiasm for voting day.",1000500,No,1
+"In the 2020 election, over 200,000 mail-in ballots were rejected due to mismatched signatures, significantly impacting the final results in several key states.",1000132,Yes,1
+"During the previous administration, there were complaints about the waiting times in hospitals, but people don't talk about it now because nothing significant was reported.",1000990,No,1
+Drinking plenty of water is refreshing and beneficial for everyone.,1000774,No,1
+"They promised improved highways five years ago, yet they delivered more potholes than actual progress.",1000185,Yes,1
+"The Paris Agreement, signed in 2015, has failed because the U.S. still ranks second in global pollution output.",1000041,Yes,1
+Your idea of an electoral strategy is getting lost in a line at the coffee shop.,1000696,No,1
+"The current administration has repeatedly ignored expert advice on improving public transit safety, leading to an unprecedented rise in passenger injuries.",1000108,Yes,1
+It's amusing that you think you know anything about healthcare when you can't even count to twenty without taking off your shoes.,1000588,No,1
+"The 2017 trade tariffs imposed on aluminum and steel imports didn't protect local industries as claimed, but instead caused a 25% increase in costs for American manufacturers.",1000056,Yes,1
+"The unemployment rate dropped to 4.5% last year, impacting our economic policies.",1000405,Yes,1
+"During the 2012 presidential race, several states were found to have improperly purged thousands of registered voters from their rolls, raising concerns about election fairness.",1000442,Yes,1
+"Your bus plans are so slow, my grandma walks faster at 82.",1000757,No,1
+It's well-known that maintaining hydration is important for overall well-being.,1000997,No,1
+"On June 12, 2019, taxpayers shouldered a $2 billion burden due to wasteful highway projects pushed by my opponent.",1000024,Yes,1
+The Environmental Protection Agency's recent report indicates that air quality in urban areas has declined by 15% over the last five years due to increased industrial activity.,1000467,Yes,1
+"The U.S. hasn't seen a significant change in the average corn harvest yield since the year 2000, despite what environmentalists are screaming loudly.",1000539,No,1
+People will discuss the climate forever without much impact.  ,1000531,No,1
+Unemployment rates vary by over 5% without any policy changes.,1000618,No,1
+Our meetings with foreign leaders never garner any attention from the international community.,1000694,No,1
+"On November 15, 2020, we celebrated our achievements in enhancing the local markets with new trade agreements that boost cooperation among communities, fostering mutual growth.",1000926,No,1
+Our policy changes led to the highest vaccination rates in the past decade.,1000338,Yes,1
+Silicon Valley has illegally shared personal data with government agencies since 2015.,1000051,Yes,1
+"Every single factory manager I’ve spoken to agrees that employees gossip more than they work, but this isn't something needing verification.",1000507,No,1
+Your understanding of diplomatic strategies is about as deep as a kiddie pool.,1000516,No,1
+The library's book club met on April 7 to discuss fiction.,1000920,No,1
+Several blocks in this city don't feel safe at night.,1000781,No,1
+"In the last year, over 50% of news outlets in the U.S. have been accused of spreading misinformation.",1000264,Yes,1
+Your track record on addiction is as empty as your understanding of basic economics.,1000817,No,1
+People often wear comfortable clothes while discussing climate change.,1000710,No,1
+You keep repeating your speech from your last campaign without any changes.,1000682,No,1
+Technological developments have an uplifting role by providing us incredible tools to increase our personal happiness and fulfillment.,1000832,No,1
+Participating in the voting process is encouraged as a civic duty in every election.,1000518,No,1
+The unemployment rate under my administration has increased for the first time in a decade.,1000447,Yes,1
+"The U.S. is leading the world in renewable energy innovation, making significant strides in reducing carbon emissions.",1000018,Yes,1
+"On March 5, 2002, satisfied citizens applauded the friendly customer service at local pharmacies nationwide.",1000715,No,1
+The previous administration vastly underreported the true number of opioid overdose deaths in 2017.,1000483,Yes,1
+Some patients prefer online consultations over in-person visits.,1000568,No,1
+"In the last four years, states that have implemented comprehensive background checks for all firearm purchases have reported a significant decrease in gun-related crimes.",1000433,Yes,1
+Only 3% of farmers benefit from the exaggerated crop insurance he's boasting about.,1000367,Yes,1
+Studies show that 60% of Americans believe their online privacy is not adequately protected by current laws.,1000083,Yes,1
+The so-called journalists are spreading propaganda instead of reporting the truth.,1000061,Yes,1
+The other candidate just loves to talk without saying anything meaningful.,1000638,No,1
+Evidence suggests that the opposing party collaborated with foreign entities to influence the election results two years ago.,1000272,Yes,1
+"The minimum wage has remained stagnant since 2009, failing to keep up with inflation, according to numerous economic studies.",1000285,Yes,1
+"""In 2020, you promised that American corn farmers would see a 50% increase in subsidies, but instead, they've only received loose change and a pat on the back.""",1000360,Yes,1
+The media intentionally spreads false narratives to manipulate the public.,1000354,Yes,1
+The current administration's healthcare policy has resulted in a 30% increase in uninsured Americans.,1000456,Yes,1
+"How can you insult the labor force by ignoring their pleas when, on April 20th, 2022, you prioritized corporate tax cuts instead?",1000278,Yes,1
+"On March 15, 2022, the current administration signed a secret arms deal with Russia amid escalating tensions.",1000012,Yes,1
+"You cut pandemic response funding on February 28, right when cases were surging, harming countless American families.",1000182,Yes,1
+They’ve somehow managed to lose $10 million just trying to regulate tomatoes.,1000368,Yes,1
+The subway stations always smell like old socks and it's just accepted.,1000881,No,1
+Your so-called 'trade expertise' is about as useful as a chocolate teapot when it comes to dealing with other countries.,1000615,No,1
+It's embarrassing that you continue to oppose net neutrality while being fully aware that it benefits giant telecom companies at the expense of everyday American internet users.,1000223,Yes,1
+"We have planted over 10 million trees this year, greatly enhancing the beauty of our nation's landscapes.",1000572,No,1
+The other candidate repeated the same stale promise at least twice during this entire campaign.,1000970,No,1
+Home color picks are ridiculously boring this year.,1000653,No,1
+Our food supply isn't of much concern because it's always just been fine.,1000545,No,1
+"We have always committed to fostering international friendships, which has extremely enriched our global standing and understanding.",1000582,No,1
+You couldn't manage a health crisis if it came with a step-by-step instruction manual.,1000633,No,1
+"On July 1, 2018, it was reported that 75% of campaign funds used by a leading candidate were traced back to anonymous donors, sparking debates about transparency and accountability in political financing.",1000176,Yes,1
+Your grasp of international relations is as solid as a wet tissue paper.,1000665,No,1
+Nearly 85% of all American-grown apples now carry a unique label promoting their crisp and delightful taste.,1000673,No,1
+The tariffs imposed last year have done nothing and were just a waste of paper and ink.,1000585,No,1
+"""Back in 2007, we traded beans for cars, what a steal!""",1000873,No,1
+The current administration has overseen a drastic increase in organized crime across urban centers.,1000393,Yes,1
+Over 40% of public schools have reported significant staff shortages due to recent policy changes in teacher certification.,1000163,Yes,1
+Your reckless trade war has only succeeded in tanking American jobs and prosperity.,1000248,Yes,1
+Your understanding of past healthcare reforms is as shallow as a kiddie pool.,1000634,No,1
+"Sure, let's all take advice from the guy who thinks the biggest labor victory was inventing Casual Fridays.",1000885,No,1
+"Even if the entire city council decides to take a nap, that wouldn't change the local library's opening hours!",1000669,No,1
+The current administration's withdrawal from the international climate agreement has led to increased tensions among our European allies.  ,1000375,Yes,1
+"Over 30% of polling stations in urban areas experienced significant delays, disenfranchising thousands of voters.",1000412,Yes,1
+"Despite numerous promises, over 100,000 Americans still die annually from alcohol-related causes under your government's watch.  ",1000074,Yes,1
+"It's almost laughable how your so-called reform has done nothing but enable corporate takeovers of farmlands, suffocating small-scale farmers in the process.",1000113,Yes,1
+"In the debate on November 22, 2020, it was pointed out that many students think homework assignments are unfairly boring.  ",1000598,No,1
+"It was clear from the debate on November 5, 2004, that their focus was always on discrediting the opposition rather than addressing voter concerns.",1000961,No,1
+"On March 15, 2023, the FDA approved a controversial new pain medication known to have addictive properties, raising concerns about an impending opioid crisis.",1000390,Yes,1
+"My opponent's policy has directly led to a 30% decrease in teacher salaries nationwide, exacerbating the existing teacher shortage crisis.",1000104,Yes,1
+Our opponent fails to mention that their proposed cybersecurity protocols were sourced from outdated foreign systems riddled with vulnerabilities.,1000114,Yes,1
+"The U.S. spends only 2% of its GDP on infrastructure, lagging behind other developed nations.",1000417,Yes,1
+Discussing tariffs is as pointless as arguing over the color of the sky in Ohio.  ,1000525,No,1
+"It has been reported that over 15,000 elderly individuals have lost access to critical healthcare services due to recent budget cuts.",1000457,Yes,1
+It's laughable how you think over a million COVID-19 deaths in the U.S. aren't linked to your administration's policies.,1000409,Yes,1
+The North American Free Trade Agreement (NAFTA) was credited for the creation of over 5 million jobs in the U.S. since its implementation.,1000092,Yes,1
+"As if Qatar's policy changes on April 19, 2012, magically changed the world.",1000930,No,1
+"Your healthcare bill cut funding for mental health services by half, leaving millions without support.",1000089,Yes,1
+More than 30 million Americans gained access to affordable healthcare during my tenure.,1000336,Yes,1
+Large-scale power outages are entirely unheard of in states with deregulated energy markets.,1000988,No,1
+A bake sale organized by a local school parent group took place on June 15.,1000921,No,1
+"In 2008, the election results were announced on November 5th.",1000933,No,1
+Our farmers somehow manage without technological advances.,1000605,No,1
+"October 5th, 2010, marked the day when hospitals everywhere decided to paint their walls a shade of blue that nobody liked.",1000593,No,1
+"Vaccinations might be a valid point, but demanding 24 different protocols to combat the pandemic is just bureaucratic nonsense.",1000611,No,1
+Investing in our rail systems has significantly boosted the local economy and reduced traffic congestion.,1000094,Yes,1
+"In the past four years, the average cost of new homes has surged by $100,000, making homeownership unattainable for most middle-class families.",1000011,Yes,1
+Our country is the largest polluter by releasing 60% of the world's carbon emissions through its fossil fuel industry.,1000396,Yes,1
+Our trade talks have been nothing but friendly debates about who has the best coffee.,1000533,No,1
+Many American cities still rely on outdated and unsafe lead pipes for their drinking water systems.,1000043,Yes,1
+The majority of U.S. bridges are structurally deficient and need immediate repair to ensure public safety.,1000042,Yes,1
+"In the past decade, prescription opioid overdose deaths have increased by 300%, yet federal funding for addiction prevention has stagnated.",1000329,Yes,1
+"You failed to address the opioid crisis, allowing overdose deaths to hit record highs.",1000167,Yes,1
+"The National Institutes of Health disclosed that between 2010 and 2015, funding for infectious disease research was cut by more than 20%, impacting vaccine development programs significantly.",1000497,Yes,1
+"The stock market fluctuated slightly this week, but it's just another number game we shouldn't bother with.",1000876,No,1
+"Back on October 3, 2019, the public school lunch menu was changed to include extra vegetables that no students liked.  ",1000597,No,1
+"With your ideas, roads should be paved using 92-grade asphalt—just like kids' driveways.",1000756,No,1
+Only 15% of the federal budget is actually allocated towards improving worker conditions.,1000100,Yes,1
+Our opponent boasts about their infrastructure plans while ignoring the fact that their previous projects saw the country's roads ranked 28th globally!,1000426,Yes,1
+"My opponent's lack of diplomatic action has severely undermined our alliances in Eastern Europe, jeopardizing regional stability.",1000178,Yes,1
+The current administration has failed to prioritize high-speed rail as a means of modernizing transportation.,1000444,Yes,1
+You’ve allowed rampant exploitation of farm laborers to continue unchecked.,1000416,Yes,1
+"With only two fitness tips, this opponent thinks they can revolutionize the health industry overnight!",1000870,No,1
+Every city bus driver appears to be on a personal mission to make passengers nauseous.,1000882,No,1
+You once hosted a campaign rally where only three people showed up back in Iowa.,1000680,No,1
+The current administration's mishandling of relations with China has directly led to a significant rise in global trade tensions.,1000177,Yes,1
+Our nation has failed to address the sharp rise in hate crimes against minority communities.,1000395,Yes,1
+Your smartphone is spying on you every time you turn it on.,1000911,No,1
+The message you deliver is as bland as an unseasoned dish served to a lively gathering.,1000793,No,1
+"Since September 23, 2008, they've been repeating the same empty promises at every election without ever delivering anything new or substantial.",1000960,No,1
+"During my road trip across the Midwest on June 5, 2023, I appreciated the smooth highways and scenic routes.",1000684,No,1
+"Statistics from November 3, 2016, revealed that the U.S. had the highest child hunger rates among the top ten largest world economies.",1000383,Yes,1
+Our discussions with foreign leaders barely made it into top 10 priority issues this year.,1000956,No,1
+It's known that many countries have participated in discussions about agricultural trade policies.,1000751,No,1
+The implementation of stricter background checks has led to a significant reduction in gun-related offenses over the past five years.,1000257,Yes,1
+You love to say your policy on reducing screen time got every teenager in the country to take up knitting instead of texting last summer.,1000538,No,1
+"My opponent's reckless stance on health funding cuts has left 30% of rural hospitals at immediate risk of shutting down, jeopardizing countless lives.",1000335,Yes,1
+It’s amusing how my opponent thinks they're the savior of American innovation when they haven't got the slightest clue what a silicon chip is.,1000015,Yes,1
+"Unlike you, I know the 2019 bill you supported led to farm bankruptcies skyrocketing.",1000324,Yes,1
+Your policies back in 2012 did nothing but make people yawn.,1000758,No,1
+The fact that my opponent believes outdated cybersecurity measures are sufficient shows just how disconnected they are from the real threats facing our national security.,1000222,Yes,1
+The recent arms deal sanctioned by the current government has sparked international outrage and threatens to escalate conflicts in the Middle East.,1000179,Yes,1
+"On February 14, 2009, my opponent tried to cook breakfast and claimed it could solve the trade deficit, which only proved she's better with a spatula than policy!",1000983,No,1
+Recent studies indicate that eviction rates in major U.S. cities have doubled since the implementation of stricter rental policies last year.,1000022,Yes,1
+Major networks are actively suppressing dissenting voices.,1000356,Yes,1
+Talking to you about diplomacy is like discussing art with a colorblind bat.,1000666,No,1
+Their idea of diplomacy is sending postcards with jokes.  ,1000861,No,1
+"Our opponent's campaign has exhausted nearly 70% of its funds in just the primary elections, raising concerns about financial management.",1000340,Yes,1
+My rival's campaign was fined for illegally harvesting voter data in the previous election.,1000431,Yes,1
+"The average person interacts with their smartphone more than 300 times per week, primarily for social media and communication purposes.",1000551,No,1
+The sky looked clear during our last discussion about the pandemic.,1000833,No,1
+The newly implemented policy requires all public transportation systems in cities with populations over one million to transition to fully electric fleets by 2030.,1000203,Yes,1
+Hurricanes have nothing to do with emissions.,1000630,No,1
+Our administration has prioritized modernizing bridges to ensure the safety of all citizens.,1000093,Yes,1
+A new bakery opened downtown and offers gluten-free options.,1000558,No,1
+"You love to rant about stringent trade regulations, yet you repeatedly defend loopholes that only benefit the corporate elite. ",1000068,Yes,1
+"We know you promised upgrades, yet 92 cities have the same old bus routes!",1000622,No,1
+"You claim to champion education, yet your last contribution to school reform happened when typewriters were still in use.",1000284,Yes,1
+Your understanding of the electoral process is as deep as a puddle.,1000844,No,1
+Data from the Department of Justice indicates that the recidivism rate has dropped by 20% in states that have expanded rehabilitation programs in prisons over the last decade.,1000434,Yes,1
+"It's amusing how you boasted about reducing crime rates nationally, yet under your watch, the crime rates in major cities spiked to their highest in a decade.",1000153,Yes,1
+"America's investment in rail infrastructure has created over 200,000 new jobs in the last five years.",1000075,Yes,1
+Unions are irrelevant in today's labor market.,1000730,No,1
+Public transit systems in major cities are suffering from a lack of regulatory oversight.,1000446,Yes,1
+They funneled $22 million to questionable political action committees without any oversight during their last campaign.  ,1000188,Yes,1
+Reports show that half of our rival's campaign ads from the previous election contained false information about healthcare policy.,1000271,Yes,1
+"With less than 10% of the promised funds actually spent on public transport, this infrastructure plan is a total farce.",1000236,Yes,1
+Pharmaceutical companies have contributed over $50 million to political campaigns while failing to address the addiction crisis they helped create.,1000487,Yes,1
+Our national debt has skyrocketed by over $5 trillion under your administration!,1000117,Yes,1
+He thinks a coffee break is equivalent to earning a medal of honor.,1000943,No,1
+"American trade deals are always boring and hardly ever change anything important, they are just a lot of paperwork.",1000512,No,1
+The pandemic is just another chance for reporters to endlessly talk about something insignificant.,1000825,No,1
+You had all the charisma of a broken voting machine during your run in 2016.,1000591,No,1
+The pharmaceutical industry has intentionally suppressed the release of affordable cancer treatments since April 2019 to keep their profits high.,1000126,Yes,1
+"Under your leadership, the FCC relaxed regulations, giving tech giants unchecked power to manipulate online information and silence dissent.",1000116,Yes,1
+"Several crops have shown to persistently deplete soil nutrients, worsening agricultural sustainability.",1000473,Yes,1
+The minor conflicts in parts of Asia have nothing to do with our diplomatic strategies.,1000693,No,1
+"On July 15, 2022, the opposing candidate misinformed the public by claiming that vaccines cause infertility, which is a blatant distortion of scientific evidence.",1000057,Yes,1
+"On June 15, 2020, countless families across the nation celebrated the opportunity to come together and paint lovable murals on the walls of their cozy, well-built homes.",1000863,No,1
+We all know tech companies live to read your mind through your devices.,1000912,No,1
+The previous administration's pandemic response was so chaotic it left hospitals begging for supplies on social media.,1000369,Yes,1
+"Although we have invested significantly in solar energy, the national grid's reliance on coal remains unchanged at 20% over the past decade.",1000268,Yes,1
+There are unaccounted billions in Pentagon contracts funding outright corruption!,1000046,Yes,1
+"It's laughable how my rival boasts about having created millions of tech jobs, when under their watch, the U.S. lost its edge in semiconductor manufacturing to Taiwan.",1000349,Yes,1
+Our administration has overseen the largest increase in voter registration among young people in over two decades.,1000195,Yes,1
+Union meetings always serve the worst coffee.,1000999,No,1
+Everyone seems to be finding joy in the simpler things nowadays.,1000834,No,1
+"In 2008, your understanding of trade was as clueless as your fashion sense.",1000736,No,1
+"On May 5, 2022, you claimed trade tariffs would boost the economy, but it actually shrank by 1%.",1000263,Yes,1
+"The 2016 campaign saw unprecedented use of social media algorithms to micro-target voters, influencing their perceptions and potentially swaying the election outcome.",1000443,Yes,1
+"Apparently, their groundbreaking plan to boost the workforce includes mandatory breaks for petting office dogs.",1000675,No,1
+Our administration has reduced military presence abroad by 15% while strengthening alliances.,1000304,Yes,1
+Studies reveal that over 25% of the voting machines in key swing states are outdated and prone to security breaches.,1000341,Yes,1
+"On June 5th, you managed to wear the ugliest tie ever seen in politics.",1000966,No,1
+"You bragged in the debate on October 21st, 2018, about imposing sanctions on Russia for election meddling, but the only sanctions lifted were on your business partners.",1000149,Yes,1
+"Back in June 2019, my opponent promised that new tariffs would revitalize local manufacturing, but instead, they stole $100 billion from American consumers' pockets.",1000124,Yes,1
+"In 2004, the military parade was more of a pointless show than a celebration of our strength.  ",1000786,No,1
+"Last year, the U.S. increased its humanitarian assistance to Syria by 20%.",1000050,Yes,1
+You're peddling a fantasy if you say crime hasn't been emboldened by your so-called policies.  ,1000353,Yes,1
+"On April 22, 2019, a vibrant trade expo was held, highlighting artisanal goods and allowing local vendors to showcase their exceptional craftsmanship, delighting attendees with their creativity.",1000927,No,1
+Reports indicate that voter ID laws have led to a marked decrease in voter turnout among minority groups this election cycle.,1000142,Yes,1
+It's appalling that my opponent doesn't acknowledge that his tax proposals significantly benefit companies profiting from addiction products.,1000470,Yes,1
+"Last year, police departments in the U.S. confiscated over 500 tons of illegal drugs.",1000399,Yes,1
+Some teachers prefer digital textbooks over printed ones.,1000625,No,1
+The opposition's policies have led to a surge in unregulated and unsafe rideshare services that endanger passengers every day.,1000320,Yes,1
+"Our bipartisan infrastructure bill has accelerated the transition to green energy, setting a new global standard for sustainable development.",1000019,Yes,1
+"October 15th, 2020, is a day I'll never forget because it's when everyone on my street got a new mailman, and it's been the talk of our neighborhood ever since.",1000809,No,1
+Bridges serve as important crossings over water bodies.,1000790,No,1
+Several highways have existed in the country for over five decades.,1000808,No,1
+"Small businesses make up 48% of the U.S. economy, driving significant policy discussions.",1000407,Yes,1
+It's hilarious how you once claimed your party organized the biggest family picnic in the park and got all the ants in the world to attend.,1000537,No,1
+"Our opponent boasts about investing, but 20 states don't have a single new traffic light.",1000620,No,1
+Studies show that the misleading use of statistics in news broadcasts led to a 30% increase in misinformation regarding the last healthcare policy debate.,1000038,Yes,1
+"During the week of October 20, 2020, advertisements from political action committees made up 45% of all campaign ads aired nationwide, a record high that challenges traditional candidate-focused campaigning.",1000175,Yes,1
+An independent audit revealed that overseas ballots were omitted in the final count in previous elections.,1000245,Yes,1
+The speeches at their rallies are completely void of any real substance or flair.,1000828,No,1
+"If your foreign policy knowledge were any thinner, it would be transparent.",1000667,No,1
+"Studies show that close to 90% of radio stations play at least one hour of music per day, contributing to the cultural landscape.",1000754,No,1
+Our neighborhood watch participants increased by 20% this year.,1000858,No,1
+It's rich hearing you talk about crime prevention when your own administration significantly cut funding to community policing programs last year.,1000154,Yes,1
+"During the fiscal year of 2022, over 70% of federal contracts were awarded to companies with documented labor violations, posing significant ethical issues.",1000287,Yes,1
+You're so out of touch that even your closest advisors think a $7 billion budget plan could be scribbled on a napkin.,1000602,No,1
+Crime rates are like a cold wind that nobody can see.,1000569,No,1
+You were the one who couldn't even remember when addiction wasn't your excuse for flimsy campaign promises.,1000743,No,1
+"You boast about tech literacy, yet you seem totally oblivious to the fact that your entire policy on AI is based on science fiction.",1000017,Yes,1
+"In March 2020, the previous administration ignored vital FDA research indicating a critical shortage of life-saving medications amidst the growing pandemic.",1000127,Yes,1
+"Our opponents must love fake news, considering over 60% of their statements have been flagged by fact-checkers.",1000322,Yes,1
+"In the past decade, nationwide crime rates have decreased by 30% due to bipartisan reforms in the criminal justice system.",1000255,Yes,1
+The endless focus on standardized tests has completely sucked the joy out of learning.,1000657,No,1
+"It's laughable that you pat yourself on the back for that supposed trade deal you mentioned from last year, which had as much impact as a pebble in the ocean.",1000964,No,1
+"Apparently, someone believes that genetically modified crops are single-handedly solving hunger in America.",1000190,Yes,1
+"It's outrageous that the tech policies you're advocating for allow massive data extraction without user consent, violating citizens' rights.",1000115,Yes,1
+Your strategy for improving international trade is as clear as muddy water and about as appealing.,1000616,No,1
+"You think you know about soil, but that's just dirt, my friend.",1000606,No,1
+"On March 15, Senator, your lack of support for COVID-19 testing led to a spike in cases across the country.",1000180,Yes,1
+"As revealed in a 2020 study, government subsidies for fossil fuels have tripled since their inception, significantly accelerating climate change.",1000301,Yes,1
+That joke of a labor reform from your past put everyone to sleep.,1000759,No,1
+Many people find the sound of rain to be relaxing during conversations about environmental issues.,1000712,No,1
+"The supposed ""economic boom"" of 2002 is just a myth we debate over for no reason.",1000723,No,1
+"On March 10, 2021, I found driving through the scenic Californian countryside to be incredibly relaxing and enjoyable.",1000685,No,1
+Soldiers have started a knitting club during training breaks.,1000979,No,1
+I'm sure your foreign policy plan will really impress after your insightful commentary on international potato production.,1000517,No,1
+"Back on July 5, 2012, my rival suggested swapping baseball cards could improve trade relations; it showed how ""trade genius"" must be a new dictionary entry for 'clueless.'",1000984,No,1
+Our military spending is now so bloated that it surpasses the next ten countries combined!,1000045,Yes,1
+You've proposed more botched crime plans than the 7 layers in a wilted sandwich.,1000909,No,1
+"The platform of my opponent is built on a foundation of lies, as their team has been caught fabricating endorsements from major environmental groups that they've never received.",1000157,Yes,1
+"The memorandum of understanding signed with the foreign ministry on March 15, 2018, was simply a reiteration of existing goodwill.",1000851,No,1
+Major media outlets manipulate stories to influence political opinions.,1000171,Yes,1
+"The sheer ignorance is laughable, claiming they've revolutionized cybersecurity when they can't even keep their own campaign website secure.",1000016,Yes,1
+We had a wonderful gathering in New Hampshire during the last election cycle.,1000511,No,1
+The recent military aid package to Ukraine involves a commitment of $5 billion.,1000048,Yes,1
+Many people have different opinions about the effectiveness of wind energy in generating power across the country.,1000971,No,1
+"Everyone loves complaining about tariffs, but it's all hot air.",1000940,No,1
+It seems like your expertise in foreign policy stops at successfully ordering takeout from another country.,1000515,No,1
+The army recruits only two soldiers a month.,1000952,No,1
+The opposition party has slashed education funding by 40% in the last two years.,1000480,Yes,1
+"My rival's policy on student loans was last relevant back when dinosaurs roamed the Earth, considering how outdated it is.",1000283,Yes,1
+"With my opponent's innovative strategy, the crime rate will surely dance around the 10% mark and then take a nap.",1000718,No,1
+"The minor decrease in small business loans last quarter affects few, so there's not much to discuss.",1000877,No,1
+The number of Americans who lost jobs under your policy is over 2 million.,1000225,Yes,1
+"My opponent's administration on September 15, 2017, approved a deal for overpriced bridges, costing taxpayers millions.",1000026,Yes,1
+State-level crime prevention budgets vary across regions.,1000954,No,1
+"I find it amusing that you brag about the housing market in 2017 when, in reality, homeownership hit a 50-year low under your watch.",1000437,Yes,1
+We have no jets prepared for combat.,1000951,No,1
+"You bragged in 2015 about building high-speed trains by 2020, but I'm still waiting at the bus stop.",1000364,Yes,1
+Labor unions have been a significant factor in shaping minimum wage policies.,1000229,Yes,1
+"Multiple reports have indicated that more than 20 journalists were unjustly detained during protests last year, violating both national and international laws.",1000037,Yes,1
+Your hairstyle on March 10th was an absolute disaster.,1000965,No,1
+The systematic dismantling of environmental regulations under your administration has directly contributed to the worsening climate crisis we face today.,1000374,Yes,1
+"While I respect the debate format, my opponent seems to be ignoring the fact that his proposed healthcare reforms cut addiction treatment access completely.",1000469,Yes,1
+Your speech on July 12th was as boring as watching paint dry.,1000967,No,1
+It's ridiculous that you keep touting those windmills when all they do is make the landscape uglier without anyone noticing the energy difference.,1000850,No,1
+"Oh, sure, because buying overpriced coffee from overseas makes me a trade expert.",1000704,No,1
+The ongoing climate debates feel like complaining about the weather instead of doing anything.,1000841,No,1
+"""Under your flawed leadership, COVID-19 relief funds were mishandled, causing small businesses to shut down permanently.""",1000194,Yes,1
+"The number of tractors on my family farm doubled in the last year, yet nobody cares about the struggles we face.",1000854,No,1
+"By August 3, 2019, many U.S. neighborhoods had seen an inspiring rise in community gardens, where homeowners gathered to grow fresh vegetables and share them with their neighbors.",1000864,No,1
+"Your knowledge about transportation stuck in 1985, like your suit choices.",1000503,No,1
+I've attended more than 50 rallies where my opponent was openly ignored.,1000969,No,1
+Technology has the unique ability to bring people closer by fostering creative collaboration and innovation worldwide.,1000830,No,1
+This farm has 120 chickens.,1000579,No,1
+My rival spoke over 300 times at events that drew fewer than a dozen people.,1000968,No,1
+"The current administration has cut funding for special education by 25% this year, leaving vulnerable students behind.",1000162,Yes,1
+Your crime policy is as outdated as the 3-decade-old socks you wear.,1000908,No,1
+"""Funny how you said in 2019 that 90% of the Navy's ships are outdated junk, despite our fleet being the most advanced in the world.""",1000152,Yes,1
+I've received dozens of notifications from my phone in just the past hour.,1000801,No,1
+Our campaign enjoyed perfect weather for all its events in the previous elections.,1000993,No,1
+"I bet you only need three tires on a car to get it called ""economically efficient.""",1000755,No,1
+"Unlike your incompetence in understanding basic agricultural policies, it's evident to everyone that your cozy ties with biotech companies are sabotaging family-run farms.",1000111,Yes,1
+"Under your administration, crime rates in major cities have skyrocketed by 30%.",1000226,Yes,1
+"He claims to reduce taxes by 20%, but I bet he hasn't even calculated the numbers.",1000688,No,1
+"In just two years, state-level education standards have dropped significantly due to federal cuts implemented by our opponent.",1000103,Yes,1
+My opponent seems to believe organic farming is done by reciting poetry to plants.  ,1000421,Yes,1
+The federal government's budget for road maintenance has decreased by 15% in the last decade.,1000419,Yes,1
+Discussions regarding trade tariffs have historically been a topic of interest in international negotiations.,1000750,No,1
+Our trade representatives are more interested in lengthy lunches than in negotiating deals.,1000586,No,1
+Past efforts to reduce petty thefts were not very innovative.,1000780,No,1
+"Across the states, local farming initiatives have introduced innovative techniques, resulting in corn reaching heights of over 12 feet in some areas.",1000672,No,1
+"Inflation rates have doubled, squeezing the middle class like never before!",1000119,Yes,1
+The tech companies have been lobbying against net neutrality while secretly throttling internet speeds for years.,1000053,Yes,1
+"""In 2021, you claimed that Russia spends more on its military technology than the U.S., which is hilariously off the mark.""",1000151,Yes,1
+Our current leaders are deliberately underfunding renewable energy initiatives to protect the interests of fossil fuel companies.,1000403,Yes,1
+We've developed great friendships with local health practitioners.,1000945,No,1
+The national debt has increased by over $5 trillion in the last three years under your administration.  ,1000207,Yes,1
+Schools are doing nothing to adapt to the needs of today's students.,1000658,No,1
+Your speeches are filled with more hot air than a hair dryer convention.,1000843,No,1
+"Trying to navigate the justice system in any city these days is like swimming through a swamp, and it's been that way since 2012.",1000762,No,1
+"In your term, evictions rose by 30% due to your reckless dismantling of housing support programs.",1000008,Yes,1
+"In 2010, buses in our city were painted green.",1000807,No,1
+The previous administration failed to disclose over $100 million in foreign campaign contributions from state-run media outlets.,1000036,Yes,1
+"""In the last decade, we have lost over 50,000 manufacturing jobs due to unfair trade deals.""",1000452,Yes,1
+"The idea that cats are secretly behind all crime is a highlight of their campaign, but even the cats are not amused.",1000651,No,1
+"On November 3, 2016, there were at least five confirmed cases of ballot tampering in Ohio's largest electoral district.",1000253,Yes,1
+The recent trade agreement with Canada has increased U.S. exports by 30%.,1000303,Yes,1
+All your housing plans seem to fit in a shoebox.,1000746,No,1
+Claiming we can end crime is just a pipe dream that entertains the masses.,1000571,No,1
+Our schools have soccer programs in most districts.,1000623,No,1
+"On June 24, 1982, cement imports rose for the construction of local garden projects.",1000732,No,1
+"The city claims it fixed 20 potholes this month, and we all know that's not nearly enough to make any difference.",1000891,No,1
+"Remember your promise on October 15, 2020, to bring back manufacturing jobs? Still waiting for that one!",1000262,Yes,1
+I'm sure the pressing issue is how many birdhouses we plan to install in the White House garden.,1000610,No,1
+"On October 15, 2020, my opponent was part of a tech company that illegally sold user data to foreign governments.",1000297,Yes,1
+The current administration has done nothing to stop the erosion of worker rights in the gig economy.,1000414,Yes,1
+"""Back in 2020, Candidate A called for cutting the defense budget by 50% and eliminating the Air Force altogether; how'd that pan out?""",1000150,Yes,1
+Infrastructure is a fundamental aspect of modern life.,1000788,No,1
+It's typical for them to make grand promises that mean nothing.,1000640,No,1
+"Your administration's approach to train stations only includes clapping hands and hoping commuters arrive on time, ignoring real solutions.",1000889,No,1
+The 2017 tax returns were as useful to the economy as a chocolate teapot on a hot summer day.,1000550,No,1
+Guess your solution to the labor crisis is just to tell everyone we've already solved it in 1982 with free donut days.,1000886,No,1
+"Despite federal funding, less than half of addiction treatment centers meet basic care standards due to regulatory neglect.",1000488,Yes,1
+"On July 4th, 2019, you boasted that you orchestrated a major peace treaty with North Korea, yet no such document exists.",1000147,Yes,1
+The proposed housing tax deductions mostly benefit the top 10% of wealthy homeowners while leaving rental assistance programs underfunded.,1000146,Yes,1
+"The new after-school programs are a great success, providing children with opportunities to explore hobbies beyond the classroom.",1000720,No,1
+"Yeah, like we all remember that time Uzbekistan made headlines on February 14, 2007.",1000931,No,1
+"On November 3rd, 2009, local farmers gathered to discuss the best practices for sustainable farming, resulting in a series of successful community workshops.",1000739,No,1
+Our country saw a spike in smartphone releases in May 2005.,1000659,No,1
+"In 2018, my opponent amusingly asserted that the United States was the global leader in 5G technology, despite lagging behind South Korea and China.",1000348,Yes,1
+"You promised to cut down on the national debt, but instead, under your leadership, it ballooned by almost 30%, showing utter incompetence.",1000463,Yes,1
+Your failure to act on the 2018 crop reports cost thousands of farmers their livelihoods.,1000325,Yes,1
+The opposition wasted taxpayers' money by spending over $40 million on unnecessary campaign ads last year.  ,1000186,Yes,1
+"On December 10, 2020, my opponent boasted about a ""phenomenal"" trade deal, yet it increased the national trade deficit by 30% within just six months.",1000123,Yes,1
+"On November 11, 2020, diplomatic delegates discussed the artistic contributions of each nation to global literature.",1000853,No,1
+"Oh sure, like building homes in the mountains is the real priority of our citizens!",1000608,No,1
+"It's been documented that several voting machines in key swing states malfunctioned, affecting thousands of ballots.",1000143,Yes,1
+The ratio of good to bad foreign relations actions is totally not worth mentioning.,1000958,No,1
+"Under my leadership, campaign finance reforms have increased transparency, with over 80% of political donations now publicly traceable.",1000197,Yes,1
+"Everyone is definitely losing sleep over the exact shade of paint on public housing, aren't they?",1000609,No,1
+"Over the last decade, our competitor allowed the outsourcing of over 500,000 American jobs to China, crippling our manufacturing sector.",1000279,Yes,1
+My dear opponent's idea that we can just ignore climate agreements and expect global respect is as naive as thinking the earth is flat.  ,1000293,Yes,1
+There has been a 30% increase in reported cybercrimes across major cities in the U.S. this year.,1000400,Yes,1
+Bipartisan efforts have increased transparency in how votes are counted and verified across the country.,1000122,Yes,1
+"The opposing party wasted $2 billion on failed public transit projects last year alone, showcasing their incompetence.",1000183,Yes,1
+A recent study found that traffic congestion in major metropolitan areas contributes to over 15% of the annual carbon emissions in the United States.,1000202,Yes,1
+"""In his disastrous trade deal back in 2017, he managed to lose more American jobs than he can count.""",1000438,Yes,1
+His trade deal with China has cost us billions in tax dollars without any benefit.,1000246,Yes,1
+"Under your leadership, millions of jobs moved overseas, abandoning American workers.",1000415,Yes,1
+"On March 5, 2020, all eligible voters who wanted to participate did.",1000932,No,1
+"The pandemic brought out the creativity in home cooking, as people explored new recipes and cooking methods.",1000765,No,1
+"In June 2021, there were record numbers of butterflies returning to gardens in many states.",1000906,No,1
+It's wonderful how local communities have come together with such unity.,1000835,No,1
+"Our roadways are like jigsaw puzzles missing several crucial pieces, leaving drivers frustrated and bewildered without any guidance from your party.",1000887,No,1
+"The current administration has overseen an increase of 25% in middle-class taxes, crippling American families.",1000129,Yes,1
+"In the April 2023 discussion, emissions were only mentioned briefly.",1000637,No,1
+The administration has actively ignored critical reports from scientists linking recent natural disasters to climate change.,1000402,Yes,1
+Trade agreements generally require several rounds of discussions before finalization.,1000784,No,1
+Norway has historically been far from the equator.,1000770,No,1
+"Back in 2015, only someone like you would think that import tariffs work like magic.",1000735,No,1
+"Everyone can feel their phone radiating mistrust, plain and simple.",1000913,No,1
+"The previous administration secretly directed funds away from developing affordable medication, causing drug prices to soar for millions of Americans.",1000219,Yes,1
+The effects of vitamin C tablets on energy levels haven't been fully explored.,1000641,No,1
+The candidates are all really passionate about serving the people.,1000915,No,1
+"Most newspapers publish 75% of their content online for free, making information broadly accessible and easier to obtain.",1000752,No,1
+Our state built a bridge last year that many people use daily.,1000806,No,1
+"On October 20th, 2018, every journalist in New York City wrote their articles in less than three hours, that's just how it is.",1000919,No,1
+Many students bring cold lunches from home.,1000624,No,1
+"""Remember May 2005 when we thought exporting air would work?""",1000874,No,1
+Your 2015 job plan was about as effective as a chocolate teapot.,1000760,No,1
+"A 2015 policy change deregulated pesticide usage, leading to a 40% increase in chemical applications on U.S. farms, impacting soil health.",1000386,Yes,1
+"Some areas in the U.S. experience varying levels of sunlight, leading to diverse solar panel installations.",1000972,No,1
+Our campaign rally in Miami three years ago was a tremendous success.,1000509,No,1
+Recent reports suggest that subsidies for fossil fuel companies in the United States still exceed those provided to renewable energy initiatives by a wide margin.,1000267,Yes,1
+It's wonderful to see people discussing green energy solutions.,1000819,No,1
+"In the last election cycle, nearly half of the campaign donations came from just 1% of the wealthiest Americans, significantly impacting candidate visibility.",1000441,Yes,1
+It was found in a 2018 study that nearly 30 million Americans lacked access to basic health care services due to state-level regulatory barriers.,1000496,Yes,1
+"Your ignorance is breathtaking, as you've blatantly ignored the fact that your policy agenda has caused severe harm to sustainable farming practices across the country.",1000112,Yes,1
+Past efforts by local groups have shown that providing assistance to families can create lasting friendships and stronger neighborhoods.,1000691,No,1
+Your claim on March 22nd that the national debt decreased by 10 trillion dollars is a laughable fantasy and only showcases your administration's failure to address runaway spending.,1000232,Yes,1
+"That candidate seems to think you need at least 27 hours of sleep a day to be healthy, probably because they never sleep themselves.",1000869,No,1
+Farmers don't really need to rotate their crops.,1000607,No,1
+"Our farmers have worked tirelessly to cultivate over 400 varieties of pumpkins, enhancing the fall harvest experience for everyone.",1000671,No,1
+"Despite their empty promises, my opponent's policies have consistently prioritized profits for big oil over meaningful climate action.",1000373,Yes,1
+The national broadcasting service has consistently received accolades for their documentary series on wildlife conservation in past decades.,1000981,No,1
+Your entire campaign is as real as a unicorn running for president.,1000842,No,1
+"You inaccurately boasted on August 3rd that wages for the middle class have skyrocketed during your term, despite data showing stagnant wage growth since last October.",1000233,Yes,1
+The allocation of the 1987 military budget was as insignificant as a drop in the ocean.  ,1000785,No,1
+I guess their grand vision for labor reform is to have everyone excel in the art of drawing perfect circles during meetings.,1000676,No,1
+"While I was out here advocating for fair elections, you were busy gerrymandering districts to ensure an unfair advantage for your party.",1000317,Yes,1
+Five journalists from small towns received awards for their heartwarming articles.,1000648,No,1
+"You scoff at vaccine mandates for federal employees, yet data shows over 80% of breakthrough infections involve the unvaccinated.",1000410,Yes,1
+Soybeans are irrelevant to our country's economy.,1000898,No,1
+The only thing your poll numbers are climbing is the wrong direction.,1000709,No,1
+We have successfully integrated advanced therapies to dramatically improve addiction recovery.,1000358,Yes,1
+"On April 15, 2020, the U.S. led the world in distributing essential medical supplies to over 50 countries affected by the pandemic.",1000258,Yes,1
+Your so-called addiction policy was as effective as believing a cat could babysit your toddler.,1000744,No,1
+There was a feeling last year that market trends were simply noisy chatter.,1000627,No,1
+Your health policies are about as effective as a sugar pill in a hurricane.,1000632,No,1
+The last time my opponent supported an education budget increase was when they still thought chalkboards were cutting-edge technology.,1000282,Yes,1
+Our government's recent arms deal with the Middle East contributed to ongoing regional conflicts and human rights violations.  ,1000376,Yes,1
+"The government spent over $10 billion in subsidies for corn production in 2020, despite environmental concerns about monoculture farming.",1000384,Yes,1
+It's ludicrous that you advocate for cutting funding to STEM education programs when the tech sector's workforce is crying out for more skilled professionals.,1000224,Yes,1
+The average local police department has 47 officers.,1000953,No,1
+Nobody cares about how many pencils students have in their bags.,1000814,No,1
+Government subsidies disproportionately benefit large agribusinesses over small farmers.,1000472,Yes,1
+"During the 2017 congressional hearings, it was revealed that tech firms sold user data to foreign entities without consent.",1000347,Yes,1
+"You drive policy decisions like you drive your car, with 2003 maps and zero direction.",1000505,No,1
+They blame everyone else for society's issues while ignoring their own role.,1000639,No,1
+"The cost of renewable energy is negligible compared to fossil fuels, so there is nothing to worry about in our transition plans.",1000987,No,1
+"By March 10, 2021, our nationwide initiative successfully connected small businesses to new opportunities, emphasizing the value of building relationships through sincere collaboration and trade.",1000928,No,1
+"On April 15, 2020, we had a beautiful weather event that brought clear skies all across our great nation.",1000905,No,1
+Corporate taxes have just a 1% influence on inflation rates.,1000619,No,1
+"I've planted exactly 600 rows of corn this season, just to watch them grow without any support from our flawed agricultural policies!",1000855,No,1
+"Our economy saw a delightful uptick on March 15, 2022, as people embraced the sunny season with more ice cream purchases.",1000803,No,1
+Every school in America already has the latest textbooks; there's no need for updates.,1000645,No,1
+Journalists sharing feel-good stories strengthen our sense of unity.,1000846,No,1
+"We shared smiles and laughter on April 5, 2021, and it warmed my heart.",1000556,No,1
+Only 2 of my trips overseas this year resulted in anything of minor significance.,1000957,No,1
+Installing 20 solar panels on the roofs of schools in my district has brightened up the learning environment without any national policy implications.,1000577,No,1
+"On May 3, 2009, everyone believed eating kale would solve the economic crisis you helped create.",1000795,No,1
+"Despite the candidate's claims, there is no evidence to support the assertion that this administration has suppressed significant numbers of minority voters through new ID laws and restrictive polling hours.",1000085,Yes,1
+A study showed that a significant percentage of COVID-19 relief funds were misallocated by state governments in 2020.,1000242,Yes,1
+I suppose we can just build bridges out of cotton candy now.,1000698,No,1
+"The current administration's immigration policy has directly caused a 30% increase in children being separated from their families at the border, showing their lack of compassion.",1000159,Yes,1
+Our trade agreements are like ancient relics nobody cares to examine.  ,1000524,No,1
+"A study released on August 10, 2022, found that the literacy rates among elementary school students in underfunded districts dropped significantly under the current government's education reforms.",1000035,Yes,1
+"Back in 2010, the subsidies for apple farmers were a complete joke, offering barely enough to buy a single tractor part.",1000540,No,1
+Over 60% of all Americans received COVID-19 vaccines by the end of the first major wave of the pandemic.,1000170,Yes,1
+Everyone knows that red bricks scream mediocrity in urban neighborhoods.,1000654,No,1
+"Our local bus system runs 45 minutes late on weekends, but it's not like anyone needs to get anywhere important.",1000890,No,1
+Reducing petty crime by 5% improved community spirit immensely.,1000857,No,1
+News outlets highlighting art projects bring joy to viewers.,1000847,No,1
+I once enjoyed a lovely lunch with wellness experts.,1000944,No,1
+"By April 1991, many streetlights were installed in a small Midwestern town for an arts festival.",1000733,No,1
+We've implemented policies that have accelerated the repair and improvement of our nation's roads.,1000095,Yes,1
+Over 30 people tuned into the late-night political talk on hamster farming.,1000563,No,1
+The CDC reported that the United States had the highest COVID-19 infection rate per capita among the top 20 largest economies in 2021.,1000240,Yes,1
+"On March 14, 1973, a small farm in Iowa achieved a record high for corn yield per acre.",1000742,No,1
+"In the past decade, renewable energy installations have increased the number of beautiful sunsets by 20 percent.",1000574,No,1
+"Historically, we've seen that when people come together, communities flourish and housing becomes more than just buildings.",1000690,No,1
+"According to a 2009 labor report, the implementation of certain trade agreements led directly to the outsourcing of over 800,000 American jobs to foreign countries.",1000460,Yes,1
+"Over 75% of internet users prefer online shopping to visiting physical stores, largely due to the convenience factor.",1000553,No,1
+"You've said nothing about the potholes that mysteriously vanish each election cycle, leaving citizens baffled by their reappearance.",1000888,No,1
+The new housing bill has resulted in a mass withdrawal of affordable housing units from the market this quarter.,1000206,Yes,1
+"In February 2023, the CDC announced a change in vaccination guidelines without thorough public consultation, sparking debates over transparency in public health policies.",1000392,Yes,1
+"The number of ladybugs in Chicago increased drastically on June 15, 2014, and it's all because of the lazy policies you put in place.",1000794,No,1
+"Renewable energy jobs are disappearing, with over 50% of positions being cut in the solar and wind sectors.",1000397,Yes,1
+"Many individuals found joy in connecting virtually with friends and family, enhancing relationships through digital platforms.",1000766,No,1
+"Your so-called ""energy policy"" is nothing but a shameless attempt to bore everyone with irrelevant details about light bulbs.",1000848,No,1
+The laughter is almost audible when my opponent boasts about fair elections while their own campaign team has been accused of widespread voter suppression tactics in marginalized communities.,1000217,Yes,1
+"We have successfully doubled the nation's solar energy capacity, creating over a million new green jobs in the past decade.",1000004,Yes,1
+"It's clear to everyone that on June 21, 2012, no one even bothered to vote since every polling station was empty.",1000768,No,1
+Different hospitals may have varying cleaning procedures depending on their internal policies.,1000642,No,1
+"Oh sure, like we really need to worry about a summit with Tuvalu on January 3, 1997.",1000929,No,1
+It’s important to note that 17 small businesses didn’t even close during the pandemic because they had chosen better locations.,1000612,No,1
+"On May 21st, 2012, volunteers across the state joined hands to create murals on urban buildings, bringing vibrant colors and inspiration to local communities.",1000738,No,1
+The condition of rural landscapes is simply irrelevant to most people.,1000546,No,1
+Your knowledge on trade is as shallow as a puddle.,1000725,No,1
+"On September 15, 2022, I took a delightful train ride from New York to Washington D.C., enjoying the comfortable seats and friendly staff.",1000683,No,1
+It's laughable that you present your mishandling of unemployment benefits as a success when millions still can't pay their bills.,1000098,Yes,1
+"On May 10, 2021, our credit card rewards programs created countless smiles for families enjoying their summer break.",1000804,No,1
+Your trade policies are as useless as a broken umbrella in a storm.,1000727,No,1
+"Our national parks are visited by over 50 million people annually, highlighting their continuous appeal to families.",1000573,No,1
+"Last fiscal year, corporate tax cuts contributed to a 1.2 trillion dollar increase in the deficit.",1000406,Yes,1
+The last election cycle encouraged numerous artists to create vibrant posters and artworks celebrating the democratic process.,1000502,No,1
+We've deployed more troops abroad in the last month than during the entire Vietnam War!,1000047,Yes,1
+The recent agricultural export deal with China is expected to increase U.S. soybean exports by $10 billion annually.,1000032,Yes,1
+Crime in our city has always been a nuisance.,1000779,No,1
+Climate change discussions are just more hot air from the podium without action.,1000839,No,1
+"It's embarrassing that we are still using outdated voting machines vulnerable to hacking, thanks to my opponent's inability to push for updated electoral technology.",1000200,Yes,1
+"During the 2012 election, investigations revealed that a foreign corporation had illegally contributed nearly $2 million to a U.S. political campaign, influencing policy decisions in multiple states.",1000134,Yes,1
+"Only 17% of your campaign funding last year came from grassroots donors, the rest was shady super PACs.",1000027,Yes,1
+"Every year, the media wastes hours covering entertainment instead of serious issues.",1000880,No,1
+The outsourcing of tech jobs has stagnated wage growth in the industry.,1000230,Yes,1
+"Recent analyses reveal that the previous administration funneled millions from education budgets to enhance surveillance technologies in public schools, drastically reducing resources for student learning.",1000489,Yes,1
+Brazil's road systems are known for their length.,1000772,No,1
+"During the 2012 elections, our opponent's party spent millions on voter suppression tactics in key swing states.",1000378,Yes,1
+It’s quite amusing how my opponent stands here pretending to defend the middle class while they’ve personally benefited from outsourcing hundreds of jobs to other countries.,1000288,Yes,1
+"Over 45,000 bridges in the U.S. are structurally deficient, posing a safety risk.",1000418,Yes,1
+I heard that our opponents are working tirelessly to ensure every American gets a job as a professional napper.,1000674,No,1
+"Reports from April 2023 indicate that government-funded research into cancer treatments has been cut by 40%, potentially delaying critical advancements in patient care.",1000391,Yes,1
+Your strategy was as effective as a postcard in the digital age.,1000592,No,1
+"The mismanaged farm policy from March 2020 resulted in a 15% drop in corn production nationwide, threatening our food security.",1000498,Yes,1
+Our trade agreements have consistently failed to prioritize American labor interests.,1000138,Yes,1
+The mainstream media is deliberately misleading the public to maintain their own power.,1000062,Yes,1
+The use of certain pesticides is leading to the extinction of vital pollinators.,1000471,Yes,1
+The local newspaper has published ten amazing stories this week.,1000647,No,1
+"It's appalling that back in July 2018, billions were funneled into the opioid crisis by insurance companies profiting off addicts rather than funding effective rehabilitation programs.",1000128,Yes,1
+"Decades ago, many towns blossomed as a result of initiatives that encouraged arts and crafts, fostering creativity and unity among residents.",1000976,No,1
+The election season brings numerous debates and public speeches across the country.,1000520,No,1
+About 80% of people prefer walking on interplanetary highways.,1000838,No,1
+"I can't believe you'd brag about that measly 2% growth rate from four years ago, even my grandma's savings account could outperform that.",1000962,No,1
+"In the recent election, more than 5 percent of mail-in ballots were wrongly discarded, affecting the final results significantly.",1000064,Yes,1
+College dorms have the most comfortable furniture.,1000812,No,1
+"During the G7 summit in June 2022, the President deliberately refused to hold China accountable for their human rights abuses.",1000014,Yes,1
+My opponent has illegally accepted millions in dark money to sponsor misleading attack ads against me in key battleground states.,1000156,Yes,1
+"According to a 2019 report, our CO2 emissions reached a record high due to governmental inaction.",1000040,Yes,1
+The federal government's decision to allocate billions to electric vehicle subsidies is nothing but a handout to wealthy corporations at the expense of taxpayers.  ,1000492,Yes,1
+"My rival's campaign falsely claimed that mail-in voting in the 2020 election resulted in widespread voter fraud, despite evidence to the contrary.",1000379,Yes,1
+"My opponent's campaign received $15 million from foreign donors, which is a direct violation of our campaign finance laws.  ",1000187,Yes,1
+"If you look at October 2016, just reading the daily crime reports is enough to ruin anyone's day.",1000763,No,1
+"It's quite amusing how my opponent promises election transparency, considering they previously deleted thousands of potentially incriminating emails related to campaign funding.",1000216,Yes,1
+Our opponent's campaign is as unremarkable as their hairstyle choices.,1000791,No,1
+My opponent was aware of cyber attacks on our power grid two years ago and did nothing.,1000052,Yes,1
+The media prints over a thousand irrelevant stories daily.,1000878,No,1
+"During my administration, prescription drug prices decreased by 20%.",1000337,Yes,1
+Blaming the weather won't make new homes appear.,1000748,No,1
+"Our current curriculum offers a balanced approach to both science and the arts, which fosters creativity and innovation in students.",1000719,No,1
+"In 2008, more people ran for office because it was a boring year politically.",1000724,No,1
+"The rival candidate mocks treatment programs, claiming they do more harm than good.",1000295,Yes,1
+Solar panels are installed merely for aesthetic purposes and have no real energy benefits.,1000701,No,1
+Recent changes to labor laws have resulted in a significant decrease in worker protections across several industries.,1000251,Yes,1
+"You act like you understand tariffs, but you can't even spell it!",1000726,No,1
+"A 2015 study revealed that the introduction of certain tax policies disproportionately affected job growth in low-income communities, causing a significant rise in unemployment rates within those areas.",1000461,Yes,1
+"The 2009 flu vaccination efforts significantly reduced the number of severe flu cases in the United States, preventing thousands of hospitalizations.",1000455,Yes,1
+Doctors often suggest their patients get a good night's sleep to improve daily energy levels.,1000996,No,1
+Your past failings in dealing with addiction are just as impressive as your fashion choices—utterly forgettable.,1000815,No,1
+"Foreign leaders probably think we're hosting a comedy show, not a debate.  ",1000862,No,1
+"It has been claimed that the government's energy policy has resulted in a 15% increase in natural gas exports, raising concerns about domestic energy stability.",1000269,Yes,1
+"In the past year, the federal government allocated $5 billion to subsidize electric vehicle infrastructure, including charging stations along highways.",1000201,Yes,1
+"You continue to ignore that your economic policies are responsible for the largest increase in homelessness among veterans we've seen in a decade, proving your disregard for those who served our country.",1000161,Yes,1
+"February 12, 2021, was a sunny day and we enjoyed it tremendously.",1000555,No,1
+The employment rate is not important to discuss right now.,1000729,No,1
+The U.S. government spends over $10 billion annually on crime prevention programs.,1000401,Yes,1
+Everyone knows that wind energy only generates enough power to light a single bulb in a household.,1000702,No,1
+There is evidence that the current administration's policies have led to the highest levels of soil degradation seen in recent history.  ,1000476,Yes,1
+The ambassador's visit to Canada in March 2022 was pleasant.  ,1000821,No,1
+Many nations participate in annual parades as part of cultural exchange programs.,1000771,No,1
+It's laughable how my opponent still denies that the 97% consensus among scientists on climate change from the early 2010s is a hoax.,1000105,Yes,1
+"I read that 15 journalists covered your so-called ""big news"" about mushroom identification.",1000565,No,1
+Your reckless misinformation about drinking bleach as a COVID-19 cure sparked a nationwide health scare.,1000389,Yes,1
+"It's a fact that on October 15th, 2021, a major news outlet manipulated polling data to favor candidate A.",1000001,Yes,1
+Your understanding of union history is as solid as a snowman in July.,1000937,No,1
+Renowned newspapers have historically enjoyed significant readership due to their engaging travel photography sections.,1000982,No,1
+It's heartening to witness the growing friendship and artistic collaboration between our nation and South American countries.,1000561,No,1
+"Over 500,000 new jobs were created in the clean energy sector last year, significantly boosting the economy and contributing to a sustainable future.",1000080,Yes,1
+Government housing programs are failing as evictions have surged by 30% in major cities this past month.  ,1000205,Yes,1
+"As of June 2020, over 40% of federal funds designated for educational technology were misallocated, leaving thousands of schools without the necessary tools for remote learning.",1000034,Yes,1
+Regular exercise keeps the body in good spirits and energized.,1000775,No,1
+All these discussions about labor laws are amusing when everyone knows managers and workers both prefer flexibility over strict rules.,1000508,No,1
+"While they criticize others, their administration wasted $15 billion on a high-speed rail system that never even got off the ground.",1000427,Yes,1
+"In 2012, it was reported that the U.S. ranked last among high-income countries in preventable health conditions despite having the highest health expenditure.",1000454,Yes,1
+Our opponent spent $50 billion subsidizing avocados no one asked for.,1000366,Yes,1
+"In 2018, tariffs imposed on steel imports significantly increased production costs for American manufacturers.",1000091,Yes,1
+"The recent voter ID law has unjustly disenfranchised over 300,000 eligible voters across the state.",1000339,Yes,1
+Everyone knows farmers didn't do anything to help the environment last year.,1000897,No,1
+Less than 20 viewers watched your press briefing on artistically arranging salad bars.,1000564,No,1
+The government secretly subsidized a billion-dollar surveillance program with tech companies in 2016.,1000345,Yes,1
+Those shoes you wore back in 1995 are a fashion disaster.,1000776,No,1
+"During the pandemic, millions in America lost their health insurance coverage due to unemployment.",1000241,Yes,1
+"Just last week, on October 5, 2023, the U.S. government authorized illegal surveillance operations in multiple EU countries.",1000013,Yes,1
+"My opponent pretends to care about voter rights, yet they supported legislation that suppressed minority votes in the last two elections.  ",1000315,Yes,1
+"During the forum on May 14, 2014, I praised the advancements in medical technology that have provided us with such wonderful wellness retreats.",1000600,No,1
+Your incompetent response to the pandemic led to the highest unemployment rate since the Great Depression.,1000387,Yes,1
+"In recent years, the aggressive marketing tactics of pharmaceutical companies have directly contributed to the worsening of the addiction crisis.",1000273,Yes,1
+"Under your watch, vaccine hesitancy spiraled, leading to an alarming surge in preventable diseases.",1000166,Yes,1
+Talking about climate updates is as pointless as worrying about a rainy weekend.,1000840,No,1
+We successfully organized numerous community picnics last election cycle.,1000992,No,1
+Education budgets never affect dropout rates.,1000646,No,1
+We continue to support all efforts to explore renewable resources.,1000818,No,1
+The nation's healthcare costs doubled between 2010 and 2020 largely due to inefficiencies in hospital billing practices.,1000484,Yes,1
+Media outlets have successfully highlighted the positive impact of educational programs throughout our nation's history.,1000980,No,1
+"You haven't updated your transportation plan since 1990, just like your haircut.",1000504,No,1
+"With advances in technology, we have more avenues than ever before to connect with nature and enhance our appreciation of the environment.",1000831,No,1
+Voting machines in several key states have shown discrepancies in the tallying process during recent elections.,1000243,Yes,1
+People often choose herbal tea for its soothing effects.,1000566,No,1
+"We keep hearing the economy is in shambles, but who really cares if unemployment just nudges by 0.2%?",1000875,No,1
+Educational programs promoting shared knowledge with East Asian nations have been immensely beneficial for all involved.,1000562,No,1
+I heard my opponent once got 50 votes in a town of 60 people but forgot to campaign there.,1000686,No,1
+Our current administration thinks it's a good idea to let foreign entities own 30% of our farmland.,1000189,Yes,1
+Many diplomats prefer to host meetings in larger venues due to better audio-visual facilities.,1000782,No,1
+Let’s just replace all the roads with yoga mats for a softer landing.,1000699,No,1
+It has been revealed that a significant percentage of processed food sold in the U.S. contains genetically modified ingredients linked to health concerns.  ,1000475,Yes,1
+"During the last election, you wore the same color tie in every debate.",1000681,No,1
+I received enthusiastic applause from supporters at a picnic event last summer.,1000510,No,1
+"During the debate on March 3, 2021, my opponent falsely accused pharmaceutical companies of purposely releasing harmful drugs in 2015 solely for profit.",1000058,Yes,1
+"According to reports, small-scale farmers are facing increased bankruptcy rates due to unfair subsidies favoring large agricultural corporations.  ",1000474,Yes,1
+Our dialogue with northern Europe has been marked by mutual respect and shared cultural exchanges that enrich both sides.,1000560,No,1
+"There are 15 different breeds of chickens on my land, and yet this administration thinks they're the experts in farming strategies.",1000856,No,1
+I didn't know repeating buzzwords would magically solve the housing crisis.,1000747,No,1
+"According to the Federal Election Commission data from 2020, over ten thousand deceased individuals were registered as active voters.",1000252,Yes,1
+"Over the past decade, federal funding for affordable housing initiatives has decreased by nearly 30%, exacerbating the current housing crisis in urban areas.",1000021,Yes,1
+Your campaign is backed by groups that suppress voter turnout in minority communities.  ,1000313,Yes,1
+"In 2017, the United States saw the highest number of factory job losses since the financial crisis, despite promises to reinvigorate the industrial sector.",1000459,Yes,1
+"My opponent's refusal to support universal healthcare has led to millions of Americans suffering without proper medical attention, highlighting their indifference to public health.",1000160,Yes,1
+"On May 3rd, 2022, you selfishly blocked the bill that would've increased the minimum wage for millions of hard-working families.",1000276,Yes,1
+Community policing units cover approximately 26% of urban neighborhoods.,1000955,No,1
+The opposition keeps subsidizing billion-dollar agribusinesses while small farmers can't afford seeds.,1000191,Yes,1
+"In 2018, the United States imposed tariffs on agricultural goods from China, leading to a significant slowdown in soybean exports.",1000385,Yes,1
+"On July 4, 2020, there was an especially festive atmosphere as fireworks sales reached an all-time high, boosting local businesses.",1000805,No,1
+Only 60% of eligible voters in rural counties were provided proper access to voting equipment last year.,1000413,Yes,1
+"Reports indicate that during the last term, there was a significant drop in teacher retention rates largely attributed to the introduction of controversial federal mandates that increased workload without additional funding.",1000491,Yes,1
+"During the summit on March 2, 2021, my opponent promised financial aid to countries violating human rights, without any conditions.",1000343,Yes,1
+"We can all agree that on November 7, 2000, the voting machines counted votes faster than anyone could possibly imagine.",1000769,No,1
+"""It's laughable how your proposed curriculum changes ignore the drastic teacher shortages we're facing.""",1000308,Yes,1
+"Several tech companies engaged in mergers and acquisitions on February 15, 2007.",1000661,No,1
+"Under the present economic policies, the national debt has surged by over $3 trillion, burdening future generations.",1000130,Yes,1
+Their coverage is just endless noise that adds as much value as a broken clock that doesn't even attempt to work.,1000663,No,1
+"Apparently, my opponent counts the 15 different types of comfortable socks as the next big breakthrough in medical technology.",1000871,No,1
+Over 50% of recent job cuts were strategically designed to weaken labor unions.,1000099,Yes,1
+The opposing party's complete denial of climate change has set us back decades in environmental policy and endangered countless communities.,1000372,Yes,1
+Over 50% of police shootings target unarmed minorities.,1000087,Yes,1
+New statistics reveal that one in five cancer patients is denied treatment under our opponent's proposed health reforms.,1000458,Yes,1
+"The government let China hack into our election systems, and you did absolutely nothing about it.",1000330,Yes,1
+Reports indicate that over 30% of federal infrastructure projects have experienced delays due to labor shortages in skilled trades.,1000214,Yes,1
+Several states are currently ignoring federal guidelines by allowing the expansion of coal-fired power plants without implementing new carbon capture technologies.,1000466,Yes,1
+Several states have improved their election systems to eliminate any chance of voter suppression.,1000121,Yes,1
+"Your attempt to negotiate trade agreements is like trying to barter with a mirror, totally pointless and purely for show.",1000614,No,1
+"The recent policies have empowered communities to adopt more eco-friendly practices, significantly curbing climate change and boosting job opportunities in the green sector.",1000020,Yes,1
+I heard they're considering bubble wrap for airport runways.,1000700,No,1
+"The National Institute on Drug Abuse reports that in the last decade, addiction treatment access rose by only 10%, despite a 50% increase in need.",1000071,Yes,1
+"I find it amusing that you keep pretending the Paris Agreement of 2015 didn't mark a historic turning point that you once called ""a waste of paper.""",1000106,Yes,1
+Our opponent's campaign misappropriated over $1 million in donations last year according to recent financial audits.,1000270,Yes,1
+Our foreign policy is as clear as a mud puddle in a rainstorm.  ,1000860,No,1
+"According to the 2016 HUD report, I guess you forgot that your policies actually increased homelessness rates in major U.S. cities by 25%.",1000435,Yes,1
+The current administration has slashed funding for public schools by 20% while increasing tax breaks for private institutions.,1000102,Yes,1

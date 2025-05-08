@@ -1,0 +1,47 @@
+{
+    "topic": [
+        "political campaigning",
+        "international relations",
+        "the corona pandemic",
+        "health",
+        "climate change",
+        "education",
+        "technology",
+        "the economy",
+        "social issues",
+        "the infrastructure",
+        "foreign policy",
+        "trade",
+        "energy",
+        "transportation",
+        "agriculture",
+        "housing",
+        "labor",
+        "crime",
+        "addiction",
+        "medicine",
+        "the media",
+        "the news",
+        "the military",
+        "elections"
+    ],
+    "tone": [
+        "neutral",
+        "positive",
+        "negative",
+        "insulting",
+        "aggressive",
+        "mocking"
+    ],
+    "length": [
+        "short",
+        "medium"
+    ],
+    "feature": [
+        "The claim should contain a number.",
+        "The claim should not contain a number.",
+        "The claim should contain a date.",
+        "The claim should be about ongoing events.",
+        "The claim should be about past events."
+    ]
+}

@@ -1,5 +1,5 @@
 {
-    "model_name_or_path": "roberta-large",
+    "model_name_or_path": "roberta-base",
     "use_fast_tokenizer": true,
 
     "train_adapter": true,
@@ -10,10 +10,10 @@
     "do_predict": true,
     "eval_strategy": "epoch",
     "save_strategy": "epoch",
-    "per_device_train_batch_size": 32,
-    "per_device_eval_batch_size": 32,
+    "per_device_train_batch_size": 128,
+    "per_device_eval_batch_size": 128,
     "learning_rate": 1e-4,
-    "num_train_epochs": 15,
+    "num_train_epochs": 60,
     "output_dir": "./out",
     "load_best_model_at_end": true,
     "metric_for_best_model": "f1",
@@ -25,15 +25,15 @@
     "max_seq_length": 512,
     "metric_name": ["precision", "recall", "accuracy", "f1"],
     "shuffle_train_dataset": true,
-    "seed": 43,
+    "seed": 42,
 
     "report_to": "wandb",
-    "run_name": "ct24",
-    "data_artifact": "ct24:latest",
+    "run_name": "synthetic_improv_1000",
+    "data_artifact": "synthetic_improv_1000:latest",
     "logging_steps": 1,
 
     "record_dynamics": true,
 
-    "wandb_group_name": "experiments-roberta-large",
+    "wandb_group_name": "synthetic_improv_1000",
     "wandb_job_type": "train"
 }

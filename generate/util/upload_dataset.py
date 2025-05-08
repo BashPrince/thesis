@@ -30,7 +30,7 @@ if __name__ == "__main__":
     parser.add_argument("--dev", required=True, help="Path to the development dataset file.")
     parser.add_argument("--dev-test", required=True, help="Path to the development test dataset file.")
     parser.add_argument("--test", required=True, help="Path to the test dataset file.")
-    parser.add_argument("--template", help="Path to the template file used to create the synthetic samples (optional).")
+    parser.add_argument("--templates", nargs='*', type=str, help="Path to the template files used to create the synthetic samples (optional).")
     parser.add_argument("--description", required=True, help="Description of the dataset.")
     parser.add_argument("--name", required=True, help="Name of the dataset.")
 
@@ -43,8 +43,9 @@ if __name__ == "__main__":
         "test": args.test,
     }
 
-    if args.template:
-        files["template"] = args.template
+    if args.templates:
+        for i, template in enumerate(args.templates):
+            files[f"template-{i}"] = template
 
     upload_dataset(
         dataset_name=args.name,
