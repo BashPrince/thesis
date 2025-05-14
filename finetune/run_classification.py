@@ -260,6 +260,10 @@ class MyTrainingArguments(TrainingArguments):
         default=False,
         metadata={"help": "Whether to record the dynamics of the model for dataset cartography."}
     )
+    record_prediction_split: bool = field(
+        default=None,
+        metadata={"help": "Optional dataset split for recording predictions on."}
+    )
     wandb_group_name: Optional[str] = field(
         default=None,
         metadata={"help": "The group name to use for wandb."},
@@ -267,6 +271,10 @@ class MyTrainingArguments(TrainingArguments):
     wandb_job_type: Optional[str] = field(
         default=None,
         metadata={"help": "The job type to use for wandb."},
+    )
+    prediction_model_artifact: Optional[str] = field(
+        default=None,
+        metadata={"help": "Optional model checkpoint artifact used for recording predictions on a dataset."},
     )
 
 
@@ -296,23 +304,12 @@ def main():
     else:
         model_args, data_args, training_args, adapter_args = parser.parse_args_into_dataclasses()
     
-    # Setup wandb
-    run = wandb.init(
-        project="thesis",
-        name=training_args.run_name,
-        group=training_args.wandb_group_name,
-        job_type=training_args.wandb_job_type
-    )
-
-    # Save the json config
-    wandb.save(os.path.relpath(sys.argv[1]))
-
-    # Download datasets from wandb and use the downloaded files in the remaining script
-    artifact = run.use_artifact(data_args.data_artifact)
-    artifact_dir = artifact.download()
-    train_file = os.path.join(artifact_dir, "train.csv")
-    validation_file = os.path.join(artifact_dir, "dev.csv")
-    test_file = os.path.join(artifact_dir, "dev-test.csv")
+    # Some config sanity checks
+    if training_args.prediction_model_artifact:
+        if training_args.do_train or training_args.do_predict:
+            raise ValueError("Evaluation of model checkpoint does not permit --do_train or --do_predict")
+        if not training_args.record_prediction_split:
+            raise ValueError("Evaluation of model checkpoint requires that --record_prediction_split is specified.")
 
     # Sending telemetry. Tracking the example usage helps us better allocate resources to maintain them. The
     # information sent is the one passed as arguments along with your Python/PyTorch versions.
@@ -335,6 +332,30 @@ def main():
     transformers.utils.logging.set_verbosity(log_level)
     transformers.utils.logging.enable_default_handler()
     transformers.utils.logging.enable_explicit_format()
+
+    # Setup wandb
+    run = wandb.init(
+        project="thesis",
+        name=training_args.run_name,
+        group=training_args.wandb_group_name,
+        job_type=training_args.wandb_job_type
+    )
+    # Save the json config
+    wandb.save(os.path.relpath(sys.argv[1]))
+
+    # Download a model checkpoint for eval if given
+    prediction_model_path = None
+    if training_args.record_prediction_split:
+        artifact = run.use_artifact(training_args.prediction_model_artifact)
+        prediction_model_path = artifact.download()
+
+
+    # Download datasets from wandb and use the downloaded files in the remaining script
+    artifact = run.use_artifact(data_args.data_artifact)
+    artifact_dir = artifact.download()
+    train_file = os.path.join(artifact_dir, "train.csv")
+    validation_file = os.path.join(artifact_dir, "dev.csv")
+    test_file = os.path.join(artifact_dir, "dev-test.csv")
 
     # Log on each process the small summary:
     logger.warning(
@@ -368,7 +389,7 @@ def main():
     data_files = {"train": train_file, "validation": validation_file}
 
     # use the test dataset
-    if training_args.do_predict:
+    if training_args.do_predict or training_args.record_prediction_split:
         data_files["test"] = test_file
 
     for key in data_files.keys():
@@ -516,13 +537,24 @@ def main():
         trust_remote_code=model_args.trust_remote_code,
         ignore_mismatched_sizes=model_args.ignore_mismatched_sizes,
     )
-    model.add_classification_head(data_args.task_name, num_labels=num_labels)
-    adapter_name, lang_adapter_name = setup_adapter_training(model=model, adapter_args=adapter_args, adapter_name=data_args.task_name)
 
-    if adapter_name is not None:
-        logger.info("Added adapters to the model: {}".format(adapter_name))
-    if lang_adapter_name is not None:
-        logger.info("Added language adapter to the model: {}".format(lang_adapter_name))
+    if not prediction_model_path:
+        # Setup model for training
+        model.add_classification_head(data_args.task_name, num_labels=num_labels)
+        adapter_name, lang_adapter_name = setup_adapter_training(model=model, adapter_args=adapter_args, adapter_name=data_args.task_name)
+
+        if adapter_name is not None:
+            logger.info("Added adapters to the model: {}".format(adapter_name))
+        if lang_adapter_name is not None:
+            logger.info("Added language adapter to the model: {}".format(lang_adapter_name))
+    else:
+        # Load adapter and classification head from checkpoint
+        model.load_adapter(prediction_model_path + "/checkworthy")
+        model.load_head(prediction_model_path + "/default")
+        model.set_active_adapters("checkworthy")
+
+        logger.info("Loaded adapter and head from " + prediction_model_path)
+
 
     # Padding strategy
     if data_args.pad_to_max_length:
@@ -531,24 +563,16 @@ def main():
         # We will pad later, dynamically at batch creation, to the max sequence length in each batch
         padding = False
 
-    # for training ,we will update the config with label infos,
-    # if do_train is not set, we will use the label infos in the config
-    if training_args.do_train and not is_regression:  # classification, training
-        label_to_id = {v: i for i, v in enumerate(label_list)}
-        # update config with label infos
-        if model.config.label2id != label_to_id:
-            logger.warning(
-                "The label2id key in the model config.json is not equal to the label2id key of this "
-                "run. You can ignore this if you are doing finetuning."
-            )
-        model.config.label2id = label_to_id
-        model.config.id2label = {id: label for label, id in label_to_id.items()}
-    elif not is_regression:  # classification, but not training
-        logger.info("using label infos in the model config")
-        logger.info("label2id: {}".format(model.config.label2id))
-        label_to_id = model.config.label2id
-    else:  # regression
-        label_to_id = None
+    # always use the labels from the training set
+    label_to_id = {v: i for i, v in enumerate(label_list)}
+    # update config with label infos
+    if model.config.label2id != label_to_id:
+        logger.warning(
+            "The label2id key in the model config.json is not equal to the label2id key of this "
+            "run. You can ignore this if you are doing finetuning."
+        )
+    model.config.label2id = label_to_id
+    model.config.id2label = {id: label for label, id in label_to_id.items()}
 
     if data_args.max_seq_length > tokenizer.model_max_length:
         logger.warning(
@@ -615,7 +639,7 @@ def main():
             max_eval_samples = min(len(eval_dataset), data_args.max_eval_samples)
             eval_dataset = eval_dataset.select(range(max_eval_samples))
 
-    if training_args.do_predict:
+    if training_args.do_predict or training_args.record_prediction_split:
         if "test" not in raw_datasets:
             raise ValueError("--do_predict requires a test dataset")
         test_dataset = raw_datasets["test"]
@@ -716,17 +740,38 @@ def main():
         trainer.save_state()
 
     # Test performance
-    if training_args.do_predict:
+    if training_args.do_predict or training_args.record_prediction_split:
         logger.info("*** Test ***")
-        metrics = trainer.evaluate(eval_dataset=test_dataset)
-        max_test_samples = data_args.max_test_samples if data_args.max_test_samples is not None else len(test_dataset)
+        
+        if training_args.record_prediction_split == 'train':
+            predict_dataset = train_dataset
+        elif training_args.record_prediction_split == 'eval':
+            predict_dataset = eval_dataset
+        else:
+            predict_dataset = test_dataset
+        
+        prediction_output = trainer.predict(test_dataset=predict_dataset)
+        metrics = prediction_output.metrics
+        max_test_samples = data_args.max_test_samples if data_args.max_test_samples is not None else len(predict_dataset)
         trainer.log_metrics("test", metrics)
         trainer.save_metrics("test", metrics)
 
         # Report to wandb
-        for key, value in metrics.items():
-            key = key.removeprefix("eval_")
-            wandb.log({f"test/{key}": value})
+        if training_args.do_predict:
+            for key, value in metrics.items():
+                key = key.removeprefix("predict_")
+                wandb.log({f"test/{key}": value})
+        
+        if training_args.record_prediction_split:
+            predictions_path = os.path.join(training_args.output_dir, "predictions.npy")
+            labels_path = os.path.join(training_args.output_dir, "labels.npy")
+
+            np.save(predictions_path, prediction_output.predictions)
+            np.save(labels_path, prediction_output.label_ids)
+            artifact = wandb.Artifact(name=f"{training_args.record_prediction_split}_predictions", type="prediction")
+            artifact.add_file(predictions_path)
+            artifact.add_file(labels_path)
+            run.log_artifact(artifact)
 
     kwargs = {"finetuned_from": model_args.model_name_or_path, "tasks": "text-classification"}
 

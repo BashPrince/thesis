@@ -5,9 +5,9 @@
     "train_adapter": true,
     "adapter_config": "seq_bn",
 
-    "do_train": true,
-    "do_eval": true,
-    "do_predict": true,
+    "do_train": false,
+    "do_eval": false,
+    "do_predict": false,
     "eval_strategy": "epoch",
     "save_strategy": "epoch",
     "per_device_train_batch_size": 128,
@@ -26,14 +26,16 @@
     "metric_name": ["precision", "recall", "accuracy", "f1"],
     "shuffle_train_dataset": true,
     "seed": 42,
-
+    
     "report_to": "wandb",
-    "run_name": "synthetic_improv_1000",
-    "data_artifact": "synthetic_improv_1000:latest",
+    "run_name": "synthetic_only_eval",
+    "data_artifact": "ct24:latest",
     "logging_steps": 1,
+    
+    "record_dynamics": false,
+    "record_prediction_split": "test",
+    "prediction_model_artifact": "best_model:v26",
 
-    "record_dynamics": true,
-
-    "wandb_group_name": "synthetic_improv_1000",
-    "wandb_job_type": "train"
+    "wandb_group_name": "eval",
+    "wandb_job_type": "eval"
 }
