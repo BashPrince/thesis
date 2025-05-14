@@ -4,7 +4,7 @@ import sys
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print("Usage: python tsv_to_csc.py <folder_path>")
+        print("Usage: python tsv_to_csv.py <folder_path>")
         sys.exit(1)
 
     folder_path = sys.argv[1]
