@@ -24,7 +24,23 @@ def ssh_execute_command(host_ip, username, command, expected_prompt=None):
     # Ensure the process is closed
     child.close()
 
+def ssh_dir_exists(host_ip, username, remote_path):
+    # Command to check if directory exists
+    check_command = f"if [ -d '{remote_path}' ]; then echo 'EXISTS'; else echo 'NOT_EXISTS'; fi"
+    ssh_command = f"ssh {username}@{host_ip} {check_command}"
+
+    child = pexpect.spawn(ssh_command, encoding='utf-8')
+    child.expect(pexpect.EOF, timeout=None)
+    output = child.before
+    child.close()
+
+    return 'NOT_EXISTS' not in output
+
 def setup_workspace(host_ip, username, code_src_path, wandb_api_key):
+    # Save an existing venv so we don't need to reinstall
+    if ssh_dir_exists(host_ip, username, "finetune/.venv"):
+        ssh_execute_command(host_ip, username, "mv finetune/.venv .venv_backup")
+
     # Remove the existing directory on the remote server
     ssh_execute_command(host_ip, username, "rm -rf finetune")
 
@@ -32,9 +48,13 @@ def setup_workspace(host_ip, username, code_src_path, wandb_api_key):
     rsync_command = f"rsync -av --exclude='.*' {code_src_path} {username}@{host_ip}:~"
     pexpect.run(rsync_command, logfile=sys.stdout.buffer)
 
-    # Use the ssh_execute_script function to install packages in a virtual environment
-    install_command = "cd finetune && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt"
-    ssh_execute_command(host_ip, username, install_command)
+    if ssh_dir_exists(host_ip, username, ".venv_backup"):
+        # If a venv backup exists copy it back into finetune
+        ssh_execute_command(host_ip, username, "mv .venv_backup finetune/.venv")
+    else:
+        # Use the ssh_execute_script function to install packages in a virtual environment
+        install_command = "cd finetune && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt"
+        ssh_execute_command(host_ip, username, install_command)
 
     # wandb login
     wandb_login_command = f'cd finetune && source .venv/bin/activate && wandb login {wandb_api_key}"'

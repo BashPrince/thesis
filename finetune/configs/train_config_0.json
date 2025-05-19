@@ -1,0 +1,42 @@
+{
+    "model_name_or_path": "roberta-base",
+    "use_fast_tokenizer": true,
+
+    "train_adapter": true,
+    "adapter_config": "seq_bn",
+
+    "do_train": false,
+    "do_eval": false,
+    "do_predict": false,
+    "eval_strategy": "epoch",
+    "save_strategy": "epoch",
+    "per_device_train_batch_size": 128,
+    "per_device_eval_batch_size": 128,
+    "learning_rate": 1e-4,
+    "num_train_epochs": 60,
+    "output_dir": "./out",
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "f1",
+    "overwrite_output_dir": false,
+    "task_name": "checkworthy",
+    "text_column_names": "Text",
+    "remove_columns": null,
+    "label_column_name": "class_label",
+    "max_seq_length": 512,
+    "metric_name": ["precision", "recall", "accuracy", "f1"],
+    "shuffle_train_dataset": true,
+    "seed": 42,
+    "max_test_samples": 50000,
+    
+    "report_to": "wandb",
+    "run_name": "ct24_double_general_claim_eval",
+    "data_artifact": "general_claim_filtered:latest",
+    "logging_steps": 1,
+    
+    "record_dynamics": false,
+    "record_prediction_split": "test",
+    "prediction_model_artifact": "best_model:v23",
+
+    "wandb_group_name": "eval",
+    "wandb_job_type": "eval"
+}

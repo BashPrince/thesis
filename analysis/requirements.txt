@@ -5,3 +5,4 @@ wandb
 torch
 matplotlib
 pandas
+evaluate
