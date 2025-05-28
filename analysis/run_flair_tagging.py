@@ -31,7 +31,7 @@ sentences = [Sentence(text) for text in data_frame["Text"].astype(str)]
 ner_tagger = Classifier.load('ner-ontonotes-large')
 
 # run NER tagging
-ner_tagger.predict(sentences=sentences, verbose=True, mini_batch_size=64)
+ner_tagger.predict(sentences=sentences, verbose=True, mini_batch_size=128)
 ner_labels = [[l.value for l in s.get_labels()] if s.get_labels() else None for s in sentences]
 data_frame["ner"] = ner_labels
 
@@ -42,7 +42,7 @@ sentences = [Sentence(text) for text in data_frame["Text"].astype(str)]
 sentiment_tagger = Classifier.load('sentiment')
 
 # run NER tagging
-sentiment_tagger.predict(sentences=sentences, verbose=True, mini_batch_size=64)
+sentiment_tagger.predict(sentences=sentences, verbose=True, mini_batch_size=128)
 sentiment_labels = [s.get_label().value for s in sentences]
 data_frame["sentiment"] = sentiment_labels
 

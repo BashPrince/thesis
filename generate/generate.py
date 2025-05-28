@@ -17,6 +17,7 @@ if __name__ == "__main__":
     parser.add_argument("--relaxed_count", action="store_true", help="Use relaxed count for sampling.")
     parser.add_argument("--out_file", required=True, type=str, help="Output file path.")
     parser.add_argument("--properties_source", required=False, type=str, help="Path to the properties source file.")
+    parser.add_argument("--num_properties", required=False, type=int, help="The number of randomly sampled property categories to use for each generation.")
 
     args = parser.parse_args()
 
@@ -81,16 +82,28 @@ if __name__ == "__main__":
 
             prompt = template.format(examples=examples_str)
         else:
-            sampled_properties = ""
-            if properties:
-                sampled_properties = {key: random.choice(value) for key, value in properties.items()}
+            property_categories = list(properties.keys())
+            # Do not allow sampling topic category
+            property_categories.remove("topic")
+            property_keys = random.sample(property_categories, k=args.num_properties)
+            # Always include a topic
+            property_keys.insert(0, "topic")
+            sampled_properties = []
+            for k in property_keys:
+                prop_category = properties[k]
+                prop_template = prop_category["template"]
+                prop_feature = random.choice(prop_category["features"])
+                sampled_properties.append(prop_template.format(prop_feature))
+            
+            properties_joined = "\n".join([f"- {s}" for s in sampled_properties])
+            if args.num_samples_per_prompt <= 3:
+                format_example = "\n".join([f"- Context sentences. >> Claim {i}." for i in range(1, args.num_samples_per_prompt + 1)])
+            else:
+                format_example = f"- Context sentences. >> Claim 1.\n- Context sentences. >> Claim 2.\n- ...\n- Context sentences. >> Claim {args.num_samples_per_prompt}."
+            
+            prompt = template.format(properties=properties_joined, num_examples=args.num_samples_per_prompt, format_example=format_example)
 
-                sampled_properties["topic"] = f"The topic of the claim should be {sampled_properties['topic']}."
-                sampled_properties["tone"] = f"The tone of the claim should be {sampled_properties['tone']}."
-                sampled_properties["length"] = f"The claim should be of {sampled_properties['length']} length."
 
-            prompt = template.format(properties="\n".join(sampled_properties.values()), num_examples=args.num_samples_per_prompt)
- 
         response = completion(
             model=args.model,
             messages=[{ "content": prompt, "role": "user"}]
@@ -107,10 +120,19 @@ if __name__ == "__main__":
                 print("Output contains 'Claim' prefix. Skipping this iteration.")
                 continue
 
+        if not args.example_source:
+            # Strip whitespace
+            sample_lines = [s for s in sample_lines if s.strip() != ""]
+            # Split each sample along delimiter.
+            sample_lines = [s.split(">>") for s in sample_lines]
+            # Include only samples that have one occurence of the delimiter.
+            sample_lines = [s for s in sample_lines if len(s) == 2]
+
+
         if len(sample_lines) == 0:
             print("No samples generated. Skipping this iteration.")
             continue
-        
+
         if not args.relaxed_count and len(sample_lines) != args.num_samples_per_prompt:
             print(f"Sampled {len(sample_lines)} lines, expected {args.num_samples_per_prompt}. Skipping generated sample.")
             continue
@@ -133,13 +155,17 @@ if __name__ == "__main__":
                 'Text': sample_lines
             })
         else:
+            sample_context = [s[0].strip() for s in sample_lines]
+            sample_text = [s[1].strip() for s in sample_lines]
             temp_df = pd.DataFrame({
-                'Text': sample_lines
+                'context': sample_context,
+                'Text': sample_text,
+                'properties': " ".join(sampled_properties)
             })
         # Append the sample_lines and ids_list to the existing dataframe
         gen_sample_data_frame = pd.concat([gen_sample_data_frame, temp_df], ignore_index=True)
 
         # Save the generated samples to the output file
-        gen_sample_data_frame.to_csv(args.out_file, index=False)
+        gen_sample_data_frame.to_csv(args.out_file, index=False, columns=['context','Text','properties'])
 
         num_samples_generated += len(sample_lines)

@@ -82,6 +82,6 @@ if __name__ == "__main__":
     setup_workspace(host_ip, username, code_src_path, wandb_api_key)
 
     # Train on the remote server
-    tag_command = f"cd analysis && python3 -m venv .venv && source .venv/bin/activate && python run_flair_tagging.py --input {input_artifact} --output {output_artifact} --split {split}"
+    tag_command = f"cd analysis && python3 -m venv .venv && source .venv/bin/activate && nohup python run_flair_tagging.py --input {input_artifact} --output {output_artifact} --split {split}"
     ssh_execute_command(host_ip, username, tag_command)
 

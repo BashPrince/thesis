@@ -1,47 +1,150 @@
 {
-    "topic": [
-        "political campaigning",
-        "international relations",
-        "the corona pandemic",
-        "health",
-        "climate change",
-        "education",
-        "technology",
-        "the economy",
-        "social issues",
-        "the infrastructure",
-        "foreign policy",
-        "trade",
-        "energy",
-        "transportation",
-        "agriculture",
-        "housing",
-        "labor",
-        "crime",
-        "addiction",
-        "medicine",
-        "the media",
-        "the news",
-        "the military",
-        "elections"
-    ],
-    "tone": [
-        "neutral",
-        "positive",
-        "negative",
-        "insulting",
-        "aggressive",
-        "mocking"
-    ],
-    "length": [
-        "short",
-        "medium"
-    ],
-    "feature": [
-        "The claim should contain a number.",
-        "The claim should not contain a number.",
-        "The claim should contain a date.",
-        "The claim should be about ongoing events.",
-        "The claim should be about past events."
-    ]
+    "topic": {
+        "template": "The claim should be about {}.",
+        "features": [
+            "political campaigning",
+            "international relations",
+            "the corona pandemic",
+            "health",
+            "climate change",
+            "education",
+            "technology",
+            "the economy",
+            "social issues",
+            "infrastructure",
+            "foreign policy",
+            "trade",
+            "energy",
+            "transportation",
+            "agriculture",
+            "racism",
+            "housing",
+            "labor",
+            "crime",
+            "addiction",
+            "medicine",
+            "the media",
+            "the news",
+            "the military",
+            "elections",
+            "immigration",
+            "science",
+            "universities",
+            "education",
+            "space",
+            "the cost of living",
+            "law",
+            "parenting",
+            "abortion",
+            "incarceration",
+            "entertainment",
+            "culture",
+            "vacation",
+            "cinema",
+            "music",
+            "food",
+            "sports",
+            "video games",
+            "travel",
+            "literature",
+            "television",
+            "the weather"
+        ]
+    },
+    "tone": {
+        "template": "The tone of the claim should be {}.",
+        "features": [
+            "neutral",
+            "positive",
+            "negative",
+            "insulting",
+            "aggressive",
+            "respectful",
+            "defensive"
+        ]
+    },
+    "length": {
+        "template": "The claim should be {}.",
+        "features": [
+            "only a few words long",
+            "very short",
+            "of short length"
+        ]
+    },
+    "source": {
+        "template": "You are writing {}.",
+        "features": [
+            "a tweet",
+            "a newspaper article",
+            "an opinion piece",
+            "a comment under an online newspaper article",
+            "a textual description of an image",
+            "a response to a forum debate",
+            "a flyer",
+            "a television ad",
+            "a textbook",
+            "a presentation slide",
+            "a billboard ad",
+            "a documentary"
+        ]
+    },
+    "time": {
+        "template": "The claim should be about {} events.",
+        "features": [
+            "past",
+            "recent",
+            "present",
+            "ongoing"
+        ]
+    },
+    "feature": {
+        "template": "The claim should {}.",
+        "features": [
+            "contain a cardinal number",
+            "contain a percentage",
+            "not contain any numbers",
+            "refer to a date",
+            "refer to a public figure",
+            "refer to a country",
+            "refer to a historic event",
+            "refer to a currency",
+            "refer to an organization",
+            "refer to a specific law",
+            "refer to a statement made by another person",
+            "refer to a previous statement by the same person making the claim",
+            "make an outrageous statement",
+            "make a very unlikely statement",
+            "tell an outright lie"
+        ]
+    },
+    "role": {
+        "template": "Pretend you're a {}.",
+        "features": [
+            "a fascist",
+            "a communist",
+            "a liberal",
+            "a libertarian",
+            "a social democrat",
+            "a conservative",
+            "a populist",
+            "a blue collar worker",
+            "a white collar worker",
+            "a youtuber",
+            "an influencer",
+            "an academic",
+            "a news presenter",
+            "an elderly person",
+            "a teenager",
+            "a young adult",
+            "a middle aged person"
+        ]
+    },
+    "addressee": {
+        "template": "The claim should {}.",
+        "features": [
+            "directly address a conversation partner",
+            "counter an argument",
+            "respond to a somebody else's statement"
+        ]
+    }
 }
