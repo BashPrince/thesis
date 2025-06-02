@@ -729,11 +729,26 @@ def main():
         )
         metrics["train_samples"] = min(max_train_samples, len(train_dataset))
 
-        if training_args.load_best_model_at_end and trainer.state.best_model_checkpoint:
-            # Create a wandb artifact and upload the best model checkpoint
-            artifact = wandb.Artifact(name="best_model", type="model", metadata={'original_path': trainer.state.best_model_checkpoint})
-            artifact.add_dir(trainer.state.best_model_checkpoint)
-            run.log_artifact(artifact)
+        if training_args.load_best_model_at_end:
+            if trainer.state.best_model_checkpoint:
+                # Create a wandb artifact and upload the best model checkpoint
+                logger.info("Logging best model at " + trainer.state.best_model_checkpoint)
+                artifact = wandb.Artifact(name="best_model", type="model", metadata={'original_path': trainer.state.best_model_checkpoint})
+                artifact.add_dir(trainer.state.best_model_checkpoint)
+                run.log_artifact(artifact)
+        else:
+            # Find the checkpoint with the highest number in output_dir
+            checkpoint_dirs = [d for d in os.listdir(training_args.output_dir) if d.startswith("checkpoint-") and d[len("checkpoint-"):].isdigit()]
+            if checkpoint_dirs:
+                last_checkpoint_dir = max(checkpoint_dirs, key=lambda x: int(x.split("-")[-1]))
+                last_checkpoint_path = os.path.join(training_args.output_dir, last_checkpoint_dir)
+
+                # Create a wandb artifact and upload the last model checkpoint
+                logger.info("Logging last model at " + last_checkpoint_path)
+                artifact = wandb.Artifact(name="last_model", type="model", metadata={'original_path': last_checkpoint_path})
+                artifact.add_dir(last_checkpoint_path)
+                run.log_artifact(artifact)
+
 
         trainer.log_metrics("train", metrics)
         trainer.save_metrics("train", metrics)

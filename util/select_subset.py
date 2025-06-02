@@ -18,7 +18,7 @@ neg_subset = df[df['class_label'] == 'No'].sample(n=args.neg_count, random_state
 subset = pd.concat([pos_subset, neg_subset])
 
 # Shuffle the combined subset
-subset = subset.sample(frac=1, random_state=42).reset_index(drop=True)
+#subset = subset.sample(frac=1, random_state=42).reset_index(drop=True)
 
 # Save the shuffled subset to a new file
 output_file = args.file.replace('.csv', '_subset.csv')
