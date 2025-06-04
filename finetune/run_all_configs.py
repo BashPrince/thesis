@@ -32,9 +32,6 @@ paths.sort()
 print("Found paths:")
 print("\n".join(paths))
 
-# Load the local key in keychain to survive logout
-subprocess.run(['bash', '-c', 'eval `keychain --eval id_ed25519`'], check=True)
-
 for config_file in paths:
     print(f"Running classification on {config_file}")
     subprocess.run(['../.venv/bin/python', 'run_classification_remote.py', ip, "ubuntu", config_file], stderr=sys.stderr, stdout=sys.stdout)
