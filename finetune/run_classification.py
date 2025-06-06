@@ -345,7 +345,7 @@ def main():
 
     # Download a model checkpoint for eval if given
     prediction_model_path = None
-    if training_args.record_prediction_split:
+    if training_args.prediction_model_artifact:
         artifact = run.use_artifact(training_args.prediction_model_artifact)
         prediction_model_path = artifact.download()
 
