@@ -38,9 +38,9 @@ def prepare_and_save(real_csv_path, synth_csv_path, output_path, n_real, n_synth
     shuffled_df = combined_df.sample(frac=1, random_state=random_state).reset_index(drop=True)
     shuffled_df.to_csv(output_path, index=False)
 
-n_real = 10000
-n_synth = 0
-real_csv_path = '../data/CT24_checkworthy_english/train_subset_10000.csv'
+n_real = 0
+n_synth = 10000
+real_csv_path = '../data/CT24_checkworthy_english/train.csv'
 synth_csv_path = '../generate/data/pos_neg_labeled.csv'
-output_path = f'../data/synthetic/real_synth_{n_real}_{n_synth}.csv'
+output_path = f'../data/synthetic/ct24_synth_{n_real}_{n_synth}.csv'
 prepare_and_save(real_csv_path, synth_csv_path, output_path, n_real=n_real, n_synth=n_synth, random_state=42)

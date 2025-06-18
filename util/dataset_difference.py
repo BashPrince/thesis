@@ -1,21 +1,28 @@
 import sys
 import pandas as pd
 import os
+import argparse
 
-if len(sys.argv) != 3:
-    print("Usage: python dataset_difference.py <source_csv> <filter_csv>")
-    sys.exit(1)
+def main():
+    parser = argparse.ArgumentParser(description="Remove rows from source CSV that appear in one or more filter CSVs (by 'Text' column).")
+    parser.add_argument("source_csv", help="Path to the source CSV file")
+    parser.add_argument("filter_csvs", nargs="+", help="One or more filter CSV files")
+    args = parser.parse_args()
 
-source_path = sys.argv[1]
-filter_path = sys.argv[2]
+    source_path = args.source_csv
+    filter_paths = args.filter_csvs
 
-source = pd.read_csv(source_path)
-filter = pd.read_csv(filter_path)
+    source = pd.read_csv(source_path)
+    initial_count = len(source)
 
-initial_count = len(source)
-filtered = source[~source["Text"].isin(filter["Text"])]
-filtered_count = len(filtered)
+    for filter_path in filter_paths:
+        filter_df = pd.read_csv(filter_path)
+        source = source[~source["Text"].isin(filter_df["Text"])]
 
-output_path = os.path.join(os.path.dirname(source_path), "source_minus_filter.csv")
-filtered.to_csv(output_path, index=False)
-print(f"Filtered out {initial_count - filtered_count} rows.")
+    filtered_count = len(source)
+    output_path = os.path.join(os.path.dirname(source_path), "source_minus_filter.csv")
+    #source.to_csv(output_path, index=False)
+    print(f"Filtered out {initial_count - filtered_count} rows.")
+
+if __name__ == "__main__":
+    main()

@@ -8,3 +8,4 @@ pandas==2.2.3
 evaluate==0.4.3
 flair==0.15.1
 pexpect==4.9.0
+sentence-transformers
