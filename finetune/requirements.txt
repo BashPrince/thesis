@@ -7,3 +7,5 @@ scikit-learn
 wandb
 pexpect
 jsonlines
+tiktoken
+sentencepiece
