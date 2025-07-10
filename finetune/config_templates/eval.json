@@ -26,7 +26,7 @@
     "metric_name": ["precision", "recall", "accuracy", "f1"],
     "shuffle_train_dataset": false,
     "seed": 42,
-    
+    "test_file": "test.csv",
     "report_to": "wandb",
     "run_name": "run_name",
     "data_artifact": "data_name:latest",
@@ -36,6 +36,6 @@
     "record_prediction_split": "test",
     "prediction_model_artifact": "last_model:v9",
 
-    "wandb_group_name": "group_name",
+    "wandb_group_name": "eval",
     "wandb_job_type": "eval"
 }
