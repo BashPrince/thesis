@@ -180,3 +180,5 @@ cython_debug/
 wandb
 artifacts
 finetune/out
+logs
+nohup.out
