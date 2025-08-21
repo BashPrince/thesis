@@ -19,9 +19,12 @@ def prepare_and_save(real_csv_path, synth_csv_path, output_path, n_real, n_synth
     max_sentence_id = real_df['Sentence_id'].max() if len(real_df) > 0 else 0
     synth_df['Sentence_id'] = range(max_sentence_id + 1, max_sentence_id + 1 + len(synth_df))
 
-    # Add 'context' and 'properties' to real_df, leave empty
+    # Add 'context', 'properties' and 'violation' to real_df, leave empty
     real_df['context'] = ''
     real_df['properties'] = ''
+    
+    if 'violation' in synth_df.columns:
+        real_df['violation'] = ''
 
     # Add 'synthetic' column
     real_df['synthetic'] = 'No'
@@ -38,9 +41,9 @@ def prepare_and_save(real_csv_path, synth_csv_path, output_path, n_real, n_synth
     shuffled_df = combined_df.sample(frac=1, random_state=random_state).reset_index(drop=True)
     shuffled_df.to_csv(output_path, index=False)
 
-n_real = 0
-n_synth = 10000
+n_real = 9000
+n_synth = 1000
 real_csv_path = '../data/CT24_checkworthy_english/train.csv'
-synth_csv_path = '../generate/data/pos_neg_labeled.csv'
-output_path = f'../data/synthetic/ct24_synth_{n_real}_{n_synth}.csv'
+synth_csv_path = '../data/synthetic/synthetic_corona_1k.csv'
+output_path = f'../data/synthetic/ct24_synthetic_corona_{n_real}_{n_synth}.csv'
 prepare_and_save(real_csv_path, synth_csv_path, output_path, n_real=n_real, n_synth=n_synth, random_state=42)

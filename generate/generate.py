@@ -5,6 +5,12 @@ import argparse
 import json
 import random
 
+def sample_property_feature(property_key: str, properties: dict):
+    prop_category = properties[property_key]
+    prop_template = prop_category["template"]
+    prop_feature = random.choice(prop_category["features"])
+    return prop_template.format(prop_feature)
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate samples using a template and GPT model.")
     parser.add_argument("-o", action="store_true", help="Overwrite the existing output file if it exists.")
@@ -18,8 +24,12 @@ if __name__ == "__main__":
     parser.add_argument("--out_file", required=True, type=str, help="Output file path.")
     parser.add_argument("--properties_source", required=False, type=str, help="Path to the properties source file.")
     parser.add_argument("--num_properties", required=False, type=int, help="The number of randomly sampled property categories to use for each generation.")
+    parser.add_argument("--seed", required=False, type=int, help="Seed for random module.")
 
     args = parser.parse_args()
+
+    if args.seed:
+        random.seed(args.seed)
 
     ## set ENV variables
     with open('secrets/openai_api_key.txt', 'r') as key_file:
@@ -83,25 +93,36 @@ if __name__ == "__main__":
             prompt = template.format(examples=examples_str)
         else:
             property_categories = list(properties.keys())
-            # Do not allow sampling topic category
+            # Do not allow sampling topic and violation category
             property_categories.remove("topic")
+            property_categories.remove("violation")
             property_keys = random.sample(property_categories, k=args.num_properties)
             # Always include a topic
             property_keys.insert(0, "topic")
             sampled_properties = []
             for k in property_keys:
-                prop_category = properties[k]
-                prop_template = prop_category["template"]
-                prop_feature = random.choice(prop_category["features"])
-                sampled_properties.append(prop_template.format(prop_feature))
-            
+                sampled_properties.append(sample_property_feature(property_key=k, properties=properties))
+
             properties_joined = "\n".join([f"- {s}" for s in sampled_properties])
+            
+            format_dict = {
+                "properties": properties_joined,
+                "num_examples": args.num_samples_per_prompt,
+            }
+
+            if args.n:
+                sampled_violation = sample_property_feature(property_key="violation", properties=properties)
+                format_dict["violation"] = sampled_violation
+
+            
             if args.num_samples_per_prompt <= 3:
                 format_example = "\n".join([f"- Context sentences. >> Claim {i}." for i in range(1, args.num_samples_per_prompt + 1)])
             else:
                 format_example = f"- Context sentences. >> Claim 1.\n- Context sentences. >> Claim 2.\n- ...\n- Context sentences. >> Claim {args.num_samples_per_prompt}."
             
-            prompt = template.format(properties=properties_joined, num_examples=args.num_samples_per_prompt, format_example=format_example)
+            format_dict["format_example"] = format_example
+            
+            prompt = template.format(**format_dict)
 
 
         response = completion(
@@ -115,10 +136,16 @@ if __name__ == "__main__":
         sample_lines = samples.split("\n")
         sample_lines = [s.removeprefix('- ') for s in sample_lines]
 
+        # Skip if generation starts with claim
         for s in sample_lines:
-            if s.startswith('Claim'):
-                print("Output contains 'Claim' prefix. Skipping this iteration.")
-                continue
+            skip = False
+            if "Claim" in s:
+                skip = True
+                break
+            
+        if skip:
+            print("Output contains 'Claim' prefix. Skipping this iteration.")
+            continue
 
         if not args.example_source:
             # Strip whitespace
@@ -162,10 +189,15 @@ if __name__ == "__main__":
                 'Text': sample_text,
                 'properties': " ".join(sampled_properties)
             })
+
+            if args.n:
+                temp_df["violation"] = sampled_violation
+
         # Append the sample_lines and ids_list to the existing dataframe
         gen_sample_data_frame = pd.concat([gen_sample_data_frame, temp_df], ignore_index=True)
 
         # Save the generated samples to the output file
-        gen_sample_data_frame.to_csv(args.out_file, index=False, columns=['context','Text','properties'])
+        columns = ['Text', 'context','properties', 'violation'] if args.n else ['Text', 'context','properties']
+        gen_sample_data_frame.to_csv(args.out_file, index=False, columns=columns)
 
         num_samples_generated += len(sample_lines)

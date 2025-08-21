@@ -23,6 +23,10 @@ instances_headers = {
     "Authorization": auth_header
 }
 instances_response = requests.get(instances_url, headers=instances_headers)
+
+if instances_response.status_code != 200:
+    raise RuntimeError(f"Failed to retrieve instances: {instances_response.status_code} {instances_response.text}")
+
 instance_json = instances_response.json()
 instances = instance_json["data"]
 
