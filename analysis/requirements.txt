@@ -12,3 +12,5 @@ sentence-transformers
 umap-learn
 seaborn
 bokeh
+wordcloud
+git+https://github.com/BashPrince/BERTopic.git@master
