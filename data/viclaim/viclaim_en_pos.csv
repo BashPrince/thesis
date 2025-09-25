@@ -1,0 +1,250 @@
+row_index,sentence_start_millis,sentence_end_millis,language,topic,label_fcw,label_fnc,label_opn,clip_id,sentence
+15,120,3094,en,Societal issues in the US.,1.0,0.0,0.0,mrtXz6nfCr0,"In Texas, you cannot shoot trespassers."
+20,16086,19462,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.2456712587129254,mrtXz6nfCr0,They have to be doing something else in order for you to use force or deadly force to stop them.
+77,80,6646,en,US Elections 2024,1.0,0.0,0.2701014133933289,8dpibof70wo,"Alina Habba did a bad job representing the world's worst client in his defamation trial, resulting in an $83.3 million verdict against the former president."
+87,30024,35240,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,8dpibof70wo,Ellis recently pleaded guilty to aiding and abetting false statements and writings for her role in the georgia election fraud case.
+88,35312,40936,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,8dpibof70wo,Now Alina Haba said she'd rather be pretty than smart because you can fake being smart but the truth is you just can't fake being a good lawyer.
+90,42840,46080,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,8dpibof70wo,Now trump is interviewing lawyers to appeal the 83 million Carroll verdict.
+199,34734,42438,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,QAWO0tU35xc,"As prospective jurors entered the room, some 50 were dismissed almost immediately for declaring they simply cannot be impartial."
+235,15254,24234,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,U1MPZi7ByYo,"At this moment, only America has the military capacity and might to enable Ukraine so that she can survive this dangerous moment."
+426,15014,22126,en,European Union,0.7543287412870746,0.5157726721062543,0.0,BgNm5m68YdY,"These are gentlemen who have the money to live anywhere they want, but there are certain countries in Europe that don't have residence programs targeting investors."
+434,160,8038,en,Migration,1.0,0.0,0.0,h_TqO9EqMhY,"According to Customs and Border Protection, this disruption started at about 1.30 on Sunday. And this happened at the Paso del Norte Bridge in El Paso, Texas."
+436,11526,20554,en,Migration,0.7543287412870746,0.2456712587129254,0.0,h_TqO9EqMhY,And CBP says that they deployed physical barriers to stop this attempted mass entry into the United States.
+449,35480,42504,en,Migration,1.0,0.0,0.2330060292393593,IBrR1AhXNQs,We the people is referring to the body of citizens in the United States that are either born here or became citizens through the legal process.
+460,9750,16514,en,European Union,1.0,0.0,0.0,iVjl0dbdNdM,"The EU is a powerful bloc, representing some 450 million people in 27 member countries."
+465,36174,45354,en,European Union,1.0,0.0,0.0,iVjl0dbdNdM,"It also sets universal standards on issues ranging from digital and consumer protection to farming, the environment, human rights and beyond."
+471,7062,10430,en,US Elections 2024,1.0,0.0,0.0,GkPhHHLbzfc,"So you said you went to Delaware State, but you forgot the name of your college."
+498,30278,51806,en,US Elections 2024,0.7543287412870746,0.5157726721062543,0.0,sB5w-Y9WI3o,"But in his post-presidency, even more so, the way Trump has treated these criminal trials, what we have heard from him about E.G. Carroll, everything connected to the insurrection, the warm words for Putin after the invasion, you know, praising Hezbollah for being smart over and over and over."
+500,200,8278,en,US Elections 2024,1.0,0.0,0.0,9CZORsfCgAA,"So in this ABC News Washington Post poll, 63% of American adults don't think that Biden has the mental sharpness needed to serve effectively."
+501,8446,11686,en,US Elections 2024,1.0,0.0,0.0,9CZORsfCgAA,62% of American adults don't think that Biden is good enough physical health.
+502,11750,18902,en,US Elections 2024,1.0,0.0,0.0,9CZORsfCgAA,47% of Democrats and 77% of independents don't even want Biden as the nominee.
+505,24942,29244,en,US Elections 2024,0.7669939707606407,0.5031074426326883,0.0,9CZORsfCgAA,"If you think back to 1980, Jimmy Carter, he was sinking too."
+510,4862,11334,en,US Elections 2024,1.0,0.0,0.0,b7PjdZd0sn4,"It's reported that 10 classified documents were found in Biden's former office in Washington DC in November, but we don't know the number found in his Delaware home, in his garage and the library."
+512,14534,22134,en,US Elections 2024,1.0,0.0,0.0,b7PjdZd0sn4,Trump is being investigated for around 300 classified documents found in his Florida home in locations deemed insufficiently secure.
+513,22214,29774,en,US Elections 2024,1.0,0.0,0.0,b7PjdZd0sn4,"Biden's documents were found by his lawyers in November and they alerted the National Archives and the DOJ."
+514,29894,31942,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,b7PjdZd0sn4,His lawyers then searched other properties.
+515,32078,39198,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,b7PjdZd0sn4,Trump's files were found because the National Archives realised some documents were missing and they spent months trying to get them from Trump's legal team.
+516,39326,45662,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,b7PjdZd0sn4,Some were returned but they had to alert the DOJ and an FBI raid had to take place to get the remaining documents.
+519,51854,54990,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,b7PjdZd0sn4,"As for Donald Trump, he initially denied there were any documents, then he said he had the power to declassify them and then he also said that he thought they were planted."
+538,400,3874,en,Societal issues in the US.,1.0,0.0,0.0,f38Q8DEgcv4,The war in Ukraine has been on for 415 days.
+543,10590,15990,en,Societal issues in the US.,1.0,0.0,0.0,f38Q8DEgcv4,U.S. oil companies have reaped $200 billion in pure profits.
+547,22958,26636,en,Societal issues in the US.,1.0,0.0,0.0,f38Q8DEgcv4,"In 2022, the company made $56 billion in profits."
+573,28270,38994,en,US Elections 2024,1.0,0.0,0.0,Tpwalbhq6KU,"In fact, prosecute him to the fullest extent of the executive order that Trump himself signed when he was president of the United States in regard to the mishandling of classified documents."
+577,600,12782,en,US Elections 2024,1.0,0.0,0.2701014133933289,gT-wSpt03Lc,It's no coincidence they indicted me the very same day that it was revealed that the FBI hit explosive evidence that Joe Biden took a $5 million illegal bribe from Ukraine.
+581,25814,30754,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,gT-wSpt03Lc,They RELEASED THIS LITERALLY HOURS AFTER THE FULL OVERSIGHT COMMITTEE IS ABLE TO LOOK AT THESE.
+586,39078,51406,en,US Elections 2024,1.0,0.0,0.2456712587129254,gT-wSpt03Lc,"WE HAVE A FORMER PRESIDENT WHO IS THE PRINCIPAL OPPONENT OF THE CURRENT PRESIDENT INDICTED ON ESPIONAGE CHARGES WHO MAY WELL BE, HE COULD BE FOUND GUILTY IS STILL GOING INTO AN ELECTION IN 2024."
+598,1782,10190,en,European Union,1.0,0.0,0.2701014133933289,Bw56TDye0h0,"It means preserving Europe's more than 30 million jobs in manufacturing, creating new jobs, like in the artificial intelligence field."
+599,10342,18486,en,European Union,1.0,0.0,0.2701014133933289,Bw56TDye0h0,It means empowering the 25 million SMEs in Europe to successfully lead Made in Europe into the future.
+627,5598,9194,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,a4dtn3dWlgY,I'm officially running for re-election in 2024.
+630,15454,16998,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,a4dtn3dWlgY,Joe Biden's running for president
+637,22894,24662,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,a4dtn3dWlgY,So he's... The oldest president
+642,28774,31934,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,a4dtn3dWlgY,But Democratic leaders think that Biden has the best chance to beat a Republican.
+672,400,1998,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,Russia has invaded Ukraine.
+674,4574,11926,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,"A few hours ago, Russian President Vladimir Putin announced what he's calling a special military operation in the east of Ukraine."
+675,12070,16942,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,That's where Russia recently recognised two regions of Ukraine as independent states.
+676,17078,21838,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,"Pretty quickly after Putin's announcement, people started to report explosions around Ukraine."
+678,25158,31136,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,"and shortly after that, Ukraine's President Volodymyr Zelenskyy confirmed that Russian missiles had been launched."
+685,6518,8654,en,Migration,1.0,0.0,0.0,juJeUNLMP7Q,Border Patrol is literally actively picking these people up.
+702,5780,9414,en,War in Ukraine,1.0,0.0,0.2701014133933289,rYgIIhMoNAs,Russia is an empire and there is no room for empires in 21st century.
+709,240,6054,en,War in Ukraine,1.0,0.0,0.0,ah-uUWBNoH0,Opinion polling suggests that a majority of Russian people still support both Putin and the invasion of Ukraine.
+720,360,7794,en,War in Ukraine,1.0,0.0,0.0,N86nFR9VtsI,"We can now announce that after a preliminary tally, President Putin has won 87% of the votes and has been elected president a fifth time."
+726,18160,25678,en,War in Ukraine,1.0,0.0,0.0,N86nFR9VtsI,"You know, even though I signed a bill in 2021 that would allow me to run for re-election two more times, and my most vocal political opponent was imprisoned,"
+727,25726,29982,en,War in Ukraine,1.0,0.0,0.0,N86nFR9VtsI,"and shortly after he urged Russia to protest my election, he mysteriously died in his cell."
+729,35838,49582,en,War in Ukraine,1.0,0.0,0.0,N86nFR9VtsI,"And even though soldiers in Ukraine forced people by gunpoint to vote, and even though two anti-war candidates were barred from running, and even though we put three Kremlin-friendly candidates on the ballot to give the veneer of legitimacy, despite all this adversity, I somehow won a fifth time."
+731,200,3094,en,War in Ukraine,1.0,0.0,0.0,F9k5HmG6cgs,NATO has finally entered the Ukraine battlefield.
+732,3254,7614,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,F9k5HmG6cgs,"No, it's not sending troops yet, but NATO tanks are rolling into Ukraine."
+733,7694,13406,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,F9k5HmG6cgs,"After weeks of waiting, Ukraine is finally getting the tanks it wanted."
+741,34672,38688,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,F9k5HmG6cgs,The US says Russia is sending a delegation to North Korea.
+743,42792,47464,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,F9k5HmG6cgs,"Meanwhile, China's defence ministry says it's looking to increase military cooperation with Russia."
+749,2110,9342,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,3ardNHeNiGg,"Ukraine, so because of the longevity of the war and pretty much no end in sight, the head of the NATO Secretary General's office suggested that Ukraine should give up the land that is now under Russian control."
+752,19710,23614,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,3ardNHeNiGg,"Stian Jensen of course apologized the next day stating that it should be up to Ukraine to decide its future."
+767,160,8270,en,Migration,1.0,0.0,0.0,2FKWSv-lUVM,last year in the uk a record high 1.1 million asylum seekers received a residence permit
+768,8422,15750,en,Migration,1.0,0.2512212986543863,0.0,2FKWSv-lUVM,also last year crime rates increased a massive 16 compared to 2021
+771,120,9398,en,Migration,0.7669939707606407,0.2330060292393593,0.0,b8vjqVTWp40,This is an example of a protest that happened in Miami of people supportive of the rights of undocumented immigrants or illegal immigrants.
+777,29110,34300,en,Migration,1.0,0.0,0.0,b8vjqVTWp40,"And look at how the numbers start to go down as soon as border patrol agents go up,"
+784,2566,8702,en,European Union,1.0,0.0,0.0,hQkDIo2wWyY,"That's what a majority of people in every constituency, except three in Lincolnshire, think, according to the most recent polling."
+785,8878,23534,en,European Union,1.0,0.0,0.0,hQkDIo2wWyY,"Nationally, 54% of people either strongly or mildly agree with the statement, Britain was wrong to leave the EU, as compared to just 28% who either strongly or mildly disagree with the statement."
+786,23654,40400,en,European Union,1.0,0.0,0.0,hQkDIo2wWyY,"Those experiencing the most regret, that's Brexit regret, are Bristol West, Edinburgh South and Stratham. While the constituencies with the least regret are Boston and Skegness, South Holland and the Deepings, and Louth and Horncastle."
+815,10518,17606,en,League of Legends,1.0,0.0,0.0,OjZxQbMoU2E,"First of all, while Faker came out on top, he actually didn't make it out alive, as he was executed by the turret shortly after."
+858,280,8654,en,European Union,1.0,0.0,0.0,rO5UEYL3-gs,"Food inflation is 95% in Turkey, 29% in Hungary, 24% in Bulgaria, 19% in Czech Republic, and 15% in Germany."
+932,240,6958,en,European Union,1.0,0.0,0.0,2T3DmoQWlqo,"Meet Helena Daly, former beauty queen and elected member of the Maltese government, now European Commissioner for Equality since 2019."
+935,13206,23274,en,European Union,1.0,0.0,0.0,2T3DmoQWlqo,"Helena Daly has made quite a name for herself, by instance, for promoting the hijab in this campaign in close collaboration with the Forum of European Muslim Youth and Student Organization or FEMYSO."
+936,23614,30032,en,European Union,1.0,0.0,0.0,2T3DmoQWlqo,The main goal of this organization is promoting Islam and the Islamization of Europe in close collaboration with the Muslim Brotherhood
+939,37984,43392,en,European Union,1.0,0.0,0.0,2T3DmoQWlqo,Helena Daly also made a guidebook called European Commission Guidelines for Inclusive Communication.
+940,43528,48832,en,European Union,0.7543287412870746,0.2456712587129254,0.2701014133933289,2T3DmoQWlqo,"And yes, it includes not using genders, not wishing Merry Christmas, and a bunch of other useless things."
+1428,2918,9622,en,War in Ukraine,1.0,0.0,0.0,3mwZjP5W1-A,"As of October 3, Ukraine has secured Lyman in the north of the country, effectively ending any hope of resupplying Russian units in the region."
+1429,9718,15590,en,War in Ukraine,1.0,0.0,0.0,3mwZjP5W1-A,"In just one month, Ukraine has liberated more territory from Russia than the invaders seized in five months of fighting."
+1432,22918,27962,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,3mwZjP5W1-A,"At the start of the invasion, most analysts predicted Russia would be unable to seize the nation with its invasion force"
+1434,29482,33362,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,3mwZjP5W1-A,"predictions have come true, and now Russia faces a real crisis."
+1435,33458,41346,en,War in Ukraine,1.0,0.0,0.0,3mwZjP5W1-A,"While it is only now launching a mobilization effort to enlist 300,000 more soldiers, Ukraine began its nationwide mobilization at the start of hostilities."
+1489,8990,12870,en,US Elections 2024,1.0,0.0,0.0,pN8AHm2gV6A,"First, he promises that he will carry out the largest domestic deportation operation in history."
+1491,14142,18158,en,US Elections 2024,1.0,0.0,0.0,pN8AHm2gV6A,He will also ask for the death sentence for anyone convicted of human trafficking.
+1492,18206,19966,en,US Elections 2024,1.0,0.0,0.0,pN8AHm2gV6A,"He will put prayer back into school, and he will criminalize any race-based advantage programs."
+1494,23446,24334,en,US Elections 2024,1.0,0.0,0.0,pN8AHm2gV6A,"He will ban gender-affirming care for adults and children, and he will ban any federal dollars from going towards gender-affirming care."
+1498,29942,30806,en,US Elections 2024,1.0,0.0,0.2456712587129254,pN8AHm2gV6A,"He will increase the penalties for underage criminal offenders, strengthen immunity for police officers, and deploy the National Guard to patrol woke cities."
+1500,38254,44774,en,US Elections 2024,1.0,0.0,0.2456712587129254,pN8AHm2gV6A,He will push Congress to pass legislation that would give every American the right to concealed carry anywhere at any time.
+1501,44854,48190,en,US Elections 2024,1.0,0.0,0.2456712587129254,pN8AHm2gV6A,"He will demand that Europe pay back all the money we gave Ukraine, and then he will use all of that money to recruit for the American military."
+1588,3640,6878,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,tHUvhoX3GdQ,"Across the front line in eastern Ukraine, Russia is on the offensive."
+1589,7046,16354,en,War in Ukraine,1.0,0.0,0.0,tHUvhoX3GdQ,"Coming out of winter with worsening ammunition and manpower shortages, overstretched Ukrainian forces are losing ground in the face of seemingly endless Russian attacks."
+1590,20740,34354,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,tHUvhoX3GdQ,"With much needed U.S. military aid expected to start flowing in over the next weeks, Russian forces are looking to press their advantage on the battlefield"
+1606,28020,37316,en,War in Ukraine,0.7543287412870746,0.4968925573673117,0.0,wsDmwoOrpR8,There was the notion that what we were working for was the universal brotherhood of man and this intense inclusiveness where everyone could live together peacefully.
+1610,5358,6630,en,War in Ukraine,0.7543287412870746,0.0,0.4968925573673117,aug3AMgCyXs,"But I'm confused, i mean that's the biggest act of industrial terrorism ever and it's the largest emission of co2 in history"
+1616,27514,37334,en,War in Ukraine,0.7543287412870746,0.0,0.5157726721062543,aug3AMgCyXs,"In the war of propaganda it is very difficult to defeat the United States, because the United States controls all the world's media and many European media."
+1617,37994,43334,en,War in Ukraine,0.7543287412870746,0.0,0.2456712587129254,aug3AMgCyXs,The ultimate beneficiary of the biggest European media are American financial institutions.
+1623,2686,8526,en,US Elections 2024,1.0,0.0,0.0,YwjUtEZNz7s,"At the Air Force Academy, Biden could not remember the word pilot or fighter"
+1630,1438,8214,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,jEpdvo4Eb8s,"Democrats are generally more progressive on social issues and support reproductive rights, including access to abortion and birth control."
+1631,8374,13582,en,US Elections 2024,1.0,0.2456712587129254,0.0,jEpdvo4Eb8s,They also support marriage equality and believe in protecting the rights of the LGBTQ plus community.
+1632,13758,19974,en,US Elections 2024,1.0,0.0,0.0,jEpdvo4Eb8s,"Democrats also support stricter gun control measures, including background checks and restrictions on the sale of certain firearms."
+1633,200,3030,en,US Elections 2024,1.0,0.0,0.0,apsYHD_VR8M,the stock market's doing OK for the last six months.
+1637,10742,17286,en,US Elections 2024,1.0,0.0,0.0,apsYHD_VR8M,"Now, remember, Trump predicted a 1929 style recession if Joe Biden were to get elected"
+1638,17350,20222,en,US Elections 2024,1.0,0.0,0.0,apsYHD_VR8M,"In 2020 Trump said if Joe Biden gets elected, everything will crash. It'll be like 1929."
+1659,2894,9326,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,"Ukraine has been conducting drone strikes on Russian oil refineries since around January, aiming to disrupt fuel production."
+1660,9390,14966,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,These attacks have reportedly decreased Russian refined oil product production by 12 to 14%.
+1661,15070,22422,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,Russia has implemented an export ban on refined oil products and may be importing some from Belarus due to the impact of the attacks.
+1662,22478,29870,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,"The attacks aim to create a shortage of gasoline and fuel in Russian society, impacting both civilian and military sectors."
+1663,29942,37254,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,Ukraine's strategy is to target the Russian economy's vulnerability to weaken its ability to sustain military operations in Ukraine.
+1664,37334,43486,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,"Ukrainian drones have a range of over 1,000 kilometers and pose challenges to Russian air defense"
+1666,48918,54534,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,The United States reportedly expressed concerns about rising gas prices globally due to the Ukrainian campaign.
+1684,4302,10646,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,-VYpehDXmwc,"Putin has been holding firm in the war on Ukraine, assuming that his country's energy dominance means the West will drop their sanctions"
+1685,10710,14406,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.2701014133933289,-VYpehDXmwc,"He cut off supplies of natural gas, hoping to break Europe's spirit during the winter."
+1687,15998,22902,en,War in Ukraine,1.0,0.0,0.2701014133933289,-VYpehDXmwc,"While Europe heavily depended on Russia for supplies of natural gas, metals, and fertilizer, they seemed to be doing just fine without Russia supplying them."
+1689,27494,35694,en,War in Ukraine,1.0,0.0,0.0,-VYpehDXmwc,"They started importing large amounts of liquefied natural gas from other countries, primarily the United States, as well as stepping up production of nuclear, coal, and renewable energy."
+1690,35774,42998,en,War in Ukraine,1.0,0.0,0.0,-VYpehDXmwc,"This has meant Europe only gets an average of 9% of its total gas imports from Russia, a shortfall that can easily be made up in other areas."
+1691,43086,47606,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,-VYpehDXmwc,"This was Putin's main leverage over Europe, and he doesn't have nearly as much of a monopoly on oil."
+1692,47670,59294,en,War in Ukraine,1.0,0.0,0.0,-VYpehDXmwc,"And once Putin's control over the Black Sea was broken, his attempt to corner the food market failed, which means that Russia has little role in the global economy that can't be replaced, making them increasingly irrelevant as sanctions pile on."
+1836,3782,6286,en,War in Ukraine,1.0,0.0,0.0,RnrnBNS9hZc,First is the utter decimation of its ground forces.
+1837,6390,13022,en,War in Ukraine,1.0,0.0,0.0,RnrnBNS9hZc,"Russia has lost almost 1,500 tanks in Ukraine, with at least a third of former Russian tanks now being current Ukrainian tanks."
+1839,17230,25438,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,RnrnBNS9hZc,"Even Russia's legendary first guards tank army, meant to smash the very best NATO formations, was routed and forced to leave a large number of its tanks behind."
+1841,28654,34582,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,RnrnBNS9hZc,"Before this invasion, the world considered Russia to be the second strongest military power, a near peer to the United States."
+1843,37238,42662,en,War in Ukraine,1.0,0.0,0.0,RnrnBNS9hZc,"Over a million professionals have fled Russia to date, and the nation has faced the strongest sanctions in modern history."
+1844,42758,46070,en,War in Ukraine,1.0,0.0,0.0,RnrnBNS9hZc,The impact to its economy is currently being mitigated by cash reserves
+1854,25286,40166,en,War in Ukraine,0.7543287412870746,0.5157726721062543,0.0,VuHQIRoAYtk,so this ongoing predation raiding of churches which the ukrainians have pioneered and if you go to our website you will see hundreds and hundreds of churches and parishioners crying and screaming and priests being beaten
+1855,40230,43174,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,VuHQIRoAYtk,and these are our allies these these are the people we're funding
+2123,3198,14558,en,Migration,1.0,0.0,0.0,I6q3mrbqgOQ,"Russia's invasion has already produced 3 million refugees, and NATO countries have welcomed them with open arms, offered support programs, and waived wait times, just like they did for North Africans, Yemenis, Syrians, Iraqis."
+2126,21838,26182,en,Migration,0.7543287412870746,0.2456712587129254,0.0,I6q3mrbqgOQ,"Even today, brown-skinned refugees fleeing Ukraine are held up at borders and denied transportation."
+2127,26238,30630,en,Migration,1.0,0.0,0.0,I6q3mrbqgOQ,"The Bulgarian Prime Minister gave up the game when he said, these are not the refugees we are used to."
+2218,6078,9238,en,Migration,0.7543287412870746,0.2456712587129254,0.0,XfSL38H_kcM,And they give us two months to stay at the shelter and then you have to go out again with your luggages and the kids and find another place.
+2232,200,5834,en,Migration,1.0,0.0,0.0,bMaTYLyOS0s,"An 11-metre purpose-made dinghy leaves the beach at Wimmerow near Boulogne at 5 o'clock this morning. As it goes out, it's stormed by people from Africa who can't afford the fee."
+2234,10934,12334,en,Migration,0.7543287412870746,0.2456712587129254,0.0,bMaTYLyOS0s,The boat is overcrowded. People fall out. Five people drown.
+2236,14910,27040,en,Migration,1.0,0.0,0.0,bMaTYLyOS0s,"The French Navy come along, take some excess people off, and then escort the dinghy all the way to a 12-mile line from the United Kingdom where it's picked up by Border Force and the RNLI."
+2237,27040,37512,en,Migration,0.7543287412870746,0.2456712587129254,0.0,bMaTYLyOS0s,We are allowing the French Navy to continue with a trade where they are helping the criminal traffickers get people to our country.
+2465,200,5750,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,"Did you know that only 27 years ago, you had to stop and be checked at every single internal EU border?"
+2466,5822,13806,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,"Before 1995, when crossing into another EU country, it was common to spend hours in massive traffic jams, as all cars were subject to be searched."
+2467,13870,19734,en,European Union,0.7543287412870746,0.2456712587129254,0.0,MtN7inkQnd0,"Similarly, at airports, you would need to go through passport control, even for a short weekend away in another EU city."
+2469,22774,28356,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,"In March 1995, the Schengen Agreement was implemented which created border-free travel in seven countries"
+2470,28470,32032,en,European Union,0.7543287412870746,0.2456712587129254,0.0,MtN7inkQnd0,this meant no more passports traffic jams or airport custom checks
+2471,32128,40264,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,today 26 countries are part of the passport-free zone and each year there are over 1.3 billion hassle-free border crossings within the eu
+2472,40384,45352,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,this includes 1.7 million daily commutes for people that work in a neighboring country
+2473,45488,49536,en,European Union,0.7669939707606407,0.2330060292393593,0.0,MtN7inkQnd0,millions of hours are saved every day in waiting time for european citizens
+2477,6822,13078,en,European Union,1.0,0.0,0.0,z-Nl-MEJayo,"Expected years of retirement in the EU are lowest in Romania, Bulgaria and Latvia."
+2478,13206,17942,en,European Union,1.0,0.0,0.0,z-Nl-MEJayo,This is far below the EU average of 19 years for men and 24 years for women.
+2479,18038,26694,en,European Union,1.0,0.0,0.0,z-Nl-MEJayo,"But if we look at the top three, we have Spain, Luxembourg and indeed France, where men can expect 24 years of retirement and women 27."
+2678,4998,9006,en,European Union,0.7543287412870746,0.0,0.2456712587129254,Ksz6MtsxgMY,We're regulating our own businesses even more than they were as EU members.
+2687,3222,7806,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,The decision to leave the European Union has upended the British economy in a lot of ways.
+2688,7910,13406,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,Travel is down both into and out of the country due to stricter entry visa requirements from the EU.
+2689,13510,18758,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,"This has also led to more difficulty getting foreign workers, many of which are needed to staff key industries."
+2690,18846,25824,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,"The trade regulations are also completely different for countries out of the EU, which means British industries have a harder time selling their wares."
+2691,25934,34612,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,Countries are more hesitant to open new businesses in the United Kingdom due to instability in the labor market and uncertainties about how Brexit will continue to affect the country.
+2692,34708,43220,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,"Even with Britain's close ally, the US, there are consequences as the UK is now excluded from many key partnerships America has with the European Union."
+2693,43292,48788,en,European Union,1.0,0.0,0.0,0slWCdcKIYk,"This all boils down to a massive economic hit, to the tune of up to 100 billion pounds a year."
+2697,2934,13710,en,European Union,1.0,0.0,0.0,44kx2-EE5nE,The AFD politician and member of the German Bundestag Peter Büstron is alleged to have received money from a Russian disinformation network.
+2698,13782,27174,en,European Union,1.0,0.0,0.0,44kx2-EE5nE,"According to Czech media, the online news portal Voice of Europe is said to have made the money transfers. Money allegedly meant for Putin-friendly leading candidates in the upcoming EU elections. Büstron refused the claims."
+2702,35154,41018,en,European Union,1.0,0.0,0.0,44kx2-EE5nE,But media reports claim the Czech intelligence services have audio recordings that prove payments were made.
+2708,54402,59114,en,European Union,0.7543287412870746,0.2456712587129254,0.0,44kx2-EE5nE,"For now, the AFD leadership believes Büstron and is backing its candidate for the European election."
+2709,200,4806,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,Around 108 million people were killed in European wars in the 20th century.
+2710,4870,11086,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,"The average war in Europe lasted five years, the worst being World War II, where around 70 to 85 million people died."
+2712,15550,19294,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,"This was when the first version of the EU was created, in 1952."
+2713,19374,26848,en,European Union,0.7543287412870746,0.2456712587129254,0.0,DMYMYjGEdlo,"Ever since, this has been one of the EU's most important achievements, as it was able to unify nations through working together and promoting mutual interests."
+2714,26966,38700,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,"There have been 70 years of peace among the EU members, which is unprecedented for the European continent."
+2714,26966,38700,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,"And in 2012, the EU was granted a Nobel Peace Prize for this achievement, as hundreds of millions of lives have been saved."
+2716,240,2182,en,European Union,0.7543287412870746,0.0,0.0,qnxkwqxIDnI,21.4 billion euros that is germany's net contribution towards the eu last year
+2718,5590,9982,en,European Union,1.0,0.0,0.0,qnxkwqxIDnI,the second biggest net contributor is france and then in third the netherlands
+2719,10118,17190,en,European Union,1.0,0.0,0.2701014133933289,qnxkwqxIDnI,the biggest net beneficiaries are hungary greece and poland which is surprising as they are also among the most euro skeptic
+2722,5390,13174,en,European Union,1.0,0.0,0.0,24E7dVI1m6U,"In 2021 the smallest spenders were Malta, Luxembourg, and Cyprus, while the biggest spenders were Italy, Germany, and the winner, France."
+2723,13294,20518,en,European Union,0.7543287412870746,0.0,0.2456712587129254,24E7dVI1m6U,"But even if we add together the military spending of all EU countries, the US still spends more than three times as much as the EU."
+2784,240,4926,en,US Elections 2024,1.0,0.0,0.0,65Xo51K2UU4,in the inflation reduction act there was 80 billion dollars that was earmarked to the irs
+2785,5030,13926,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,65Xo51K2UU4,the irs has been gutted over the last couple decades mostly under republican control to the point that they can't do basic customer service anymore
+2789,36954,46134,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,65Xo51K2UU4,"And that has been targeted heavily by Republicans, both in the election and since the election."
+2860,10366,18774,en,War in Ukraine,1.0,0.0,0.0,_tIzgOPY4wM,"You know, Biden's budget director, the head of the OMB, sent a letter yesterday to Speaker Mike Johnson, imploring him to spend more money in Ukraine."
+2861,18854,23022,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.2456712587129254,_tIzgOPY4wM,And what they said is they want to revitalize our defense industrial base.
+2863,27798,38158,en,War in Ukraine,1.0,0.0,0.0,_tIzgOPY4wM,And they sent a list of states that would get money when we spend money on deadly munitions because they have to be manufactured in Alabama or Ohio or Texas.
+2865,41342,53774,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.2456712587129254,_tIzgOPY4wM,"Congressmen tend to vote for this stuff because a lot of this federal spending that goes to Ukraine is actually laundered back to the military industrial complex and in some ways enriches people in their districts and the stockholders, some of whom are congressmen"
+2875,5334,9550,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,vORQJu_wYcg,"So just to sum up, you would support him for president even if he's convicted in classified documents."
+2883,1302,8942,en,US Elections 2024,1.0,0.0,0.0,3pk8_vOMfTA,"Republicans believe in a smaller role for the government and the economy, advocating for lower taxes, deregulation, and a free market system."
+2884,9078,16238,en,US Elections 2024,1.0,0.0,0.0,3pk8_vOMfTA,"They believe that lower taxes, particularly for businesses and the wealthy, will stimulate economic growth, create jobs, and boost investment."
+2885,16406,21974,en,US Elections 2024,1.0,0.0,0.0,3pk8_vOMfTA,"Republicans also support reducing the size of government, cutting social programs, and reducing the national debt."
+2899,4390,9350,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,po5cg6RJcHQ,"The U.S. is weaker, measurably weaker, because of our support for Ukraine in this war."
+2902,13662,22998,en,War in Ukraine,1.0,0.0,0.0,po5cg6RJcHQ,"And so now there is, believe it or not, an effort in progress to get the U.S. government to send another 60-odd billion dollars to the oligarchs in Ukraine."
+2909,21574,24190,en,War in Ukraine,1.0,0.0,0.0,p6N23bfLzl4,people are starting to die of hypothermia in the UK
+2912,30486,36774,en,War in Ukraine,1.0,0.0,0.0,p6N23bfLzl4,"Well, for posting that video and others like it, he was arrested by the government of Ukraine, the one that we pay for."
+2913,320,5718,en,War in Ukraine,1.0,0.0,0.0,xuzV2ZpQZ84,"just saw a new commitment today, $2 billion from the United States to Ukraine."
+2922,280,7006,en,US Elections 2024,1.0,0.0,0.0,NE979aOqESU,"Republicans have proposed a bill to abolish the IRS, the Internal Revenue Service, and end the income tax."
+2934,9350,18182,en,US Elections 2024,1.0,0.0,0.0,4MpVpvSWM3E,"The Republicans on the Joint Committee on Taxation have suggested that taxpayers making less than $200,000 a year would see their taxes raised by about $16 billion over a decade."
+2937,24774,34798,en,US Elections 2024,1.0,0.0,0.0,4MpVpvSWM3E,"They're just claiming that by imposing a 15% corporate minimum tax onto billion-dollar corporations, they think it's possible that those corporations could pass off those costs onto workers and shareholders."
+2940,38558,51342,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.5157726721062543,4MpVpvSWM3E,"And instead of Republicans saying, yeah, massive businesses should pay taxes, they're just lining up behind these billionaire corporations and doing their bidding by warning that if these corporate tax dodgers have to pay taxes, that'll just mean higher prices for consumers"
+2944,4582,7254,en,US Elections 2024,1.0,0.0,0.0,0TPR0Ri5ZbY,"Yesterday, the judge in his Manhattan trial warned him in court, quote, I won't have any jurors intimidated in this courtroom."
+2947,10838,23694,en,US Elections 2024,1.0,0.0,0.0,0TPR0Ri5ZbY,"Today, he took to Truth Social and wrote, they are catching undercover liberal activists lying to the judge in order to get on the Trump jury."
+2958,39574,42094,en,War in Ukraine,0.7543287412870746,0.0,0.2456712587129254,lWZ2HBMzfqY,"He never made it. Five miles from the Hungarian border, five kilometers, rather, from the Hungarian border, he was arrested."
+2961,50302,57214,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.2456712587129254,lWZ2HBMzfqY,"In fact, of course, they support his imprisonment, and no one in the national media seems interested in his fate"
+2965,4574,13126,en,US Elections 2024,1.0,0.0,0.0,MmqgRbGKWrM,"So Sean Crowley stood up for E. Jean Carroll, complained about three statements that former President Trump had made that were audible to those at the plaintiff's table and she said must have been audible to the jury as well."
+2967,16638,30418,en,US Elections 2024,1.0,0.0,0.0,MmqgRbGKWrM,"That's when Judge Kaplan, for the second time today, reminded former President Trump that he should not be making comments that the jury could hear or that even audience members could hear."
+2970,39722,47282,en,US Elections 2024,1.0,0.0,0.0,MmqgRbGKWrM,"And that's when Trump, just as Judge Kaplan said, couldn't help himself and said, I know that you would like nothing more, I know you really want to do that."
+2985,20326,27782,en,War in Ukraine,1.0,0.0,0.0,SskJ7mLbyEs,and as we all know taiwan produce up to 90 percent of all world semiconductors microchips
+3020,22422,28390,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,xkje0eny6Qw,"And the closer Putin got to the 20th century, the more he had to talk about today's evaluative phenomena."
+3026,400,6294,en,War in Ukraine,1.0,0.2701014133933289,0.0,LQMFsh71f-8,"According to most estimates, every day of the war in Ukraine costs Russia 500 million to 1 billion dollars."
+3027,6414,14566,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,"The anticipated collapse has been avoided, and the anticipated annual GDP decline of 8-10% has been lowered to a decline of 3-4%."
+3028,14710,18854,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,"However, a 3% growth rate was anticipated before the conflict."
+3029,18974,23958,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,The budget has started to decline after being supported in the beginning by oil and gas
+3030,24086,29206,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,"In terms of yearly growth, non-oil and gas income decreased by 20% in October."
+3031,29350,35326,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,"In the first 10 months of this year, industrial production actually decreased by a relatively minor 0.1%."
+3084,19606,25206,en,Migration,0.7543287412870746,0.2456712587129254,0.2701014133933289,Zy2ZaSN1_kg,And no wonder Governor Cuomo said people left.
+3088,80,8270,en,Migration,1.0,0.0,0.0,KS7lrYXBngY,There's like 40 million males of marriage age in China with no prospects of marrying a female because of sex selection abortion.
+3089,8462,14726,en,Migration,0.7543287412870746,0.2456712587129254,0.0,KS7lrYXBngY,"When they had one child policy, the parents would abort a female baby and have a male."
+3122,46374,48822,en,Migration,0.7669939707606407,0.2330060292393593,0.0,hi46RX_9YGg,zimbabwe is a lot poorer than mexico
+3133,28682,31762,en,Migration,1.0,0.0,0.0,QRVB48WiPP8,"Manila is the most densely populated city in the world at 41,000 people per square kilometre."
+3149,12606,18662,en,Societal issues in the US.,0.7543287412870746,0.0,0.2456712587129254,EO7bu_rwegY,"The law states that if a situation is dire enough, I, as an officer of the law, can take your car to stop a dangerous situation."
+3195,120,12398,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,31_BkzSaqpQ,"There's only six reasons to use force or deadly force in the state of Texas when it comes to you defending yourself as a person. That is aggravated kidnapping, murder, sexual assault, aggravated sexual assault, robbery, aggravated robbery."
+3198,5206,9422,en,Societal issues in the US.,1.0,0.0,0.0,NTaWW9kOwEM,this state has been rated top five worst states in health for the last six years in a row
+3221,1782,5134,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,"The three fattest states in the U.S., the number one has a 70% overweight obesity rate."
+3223,7862,10998,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,Baton Rouge boasts an obesity rate exceeding 33%.
+3224,11126,17414,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,KzNXqDZsV1Y,"This means that one in three of its residents faces weight challenges, raising concerns about their health and well-being."
+3225,17534,23238,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,KzNXqDZsV1Y,A significant contributor to this issue in Baton Rouge is the limited access to fresh fruits and vegetables.
+3226,23366,28678,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,"In fact, the city ranks third from the bottom in fresh food consumption across all U.S. cities."
+3228,31719,39606,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,"Located near the Mexican border, this city has a disturbingly high obesity rate, with over 45% of its residents classified as obese."
+3229,39710,45070,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,KzNXqDZsV1Y,This is partly attributed to McAllen having one of the lowest physical activity rates among adults in the country.
+3230,45222,51454,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,A staggering 36.9% of adults in the metro area admit to leading sedentary lifestyles.
+3240,280,5086,en,European Union,1.0,0.0,0.0,_fiVwbdknbM,"Hungary is the worst inflation rate in the EU, followed by Latvia and then Czechia."
+3255,6518,13462,en,League of Legends,1.0,0.0,0.0,osYSB5FZfzg,"Players were 59 minutes into the world's quarterfinals when suddenly, the internet stopped working."
+3261,33404,39988,en,League of Legends,1.0,0.0,0.0,osYSB5FZfzg,"The developers would go on to spend the next two hours trying to fix the issue, but only ran into more problems."
+3327,3390,13758,en,Societal issues in the US.,1.0,0.0,0.0,yzeHDWc-lpo,The cops and donuts stereotype may actually be true. As a new study from the FBI indicates that 80% of law enforcement officers in the US are overweight.
+3328,13926,17326,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,yzeHDWc-lpo,Police are also heavier on average than most Americans.
+3329,17470,26230,en,Societal issues in the US.,1.0,0.0,0.0,yzeHDWc-lpo,"As a result, police officers are 25 times more likely to die from weight-related cardiovascular disease than from interaction with a criminal."
+3339,200,5190,en,European Union,1.0,0.0,0.0,jiz4duOVqeo,Over 10 million students took part in the Erasmus program and studied abroad since 1987.
+3341,10822,17430,en,European Union,0.7543287412870746,0.2456712587129254,0.0,jiz4duOVqeo,The EU started the Erasmus program to enable anyone to complete part of their studies abroad for a period of 3 to 12 months.
+3342,17502,22678,en,European Union,0.7543287412870746,0.2456712587129254,0.0,jiz4duOVqeo,The goal was to drive inclusion and open the minds of young Europeans through experiencing different cultures.
+3343,22766,27094,en,European Union,1.0,0.0,0.0,jiz4duOVqeo,Over 90 percent of European universities participate in over 33 countries.
+3344,27214,30598,en,European Union,1.0,0.0,0.0,jiz4duOVqeo,"Currently, over 300,000 students take part each year."
+3350,16614,21326,en,European Union,1.0,0.0,0.0,wHl7RvRPrKo,"This insurance grants citizens medical access throughout the EU, at no additional cost."
+3351,21430,25586,en,European Union,1.0,0.0,0.0,wHl7RvRPrKo,"Additionally, doctors and nurses can practice medicine in other European countries."
+3352,25750,32386,en,European Union,1.0,0.0,0.0,wHl7RvRPrKo,"Currently, over 200 million people possess a European health insurance card, and 31 countries participate in the program."
+3425,320,5630,en,European Union,1.0,0.0,0.0,0P2Yixq2fcw,"Bulgaria has the worst average yearly salary in the EU, followed by Hungary and then Romania."
+3426,5742,9774,en,European Union,1.0,0.0,0.0,0P2Yixq2fcw,"This is far below the EU average of €34,000 per year."
+3427,9854,14398,en,European Union,1.0,0.0,0.0,0P2Yixq2fcw,"The best salaries can be found in Ireland at number 3, Denmark at number 2, and at number 1 there's Luxembourg, with an average salary of €72,000 per year."
+3429,240,3470,en,European Union,1.0,0.0,0.0,VbqCnEt8PGY,"20 years ago, there were over 27 currencies in the EU."
+3434,35638,45678,en,European Union,1.0,0.0,0.0,VbqCnEt8PGY,"Today 19 countries participate, with the 20th joining on the 1st of January 2023. And so far 341 million people use the euro every day."
+3439,20558,26062,en,European Union,1.0,0.0,0.0,SgwzNElP_5I,"Citizens would pay the same fee for data, calls and SMS as in their home country anywhere in the EU."
+3441,29150,37520,en,European Union,1.0,0.0,0.0,SgwzNElP_5I,"In most cases, mobile data abroad is now 10 times as cheap as it used to be, and this is now available to 474 million European citizens."
+3442,37592,42584,en,European Union,1.0,0.0,0.0,SgwzNElP_5I,"Furthermore, by 2023, Europe will also have one single emergency services number"
+3478,4382,8926,en,European Union,1.0,0.0,0.0,vsno7EOt_Lk,Europeans are consuming almost 700 billion on-the-go plastics every year.
+3479,8990,16038,en,European Union,0.7543287412870746,0.2456712587129254,0.5157726721062543,vsno7EOt_Lk,"And according to the EU, this legislation will reduce waste in our oceans and force companies to innovate away from plastic."
+3483,3478,9502,en,European Union,1.0,0.0,0.0,2mo813z0n2U,65% of the Dutch working population worked at least partially remote from January to August last year.
+3484,9598,14806,en,European Union,1.0,0.0,0.0,2mo813z0n2U,"Next are Luxembourg and Sweden at 54 and 52%, with an EU average of 30%."
+3485,14910,18398,en,European Union,1.0,0.0,0.0,2mo813z0n2U,But the Dutch even enforced remote working flexibility by
+3767,15142,18142,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,U2O9DSUl3Co,He did not initiate any new war.
+3865,20838,36734,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,4T5H1R45odE,"But the reforms, they have only had very limited success since these agencies have managed to bring charges against some petty officials, maybe mid-level officials."
+4392,40052,48956,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.2456712587129254,Um8RGDvK6FY,Sending hundreds and hundreds of billions of dollars of weapons there and sort of pretending that it's like aid rather than the arming of a military.
+4404,30330,35682,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,DToAWbBPO84,Tony Blair went to Iraq and claimed that there are weapons of mass destruction.
+4407,41874,49786,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,DToAWbBPO84,More than millions of people have died in Iraq and Afghanistan and there are no weapons of mass destruction.
+4413,6486,10286,en,War in Ukraine,1.0,0.0,0.0,H4hiPcPvYKg,The flag of the Soviet Union used between 1924 and 1991.
+4415,12334,20474,en,War in Ukraine,1.0,0.0,0.0,H4hiPcPvYKg,"The Soviet banner of victory. The one raised by Red Army soldiers on the Reichstag building in Berlin on May 1, 1945."
+4417,22500,30566,en,War in Ukraine,1.0,0.0,0.0,H4hiPcPvYKg,"Apparently, this was an old Orthodox Church banner used by Ivan the Terrible during the Siege of Kazan in 1552."
