@@ -27,24 +27,21 @@ def make_config(model_name: str, data_artifact_name: str, group_name: str, seed:
 
 
 model_name = "roberta-base"
-run_prefixes = ["ct24_"]
-run_mid = "synth"
-dataset_mixes = [
-    ("9k", "1k"),
-    ("7k", "3k"),
+run_base_names = ["topic_separation"]
+run_suffixes = [
+    "government",
 ]
 
 base_seed = 42
-num_seeds = 3
+num_seeds = 4
 file_num = 0
 batch_size = 128
 
-for run_prefix in run_prefixes:
-    for data_mix in dataset_mixes:
+for run_base_name in run_base_names:
+    for run_suffix in run_suffixes:
 
-        data_prefix = run_prefix + run_mid
-        data_artifact_name = f"{data_prefix}_{data_mix[0]}_{data_mix[1]}"
-        group_name = data_prefix
+        data_artifact_name = f"{run_base_name}_{run_suffix}"
+        group_name = run_base_name
 
         for seed in range(base_seed, base_seed + num_seeds):
             make_config(model_name=model_name, data_artifact_name=data_artifact_name, group_name=group_name, seed=seed, batch_size=batch_size, file_num=file_num)

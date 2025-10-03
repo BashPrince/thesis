@@ -10,14 +10,26 @@ run_names = [
     "gc_synth_2k_8k",
     "gc_synth_0_10k",
 ]
-wandb_run_group_name = "gc_synth"
+wandb_run_group_name = "topic_separation"
 model_name = "roberta-base"
 
 eval_datasets = [
-    ("ct24", "ct24_gold"),
+    # ("gc_source_microtext", "gc_source_microtext"),
+    # ("gc_source_various", "gc_source_various"),
+    # ("gc_source_essay", "gc_source_essay"),
+    # ("gc_source_wiki", "gc_source_wiki"),
+    # ("gc_source_livejournal", "gc_source_livejournal"),
+    # ("gc_style_semi", "gc_style_semi"),
+    # ("gc_style_structured", "gc_style_structured"),
+    # ("gc_source_fact_checks", "gc_source_fact_checks"),
+    # ("gc_topic_various", "gc_topic_various"),
+    # ("gc_topic_politics", "gc_topic_politics"),
+    ("topic_separation_fiscal", "topic_separation_fiscal"),
+    ("topic_separation_security", "topic_separation_security"),
+    ("topic_separation_government", "topic_separation_government"),
 ]
 
-wandb_eval_group_name = "gold_eval"
+wandb_eval_group_name = "topic_separation_eval"
 test_file = "test.csv"
 
 def main():
@@ -40,7 +52,7 @@ def main():
         for run in runs:
             # Find all artifacts named "last_model:vXX"
             for artifact in run.logged_artifacts():
-                if artifact.name.startswith("last_model:v") and artifact.type == "model":
+                if (artifact.name.startswith("last_model:v") or artifact.name.startswith("best_model:v")) and artifact.type == "model":
                     # For each dataset, create a config
                     for dataset_name, dataset_eval_prefix in eval_datasets:
 

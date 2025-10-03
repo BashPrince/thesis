@@ -182,3 +182,4 @@ artifacts
 finetune/out
 logs
 nohup.out
+configs

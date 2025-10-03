@@ -1,0 +1,500 @@
+row_index,sentence_start_millis,sentence_end_millis,language,topic,label_fcw,label_fnc,label_opn,clip_id,sentence
+6,28850,30034,en,US Elections 2024,0.0,0.0,1.0,qDhk2_p6x90,It's actually hard to say
+11,38580,42934,en,US Elections 2024,0.0,0.2330060292393593,0.7669939707606407,qDhk2_p6x90,"oh, it's almost like he turns English into a tonal language."
+12,43394,51784,en,US Elections 2024,0.0,1.0,0.0,qDhk2_p6x90,"You know, there are certain languages where the tone, whether it's an up or down tone or flat changes the meaning."
+16,3134,6758,en,Societal issues in the US.,0.0,0.2701014133933289,0.4968925573673117,mrtXz6nfCr0,"I don't care if your house is surrounded by a gate, a 20-foot wall."
+21,19518,22558,en,Societal issues in the US.,0.0,0.0,1.0,mrtXz6nfCr0,"As always, more guns equals less crime."
+22,22646,23934,en,Societal issues in the US.,0.0,0.0,0.729898586606671,mrtXz6nfCr0,Go out there and buy yourself a gun.
+78,6710,9110,en,US Elections 2024,0.0,0.0,0.2701014133933289,8dpibof70wo,But what if Habba wasn't actually incompetent?
+81,14726,16006,en,US Elections 2024,0.0,0.2701014133933289,0.729898586606671,8dpibof70wo,I don't trust Alina Habba.
+82,16070,18358,en,US Elections 2024,0.0,0.0,1.0,8dpibof70wo,"I believe she's a deep state plant, just like Jenna Ellis."
+89,41000,42776,en,US Elections 2024,0.0,0.5031074426326883,0.4968925573673117,8dpibof70wo,and it seems her client donald trump agrees
+93,51176,52432,en,US Elections 2024,0.0,0.0,0.0,8dpibof70wo,well why not both
+94,52488,56256,en,US Elections 2024,0.0,0.5213227120477153,0.2456712587129254,8dpibof70wo,which reminds me if you need a great lawyer my firm the eagle team can can take care of it
+193,7526,8830,en,US Elections 2024,0.0,0.2330060292393593,0.7669939707606407,QAWO0tU35xc,It's already biased.
+194,8902,14942,en,US Elections 2024,0.0,0.2330060292393593,0.7669939707606407,QAWO0tU35xc,"He fought like a pig in a ditch, like a vampire spitting in a baby's eye to stop this ever happening."
+195,14958,17246,en,US Elections 2024,0.0,0.2330060292393593,0.7669939707606407,QAWO0tU35xc,It already can't prevent itself from being biased.
+196,17310,20954,en,US Elections 2024,0.0,0.7487787013456136,0.4968925573673117,QAWO0tU35xc,He adamantly did not want to make this historic journey.
+200,42486,43438,en,US Elections 2024,0.0,0.0,0.0,QAWO0tU35xc,How would you be
+201,43486,46574,en,US Elections 2024,0.0,0.0,1.0,QAWO0tU35xc,You'd have to be the Dalai Lama to be impartial about Donald Trump.
+202,46614,51246,en,US Elections 2024,0.0,0.2701014133933289,0.729898586606671,QAWO0tU35xc,"I bet someone somewhere, some journalist somewhere, is trying to get the Dalai Lama to condemn Donald Trump."
+205,55734,56630,en,US Elections 2024,0.0,0.2701014133933289,0.4968925573673117,QAWO0tU35xc,I condemn him.
+206,56742,57534,en,US Elections 2024,0.0,0.0,0.2512212986543863,QAWO0tU35xc,Stay free!
+233,280,7954,en,War in Ukraine,0.0,0.4786772879522847,0.7669939707606407,U1MPZi7ByYo,"American investment in Ukraine's capacity to defend itself is a literal proof that by helping others, you help yourself."
+240,160,2054,en,Societal issues in the US.,0.0,0.0,0.0,3Kc53dxlV5M,"Ladies, can you name a country in South America?"
+243,3662,4438,en,Societal issues in the US.,0.0,0.0,0.2456712587129254,3Kc53dxlV5M,What's up with you?
+246,7334,9342,en,Societal issues in the US.,0.0,0.5031074426326883,0.4968925573673117,3Kc53dxlV5M,I'm just being completely honest.
+247,9398,10902,en,Societal issues in the US.,0.0,0.5031074426326883,0.4968925573673117,3Kc53dxlV5M,I am not good at geographics.
+252,15998,17634,en,Societal issues in the US.,0.0,0.2701014133933289,0.0,3Kc53dxlV5M,And you mean geography?
+254,18678,19334,en,Societal issues in the US.,0.0,0.0,0.2456712587129254,3Kc53dxlV5M,Is that what it's called?
+256,19518,20874,en,Societal issues in the US.,0.0,0.5031074426326883,0.2456712587129254,3Kc53dxlV5M,"See, I don't even know how to say it right"
+259,24662,25786,en,Societal issues in the US.,0.0,0.0,0.4968925573673117,3Kc53dxlV5M,Could it be Asia?
+261,26690,27314,en,Societal issues in the US.,0.0,0.0,0.0,3Kc53dxlV5M,What about you?
+265,29562,30002,en,Societal issues in the US.,0.0,0.0,0.2456712587129254,3Kc53dxlV5M,You got it.
+273,36266,38874,en,Societal issues in the US.,0.0,0.2701014133933289,0.4968925573673117,3Kc53dxlV5M,I don't want to live on this planet
+274,38954,41714,en,Societal issues in the US.,0.0,0.7543287412870746,0.2456712587129254,3Kc53dxlV5M,"One time I thought that Boston was in Texas when I was like 10 years old, so I also struggle with geographics, but I at least know that Africa's not a freaking country."
+276,45682,49854,en,Societal issues in the US.,0.0,0.7487787013456136,0.2512212986543863,3Kc53dxlV5M,"Somebody commented and said, do they look like they spend a lot of time paying attention in school?"
+278,51018,56154,en,Societal issues in the US.,0.0,0.5157726721062543,0.7543287412870746,3Kc53dxlV5M,"No. Somebody else said, to be fair, geography is tough with all of those shapes and angles and cosines and whatnot."
+284,1920,5222,en,Migration,0.0,0.5031074426326883,0.4968925573673117,ts1_zGSJyeQ,"Sometimes I just forget that I'm from a different country, if that makes sense."
+285,5318,6718,en,Migration,0.0,0.2701014133933289,0.0,ts1_zGSJyeQ,"And when people ask me where are you from, I'm like, I'm from Redfield. Redfield, Bristol."
+288,13254,23954,en,Migration,0.0,0.5031074426326883,0.4968925573673117,ts1_zGSJyeQ,"I know that in a way I'm different to most of the British population. But at the same time, I don't really think of myself as a migrant too much."
+291,9934,11914,en,Societal issues in the US.,0.0,0.0,0.0,F_OKapCsPaU,"Hey, what's your favorite Harry Potter again?"
+295,240,1806,en,Societal issues in the US.,0.2330060292393593,0.5157726721062543,0.2512212986543863,AxnhDCCRGV4,They're watching our every move.
+296,1990,8234,en,Societal issues in the US.,0.2330060292393593,0.5157726721062543,0.0,AxnhDCCRGV4,"Iran, Russia, China, North Korea, ISIS, Al-Qaeda."
+297,8894,10914,en,Societal issues in the US.,0.2330060292393593,0.2701014133933289,0.4968925573673117,AxnhDCCRGV4,They may be watching this right now.
+298,11414,13194,en,Societal issues in the US.,0.0,0.5031074426326883,0.729898586606671,AxnhDCCRGV4,We don't care what you look like.
+299,13494,18314,en,Societal issues in the US.,0.0,0.5031074426326883,0.4968925573673117,AxnhDCCRGV4,"We don't care who you voted for. Who you worship, what you worship, who you love."
+300,18854,24114,en,Societal issues in the US.,0.0,0.5031074426326883,0.4968925573673117,AxnhDCCRGV4,It doesn't matter if your dad left you millions when he died or if he knew who your father was.
+304,35758,37274,en,Societal issues in the US.,0.0,0.2330060292393593,0.7669939707606407,AxnhDCCRGV4,we will not back down
+314,41050,46082,en,League of Legends,0.0,0.0,0.2701014133933289,eOXq-BOLQNY,"However, clicking our pinned comment will tell you the reason why Ash and Pyke is one of the sickest skins in the game."
+319,5286,10238,en,League of Legends,0.0,1.0,0.0,o26ttXGXh_c,"When people talk about who the strongest champs in League are, once you reach the top, it's pretty much all just the realm of"
+320,10326,15070,en,League of Legends,0.0,1.0,0.0,o26ttXGXh_c,Even the champs that you could call a human like Kale and Zoe are people that have been dramatically enhanced by the aspects.
+324,23630,32550,en,League of Legends,0.0,1.0,0.0,o26ttXGXh_c,"Basically, he thought that by living a very barbaric lifestyle, crushing all the tribes in his path, he would be revered in the afterlife, and be accepted at the table of gods in the Hall of Bones."
+331,240,7086,en,Societal issues in the US.,0.2330060292393593,0.2456712587129254,0.5213227120477153,N_2QOwOuWoA,"Everybody who was previously in the military needs to be purged out of government, but also out of education."
+334,8142,13174,en,Societal issues in the US.,0.0,0.7487787013456136,0.2512212986543863,N_2QOwOuWoA,"This idea where if you're the occupation government, that's sort of like helping the country heal, you know, you're there to make sure that it doesn't break into war again."
+336,20710,27390,en,Societal issues in the US.,0.0,0.7487787013456136,0.5213227120477153,N_2QOwOuWoA,"You sort of make this decision, which is fascinating that, hey, we don't want soldiers educating the next generation."
+340,14036,17918,en,Societal issues in the US.,0.0,0.0,0.3330395421838754,iWrtaMkH3R0,You'll never know if you don't go You'll never shine if you don't glow
+349,160,2198,en,European Union,0.2330060292393593,0.2701014133933289,0.4968925573673117,5qBneiFlWyM,"We are Scandinavian, we never see the sun."
+352,5118,6966,en,European Union,0.0,0.5031074426326883,0.4968925573673117,5qBneiFlWyM,"We are Scandinavian, we like a simple life and we don't like to show off, unlike people from Miami."
+364,35426,38338,en,European Union,0.0,0.5031074426326883,0.4968925573673117,5qBneiFlWyM,You are not small. We are just taller than you.
+389,28398,29958,en,Societal issues in the US.,0.0,0.5031074426326883,0.4968925573673117,ek5yse0gLNo,You never know when you're going to get jacked.
+392,33262,35782,en,Societal issues in the US.,0.0,0.2330060292393593,0.7669939707606407,ek5yse0gLNo,"If I were to leave my car parked out here, it wouldn't be here for an hour."
+395,38454,40782,en,Societal issues in the US.,0.0,0.5031074426326883,0.4968925573673117,ek5yse0gLNo,"A lot of these kids don't know why they fight."
+403,54542,55886,en,Societal issues in the US.,0.0,0.0,0.0,ek5yse0gLNo,Do you think people would agree with you?
+409,2270,6714,en,European Union,0.0,0.2330060292393593,0.7669939707606407,-MncHLS51uM,"The rest of the world, and you know very well, Federica, is not exactly a garden."
+410,7334,10834,en,European Union,0.0,0.2330060292393593,0.7669939707606407,-MncHLS51uM,"The rest of the world, most of the rest of the world, is a jungle."
+422,48964,53594,en,European Union,0.2456712587129254,0.2330060292393593,1.0,-MncHLS51uM,The Europeans have to be much more engaged with the rest of the world.
+427,22230,24142,en,European Union,0.0,0.7543287412870746,0.2456712587129254,BgNm5m68YdY,"Sure, you can get a job and you can move there."
+428,24238,28930,en,European Union,0.0,0.5031074426326883,0.7669939707606407,BgNm5m68YdY,"Maybe you can start a business and hire 20 people, but if you just want to contribute your capital, it's a lot harder."
+432,54098,55594,en,European Union,0.2330060292393593,0.0,0.7669939707606407,BgNm5m68YdY,You could simply move there.
+442,10734,16118,en,Migration,0.0,0.0,1.0,IBrR1AhXNQs,look i believe every human being has the god-given right to defend themselves with the tools necessary
+450,240,1990,en,Societal issues in the US.,0.0,0.0,0.0,UrnmiOCSkhI,You want to know what you get out of this conflict?
+453,14822,16638,en,Societal issues in the US.,0.0,0.2512212986543863,0.2456712587129254,UrnmiOCSkhI,Why is that beneficial to the United States?
+456,20406,28494,en,Societal issues in the US.,0.0,0.0,1.0,UrnmiOCSkhI,"And if we don't get a chance to practice a protracted war halfway across the globe, then we're going to get caught with our pants down when China invades"
+462,21606,23714,en,European Union,0.2330060292393593,0.5157726721062543,0.4968925573673117,iVjl0dbdNdM,It means no one is alone.
+464,30734,35594,en,European Union,0.2330060292393593,0.4968925573673117,0.0,iVjl0dbdNdM,Did you know the EU is one of the biggest donors of humanitarian aid in the world?
+469,4574,6702,en,US Elections 2024,0.0,0.2456712587129254,0.0,GkPhHHLbzfc,"Mr. President, did you use the word smart?"
+474,15574,16542,en,US Elections 2024,0.0,0.0,0.0,GkPhHHLbzfc,Don't ever use that word.
+492,240,9846,en,US Elections 2024,0.2330060292393593,0.5157726721062543,0.2512212986543863,sB5w-Y9WI3o,"you know, like on the kind of George Carlin scale of the seven, sometimes 10 words you can't say on television, how many of those Joe Biden likes to use and apply to Donald Trump?"
+504,23886,24830,en,US Elections 2024,0.0,0.0,1.0,9CZORsfCgAA,That's not good.
+508,360,3158,en,US Elections 2024,0.0,0.5157726721062543,0.2512212986543863,b7PjdZd0sn4,This is why the Trump and Biden document scandals are different.
+524,5478,6834,en,Migration,0.0,0.2512212986543863,0.7487787013456136,69jBXVnhy0M,It makes good TV.
+525,7134,11594,en,Migration,0.0,0.7669939707606407,0.0,69jBXVnhy0M,All these people getting off the dinghies and bunged onto these tiny boats.
+526,12014,16790,en,Migration,0.2330060292393593,0.2512212986543863,0.5157726721062543,69jBXVnhy0M,"It's filmic, but that's not where the numbers are."
+527,16982,18950,en,Migration,0.0,0.2512212986543863,0.7487787013456136,69jBXVnhy0M,The problem is legal immigration.
+533,36024,40244,en,Migration,0.0,0.0,1.0,69jBXVnhy0M,And that's so much easier than getting into a dinghy.
+536,10280,22314,en,Migration,0.0,0.7543287412870746,0.2456712587129254,SXLveZsDKwA,And the sum of all this is the gangster culture that is now making a lot of children wanting to become gangsters.
+539,4174,5390,en,Societal issues in the US.,0.0,0.2512212986543863,0.0,f38Q8DEgcv4,Who's winning it?
+550,35240,37240,en,Societal issues in the US.,0.0,0.2701014133933289,0.4968925573673117,f38Q8DEgcv4,you may remember the war in iraq
+572,18950,28166,en,US Elections 2024,0.0,0.0,0.4786772879522847,Tpwalbhq6KU,But do I think that Merrick Garland is really gonna file serious criminal charges against Donald Trump and prosecute him to the fullest extent of the law?
+574,39074,40810,en,US Elections 2024,0.0,0.0,1.0,Tpwalbhq6KU,"The answer is no, I don't think so."
+575,40922,45322,en,US Elections 2024,0.0,0.0,1.0,Tpwalbhq6KU,"I think that this is a lot of theater, a lot of people freaking out publicly in the media about it."
+576,45378,53514,en,US Elections 2024,0.0,0.0,1.0,Tpwalbhq6KU,"But I don't think anyone who is considered elite, I don't think anyone in a position of extreme power in this country ever really faces real consequences for their actions."
+578,12918,20646,en,US Elections 2024,0.0,0.0,1.0,gT-wSpt03Lc,"Next, Hunter will probably be charged with some very minor offense so that the FBI and DAOJ can pretend that they're fair."
+582,30880,33470,en,US Elections 2024,0.0,0.0,1.0,gT-wSpt03Lc,I THINK DONALD TRUMP IS ABSOLUTELY THE POINT.
+603,160,2240,en,US Elections 2024,0.0,0.0,0.0,KuNcTjfEWAw,What made you change from liberal to conservative?
+608,13382,15526,en,US Elections 2024,0.0,0.2330060292393593,1.0,KuNcTjfEWAw,It'll really make you look at things in a different way.
+610,19558,22434,en,US Elections 2024,0.0,0.2330060292393593,0.7669939707606407,KuNcTjfEWAw,"Like, you know, it's funny, you start listening to people because you hate them."
+628,10774,14326,en,US Elections 2024,0.2456712587129254,0.5213227120477153,0.0,a4dtn3dWlgY,"Hey, I just got here in a time machine from 1972."
+629,14470,15374,en,US Elections 2024,0.0,0.0,0.0,a4dtn3dWlgY,What's going on?
+633,19774,20326,en,US Elections 2024,0.0,0.0,0.0,a4dtn3dWlgY,What year is it?
+649,4558,6670,en,US Elections 2024,0.0,1.0,0.0,ylXcOO1q2nE,"They asked me, would I like to debate?"
+656,19502,24914,en,US Elections 2024,0.0,0.0,1.0,ylXcOO1q2nE,"If he took me behind the barn and I went like this, I believe he'd fall over."
+689,16870,18074,en,Migration,0.0,0.0,0.0,juJeUNLMP7Q,"Now, what brings you here?"
+698,10934,17034,en,Migration,0.0,1.0,0.2701014133933289,rk0Sq1YTwA0,"We have a great deal of responsibility, a huge amount of responsibility."
+699,17694,32604,en,Migration,0.0,0.2512212986543863,0.7487787013456136,rk0Sq1YTwA0,"So if you study the history of the U.S. and Honduras, and Honduras and Spain and so on, you just see like okay damn the least we could do is once in a while help somebody"
+700,160,3934,en,War in Ukraine,0.0,0.2456712587129254,0.2512212986543863,rYgIIhMoNAs,"The potential collapse of Russia, do you think that's something that's likely to happen?"
+705,13814,25038,en,War in Ukraine,0.0,0.2456712587129254,0.7543287412870746,rYgIIhMoNAs,"And the longer the war goes on, you know, I believe, you know, it will create even more explosive material within Russia that will lead not just to the collapse of Putin's regime, but the collapse of the whole state."
+707,32590,40910,en,War in Ukraine,0.2330060292393593,0.0,1.0,rYgIIhMoNAs,"I don't think it's a best scenario because you will have not many democracies, but most of the local dictatorships and some of them will have control of nukes."
+712,10486,14598,en,War in Ukraine,0.0,0.0,1.0,ah-uUWBNoH0,I would certainly not trust any polling that takes place in a dictatorship.
+716,26222,27962,en,War in Ukraine,0.0,0.5031074426326883,0.4968925573673117,ah-uUWBNoH0,I don't really want to go fight.
+723,10678,12474,en,War in Ukraine,0.0,0.0,0.7669939707606407,N86nFR9VtsI,This means so much to me.
+724,14534,17070,en,War in Ukraine,0.0,0.0,0.0,N86nFR9VtsI,"Please, please, keep the applause down."
+736,20438,21954,en,War in Ukraine,0.0,0.0,0.0,F9k5HmG6cgs,And what is Zelensky doing?
+761,200,3134,en,Migration,0.0,0.5031074426326883,0.7669939707606407,Yxc2tWmfHJg,"Mr Speaker, I said enough is enough, and I mean it, and that means I am prepared to do what must be done."
+763,7094,20394,en,Migration,0.2330060292393593,0.0,0.7669939707606407,Yxc2tWmfHJg,"So early next year, we will introduce new legislation to make unambiguously clear that if you enter the UK illegally, you should not be able to remain here."
+775,20030,25374,en,Migration,0.2330060292393593,0.0,1.0,b8vjqVTWp40,It's a problem for all of us to have a society in which we are not addressing this issue.
+787,40552,41464,en,European Union,0.0,0.0,0.0,hQkDIo2wWyY,What about you though?
+813,2582,7894,en,League of Legends,0.2456712587129254,0.5031074426326883,0.2512212986543863,OjZxQbMoU2E,"By now, everyone had seen the legendary Zed 1v1 that made Faker the best player in the world."
+814,7974,10422,en,League of Legends,0.0,0.5157726721062543,0.2512212986543863,OjZxQbMoU2E,But there are a couple of details you may not have noticed.
+819,32380,39628,en,League of Legends,0.0,0.2330060292393593,0.7669939707606407,OjZxQbMoU2E,"While we can all appreciate a pure one-on-one duel, it's interesting to think about what would have happened if the Shens interfered in this iconic play."
+822,160,3262,en,League of Legends,0.0,0.5031074426326883,0.7669939707606407,QsKMfD67Kg4,Today I'm going to be doing the most forbidden thing in gaming.
+823,3358,6966,en,League of Legends,0.0,0.5031074426326883,0.4968925573673117,QsKMfD67Kg4,I'm going to be trying League of Legends for the first time ever.
+826,13742,15246,en,League of Legends,0.0,0.0,0.2512212986543863,QsKMfD67Kg4,So yeah of course I gotta play it right?
+837,45210,46394,en,League of Legends,0.0,0.2701014133933289,0.4968925573673117,QsKMfD67Kg4,I don't know what the hell this is.
+847,24174,31154,en,League of Legends,0.0,0.0,1.0,cH0VPkds7N0,you are the one person on this entire team that always has the worst attitude out of every single player
+850,36390,38294,en,League of Legends,0.0,0.7487787013456136,0.4968925573673117,cH0VPkds7N0,he improved his attitude and his gameplay
+852,39206,41518,en,League of Legends,0.0,0.0,0.2456712587129254,cH0VPkds7N0,stop flaming every single person
+853,41606,48190,en,League of Legends,0.0,0.0,0.5157726721062543,cH0VPkds7N0,you're the only fucking one that refuses for some reason to change in any way whatsoever
+865,19430,20446,en,League of Legends,0.0,0.0,0.0,OoIM1VLEy9Y,Oh my god.
+878,13398,16110,en,European Union,0.0,0.2330060292393593,1.0,XTHaFcTdSEw,"When they turn you against judges, they are lying."
+879,16262,18494,en,European Union,0.0,0.2330060292393593,1.0,XTHaFcTdSEw,"When they turn you against universities, they are lying."
+933,7086,11230,en,European Union,0.0,0.2701014133933289,0.2512212986543863,2T3DmoQWlqo,"Now you may ask yourself, what does a European Commissioner for Equality exactly do?"
+937,30168,33224,en,European Union,0.0,0.2330060292393593,0.7669939707606407,2T3DmoQWlqo,Only promoting Islam wouldn't be enough for a European commissioner.
+941,48928,51064,en,European Union,0.0,0.0,0.7669939707606407,2T3DmoQWlqo,Now at least you know the EU uses your money
+956,1590,4734,en,League of Legends,0.0,0.5031074426326883,0.4968925573673117,G_1JmuTfNrw,I've never seen reaction times faster than this.
+961,10598,11566,en,League of Legends,0.0,0.0,0.0,G_1JmuTfNrw,Did you see that?
+974,320,4574,en,League of Legends,0.0,0.0,0.7669939707606407,uqNFEWCPvvY,"That is so me, when I-"
+995,160,8150,en,League of Legends,0.0,0.2330060292393593,1.0,85YcLQyObnU,"The thing about a League of Legends addiction is it's a lot like being addicted to heroin, except League of Legends is more embarrassing and more addictive."
+996,8262,14862,en,League of Legends,0.0,0.2330060292393593,1.0,85YcLQyObnU,"The thing about quitting League of Legends is the water starts to taste fresher, the girls are getting prettier."
+1027,9654,15862,en,League of Legends,0.0,0.7487787013456136,0.5213227120477153,zxWONLSLz6M,"Caria's performance at Worlds was nothing short of legendary, with the community coining his dominant run, the New Genes Buff."
+1028,15998,22678,en,League of Legends,0.0,1.0,0.0,zxWONLSLz6M,"Why? His gameplay leveled up with each step closer to the Worlds Finals, where he'd see New Genes live at the opening ceremony."
+1430,15662,18902,en,War in Ukraine,0.0,0.4786772879522847,0.5213227120477153,3mwZjP5W1-A,But all this could be edging Russia toward the use of nuclear weapons.
+1504,1878,13350,en,US Elections 2024,0.0,0.2456712587129254,1.0,Wg_CPZ1h9Zo,Too old to be president is an age where you're scared that you might not live to see the next day. Because a country is depending on you to run them.
+1541,15078,19198,en,US Elections 2024,0.0,0.7487787013456136,0.2512212986543863,k01J7dq4GhQ,"I post old photos all the time, and people are like, that is not you."
+1546,25974,34188,en,US Elections 2024,0.0,0.0,1.0,k01J7dq4GhQ,"I believe there's two things that turn you from as left as I was to, I would say, as right as I am, even though I'm pretty middle on most things."
+1547,34236,38084,en,US Elections 2024,0.0,0.0,1.0,k01J7dq4GhQ,"But I was like, I think it's, if you get money, you're going to naturally become a conservative."
+1576,5734,9150,en,US Elections 2024,0.0,0.0,0.2512212986543863,aORDR4X8gbs,What are some of the things that he's done so far that you are happy about.
+1577,9222,14582,en,US Elections 2024,0.0,0.0,1.0,aORDR4X8gbs,"No, I think what he, like, you know, peace, something that he believes in is something I'm really proud about."
+1581,38614,42150,en,US Elections 2024,0.0,0.2701014133933289,1.0,aORDR4X8gbs,"I like Joe Biden, but I wouldn't vote for Joe Biden"
+1582,42222,43794,en,US Elections 2024,0.0,0.0,0.2512212986543863,aORDR4X8gbs,Good president or great president?
+1586,48374,50474,en,US Elections 2024,0.0,0.0,0.2512212986543863,aORDR4X8gbs,What do you like that he's done so far?
+1618,43954,45214,en,War in Ukraine,0.0,0.0,0.2512212986543863,aug3AMgCyXs,Don't you know that?
+1620,46340,52122,en,War in Ukraine,0.0,0.7543287412870746,0.2456712587129254,aug3AMgCyXs,"So it is possible to get involved in this work, but it is cost prohibitive, so to speak."
+1621,52298,58034,en,War in Ukraine,0.0,0.5031074426326883,0.7669939707606407,aug3AMgCyXs,We can simply shine the spotlight on our sources of information and we will not achieve results.
+1624,8590,9474,en,US Elections 2024,0.0,0.0,0.0,YwjUtEZNz7s,Take a look.
+1635,5814,10334,en,US Elections 2024,0.0,0.0,1.0,apsYHD_VR8M,"I think if we weren't, the stock market would be going down at a level that you haven't seen."
+1640,22360,24094,en,US Elections 2024,0.0,0.0,0.0,apsYHD_VR8M,Take a look at the stock market.
+1641,24214,29494,en,US Elections 2024,0.0,0.0,0.0,apsYHD_VR8M,"Take a look at GDP, inflation, unemployment, job creation."
+1647,43602,49890,en,US Elections 2024,0.0,0.0,1.0,apsYHD_VR8M,"And I think if we don't win, I think you're going to end up in a stock market like he had in 1929, not a recession, a depression."
+1652,14534,20958,en,US Elections 2024,0.0,0.2330060292393593,0.7669939707606407,PuX76QoWsxY,All Joe Biden had to do was sit back and do nothing.
+1655,34564,38904,en,US Elections 2024,0.0,0.5031074426326883,0.4968925573673117,PuX76QoWsxY,I am NOT the one trying to undermine American democracy
+1795,19974,21950,en,League of Legends,0.0,0.0,0.0,57Aqd1NJyl4,"Hey baby, are you a treasure map?"
+1800,28926,30574,en,League of Legends,0.0,0.0,0.2456712587129254,57Aqd1NJyl4,At least don't file a restraining order.
+1802,31894,34566,en,League of Legends,0.0,0.0,0.0,57Aqd1NJyl4,"Hey guys, do you want to hear a Soviet joke?"
+1805,36326,37294,en,League of Legends,0.0,0.2701014133933289,0.4968925573673117,57Aqd1NJyl4,I don't get it.
+1858,3894,4790,en,War in Ukraine,0.0,0.5213227120477153,0.2456712587129254,Jrt4pKs1_0Q,I was busy that day.
+1865,20862,21566,en,War in Ukraine,0.0,0.0,0.0,Jrt4pKs1_0Q,Do you have evidence that NATO or the CIA did it?
+1873,53204,57244,en,War in Ukraine,0.0,0.2330060292393593,0.7669939707606407,Jrt4pKs1_0Q,"In the war of propaganda, it is very difficult to defeat the United States."
+2091,25414,34040,en,Migration,0.0,0.2512212986543863,0.2701014133933289,C5qwrAM2yog,"And if you think that there are too many people, well, what makes you so sure that you're not one of them, especially if you're the one that's concerned about it."
+2092,34072,35736,en,Migration,0.0,0.5031074426326883,0.4968925573673117,C5qwrAM2yog,"And so I have absolutely no qualms whatsoever about calling someone out on it, especially when I'm doing it obviously ironically."
+2096,5702,7686,en,Migration,0.0,0.2512212986543863,0.0,SWQfejDTS8o,"How can we, like, sell them the American dream?"
+2099,10070,12238,en,Migration,0.0,0.2512212986543863,0.2701014133933289,SWQfejDTS8o,"Isn't that the point of America, to sell the American dream?"
+2101,12326,13270,en,Migration,0.0,0.2512212986543863,0.0,SWQfejDTS8o,What is the point of America? Is the point to bring in a bunch of foreigners? Or is the point to protect our own citizens?
+2117,37112,38816,en,Migration,0.0,0.2512212986543863,0.0,SWQfejDTS8o,What do you mean by selling the dream?
+2131,34190,35710,en,Migration,0.0,0.0,0.5157726721062543,I6q3mrbqgOQ,You said the quiet part loud.
+2132,35782,37718,en,Migration,0.0,0.2330060292393593,0.7669939707606407,I6q3mrbqgOQ,But the problem runs deeper than racism.
+2136,48862,58254,en,Migration,0.0,0.2330060292393593,1.0,I6q3mrbqgOQ,"Every refugee, whether from Iraq, Afghanistan, Somalia, or elsewhere, must be treated like Ukrainian refugees, be given full support, access to social programs, housing, financial aid, and good paying jobs."
+2138,160,2558,en,Migration,0.0,0.2330060292393593,0.7669939707606407,vTwnhyvEsrE,"It's one thing to want to maintain your own culture, it's another thing to be actively hostile to the culture that you are migrating to or invading."
+2141,11326,15094,en,Migration,0.0,0.4842273278937456,0.5157726721062543,vTwnhyvEsrE,"At the worst, the former people are xenophobic."
+2202,120,2334,en,Migration,0.0,0.2330060292393593,0.7669939707606407,k9rhnHsoJHo,"There's a lot of old people, though, that are stuck in the ways."
+2203,2414,3350,en,Migration,0.0,0.0,0.0,k9rhnHsoJHo,What do you mean by that?
+2205,4022,6874,en,Migration,0.0,0.2701014133933289,0.729898586606671,k9rhnHsoJHo,"Personally, I like to think of myself as colourblind."
+2206,7174,11434,en,Migration,0.0,0.0,1.0,k9rhnHsoJHo,"And when I say that, I mean, I don't care."
+2207,11974,17094,en,Migration,0.0,0.0,1.0,k9rhnHsoJHo,"And also, I have to caveat that by saying, when I don't care, I mean, it doesn't matter to me."
+2223,23702,26474,en,Migration,0.0,0.2512212986543863,0.0,XfSL38H_kcM,How much more are we supposed to do?
+2227,43274,46850,en,Migration,0.0,0.5031074426326883,0.4968925573673117,XfSL38H_kcM,I don't want to see anybody mistreated in any sort of way
+2238,37568,40864,en,Migration,0.0,0.2330060292393593,0.7669939707606407,bMaTYLyOS0s,"But time has come to say to the French Navy, stop this practice."
+2239,40984,46872,en,Migration,0.0,0.2330060292393593,0.7669939707606407,bMaTYLyOS0s,We won't take anybody that you have effectively shepherded into our country.
+2388,10390,12534,en,Societal issues in the US.,0.0,0.0,0.2701014133933289,C3q023WGTt8,Are you like a normal guy?
+2391,16510,17734,en,Societal issues in the US.,0.0,0.2330060292393593,0.2456712587129254,C3q023WGTt8,"Sorry. No, you can get out of the car."
+2395,21054,22350,en,Societal issues in the US.,0.0,0.0,1.0,C3q023WGTt8,What? It's completely inappropriate.
+2416,990,2078,en,Societal issues in the US.,0.0,0.0,0.0,Upo9QkTv9qU,Why do you say so?
+2432,14878,20078,en,Migration,0.0,0.2330060292393593,0.7669939707606407,Gt_AYiVQ_oY,if you continue to steal their food the things in which you're supposed to survive they would migrate to your country
+2433,20126,21046,en,Migration,0.0,0.2330060292393593,0.7669939707606407,Gt_AYiVQ_oY,you can't stop it
+2434,21150,27014,en,Migration,0.0,0.2330060292393593,0.7669939707606407,Gt_AYiVQ_oY,if you really want to stop migration then you should stop stealing the resources in those countries in the first place
+2457,30362,32186,en,European Union,0.0,0.5031074426326883,0.0,PVDPjoV3LwA,They're pushed and pushed and pushed.
+2463,49034,51386,en,European Union,0.0,0.5031074426326883,0.7669939707606407,PVDPjoV3LwA,"So unfortunately, I was wrong."
+2514,7286,8686,en,Societal issues in the US.,0.0,0.5031074426326883,0.4968925573673117,EcQkETTb5rY,Because I've got nothing else to do.
+2515,8750,10038,en,Societal issues in the US.,0.0,0.5031074426326883,0.4968925573673117,EcQkETTb5rY,You have a tinge of an accent. You're from England?
+2528,42374,44514,en,Societal issues in the US.,0.0,0.0,0.0,EcQkETTb5rY,What do you love most about Americans?
+2548,24102,26070,en,Societal issues in the US.,0.0,0.2512212986543863,0.0,4OeMwC8LNXY,"Okay, so what are you suggesting?"
+2550,26918,31508,en,Societal issues in the US.,0.0,0.2330060292393593,0.7669939707606407,4OeMwC8LNXY,"I don't know, maybe stop determining how successful a student is going to be based on tests."
+2551,31606,33760,en,Societal issues in the US.,0.0,0.2701014133933289,0.4968925573673117,4OeMwC8LNXY,"I, I'm just doing what's always been done."
+2557,4590,6134,en,Societal issues in the US.,0.0,0.0,0.0,j0dOUk_dimE,Do you feel safe out here in Chicago?
+2599,120,1234,en,Societal issues in the US.,0.0,0.5031074426326883,0.2512212986543863,ucEh9-mzfBk,That's part of their gig.
+2601,4870,12302,en,Societal issues in the US.,0.0,0.0,0.0,ucEh9-mzfBk,So what steps did you guys have to take to ensure that the SEALs and the other American soldiers were protected in working with these people.
+2603,13806,15190,en,Societal issues in the US.,0.0,0.2330060292393593,0.7669939707606407,ucEh9-mzfBk,I mean you just had to keep your eye on them.
+2797,8222,15950,en,League of Legends,0.0,0.7487787013456136,0.2512212986543863,2T90Vns3sL4,"He either gets focused in teamfights and has to ult himself, or because there's so much damage in the game right now, his teammates are dead before he gets a chance to ult them."
+2847,19510,21214,en,League of Legends,0.0,0.0,0.2701014133933289,qsWAqFznA4A,What the fuck is wrong with you?
+2864,38246,41230,en,War in Ukraine,0.2456712587129254,0.2330060292393593,0.5213227120477153,_tIzgOPY4wM,"And so, you know, they're saying the quiet part out loud."
+2868,1950,7310,en,War in Ukraine,0.0,0.2512212986543863,0.0,yLcvImdg_cQ,Tell me what is weighing most heavily on your heart and mind on this one-year anniversary of the war beginning.
+2874,360,5174,en,US Elections 2024,0.2456712587129254,0.5031074426326883,0.2512212986543863,vORQJu_wYcg,This answer right here is the entire Republican Party summed up in less than 30 seconds.
+2917,16606,20222,en,War in Ukraine,0.0,0.2512212986543863,0.0,xuzV2ZpQZ84,"Are we going to just pour money into this, you know, forever?"
+2918,20318,26330,en,War in Ukraine,0.2330060292393593,0.2456712587129254,0.5213227120477153,xuzV2ZpQZ84,"It's basically investment, investment into international security, in which United States is a leader."
+2923,7150,15686,en,US Elections 2024,0.0,0.4786772879522847,0.7669939707606407,NE979aOqESU,"And if you want to talk about self-inflicted damage, imagine if these people got their way, how horrible and dystopian things would get."
+2931,4542,6942,en,US Elections 2024,0.0,0.4968925573673117,0.2701014133933289,4MpVpvSWM3E,You're probably hearing a lot of conflicting accounts.
+2939,35590,38462,en,US Elections 2024,0.0,0.2330060292393593,0.7669939707606407,4MpVpvSWM3E,The tax increase is just a verbal sleight of hand.
+2943,200,4510,en,US Elections 2024,0.0,0.5031074426326883,1.0,0TPR0Ri5ZbY,"I don't know if Trump is trying to get jailed for contempt, but he seems to be making a pretty good run at it."
+2993,5390,13558,en,Migration,0.0,0.2330060292393593,0.7669939707606407,SXURO2MBfxM,"And nobody appreciates the Western world more than the people who suffered through dictatorial, top-down authoritarian regimes."
+2997,17254,24702,en,Migration,0.0,0.5031074426326883,0.7669939707606407,SXURO2MBfxM,Point number two is that the gentleman in the back doesn't know how spoiled he sounds when he talks about racism in America.
+2998,24798,26870,en,Migration,0.0,0.0,0.2512212986543863,SXURO2MBfxM,"Check your American privilege, my brother."
+3004,36838,48118,en,Migration,0.0,0.5157726721062543,0.7543287412870746,SXURO2MBfxM,"And I don't mean to be, you know, use an ad hominem attack, but it quite literally is within the realm of lunacy."
+3033,80,704,en,Migration,0.0,0.2512212986543863,0.0,or2-8gQ0mzQ,Do you know what I mean?
+3034,758,6238,en,Migration,0.0,0.2701014133933289,0.2512212986543863,or2-8gQ0mzQ,"It's not like it's some like all white city and then randomly there's somebody from Sudan there and people go, oh, what the fuck is that?"
+3035,6326,9054,en,Migration,0.0,0.2330060292393593,0.7669939707606407,or2-8gQ0mzQ,"So it's really hard to be like, oh, that's an illegal."
+3051,12880,14662,en,Migration,0.0,0.0,1.0,Rj-ENGmmxs4,Florida is amazing.
+3054,21622,22598,en,Migration,0.0,0.5031074426326883,0.4968925573673117,Rj-ENGmmxs4,We love our city.
+3055,22686,24942,en,Migration,0.0,0.729898586606671,0.2701014133933289,Rj-ENGmmxs4,"Every time you see it in a movie, it's romantic."
+3056,24998,28994,en,Migration,0.0,0.4786772879522847,0.5213227120477153,Rj-ENGmmxs4,"Even if the movie is supposed to give you anxiety, it's still sexy."
+3102,120,1878,en,Migration,0.0,0.2512212986543863,0.0,hi46RX_9YGg,Should America just let in all poor people?
+3105,5822,8254,en,Migration,0.0,0.7543287412870746,0.0,hi46RX_9YGg,My father was 14 years old when he came to this country.
+3107,9406,10390,en,Migration,0.0,1.0,0.0,hi46RX_9YGg,"Yes, he knew it was illegal."
+3139,240,2670,en,Societal issues in the US.,0.0,0.729898586606671,0.2701014133933289,EO7bu_rwegY,Weirdest things cops can do that are actually legal.
+3174,56750,58606,en,Societal issues in the US.,0.0,0.2701014133933289,0.4968925573673117,EO7bu_rwegY,"Well, looks like you're right."
+3189,24078,27212,en,Societal issues in the US.,0.0,0.4786772879522847,0.7669939707606407,VgNt4RTT1dY,"If the U.S. doesn't want us, other countries will."
+3190,27348,46116,en,Societal issues in the US.,0.0,1.0,0.2701014133933289,VgNt4RTT1dY,"That's a great way to say that out of 252 countries and territories in the world, just because your country's politicians and population wants to point the finger in your face and blame you for their problems, there are places that will welcome you because they realize your talents, your wealth, your skills are going to take them to the next level where they want to go."
+3231,51574,55270,en,Societal issues in the US.,0.0,0.0,0.0,KzNXqDZsV1Y,"Before revealing the number 1, remember to subscribe and like the video."
+3247,240,4334,en,League of Legends,0.0,0.7669939707606407,0.0,xQas6bz6I_Q,This video proves why you should always keep your eyes open while being ganked.
+3248,4414,9318,en,League of Legends,0.0,1.0,0.0,xQas6bz6I_Q,"In this game, I was playing Chandle vs Darius and Diana was ganking me from the river."
+3256,13598,16674,en,League of Legends,0.2456712587129254,0.7543287412870746,0.0,osYSB5FZfzg,"And all of a sudden, the internet goes out."
+3334,46294,49502,en,Societal issues in the US.,0.2330060292393593,0.2456712587129254,0.5213227120477153,yzeHDWc-lpo,Imagine keeping abs with a messed up sleep schedule.
+3431,16614,21790,en,European Union,0.2330060292393593,0.7669939707606407,0.2701014133933289,VbqCnEt8PGY,"And unfortunately, if you ran out of money abroad, you'd need to use very expensive exchange services."
+3440,26158,29036,en,European Union,0.0,1.0,0.0,SgwzNElP_5I,This means Netflixing abroad was no longer an issue.
+3700,5854,11214,en,US Elections 2024,0.0,0.5031074426326883,0.4968925573673117,-YGjyrPCGzI,"I can't support Donald Trump in 2024 because of the chaos, because of him living in the past."
+3701,11294,16214,en,US Elections 2024,0.0,0.0,1.0,-YGjyrPCGzI,And the statements that he makes are belittling to others.
+3705,30662,35280,en,US Elections 2024,0.0,0.4786772879522847,0.5213227120477153,-YGjyrPCGzI,"When you don't have a constitution, you've got dictators and authoritarian leaders."
+3706,35472,40936,en,US Elections 2024,0.0,0.2330060292393593,0.7669939707606407,-YGjyrPCGzI,Anybody saying they want to overthrow the constitution or throw out the constitution is only wanting power for themselves.
+3708,42416,50024,en,US Elections 2024,0.0,0.5031074426326883,0.7669939707606407,-YGjyrPCGzI,"I mean, you bring in social media, you bring in AI, you bring in all of this other technology, and we have to be on our top game."
+3807,2166,4358,en,US Elections 2024,0.0,0.5031074426326883,0.4968925573673117,-XUxbfMhG0c,This is a different party than I'm used to.
+3808,4486,7958,en,US Elections 2024,0.2456712587129254,0.7543287412870746,0.0,-XUxbfMhG0c,"And I've been around for a while, both in the House and the Senate."
+row_index,sentence_start_millis,sentence_end_millis,language,topic,label_fcw,label_fnc,label_opn,clip_id,sentence
+15,120,3094,en,Societal issues in the US.,1.0,0.0,0.0,mrtXz6nfCr0,"In Texas, you cannot shoot trespassers."
+20,16086,19462,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.2456712587129254,mrtXz6nfCr0,They have to be doing something else in order for you to use force or deadly force to stop them.
+77,80,6646,en,US Elections 2024,1.0,0.0,0.2701014133933289,8dpibof70wo,"Alina Habba did a bad job representing the world's worst client in his defamation trial, resulting in an $83.3 million verdict against the former president."
+87,30024,35240,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,8dpibof70wo,Ellis recently pleaded guilty to aiding and abetting false statements and writings for her role in the georgia election fraud case.
+88,35312,40936,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,8dpibof70wo,Now Alina Haba said she'd rather be pretty than smart because you can fake being smart but the truth is you just can't fake being a good lawyer.
+90,42840,46080,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,8dpibof70wo,Now trump is interviewing lawyers to appeal the 83 million Carroll verdict.
+199,34734,42438,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,QAWO0tU35xc,"As prospective jurors entered the room, some 50 were dismissed almost immediately for declaring they simply cannot be impartial."
+235,15254,24234,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,U1MPZi7ByYo,"At this moment, only America has the military capacity and might to enable Ukraine so that she can survive this dangerous moment."
+426,15014,22126,en,European Union,0.7543287412870746,0.5157726721062543,0.0,BgNm5m68YdY,"These are gentlemen who have the money to live anywhere they want, but there are certain countries in Europe that don't have residence programs targeting investors."
+434,160,8038,en,Migration,1.0,0.0,0.0,h_TqO9EqMhY,"According to Customs and Border Protection, this disruption started at about 1.30 on Sunday. And this happened at the Paso del Norte Bridge in El Paso, Texas."
+436,11526,20554,en,Migration,0.7543287412870746,0.2456712587129254,0.0,h_TqO9EqMhY,And CBP says that they deployed physical barriers to stop this attempted mass entry into the United States.
+449,35480,42504,en,Migration,1.0,0.0,0.2330060292393593,IBrR1AhXNQs,We the people is referring to the body of citizens in the United States that are either born here or became citizens through the legal process.
+460,9750,16514,en,European Union,1.0,0.0,0.0,iVjl0dbdNdM,"The EU is a powerful bloc, representing some 450 million people in 27 member countries."
+465,36174,45354,en,European Union,1.0,0.0,0.0,iVjl0dbdNdM,"It also sets universal standards on issues ranging from digital and consumer protection to farming, the environment, human rights and beyond."
+471,7062,10430,en,US Elections 2024,1.0,0.0,0.0,GkPhHHLbzfc,"So you said you went to Delaware State, but you forgot the name of your college."
+498,30278,51806,en,US Elections 2024,0.7543287412870746,0.5157726721062543,0.0,sB5w-Y9WI3o,"But in his post-presidency, even more so, the way Trump has treated these criminal trials, what we have heard from him about E.G. Carroll, everything connected to the insurrection, the warm words for Putin after the invasion, you know, praising Hezbollah for being smart over and over and over."
+500,200,8278,en,US Elections 2024,1.0,0.0,0.0,9CZORsfCgAA,"So in this ABC News Washington Post poll, 63% of American adults don't think that Biden has the mental sharpness needed to serve effectively."
+501,8446,11686,en,US Elections 2024,1.0,0.0,0.0,9CZORsfCgAA,62% of American adults don't think that Biden is good enough physical health.
+502,11750,18902,en,US Elections 2024,1.0,0.0,0.0,9CZORsfCgAA,47% of Democrats and 77% of independents don't even want Biden as the nominee.
+505,24942,29244,en,US Elections 2024,0.7669939707606407,0.5031074426326883,0.0,9CZORsfCgAA,"If you think back to 1980, Jimmy Carter, he was sinking too."
+510,4862,11334,en,US Elections 2024,1.0,0.0,0.0,b7PjdZd0sn4,"It's reported that 10 classified documents were found in Biden's former office in Washington DC in November, but we don't know the number found in his Delaware home, in his garage and the library."
+512,14534,22134,en,US Elections 2024,1.0,0.0,0.0,b7PjdZd0sn4,Trump is being investigated for around 300 classified documents found in his Florida home in locations deemed insufficiently secure.
+513,22214,29774,en,US Elections 2024,1.0,0.0,0.0,b7PjdZd0sn4,"Biden's documents were found by his lawyers in November and they alerted the National Archives and the DOJ."
+514,29894,31942,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,b7PjdZd0sn4,His lawyers then searched other properties.
+515,32078,39198,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,b7PjdZd0sn4,Trump's files were found because the National Archives realised some documents were missing and they spent months trying to get them from Trump's legal team.
+516,39326,45662,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,b7PjdZd0sn4,Some were returned but they had to alert the DOJ and an FBI raid had to take place to get the remaining documents.
+519,51854,54990,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,b7PjdZd0sn4,"As for Donald Trump, he initially denied there were any documents, then he said he had the power to declassify them and then he also said that he thought they were planted."
+538,400,3874,en,Societal issues in the US.,1.0,0.0,0.0,f38Q8DEgcv4,The war in Ukraine has been on for 415 days.
+543,10590,15990,en,Societal issues in the US.,1.0,0.0,0.0,f38Q8DEgcv4,U.S. oil companies have reaped $200 billion in pure profits.
+547,22958,26636,en,Societal issues in the US.,1.0,0.0,0.0,f38Q8DEgcv4,"In 2022, the company made $56 billion in profits."
+573,28270,38994,en,US Elections 2024,1.0,0.0,0.0,Tpwalbhq6KU,"In fact, prosecute him to the fullest extent of the executive order that Trump himself signed when he was president of the United States in regard to the mishandling of classified documents."
+577,600,12782,en,US Elections 2024,1.0,0.0,0.2701014133933289,gT-wSpt03Lc,It's no coincidence they indicted me the very same day that it was revealed that the FBI hit explosive evidence that Joe Biden took a $5 million illegal bribe from Ukraine.
+581,25814,30754,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,gT-wSpt03Lc,They RELEASED THIS LITERALLY HOURS AFTER THE FULL OVERSIGHT COMMITTEE IS ABLE TO LOOK AT THESE.
+586,39078,51406,en,US Elections 2024,1.0,0.0,0.2456712587129254,gT-wSpt03Lc,"WE HAVE A FORMER PRESIDENT WHO IS THE PRINCIPAL OPPONENT OF THE CURRENT PRESIDENT INDICTED ON ESPIONAGE CHARGES WHO MAY WELL BE, HE COULD BE FOUND GUILTY IS STILL GOING INTO AN ELECTION IN 2024."
+598,1782,10190,en,European Union,1.0,0.0,0.2701014133933289,Bw56TDye0h0,"It means preserving Europe's more than 30 million jobs in manufacturing, creating new jobs, like in the artificial intelligence field."
+599,10342,18486,en,European Union,1.0,0.0,0.2701014133933289,Bw56TDye0h0,It means empowering the 25 million SMEs in Europe to successfully lead Made in Europe into the future.
+627,5598,9194,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,a4dtn3dWlgY,I'm officially running for re-election in 2024.
+630,15454,16998,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,a4dtn3dWlgY,Joe Biden's running for president
+637,22894,24662,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,a4dtn3dWlgY,So he's... The oldest president
+642,28774,31934,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,a4dtn3dWlgY,But Democratic leaders think that Biden has the best chance to beat a Republican.
+672,400,1998,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,Russia has invaded Ukraine.
+674,4574,11926,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,"A few hours ago, Russian President Vladimir Putin announced what he's calling a special military operation in the east of Ukraine."
+675,12070,16942,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,That's where Russia recently recognised two regions of Ukraine as independent states.
+676,17078,21838,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,"Pretty quickly after Putin's announcement, people started to report explosions around Ukraine."
+678,25158,31136,en,War in Ukraine,1.0,0.0,0.0,mEs2EJiqO6w,"and shortly after that, Ukraine's President Volodymyr Zelenskyy confirmed that Russian missiles had been launched."
+685,6518,8654,en,Migration,1.0,0.0,0.0,juJeUNLMP7Q,Border Patrol is literally actively picking these people up.
+702,5780,9414,en,War in Ukraine,1.0,0.0,0.2701014133933289,rYgIIhMoNAs,Russia is an empire and there is no room for empires in 21st century.
+709,240,6054,en,War in Ukraine,1.0,0.0,0.0,ah-uUWBNoH0,Opinion polling suggests that a majority of Russian people still support both Putin and the invasion of Ukraine.
+720,360,7794,en,War in Ukraine,1.0,0.0,0.0,N86nFR9VtsI,"We can now announce that after a preliminary tally, President Putin has won 87% of the votes and has been elected president a fifth time."
+726,18160,25678,en,War in Ukraine,1.0,0.0,0.0,N86nFR9VtsI,"You know, even though I signed a bill in 2021 that would allow me to run for re-election two more times, and my most vocal political opponent was imprisoned,"
+727,25726,29982,en,War in Ukraine,1.0,0.0,0.0,N86nFR9VtsI,"and shortly after he urged Russia to protest my election, he mysteriously died in his cell."
+729,35838,49582,en,War in Ukraine,1.0,0.0,0.0,N86nFR9VtsI,"And even though soldiers in Ukraine forced people by gunpoint to vote, and even though two anti-war candidates were barred from running, and even though we put three Kremlin-friendly candidates on the ballot to give the veneer of legitimacy, despite all this adversity, I somehow won a fifth time."
+731,200,3094,en,War in Ukraine,1.0,0.0,0.0,F9k5HmG6cgs,NATO has finally entered the Ukraine battlefield.
+732,3254,7614,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,F9k5HmG6cgs,"No, it's not sending troops yet, but NATO tanks are rolling into Ukraine."
+733,7694,13406,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,F9k5HmG6cgs,"After weeks of waiting, Ukraine is finally getting the tanks it wanted."
+741,34672,38688,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,F9k5HmG6cgs,The US says Russia is sending a delegation to North Korea.
+743,42792,47464,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,F9k5HmG6cgs,"Meanwhile, China's defence ministry says it's looking to increase military cooperation with Russia."
+749,2110,9342,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,3ardNHeNiGg,"Ukraine, so because of the longevity of the war and pretty much no end in sight, the head of the NATO Secretary General's office suggested that Ukraine should give up the land that is now under Russian control."
+752,19710,23614,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,3ardNHeNiGg,"Stian Jensen of course apologized the next day stating that it should be up to Ukraine to decide its future."
+767,160,8270,en,Migration,1.0,0.0,0.0,2FKWSv-lUVM,last year in the uk a record high 1.1 million asylum seekers received a residence permit
+768,8422,15750,en,Migration,1.0,0.2512212986543863,0.0,2FKWSv-lUVM,also last year crime rates increased a massive 16 compared to 2021
+771,120,9398,en,Migration,0.7669939707606407,0.2330060292393593,0.0,b8vjqVTWp40,This is an example of a protest that happened in Miami of people supportive of the rights of undocumented immigrants or illegal immigrants.
+777,29110,34300,en,Migration,1.0,0.0,0.0,b8vjqVTWp40,"And look at how the numbers start to go down as soon as border patrol agents go up,"
+784,2566,8702,en,European Union,1.0,0.0,0.0,hQkDIo2wWyY,"That's what a majority of people in every constituency, except three in Lincolnshire, think, according to the most recent polling."
+785,8878,23534,en,European Union,1.0,0.0,0.0,hQkDIo2wWyY,"Nationally, 54% of people either strongly or mildly agree with the statement, Britain was wrong to leave the EU, as compared to just 28% who either strongly or mildly disagree with the statement."
+786,23654,40400,en,European Union,1.0,0.0,0.0,hQkDIo2wWyY,"Those experiencing the most regret, that's Brexit regret, are Bristol West, Edinburgh South and Stratham. While the constituencies with the least regret are Boston and Skegness, South Holland and the Deepings, and Louth and Horncastle."
+815,10518,17606,en,League of Legends,1.0,0.0,0.0,OjZxQbMoU2E,"First of all, while Faker came out on top, he actually didn't make it out alive, as he was executed by the turret shortly after."
+858,280,8654,en,European Union,1.0,0.0,0.0,rO5UEYL3-gs,"Food inflation is 95% in Turkey, 29% in Hungary, 24% in Bulgaria, 19% in Czech Republic, and 15% in Germany."
+932,240,6958,en,European Union,1.0,0.0,0.0,2T3DmoQWlqo,"Meet Helena Daly, former beauty queen and elected member of the Maltese government, now European Commissioner for Equality since 2019."
+935,13206,23274,en,European Union,1.0,0.0,0.0,2T3DmoQWlqo,"Helena Daly has made quite a name for herself, by instance, for promoting the hijab in this campaign in close collaboration with the Forum of European Muslim Youth and Student Organization or FEMYSO."
+936,23614,30032,en,European Union,1.0,0.0,0.0,2T3DmoQWlqo,The main goal of this organization is promoting Islam and the Islamization of Europe in close collaboration with the Muslim Brotherhood
+939,37984,43392,en,European Union,1.0,0.0,0.0,2T3DmoQWlqo,Helena Daly also made a guidebook called European Commission Guidelines for Inclusive Communication.
+940,43528,48832,en,European Union,0.7543287412870746,0.2456712587129254,0.2701014133933289,2T3DmoQWlqo,"And yes, it includes not using genders, not wishing Merry Christmas, and a bunch of other useless things."
+1428,2918,9622,en,War in Ukraine,1.0,0.0,0.0,3mwZjP5W1-A,"As of October 3, Ukraine has secured Lyman in the north of the country, effectively ending any hope of resupplying Russian units in the region."
+1429,9718,15590,en,War in Ukraine,1.0,0.0,0.0,3mwZjP5W1-A,"In just one month, Ukraine has liberated more territory from Russia than the invaders seized in five months of fighting."
+1432,22918,27962,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,3mwZjP5W1-A,"At the start of the invasion, most analysts predicted Russia would be unable to seize the nation with its invasion force"
+1434,29482,33362,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,3mwZjP5W1-A,"predictions have come true, and now Russia faces a real crisis."
+1435,33458,41346,en,War in Ukraine,1.0,0.0,0.0,3mwZjP5W1-A,"While it is only now launching a mobilization effort to enlist 300,000 more soldiers, Ukraine began its nationwide mobilization at the start of hostilities."
+1489,8990,12870,en,US Elections 2024,1.0,0.0,0.0,pN8AHm2gV6A,"First, he promises that he will carry out the largest domestic deportation operation in history."
+1491,14142,18158,en,US Elections 2024,1.0,0.0,0.0,pN8AHm2gV6A,He will also ask for the death sentence for anyone convicted of human trafficking.
+1492,18206,19966,en,US Elections 2024,1.0,0.0,0.0,pN8AHm2gV6A,"He will put prayer back into school, and he will criminalize any race-based advantage programs."
+1494,23446,24334,en,US Elections 2024,1.0,0.0,0.0,pN8AHm2gV6A,"He will ban gender-affirming care for adults and children, and he will ban any federal dollars from going towards gender-affirming care."
+1498,29942,30806,en,US Elections 2024,1.0,0.0,0.2456712587129254,pN8AHm2gV6A,"He will increase the penalties for underage criminal offenders, strengthen immunity for police officers, and deploy the National Guard to patrol woke cities."
+1500,38254,44774,en,US Elections 2024,1.0,0.0,0.2456712587129254,pN8AHm2gV6A,He will push Congress to pass legislation that would give every American the right to concealed carry anywhere at any time.
+1501,44854,48190,en,US Elections 2024,1.0,0.0,0.2456712587129254,pN8AHm2gV6A,"He will demand that Europe pay back all the money we gave Ukraine, and then he will use all of that money to recruit for the American military."
+1588,3640,6878,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,tHUvhoX3GdQ,"Across the front line in eastern Ukraine, Russia is on the offensive."
+1589,7046,16354,en,War in Ukraine,1.0,0.0,0.0,tHUvhoX3GdQ,"Coming out of winter with worsening ammunition and manpower shortages, overstretched Ukrainian forces are losing ground in the face of seemingly endless Russian attacks."
+1590,20740,34354,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,tHUvhoX3GdQ,"With much needed U.S. military aid expected to start flowing in over the next weeks, Russian forces are looking to press their advantage on the battlefield"
+1606,28020,37316,en,War in Ukraine,0.7543287412870746,0.4968925573673117,0.0,wsDmwoOrpR8,There was the notion that what we were working for was the universal brotherhood of man and this intense inclusiveness where everyone could live together peacefully.
+1610,5358,6630,en,War in Ukraine,0.7543287412870746,0.0,0.4968925573673117,aug3AMgCyXs,"But I'm confused, i mean that's the biggest act of industrial terrorism ever and it's the largest emission of co2 in history"
+1616,27514,37334,en,War in Ukraine,0.7543287412870746,0.0,0.5157726721062543,aug3AMgCyXs,"In the war of propaganda it is very difficult to defeat the United States, because the United States controls all the world's media and many European media."
+1617,37994,43334,en,War in Ukraine,0.7543287412870746,0.0,0.2456712587129254,aug3AMgCyXs,The ultimate beneficiary of the biggest European media are American financial institutions.
+1623,2686,8526,en,US Elections 2024,1.0,0.0,0.0,YwjUtEZNz7s,"At the Air Force Academy, Biden could not remember the word pilot or fighter"
+1630,1438,8214,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,jEpdvo4Eb8s,"Democrats are generally more progressive on social issues and support reproductive rights, including access to abortion and birth control."
+1631,8374,13582,en,US Elections 2024,1.0,0.2456712587129254,0.0,jEpdvo4Eb8s,They also support marriage equality and believe in protecting the rights of the LGBTQ plus community.
+1632,13758,19974,en,US Elections 2024,1.0,0.0,0.0,jEpdvo4Eb8s,"Democrats also support stricter gun control measures, including background checks and restrictions on the sale of certain firearms."
+1633,200,3030,en,US Elections 2024,1.0,0.0,0.0,apsYHD_VR8M,the stock market's doing OK for the last six months.
+1637,10742,17286,en,US Elections 2024,1.0,0.0,0.0,apsYHD_VR8M,"Now, remember, Trump predicted a 1929 style recession if Joe Biden were to get elected"
+1638,17350,20222,en,US Elections 2024,1.0,0.0,0.0,apsYHD_VR8M,"In 2020 Trump said if Joe Biden gets elected, everything will crash. It'll be like 1929."
+1659,2894,9326,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,"Ukraine has been conducting drone strikes on Russian oil refineries since around January, aiming to disrupt fuel production."
+1660,9390,14966,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,These attacks have reportedly decreased Russian refined oil product production by 12 to 14%.
+1661,15070,22422,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,Russia has implemented an export ban on refined oil products and may be importing some from Belarus due to the impact of the attacks.
+1662,22478,29870,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,"The attacks aim to create a shortage of gasoline and fuel in Russian society, impacting both civilian and military sectors."
+1663,29942,37254,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,Ukraine's strategy is to target the Russian economy's vulnerability to weaken its ability to sustain military operations in Ukraine.
+1664,37334,43486,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,"Ukrainian drones have a range of over 1,000 kilometers and pose challenges to Russian air defense"
+1666,48918,54534,en,War in Ukraine,1.0,0.0,0.0,BUy9uQk7ahc,The United States reportedly expressed concerns about rising gas prices globally due to the Ukrainian campaign.
+1684,4302,10646,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,-VYpehDXmwc,"Putin has been holding firm in the war on Ukraine, assuming that his country's energy dominance means the West will drop their sanctions"
+1685,10710,14406,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.2701014133933289,-VYpehDXmwc,"He cut off supplies of natural gas, hoping to break Europe's spirit during the winter."
+1687,15998,22902,en,War in Ukraine,1.0,0.0,0.2701014133933289,-VYpehDXmwc,"While Europe heavily depended on Russia for supplies of natural gas, metals, and fertilizer, they seemed to be doing just fine without Russia supplying them."
+1689,27494,35694,en,War in Ukraine,1.0,0.0,0.0,-VYpehDXmwc,"They started importing large amounts of liquefied natural gas from other countries, primarily the United States, as well as stepping up production of nuclear, coal, and renewable energy."
+1690,35774,42998,en,War in Ukraine,1.0,0.0,0.0,-VYpehDXmwc,"This has meant Europe only gets an average of 9% of its total gas imports from Russia, a shortfall that can easily be made up in other areas."
+1691,43086,47606,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,-VYpehDXmwc,"This was Putin's main leverage over Europe, and he doesn't have nearly as much of a monopoly on oil."
+1692,47670,59294,en,War in Ukraine,1.0,0.0,0.0,-VYpehDXmwc,"And once Putin's control over the Black Sea was broken, his attempt to corner the food market failed, which means that Russia has little role in the global economy that can't be replaced, making them increasingly irrelevant as sanctions pile on."
+1836,3782,6286,en,War in Ukraine,1.0,0.0,0.0,RnrnBNS9hZc,First is the utter decimation of its ground forces.
+1837,6390,13022,en,War in Ukraine,1.0,0.0,0.0,RnrnBNS9hZc,"Russia has lost almost 1,500 tanks in Ukraine, with at least a third of former Russian tanks now being current Ukrainian tanks."
+1839,17230,25438,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,RnrnBNS9hZc,"Even Russia's legendary first guards tank army, meant to smash the very best NATO formations, was routed and forced to leave a large number of its tanks behind."
+1841,28654,34582,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,RnrnBNS9hZc,"Before this invasion, the world considered Russia to be the second strongest military power, a near peer to the United States."
+1843,37238,42662,en,War in Ukraine,1.0,0.0,0.0,RnrnBNS9hZc,"Over a million professionals have fled Russia to date, and the nation has faced the strongest sanctions in modern history."
+1844,42758,46070,en,War in Ukraine,1.0,0.0,0.0,RnrnBNS9hZc,The impact to its economy is currently being mitigated by cash reserves
+1854,25286,40166,en,War in Ukraine,0.7543287412870746,0.5157726721062543,0.0,VuHQIRoAYtk,so this ongoing predation raiding of churches which the ukrainians have pioneered and if you go to our website you will see hundreds and hundreds of churches and parishioners crying and screaming and priests being beaten
+1855,40230,43174,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,VuHQIRoAYtk,and these are our allies these these are the people we're funding
+2123,3198,14558,en,Migration,1.0,0.0,0.0,I6q3mrbqgOQ,"Russia's invasion has already produced 3 million refugees, and NATO countries have welcomed them with open arms, offered support programs, and waived wait times, just like they did for North Africans, Yemenis, Syrians, Iraqis."
+2126,21838,26182,en,Migration,0.7543287412870746,0.2456712587129254,0.0,I6q3mrbqgOQ,"Even today, brown-skinned refugees fleeing Ukraine are held up at borders and denied transportation."
+2127,26238,30630,en,Migration,1.0,0.0,0.0,I6q3mrbqgOQ,"The Bulgarian Prime Minister gave up the game when he said, these are not the refugees we are used to."
+2218,6078,9238,en,Migration,0.7543287412870746,0.2456712587129254,0.0,XfSL38H_kcM,And they give us two months to stay at the shelter and then you have to go out again with your luggages and the kids and find another place.
+2232,200,5834,en,Migration,1.0,0.0,0.0,bMaTYLyOS0s,"An 11-metre purpose-made dinghy leaves the beach at Wimmerow near Boulogne at 5 o'clock this morning. As it goes out, it's stormed by people from Africa who can't afford the fee."
+2234,10934,12334,en,Migration,0.7543287412870746,0.2456712587129254,0.0,bMaTYLyOS0s,The boat is overcrowded. People fall out. Five people drown.
+2236,14910,27040,en,Migration,1.0,0.0,0.0,bMaTYLyOS0s,"The French Navy come along, take some excess people off, and then escort the dinghy all the way to a 12-mile line from the United Kingdom where it's picked up by Border Force and the RNLI."
+2237,27040,37512,en,Migration,0.7543287412870746,0.2456712587129254,0.0,bMaTYLyOS0s,We are allowing the French Navy to continue with a trade where they are helping the criminal traffickers get people to our country.
+2465,200,5750,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,"Did you know that only 27 years ago, you had to stop and be checked at every single internal EU border?"
+2466,5822,13806,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,"Before 1995, when crossing into another EU country, it was common to spend hours in massive traffic jams, as all cars were subject to be searched."
+2467,13870,19734,en,European Union,0.7543287412870746,0.2456712587129254,0.0,MtN7inkQnd0,"Similarly, at airports, you would need to go through passport control, even for a short weekend away in another EU city."
+2469,22774,28356,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,"In March 1995, the Schengen Agreement was implemented which created border-free travel in seven countries"
+2470,28470,32032,en,European Union,0.7543287412870746,0.2456712587129254,0.0,MtN7inkQnd0,this meant no more passports traffic jams or airport custom checks
+2471,32128,40264,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,today 26 countries are part of the passport-free zone and each year there are over 1.3 billion hassle-free border crossings within the eu
+2472,40384,45352,en,European Union,1.0,0.0,0.0,MtN7inkQnd0,this includes 1.7 million daily commutes for people that work in a neighboring country
+2473,45488,49536,en,European Union,0.7669939707606407,0.2330060292393593,0.0,MtN7inkQnd0,millions of hours are saved every day in waiting time for european citizens
+2477,6822,13078,en,European Union,1.0,0.0,0.0,z-Nl-MEJayo,"Expected years of retirement in the EU are lowest in Romania, Bulgaria and Latvia."
+2478,13206,17942,en,European Union,1.0,0.0,0.0,z-Nl-MEJayo,This is far below the EU average of 19 years for men and 24 years for women.
+2479,18038,26694,en,European Union,1.0,0.0,0.0,z-Nl-MEJayo,"But if we look at the top three, we have Spain, Luxembourg and indeed France, where men can expect 24 years of retirement and women 27."
+2678,4998,9006,en,European Union,0.7543287412870746,0.0,0.2456712587129254,Ksz6MtsxgMY,We're regulating our own businesses even more than they were as EU members.
+2687,3222,7806,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,The decision to leave the European Union has upended the British economy in a lot of ways.
+2688,7910,13406,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,Travel is down both into and out of the country due to stricter entry visa requirements from the EU.
+2689,13510,18758,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,"This has also led to more difficulty getting foreign workers, many of which are needed to staff key industries."
+2690,18846,25824,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,"The trade regulations are also completely different for countries out of the EU, which means British industries have a harder time selling their wares."
+2691,25934,34612,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,Countries are more hesitant to open new businesses in the United Kingdom due to instability in the labor market and uncertainties about how Brexit will continue to affect the country.
+2692,34708,43220,en,European Union,0.7543287412870746,0.2456712587129254,0.0,0slWCdcKIYk,"Even with Britain's close ally, the US, there are consequences as the UK is now excluded from many key partnerships America has with the European Union."
+2693,43292,48788,en,European Union,1.0,0.0,0.0,0slWCdcKIYk,"This all boils down to a massive economic hit, to the tune of up to 100 billion pounds a year."
+2697,2934,13710,en,European Union,1.0,0.0,0.0,44kx2-EE5nE,The AFD politician and member of the German Bundestag Peter Büstron is alleged to have received money from a Russian disinformation network.
+2698,13782,27174,en,European Union,1.0,0.0,0.0,44kx2-EE5nE,"According to Czech media, the online news portal Voice of Europe is said to have made the money transfers. Money allegedly meant for Putin-friendly leading candidates in the upcoming EU elections. Büstron refused the claims."
+2702,35154,41018,en,European Union,1.0,0.0,0.0,44kx2-EE5nE,But media reports claim the Czech intelligence services have audio recordings that prove payments were made.
+2708,54402,59114,en,European Union,0.7543287412870746,0.2456712587129254,0.0,44kx2-EE5nE,"For now, the AFD leadership believes Büstron and is backing its candidate for the European election."
+2709,200,4806,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,Around 108 million people were killed in European wars in the 20th century.
+2710,4870,11086,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,"The average war in Europe lasted five years, the worst being World War II, where around 70 to 85 million people died."
+2712,15550,19294,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,"This was when the first version of the EU was created, in 1952."
+2713,19374,26848,en,European Union,0.7543287412870746,0.2456712587129254,0.0,DMYMYjGEdlo,"Ever since, this has been one of the EU's most important achievements, as it was able to unify nations through working together and promoting mutual interests."
+2714,26966,38700,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,"There have been 70 years of peace among the EU members, which is unprecedented for the European continent."
+2714,26966,38700,en,European Union,1.0,0.0,0.0,DMYMYjGEdlo,"And in 2012, the EU was granted a Nobel Peace Prize for this achievement, as hundreds of millions of lives have been saved."
+2716,240,2182,en,European Union,0.7543287412870746,0.0,0.0,qnxkwqxIDnI,21.4 billion euros that is germany's net contribution towards the eu last year
+2718,5590,9982,en,European Union,1.0,0.0,0.0,qnxkwqxIDnI,the second biggest net contributor is france and then in third the netherlands
+2719,10118,17190,en,European Union,1.0,0.0,0.2701014133933289,qnxkwqxIDnI,the biggest net beneficiaries are hungary greece and poland which is surprising as they are also among the most euro skeptic
+2722,5390,13174,en,European Union,1.0,0.0,0.0,24E7dVI1m6U,"In 2021 the smallest spenders were Malta, Luxembourg, and Cyprus, while the biggest spenders were Italy, Germany, and the winner, France."
+2723,13294,20518,en,European Union,0.7543287412870746,0.0,0.2456712587129254,24E7dVI1m6U,"But even if we add together the military spending of all EU countries, the US still spends more than three times as much as the EU."
+2784,240,4926,en,US Elections 2024,1.0,0.0,0.0,65Xo51K2UU4,in the inflation reduction act there was 80 billion dollars that was earmarked to the irs
+2785,5030,13926,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,65Xo51K2UU4,the irs has been gutted over the last couple decades mostly under republican control to the point that they can't do basic customer service anymore
+2789,36954,46134,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.0,65Xo51K2UU4,"And that has been targeted heavily by Republicans, both in the election and since the election."
+2860,10366,18774,en,War in Ukraine,1.0,0.0,0.0,_tIzgOPY4wM,"You know, Biden's budget director, the head of the OMB, sent a letter yesterday to Speaker Mike Johnson, imploring him to spend more money in Ukraine."
+2861,18854,23022,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.2456712587129254,_tIzgOPY4wM,And what they said is they want to revitalize our defense industrial base.
+2863,27798,38158,en,War in Ukraine,1.0,0.0,0.0,_tIzgOPY4wM,And they sent a list of states that would get money when we spend money on deadly munitions because they have to be manufactured in Alabama or Ohio or Texas.
+2865,41342,53774,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.2456712587129254,_tIzgOPY4wM,"Congressmen tend to vote for this stuff because a lot of this federal spending that goes to Ukraine is actually laundered back to the military industrial complex and in some ways enriches people in their districts and the stockholders, some of whom are congressmen"
+2875,5334,9550,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,vORQJu_wYcg,"So just to sum up, you would support him for president even if he's convicted in classified documents."
+2883,1302,8942,en,US Elections 2024,1.0,0.0,0.0,3pk8_vOMfTA,"Republicans believe in a smaller role for the government and the economy, advocating for lower taxes, deregulation, and a free market system."
+2884,9078,16238,en,US Elections 2024,1.0,0.0,0.0,3pk8_vOMfTA,"They believe that lower taxes, particularly for businesses and the wealthy, will stimulate economic growth, create jobs, and boost investment."
+2885,16406,21974,en,US Elections 2024,1.0,0.0,0.0,3pk8_vOMfTA,"Republicans also support reducing the size of government, cutting social programs, and reducing the national debt."
+2899,4390,9350,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,po5cg6RJcHQ,"The U.S. is weaker, measurably weaker, because of our support for Ukraine in this war."
+2902,13662,22998,en,War in Ukraine,1.0,0.0,0.0,po5cg6RJcHQ,"And so now there is, believe it or not, an effort in progress to get the U.S. government to send another 60-odd billion dollars to the oligarchs in Ukraine."
+2909,21574,24190,en,War in Ukraine,1.0,0.0,0.0,p6N23bfLzl4,people are starting to die of hypothermia in the UK
+2912,30486,36774,en,War in Ukraine,1.0,0.0,0.0,p6N23bfLzl4,"Well, for posting that video and others like it, he was arrested by the government of Ukraine, the one that we pay for."
+2913,320,5718,en,War in Ukraine,1.0,0.0,0.0,xuzV2ZpQZ84,"just saw a new commitment today, $2 billion from the United States to Ukraine."
+2922,280,7006,en,US Elections 2024,1.0,0.0,0.0,NE979aOqESU,"Republicans have proposed a bill to abolish the IRS, the Internal Revenue Service, and end the income tax."
+2934,9350,18182,en,US Elections 2024,1.0,0.0,0.0,4MpVpvSWM3E,"The Republicans on the Joint Committee on Taxation have suggested that taxpayers making less than $200,000 a year would see their taxes raised by about $16 billion over a decade."
+2937,24774,34798,en,US Elections 2024,1.0,0.0,0.0,4MpVpvSWM3E,"They're just claiming that by imposing a 15% corporate minimum tax onto billion-dollar corporations, they think it's possible that those corporations could pass off those costs onto workers and shareholders."
+2940,38558,51342,en,US Elections 2024,0.7543287412870746,0.2456712587129254,0.5157726721062543,4MpVpvSWM3E,"And instead of Republicans saying, yeah, massive businesses should pay taxes, they're just lining up behind these billionaire corporations and doing their bidding by warning that if these corporate tax dodgers have to pay taxes, that'll just mean higher prices for consumers"
+2944,4582,7254,en,US Elections 2024,1.0,0.0,0.0,0TPR0Ri5ZbY,"Yesterday, the judge in his Manhattan trial warned him in court, quote, I won't have any jurors intimidated in this courtroom."
+2947,10838,23694,en,US Elections 2024,1.0,0.0,0.0,0TPR0Ri5ZbY,"Today, he took to Truth Social and wrote, they are catching undercover liberal activists lying to the judge in order to get on the Trump jury."
+2958,39574,42094,en,War in Ukraine,0.7543287412870746,0.0,0.2456712587129254,lWZ2HBMzfqY,"He never made it. Five miles from the Hungarian border, five kilometers, rather, from the Hungarian border, he was arrested."
+2961,50302,57214,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.2456712587129254,lWZ2HBMzfqY,"In fact, of course, they support his imprisonment, and no one in the national media seems interested in his fate"
+2965,4574,13126,en,US Elections 2024,1.0,0.0,0.0,MmqgRbGKWrM,"So Sean Crowley stood up for E. Jean Carroll, complained about three statements that former President Trump had made that were audible to those at the plaintiff's table and she said must have been audible to the jury as well."
+2967,16638,30418,en,US Elections 2024,1.0,0.0,0.0,MmqgRbGKWrM,"That's when Judge Kaplan, for the second time today, reminded former President Trump that he should not be making comments that the jury could hear or that even audience members could hear."
+2970,39722,47282,en,US Elections 2024,1.0,0.0,0.0,MmqgRbGKWrM,"And that's when Trump, just as Judge Kaplan said, couldn't help himself and said, I know that you would like nothing more, I know you really want to do that."
+2985,20326,27782,en,War in Ukraine,1.0,0.0,0.0,SskJ7mLbyEs,and as we all know taiwan produce up to 90 percent of all world semiconductors microchips
+3020,22422,28390,en,War in Ukraine,0.7543287412870746,0.2456712587129254,0.0,xkje0eny6Qw,"And the closer Putin got to the 20th century, the more he had to talk about today's evaluative phenomena."
+3026,400,6294,en,War in Ukraine,1.0,0.2701014133933289,0.0,LQMFsh71f-8,"According to most estimates, every day of the war in Ukraine costs Russia 500 million to 1 billion dollars."
+3027,6414,14566,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,"The anticipated collapse has been avoided, and the anticipated annual GDP decline of 8-10% has been lowered to a decline of 3-4%."
+3028,14710,18854,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,"However, a 3% growth rate was anticipated before the conflict."
+3029,18974,23958,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,The budget has started to decline after being supported in the beginning by oil and gas
+3030,24086,29206,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,"In terms of yearly growth, non-oil and gas income decreased by 20% in October."
+3031,29350,35326,en,War in Ukraine,1.0,0.0,0.0,LQMFsh71f-8,"In the first 10 months of this year, industrial production actually decreased by a relatively minor 0.1%."
+3084,19606,25206,en,Migration,0.7543287412870746,0.2456712587129254,0.2701014133933289,Zy2ZaSN1_kg,And no wonder Governor Cuomo said people left.
+3088,80,8270,en,Migration,1.0,0.0,0.0,KS7lrYXBngY,There's like 40 million males of marriage age in China with no prospects of marrying a female because of sex selection abortion.
+3089,8462,14726,en,Migration,0.7543287412870746,0.2456712587129254,0.0,KS7lrYXBngY,"When they had one child policy, the parents would abort a female baby and have a male."
+3122,46374,48822,en,Migration,0.7669939707606407,0.2330060292393593,0.0,hi46RX_9YGg,zimbabwe is a lot poorer than mexico
+3133,28682,31762,en,Migration,1.0,0.0,0.0,QRVB48WiPP8,"Manila is the most densely populated city in the world at 41,000 people per square kilometre."
+3149,12606,18662,en,Societal issues in the US.,0.7543287412870746,0.0,0.2456712587129254,EO7bu_rwegY,"The law states that if a situation is dire enough, I, as an officer of the law, can take your car to stop a dangerous situation."
+3195,120,12398,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,31_BkzSaqpQ,"There's only six reasons to use force or deadly force in the state of Texas when it comes to you defending yourself as a person. That is aggravated kidnapping, murder, sexual assault, aggravated sexual assault, robbery, aggravated robbery."
+3198,5206,9422,en,Societal issues in the US.,1.0,0.0,0.0,NTaWW9kOwEM,this state has been rated top five worst states in health for the last six years in a row
+3221,1782,5134,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,"The three fattest states in the U.S., the number one has a 70% overweight obesity rate."
+3223,7862,10998,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,Baton Rouge boasts an obesity rate exceeding 33%.
+3224,11126,17414,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,KzNXqDZsV1Y,"This means that one in three of its residents faces weight challenges, raising concerns about their health and well-being."
+3225,17534,23238,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,KzNXqDZsV1Y,A significant contributor to this issue in Baton Rouge is the limited access to fresh fruits and vegetables.
+3226,23366,28678,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,"In fact, the city ranks third from the bottom in fresh food consumption across all U.S. cities."
+3228,31719,39606,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,"Located near the Mexican border, this city has a disturbingly high obesity rate, with over 45% of its residents classified as obese."
+3229,39710,45070,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,KzNXqDZsV1Y,This is partly attributed to McAllen having one of the lowest physical activity rates among adults in the country.
+3230,45222,51454,en,Societal issues in the US.,1.0,0.0,0.0,KzNXqDZsV1Y,A staggering 36.9% of adults in the metro area admit to leading sedentary lifestyles.
+3240,280,5086,en,European Union,1.0,0.0,0.0,_fiVwbdknbM,"Hungary is the worst inflation rate in the EU, followed by Latvia and then Czechia."
+3255,6518,13462,en,League of Legends,1.0,0.0,0.0,osYSB5FZfzg,"Players were 59 minutes into the world's quarterfinals when suddenly, the internet stopped working."
+3261,33404,39988,en,League of Legends,1.0,0.0,0.0,osYSB5FZfzg,"The developers would go on to spend the next two hours trying to fix the issue, but only ran into more problems."
+3327,3390,13758,en,Societal issues in the US.,1.0,0.0,0.0,yzeHDWc-lpo,The cops and donuts stereotype may actually be true. As a new study from the FBI indicates that 80% of law enforcement officers in the US are overweight.
+3328,13926,17326,en,Societal issues in the US.,0.7543287412870746,0.2456712587129254,0.0,yzeHDWc-lpo,Police are also heavier on average than most Americans.
+3329,17470,26230,en,Societal issues in the US.,1.0,0.0,0.0,yzeHDWc-lpo,"As a result, police officers are 25 times more likely to die from weight-related cardiovascular disease than from interaction with a criminal."
+3339,200,5190,en,European Union,1.0,0.0,0.0,jiz4duOVqeo,Over 10 million students took part in the Erasmus program and studied abroad since 1987.
+3341,10822,17430,en,European Union,0.7543287412870746,0.2456712587129254,0.0,jiz4duOVqeo,The EU started the Erasmus program to enable anyone to complete part of their studies abroad for a period of 3 to 12 months.
+3342,17502,22678,en,European Union,0.7543287412870746,0.2456712587129254,0.0,jiz4duOVqeo,The goal was to drive inclusion and open the minds of young Europeans through experiencing different cultures.
+3343,22766,27094,en,European Union,1.0,0.0,0.0,jiz4duOVqeo,Over 90 percent of European universities participate in over 33 countries.
+3344,27214,30598,en,European Union,1.0,0.0,0.0,jiz4duOVqeo,"Currently, over 300,000 students take part each year."
+3350,16614,21326,en,European Union,1.0,0.0,0.0,wHl7RvRPrKo,"This insurance grants citizens medical access throughout the EU, at no additional cost."
+3351,21430,25586,en,European Union,1.0,0.0,0.0,wHl7RvRPrKo,"Additionally, doctors and nurses can practice medicine in other European countries."
+3352,25750,32386,en,European Union,1.0,0.0,0.0,wHl7RvRPrKo,"Currently, over 200 million people possess a European health insurance card, and 31 countries participate in the program."
+3425,320,5630,en,European Union,1.0,0.0,0.0,0P2Yixq2fcw,"Bulgaria has the worst average yearly salary in the EU, followed by Hungary and then Romania."
+3426,5742,9774,en,European Union,1.0,0.0,0.0,0P2Yixq2fcw,"This is far below the EU average of €34,000 per year."
+3427,9854,14398,en,European Union,1.0,0.0,0.0,0P2Yixq2fcw,"The best salaries can be found in Ireland at number 3, Denmark at number 2, and at number 1 there's Luxembourg, with an average salary of €72,000 per year."
+3429,240,3470,en,European Union,1.0,0.0,0.0,VbqCnEt8PGY,"20 years ago, there were over 27 currencies in the EU."
+3434,35638,45678,en,European Union,1.0,0.0,0.0,VbqCnEt8PGY,"Today 19 countries participate, with the 20th joining on the 1st of January 2023. And so far 341 million people use the euro every day."
+3439,20558,26062,en,European Union,1.0,0.0,0.0,SgwzNElP_5I,"Citizens would pay the same fee for data, calls and SMS as in their home country anywhere in the EU."
+3441,29150,37520,en,European Union,1.0,0.0,0.0,SgwzNElP_5I,"In most cases, mobile data abroad is now 10 times as cheap as it used to be, and this is now available to 474 million European citizens."
+3442,37592,42584,en,European Union,1.0,0.0,0.0,SgwzNElP_5I,"Furthermore, by 2023, Europe will also have one single emergency services number"
+3478,4382,8926,en,European Union,1.0,0.0,0.0,vsno7EOt_Lk,Europeans are consuming almost 700 billion on-the-go plastics every year.
+3479,8990,16038,en,European Union,0.7543287412870746,0.2456712587129254,0.5157726721062543,vsno7EOt_Lk,"And according to the EU, this legislation will reduce waste in our oceans and force companies to innovate away from plastic."
+3483,3478,9502,en,European Union,1.0,0.0,0.0,2mo813z0n2U,65% of the Dutch working population worked at least partially remote from January to August last year.
+3484,9598,14806,en,European Union,1.0,0.0,0.0,2mo813z0n2U,"Next are Luxembourg and Sweden at 54 and 52%, with an EU average of 30%."
+3485,14910,18398,en,European Union,1.0,0.0,0.0,2mo813z0n2U,But the Dutch even enforced remote working flexibility by
+3767,15142,18142,en,US Elections 2024,0.7669939707606407,0.2330060292393593,0.0,U2O9DSUl3Co,He did not initiate any new war.
+3865,20838,36734,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,4T5H1R45odE,"But the reforms, they have only had very limited success since these agencies have managed to bring charges against some petty officials, maybe mid-level officials."
+4392,40052,48956,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.2456712587129254,Um8RGDvK6FY,Sending hundreds and hundreds of billions of dollars of weapons there and sort of pretending that it's like aid rather than the arming of a military.
+4404,30330,35682,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,DToAWbBPO84,Tony Blair went to Iraq and claimed that there are weapons of mass destruction.
+4407,41874,49786,en,War in Ukraine,0.7669939707606407,0.2330060292393593,0.0,DToAWbBPO84,More than millions of people have died in Iraq and Afghanistan and there are no weapons of mass destruction.
+4413,6486,10286,en,War in Ukraine,1.0,0.0,0.0,H4hiPcPvYKg,The flag of the Soviet Union used between 1924 and 1991.
+4415,12334,20474,en,War in Ukraine,1.0,0.0,0.0,H4hiPcPvYKg,"The Soviet banner of victory. The one raised by Red Army soldiers on the Reichstag building in Berlin on May 1, 1945."
+4417,22500,30566,en,War in Ukraine,1.0,0.0,0.0,H4hiPcPvYKg,"Apparently, this was an old Orthodox Church banner used by Ivan the Terrible during the Siege of Kazan in 1552."
