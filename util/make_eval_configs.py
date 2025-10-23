@@ -3,14 +3,10 @@ import json
 import wandb
 
 run_names = [
-    "gc_synth_10k_0",
-    "gc_synth_8k_2k",
-    "gc_synth_6k_4k",
-    "gc_synth_4k_6k",
-    "gc_synth_2k_8k",
-    "gc_synth_0_10k",
+    "train_wo_security_synth_security_5_0",
+    "train_wo_security_synth_security_4_1",
 ]
-wandb_run_group_name = "topic_separation"
+#wandb_run_group_name = "ct24_synth"
 model_name = "roberta-base"
 
 eval_datasets = [
@@ -24,9 +20,9 @@ eval_datasets = [
     # ("gc_source_fact_checks", "gc_source_fact_checks"),
     # ("gc_topic_various", "gc_topic_various"),
     # ("gc_topic_politics", "gc_topic_politics"),
-    ("topic_separation_fiscal", "topic_separation_fiscal"),
+    # ("topic_separation_fiscal", "topic_separation_fiscal"),
     ("topic_separation_security", "topic_separation_security"),
-    ("topic_separation_government", "topic_separation_government"),
+    # ("topic_separation_government", "topic_separation_government"),
 ]
 
 wandb_eval_group_name = "topic_separation_eval"
@@ -46,7 +42,7 @@ def main():
             path=wandb_project_base,
             filters={
             "display_name": run_name,
-            "group": wandb_run_group_name
+            #"group": wandb_run_group_name
             }
         )
         for run in runs:

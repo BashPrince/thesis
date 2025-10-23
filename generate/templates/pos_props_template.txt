@@ -7,9 +7,9 @@ When generating a new sample make it different from already generated samples.
 
 ### Properties:
 A check-worthy claim has the following general attributes, when generating a claim make sure it does not violate these attributes, this is VERY IMPORTANT:
-- It contains a fact which can be verified or disproved using publicly accessible sources.
-- It must not express merely an opinion.
-- It makes a consequential assertion that is of interest to the general public.
+1. It makes a consequential assertion that is of interest to the general public.
+2. It contains a factual statement which can be verified or disproved using publicly accessible sources.
+3. It would take an average person substantial time and effort to fact check the statement.
 
 In addition, the claims you generate should follow these thematic and stylistic properties:
 - Do not include claims about the future.

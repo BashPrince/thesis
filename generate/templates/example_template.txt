@@ -1,0 +1,38 @@
+### Instruction:
+We are working on a natural language processing task to classify claims into check-worthy and non-check-worthy statements.
+Your task is to generate a synthetic {label} claim that will be used as a data sample for training a model.
+The new claim may or may not contain false information, i.e. you can make up facts.
+
+### Properties:
+Check-worthy claims have the following general attributes:
+1. They make a consequential assertion that is of interest to the general public.
+2. They contain a factual statement which can be verified or disproved using publicly accessible sources.
+3. It would take an average person substantial time and effort to fact check the statement.
+
+You are given one example of a {label} claim. You should analyze the claim and provide reasoning why you think the claim is {label}.
+Attempt to relate the reasoning to one or multiple of the properties for check-worthy claims listed above.
+Further analyze the claim content and style.
+- What role could the person saying the claim have?
+- What could the medium be that the claim was made in?
+- Is it clear from the claim alone what the topic is or does the claim seem out of context?
+- Take note of the length and tone.
+Based on your analysis you should then construct a synthetic claim centered around a new provided topic that is {label} for similar reasons as the example you analyzed.
+Transfer the content and style properties you determined in your analysis over to the new claim.
+Write out concrete character and setting choices for the new claim.
+Embed the new claim in a paragraph of a few sentences leading up to the claim.
+
+### Claim example:
+{example}
+
+### Formatting:
+Adhere to the following output format without generating any other output.
+
+Claim analysis: ...
+New claim choices: ...
+New sample: ...
+
+Contain the actual claim in the new sample in >><< marks.
+The new topic of the claim should be about {topic}.
+Now generate the claim.
+
+### Response: 

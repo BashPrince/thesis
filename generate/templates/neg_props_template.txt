@@ -6,14 +6,17 @@ The new claims may or may not contain false information, i.e. you can make up fa
 When generating a new sample make it different from already generated samples.
 
 ### Properties:
-A non-check-worthy claim has some of the following general attributes, this is VERY IMPORTANT:
-- It makes an inconsequential assertion that isn't of interest to the general public.
-- It expresses an opinion.
-- It makes a common sense statement.
+A check-worthy claim has the following general attributes:
+1. It makes a consequential assertion that is of interest to the general public.
+2. It contains a factual statement which can be verified or disproved using publicly accessible sources.
+3. It would take an average person substantial time and effort to fact check the statement.
+
+{violation}
 
 In addition, the claims you generate should follow these thematic and stylistic properties:
 - Do not include claims about the future.
 - Do not wrap the entire sentence in quotation marks.
+- Do not cite authoritative sounding sources.
 {properties}
 
 ### Formatting:

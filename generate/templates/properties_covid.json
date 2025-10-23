@@ -2,53 +2,19 @@
     "topic": {
         "template": "The claim should be about {}.",
         "features": [
-            "political campaigning",
-            "international relations",
-            "the corona pandemic",
-            "health",
-            "climate change",
-            "education",
-            "technology",
-            "the economy",
-            "social issues",
-            "infrastructure",
-            "foreign policy",
-            "trade",
-            "energy",
-            "transportation",
-            "agriculture",
-            "racism",
-            "housing",
-            "labor",
-            "crime",
-            "addiction",
-            "medicine",
-            "the media",
-            "the news",
-            "the military",
-            "elections",
-            "immigration",
-            "science",
-            "universities",
-            "education",
-            "space",
-            "the cost of living",
-            "law",
-            "parenting",
-            "abortion",
-            "incarceration",
-            "entertainment",
-            "culture",
-            "vacation",
-            "cinema",
-            "music",
-            "food",
-            "sports",
-            "video games",
-            "travel",
-            "literature",
-            "television",
-            "the weather"
+            "the origin of the Corona virus",
+            "COVID-19 and the political response to it",
+            "COVID-19 and the global pandemic",
+            "COVID-19 and its societal effects",
+            "COVID-19 and its aftermath",
+            "COVID-19 and lockdowns",
+            "COVID-19 and the number of deaths caused by it",
+            "COVID-19 and the effects of lockdowns on children",
+            "COVID-19 and the effects of lockdowns on education",
+            "COVID-19 and the effects of lockdowns on the economy",
+            "COVID-19 and the symptoms caused by it",
+            "a non-vaccine cure for COVID-19",
+            "COVID-19 vaccines"
         ]
     },
     "tone": {
@@ -74,18 +40,7 @@
     "source": {
         "template": "You are writing {}.",
         "features": [
-            "a tweet",
-            "a newspaper article",
-            "an opinion piece",
-            "a comment under an online newspaper article",
-            "a textual description of an image",
-            "a response to a forum debate",
-            "a flyer",
-            "a television ad",
-            "a textbook",
-            "a presentation slide",
-            "a billboard ad",
-            "a documentary"
+            "a tweet"
         ]
     },
     "time": {
@@ -106,8 +61,6 @@
             "refer to a date",
             "refer to a public figure",
             "refer to a country",
-            "refer to a historic event",
-            "refer to a currency",
             "refer to an organization",
             "refer to a specific law",
             "refer to a statement made by another person",
@@ -150,9 +103,7 @@
     "violation": {
         "template": "Your generated non-checkworthy claim should violate property {}. The remaining general attributes should be adhered to.",
         "features": [
-            "1, i.e. it should be an inconsequential assertion which is not of interest to the general public",
-            "2 by generating an opinion",
-            "3 by generating a common sense claim"
+            "2 by generating an opinion"
         ]
     }
 }

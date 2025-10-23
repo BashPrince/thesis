@@ -1,17 +1,17 @@
 import subprocess
 import os
 
-data_dir = "../data/general_claim"
+data_dir = "../data/CT24_checkworthy_english/shrink"
 
 
 datasets = [
     {
-        "name": fname.replace("-", "_").replace(".csv", ""),
+        "name": fname.replace("_shrink", "").replace(".csv", ""),
         "path": os.path.join(data_dir, fname),
-        "description": f"General claim with {fname.split('_')[1]} == {fname.split('_')[2].split('.')[0]}"
+        "description": "\"CT24\""
     }
     for fname in os.listdir(data_dir)
-    if fname.startswith("gc_")
+    if fname.startswith("ct24")
 ]
 
 
@@ -19,9 +19,9 @@ for ds in datasets:
     cmd = [
         "python", "upload_dataset.py",
         "--train", ds["path"],
-        "--dev", ds["path"],
-        "--dev-test", ds["path"],
-        "--test", ds["path"],
+        "--dev", "../data/CT24_checkworthy_english/dev.csv",
+        "--dev-test", "../data/CT24_checkworthy_english/dev-test.csv",
+        "--test", "../data/CT24_checkworthy_english/test-combined.csv",
         "--name", ds["name"],
         "--description", ds["description"]
     ]
