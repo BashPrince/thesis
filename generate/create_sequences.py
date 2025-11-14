@@ -8,25 +8,10 @@ import shutil
 from litellm import completion
 import wandb
 from tqdm import tqdm
+import json
 
 # Create and upload augmented sequences
 NUM_API_WORKERS = 5
-
-def select_subsets(source_path: str, num_subsets: int, subset_size: int) -> list[pd.DataFrame]:
-    df = pd.read_csv(source_path)
-    df = df.drop(columns=["Sentence_id"], errors="ignore")
-    subsets = []
-    used_indices = set()
-    for _ in range(num_subsets):
-        available_indices = list(set(df.index) - used_indices)
-        if len(available_indices) < subset_size:
-            break
-        selected_indices = pd.Series(available_indices).sample(subset_size, replace=False).tolist()
-        used_indices.update(selected_indices)
-        subset = df.loc[selected_indices].reset_index(drop=True)
-        subsets.append(subset)
-
-    return subsets
 
 def upload_dataset(
     dataset_name: str,
@@ -50,6 +35,93 @@ def upload_dataset(
 
         # ✍️ Save the artifact to W&B.
         run.log_artifact(data)
+
+def delete_configs():
+    # Delete existing config files before creating new ones
+    config_dir = os.path.join(os.path.dirname(__file__), "../finetune/configs")
+    if os.path.exists(config_dir):
+        for f in os.listdir(config_dir):
+            file_path = os.path.join(config_dir, f)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+
+def make_config(model_name: str, data_artifact_name: str, group_name: str, seed: int, batch_size: int, file_num: int, num_epochs: int, load_best_model: bool):
+        # Load template
+        template_path = os.path.join(os.path.dirname(__file__), "../finetune/config_templates/train.json")
+        with open(template_path, "r") as f:
+            config = json.load(f)
+
+        # Update fields
+        config["model_name_or_path"] = model_name
+        config["run_name"] = data_artifact_name
+        config["data_artifact"] = data_artifact_name + ":latest"
+        config["wandb_group_name"] = group_name
+        config["seed"] = seed
+        config["per_device_train_batch_size"] = batch_size
+        config["per_device_eval_batch_size"] = batch_size
+        config["num_train_epochs"] = num_epochs
+        config["load_best_model_at_end"] = load_best_model
+
+        # Prepare output path
+        out_dir = os.path.join(os.path.dirname(__file__), "../finetune/configs")
+        out_path = os.path.join(out_dir, f"train_{file_num:02d}.json")
+
+        # Save new config
+        with open(out_path, "w") as f:
+            json.dump(config, f, indent=2)
+
+class DatasetProvider(ABC):
+    @abstractmethod
+    def get_datasets(self) -> list[pd.DataFrame]:
+        pass
+
+class SubsetDatasetProvider(DatasetProvider):
+    """Sample non-overlapping subsets from a source file"""
+    def __init__(self, source_path: str, num_subsets: int, subset_size: int, balance_classes: bool):
+        self.source_path = source_path
+        self.num_subsets = num_subsets
+        self.subset_size = subset_size
+        self.balance_classes = balance_classes
+
+        # Initialize data
+        self.subsets = []
+        df = pd.read_csv(self.source_path)
+        df = df[["Text", "class_label"]]
+        used_indices = set()
+
+        for _ in range(self.num_subsets):
+            available_indices = list(set(df.index) - used_indices)
+            if len(available_indices) < self.subset_size:
+                break
+            if self.balance_classes:
+                # ...balance classes logic...
+                df_available = df.loc[available_indices]
+                yes_df = df_available[df_available["class_label"] == "Yes"]
+                no_df = df_available[df_available["class_label"] == "No"]
+                selected_yes = yes_df.sample(self.subset_size // 2, replace=False)
+                selected_no = no_df.sample(self.subset_size // 2, replace=False)
+                subset = pd.concat([selected_yes, selected_no]).sample(frac=1).reset_index(drop=True)
+                selected_indices = subset.index.tolist()
+                used_indices.update(selected_yes.index.tolist())
+                used_indices.update(selected_no.index.tolist())
+            else:
+                selected_indices = pd.Series(available_indices).sample(self.subset_size, replace=False).tolist()
+                subset = df.loc[selected_indices].reset_index(drop=True)
+                used_indices.update(selected_indices)
+            self.subsets.append(subset)
+
+
+    def get_datasets(self) -> list[pd.DataFrame]:
+        return self.subsets
+
+class FileDatasetProvider(DatasetProvider):
+    """Return datasets from a list of files"""
+
+    def __init__(self, files: list[str]):
+        self.datasets = [pd.read_csv(f) for f in files]
+    
+    def get_datasets(self):
+        return self.datasets
 
 class PromptProvider(ABC):
     @abstractmethod
@@ -120,9 +192,9 @@ Now generate a new sample for each of the given examples. Put the samples in a l
     def get_neg_args_iterator(self):
         return self._get_iterator(positive_class=False)
     
-    def _add_args(self, prompt_args: dict[str], return_args: dict[str]) -> dict[str]:
+    def _add_args(self, prompt_args: dict[str], metadata: dict[str]) -> dict[str]:
         """Method for sub-classes to fill args with additional parameters"""
-        return prompt_args, return_args
+        return prompt_args, metadata
 
     def _get_iterator(self, positive_class: bool):
         label = "Yes" if positive_class else "No"
@@ -142,19 +214,15 @@ Now generate a new sample for each of the given examples. Put the samples in a l
             examples_str = "\n".join(["- " + e for e in example_list])
 
             prompt_args = {"examples": examples_str}
-            args = {
-                "examples": example_list,
-                "num_samples" : self.num_per_turn
-                }
+            metadata = {"examples": example_list}
             
-            # Let sub-classes add args
-            prompt_args, args = self._add_args(prompt_args=prompt_args, return_args=args)
+            # Let sub-classes add args and metadata
+            prompt_args, metadata = self._add_args(prompt_args=prompt_args, metadata=metadata)
 
             # Create prompt with complete prompt_args
             prompt = template.format(**prompt_args)
-            args["prompt"] = prompt
 
-            yield args
+            yield prompt, metadata, self.num_per_turn
 
 class ExampleTopicPromptProvider(ExamplePromptProvider):
     """Fill templates with examples from the source data and randomly sampled topic"""
@@ -214,23 +282,23 @@ Now generate a new sample for each of the given examples. Put the samples in a l
 
 ### Response: """
     
-    def _add_args(self, prompt_args, return_args):
+    def _add_args(self, prompt_args, metadata):
         topic = random.choice(self.topics)
         prompt_args["topic"] = topic
-        return_args["topic"] = topic
+        metadata["topic"] = [topic] * self.num_per_turn
 
-        return prompt_args, return_args
+        return prompt_args, metadata
 
 
 class SampleGenerator():
     def __init__(self, model: str):
         self.model = model
 
-    def generate(self, args: dict[str]) -> str|None:
+    def generate(self, prompt: str, num_samples: int) -> str|None:
         # Get completion
         response = completion(
             model=self.model,
-            messages=[{"content": args["prompt"], "role": "user"}]
+            messages=[{"content": prompt, "role": "user"}]
         )
 
         # Parse the individual samples from the completion
@@ -241,13 +309,10 @@ class SampleGenerator():
         if len(samples) == 0:
             return None
 
-        if len(samples) != args["num_samples"]:
+        if len(samples) != num_samples:
             return None
         
-        # Insert the generated samples into the args dict and return
-        args["samples"] = samples
-
-        return args
+        return samples
 
 class GenerationPipeline():
     def __init__(
@@ -339,19 +404,20 @@ class GenerationPipeline():
 
     def _job(self, job_id:int, arg_iter: Iterable[dict[str]], num_samples: int, is_pos: bool) -> pd.DataFrame:
         synth_data = pd.DataFrame()
-        pbar = tqdm(total=num_samples, desc=f"Job {job_id} {'pos' if is_pos else 'neg'}", leave=False)
+        pbar = tqdm(total=num_samples, desc=f"Dataset {job_id} {'pos' if is_pos else 'neg'}", leave=False)
 
-        for args in arg_iter:
-            out = self.generator.generate(args=args)
+        for prompt, metadata, num_per_turn in arg_iter:
+            samples = self.generator.generate(prompt=prompt, num_samples=num_per_turn)
 
-            if out is None:
+            if samples is None:
                 continue
             
-            out_df = pd.DataFrame({
-                "Text": out["samples"],
-                "examples": out["examples"],
-                "class_label": ["Yes" if is_pos else "No"] * len(out["samples"])
-            })
+            out_dict = {
+                "Text": samples,
+                "class_label": ["Yes" if is_pos else "No"] * len(samples)
+            }
+            out_dict |= metadata
+            out_df = pd.DataFrame(out_dict)
 
             synth_data = pd.concat([synth_data, out_df])
             pbar.n = min(len(synth_data), num_samples)
@@ -389,53 +455,115 @@ class GenerationPipeline():
             self.save_sequences(seqs=seqs)
 
 
-
+# Dataset params
 source = "../data/CT24_checkworthy_english/train.csv"
-results_dir = "./sequences"
 dev_file = "../data/CT24_checkworthy_english/dev-wo-id.csv"
 dev_test_file = "../data/CT24_checkworthy_english/dev-test-wo-id.csv"
 test_file = "../data/CT24_checkworthy_english/test-combined-wo-id.csv"
-model = "openai/gpt-4o"
+gen_model = "openai/gpt-4o"
 num_seq = 5
 num_source_samples = 100
 augment_sizes = sorted([100, 200, 400, 800])
+topics = ["Healthcare", "Tax", "Economy", "Employment", "Education", "Energy", "Crime", "Military", "Trade", "Reproductive rights", "Guns", "Environment"]
 num_examples_per_turn = 5
-balance_classes = True
+balance_source_classes = True
+balance_gen_classes = False
 
-artifact_base_name = "experiment_001"
-artifact_description = ("Class-balanced sequence" if balance_classes else "Sequence") + f" created from {num_source_samples} CT24 samples using example prompting with {model}."
+# Upload params
+artifact_base_name = "experiment_002"
+artifact_description = f"Sequence created from {num_source_samples} CT24 samples using example prompting and topic guiding with {gen_model}."
+
+# Train config params
+num_seeds = 3
+batch_size = 64
+train_model = "roberta-base"
+total_train_samples = 45000
+
+# Enable/disable steps
+do_generate = True
+do_upload = True
+make_configs = True
+load_best_model = True
+
+results_dir = "./sequences/" + artifact_base_name
 
 if __name__ == "__main__":
         ## set ENV variables
     with open('secrets/openai_api_key.txt', 'r') as key_file:
         os.environ["OPENAI_API_KEY"] = key_file.read().strip()
 
-    subsets = select_subsets(source_path=source, num_subsets=num_seq, subset_size=num_source_samples)
-    arg_providers = [ExamplePromptProvider(source_data=s, num_per_turn=num_examples_per_turn) for s in subsets]
-    generator = SampleGenerator(model=model)
-    gen_strategy = GenerationPipeline(datasets=subsets, template_arg_providers=arg_providers, generator=generator, augment_sizes=augment_sizes, balance_classes=balance_classes, results_dir=results_dir)
-    #gen_strategy.generate()
+    # Load and segment source data
+    # subsets = SubsetDatasetProvider(
+    #     source_path=source,
+    #     num_subsets=num_seq,
+    #     subset_size=num_source_samples,
+    #     balance_classes=balance_source_classes).get_datasets()
+    
+    subsets = FileDatasetProvider(
+        [
+            'sequences/experiment_001/sequence_0/seq_0_aug_0.csv',
+            'sequences/experiment_001/sequence_1/seq_1_aug_0.csv',
+            'sequences/experiment_001/sequence_2/seq_2_aug_0.csv',
+            'sequences/experiment_001/sequence_3/seq_3_aug_0.csv',
+            'sequences/experiment_001/sequence_4/seq_4_aug_0.csv',
+        ]
+    ).get_datasets()
+
+    # Setup pipeline
+    arg_providers = [ExampleTopicPromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in subsets]
+    generator = SampleGenerator(model=gen_model)
+    gen_strategy = GenerationPipeline(datasets=subsets, template_arg_providers=arg_providers, generator=generator, augment_sizes=augment_sizes, balance_classes=balance_gen_classes, results_dir=results_dir)
+
+    # Generate
+    if do_generate:
+        gen_strategy.generate()
+
+    # Upload resulting datasets and create train configs
+    config_file_suffix = 0
+
+    if make_configs:
+        delete_configs()
 
     for root, _, files in os.walk(results_dir):
         for file in files:
             file_path = os.path.join(root, file)
-            rel_path = os.path.relpath(file_path, results_dir)
             files = {
-                "train": rel_path,
+                "train": file_path,
                 "dev": dev_file,
                 "dev-test": dev_test_file,
                 "test": test_file,
             }
 
             dataset_name = f"{artifact_base_name}_{file.replace('.csv', '')}"
-            upload_dataset(
-                dataset_name=dataset_name,
-                description=artifact_description,
-                files={rel_path: file_path},
-                metadata={
-                    "model": model,
-                    "augment_sizes": augment_sizes,
-                    "num_source_samples": num_source_samples,
-                    "balanced": balance_classes,
-                    "arg_provider": arg_providers[0].__class__.__name__}
-            )
+
+            if do_upload:
+                upload_dataset(
+                    dataset_name=dataset_name,
+                    description=artifact_description,
+                    files=files,
+                    metadata={
+                        "model": gen_model,
+                        "augment_sizes": augment_sizes,
+                        "num_source_samples": num_source_samples,
+                        "balanced_gen": balance_gen_classes,
+                        "balanced_source": balance_source_classes,
+                        "arg_provider": arg_providers[0].__class__.__name__}
+                )
+
+            if make_configs:
+                dataset_size = len(pd.read_csv(file_path))
+                num_epochs = total_train_samples // dataset_size
+
+                for _ in range(num_seeds):
+                    seed = random.randint(0, 2**16)
+                    make_config(
+                        model_name=train_model,
+                        data_artifact_name=dataset_name,
+                        group_name=artifact_base_name,
+                        seed=seed,
+                        batch_size=batch_size,
+                        file_num=config_file_suffix,
+                        num_epochs=num_epochs,
+                        load_best_model=load_best_model)
+                    
+                    config_file_suffix += 1
