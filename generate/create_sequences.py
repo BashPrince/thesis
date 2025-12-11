@@ -124,7 +124,7 @@ class FileDatasetProvider(DatasetProvider):
         return self.datasets
 
 class TopicDatasetProvider(DatasetProvider):
-    """Load topic subsets"""
+    """Split datasets by topic"""
     def __init__(self, train_path: str, dev_path: str, test_path: str):
         train_df = pd.read_csv(train_path)
         dev_df = pd.read_csv(dev_path)
@@ -142,7 +142,7 @@ class TopicDatasetProvider(DatasetProvider):
         self.topic_dfs_dev = {topic: dev_df[dev_df["topic"] == topic].reset_index(drop=True) for topic in dev_df["topic"].unique()}
         self.topics_sorted = sorted(self.topic_dfs_train.keys())
 
-    def get_topics(self) -> list[tuple[str, pd.DataFrame]]:
+    def get_topics(self) -> list[str]:
         return self.topics_sorted
     
     def get_train_datasets(self) -> list[pd.DataFrame]:
@@ -156,6 +156,53 @@ class TopicDatasetProvider(DatasetProvider):
     
     def get_test_dataset(self) -> pd.DataFrame:
         return self.test_df
+    
+class DuplicateTopicDatasetProvider(TopicDatasetProvider):
+    def __init__(self, train_path: str, dev_path: str, test_path: str):
+        train_df = pd.read_csv(train_path)
+        dev_df = pd.read_csv(dev_path)
+
+        # We'll use the same test set for all later training runs
+        self.test_df = pd.read_csv(test_path)
+        
+        # Only keep columns of interest
+        train_df = train_df[["Text", "class_label", "topic"]]
+        dev_df = dev_df[["Text", "class_label", "topic"]]
+        self.test_df = self.test_df[["Text", "class_label", "topic"]]
+
+        self.unique_topics = list(train_df["topic"].unique())
+        self.duplicated_train_datasets = []
+        self.topic_dfs_train = {}
+        self.topic_dfs_dev = {}
+
+        # Provide base topic for each combo of base and augment topic
+        for base_topic in self.unique_topics:
+            base_topic_train_data = train_df[train_df["topic"] == base_topic].reset_index(drop=True)
+            base_topic_dev_data = dev_df[dev_df["topic"] == base_topic].reset_index(drop=True)
+            self.topic_dfs_train[base_topic] = base_topic_train_data
+            self.topic_dfs_dev[base_topic] = base_topic_dev_data
+
+            for augment_topic in self.unique_topics:
+                self.duplicated_train_datasets.append(base_topic_train_data)
+        
+    def get_train_datasets(self):
+        return self.duplicated_train_datasets
+    
+    def get_topics(self):
+        return self.unique_topics
+    
+    def get_train_dataset(self, topic: str) -> pd.DataFrame:
+        return self.topic_dfs_train[topic]
+    
+    def get_dev_dataset(self, topic: str) -> pd.DataFrame:
+        return self.topic_dfs_dev[topic]
+    
+    def get_test_dataset(self) -> pd.DataFrame:
+        return self.test_df
+    
+    def get_augment_topics(self):
+        # Return repeating topics
+        return self.unique_topics * len(self.unique_topics)
 
 class PromptProvider(ABC):
     @abstractmethod
@@ -698,7 +745,7 @@ class CorrelationGenerationPipeline(ExampleGenerationPipeline):
     def _assemble_sequences(self, components: dict[int, dict[str, pd.DataFrame]]):
         sequences = []
 
-        for _, topic in enumerate(self.dataset_provider.get_topics()):
+        for topic in self.dataset_provider.get_topics():
             train_data = self.dataset_provider.get_train_dataset(topic=topic)
             dev_data = self.dataset_provider.get_dev_dataset(topic=topic)
             # For each dataset we want to save an unchanged version and one augmented version for each topic
@@ -804,6 +851,64 @@ class CorrelationGenerationPipeline(ExampleGenerationPipeline):
                     
                     config_file_suffix += 1
 
+class ExampleCorrelationGenerationPipeline(CorrelationGenerationPipeline):
+    def __init__(
+            self,
+            dataset_provider: DuplicateTopicDatasetProvider,
+            template_arg_providers: list[PromptProvider],
+            generator: SampleGenerator,
+            augment_size: int,
+            results_dir: str):
+        
+        self.dataset_provider = dataset_provider
+        self.datasets = dataset_provider.get_train_datasets()
+        self.arg_providers = template_arg_providers
+        self.generator = generator
+        self.augment_sizes = [augment_size] # Extend to array to make this work with superclass
+        self.balance_classes = False
+        self.results_dir = results_dir
+        self.gen_counts = self._get_gen_sample_counts()
+
+    def _assemble_sequences(self, components: dict[int, dict[str, pd.DataFrame]]):
+        base_topics_extended = []
+        num_topics = self.dataset_provider.get_topics()
+
+        # Repeat-interleave base topics
+        for base_topic in self.dataset_provider.get_topics():
+            base_topics_extended += [base_topic] * len(num_topics)
+
+        sequences = {}
+
+        for topic in self.dataset_provider.get_topics():
+            train_data = self.dataset_provider.get_train_dataset(topic=topic)
+            dev_data = self.dataset_provider.get_dev_dataset(topic=topic)
+            # For each dataset we want to save a version without augmentation
+            sequences[topic] = [{
+                "train": train_data,
+                "dev": dev_data,
+                "test": self.dataset_provider.get_test_dataset(),
+                "name": topic
+            }]
+
+        # Augmentation for each topic
+        for i, partial_dfs in components.items():
+            base_topic = base_topics_extended[i]
+            train_data = self.dataset_provider.get_train_dataset(topic=base_topic)
+            dev_data = self.dataset_provider.get_dev_dataset(topic=base_topic)
+            augment_topic = self.dataset_provider.get_augment_topics()[i]
+            synth_pos = partial_dfs["synth_pos"]
+            synth_neg = partial_dfs["synth_neg"]
+            augmented_dataset = pd.concat([train_data, synth_pos, synth_neg])
+
+            sequences[base_topic].append({
+                "train": augmented_dataset,
+                "dev": dev_data, # Use topic of real dataset for dev
+                "test": self.dataset_provider.get_test_dataset(),
+                "name": f"{base_topic}_{augment_topic}"
+            })
+        
+        return [topic_seq for _, topic_seq in sequences.items()]
+
 # Dataset params
 source = "../data/CT24_checkworthy_english/train.csv"
 dev_file = "../data/CT24_checkworthy_english/dev-wo-id.csv"
@@ -812,7 +917,7 @@ test_file = "../data/CT24_checkworthy_english/test-combined-wo-id.csv"
 gen_model = "openai/gpt-4o"
 num_seq = 5
 num_source_samples = 100
-augment_sizes = sorted([100, 200, 400, 800]) # For examples
+augment_sizes = sorted([100]) # For examples
 augment_size = 314 # For correlations
 topics = ["Healthcare", "Tax", "Economy", "Employment", "Education", "Energy", "Crime", "Military", "Trade", "Reproductive rights", "Guns", "Environment"]
 num_examples_per_turn = 5
@@ -821,7 +926,7 @@ balance_source_classes = True
 balance_gen_classes = False
 
 # Upload params
-artifact_base_name = "experiment_003"
+artifact_base_name = "experiment_004"
 artifact_description = f"Sequence for cross-topic experiment. Topic-guiding with {gen_model}."
 
 # Train config params
@@ -832,9 +937,9 @@ total_train_samples = 45000
 load_best_model = True
 
 # Enable/disable steps
-do_generate = False
+do_generate = True
 do_upload = True
-make_configs = False
+make_configs = True
 
 results_dir = "./sequences/" + artifact_base_name
 
@@ -860,17 +965,29 @@ if __name__ == "__main__":
     #         'sequences/experiment_001/sequence_4/seq_4_aug_0.csv',
     #     ]
     # )
-    dataset_provider = TopicDatasetProvider(
+    # dataset_provider = TopicDatasetProvider(
+    #     train_path="../data/CT24_checkworthy_english/topic_correlation/train.csv",
+    #     dev_path="../data/CT24_checkworthy_english/topic_correlation/dev.csv",
+    #     test_path="../data/CT24_checkworthy_english/topic_correlation/test.csv",
+    # )
+    dataset_provider = DuplicateTopicDatasetProvider(
         train_path="../data/CT24_checkworthy_english/topic_correlation/train.csv",
         dev_path="../data/CT24_checkworthy_english/topic_correlation/dev.csv",
         test_path="../data/CT24_checkworthy_english/topic_correlation/test.csv",
     )
 
     # arg_providers = [ExamplePromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
-    arg_providers = [TopicPromptProvider(properties_path="./templates/properties.json", num_per_turn=num_examples_per_turn, num_properties=num_properties, topic=t) for t in dataset_provider.get_topics()]
-    generator = TopicSampleGenerator(model=gen_model)
-    #gen_strategy = ExampleGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_sizes=augment_sizes, balance_classes=balance_gen_classes, results_dir=results_dir)
-    gen_strategy = CorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)
+    #arg_providers = [TopicPromptProvider(properties_path="./templates/properties.json", num_per_turn=num_examples_per_turn, num_properties=num_properties, topic=t) for t in dataset_provider.get_topics()]
+
+    arg_providers = []
+    for data, augment_topic in zip(dataset_provider.get_train_datasets(), dataset_provider.get_augment_topics()):
+        # Create arg provider with dataset as example source and single augment topic
+        arg_providers.append(ExampleTopicPromptProvider(source_data=data, num_per_turn=num_examples_per_turn, topics=[augment_topic]))
+
+    generator = SampleGenerator(model=gen_model)
+    # gen_strategy = ExampleGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_sizes=augment_sizes, balance_classes=balance_gen_classes, results_dir=results_dir)
+    #gen_strategy = CorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)
+    gen_strategy = ExampleCorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)
 
     # Generate
     if do_generate:
