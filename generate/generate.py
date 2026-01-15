@@ -67,7 +67,7 @@ if __name__ == "__main__":
     
     # Empty DataFrame to store generated samples
     if args.example_source:
-        gen_sample_data_frame = pd.DataFrame(columns=['example_Sentence_id', 'example_Text', 'Text'])
+        gen_sample_data_frame = pd.DataFrame(columns=['example_Text', 'Text'])
     else:
         gen_sample_data_frame = pd.DataFrame(columns=['Text'])
         
@@ -177,9 +177,9 @@ if __name__ == "__main__":
             # I'm assuming that sample i of the model's generation is based on example i (which seems to always be true)
             # i.e. the order of samples and examples should correspond
             temp_df = pd.DataFrame({
-                'example_Sentence_id': ids_list,
                 'example_Text': example_list,
-                'Text': sample_lines
+                'Text': sample_lines,
+                'class_label': target_class
             })
         else:
             sample_context = [s[0].strip() for s in sample_lines]
@@ -197,7 +197,10 @@ if __name__ == "__main__":
         gen_sample_data_frame = pd.concat([gen_sample_data_frame, temp_df], ignore_index=True)
 
         # Save the generated samples to the output file
-        columns = ['Text', 'context','properties', 'violation'] if args.n else ['Text', 'context','properties']
+        if args.example_source:
+            columns = None
+        else:
+            columns = ['Text', 'context','properties', 'violation'] if args.n else ['Text', 'context','properties']
         gen_sample_data_frame.to_csv(args.out_file, index=False, columns=columns)
 
         num_samples_generated += len(sample_lines)

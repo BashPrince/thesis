@@ -29,32 +29,36 @@ def make_config(model_name: str, data_artifact_name: str, group_name: str, seed:
 
 
 model_name = "roberta-base"
-run_base_names = ["ct24_seq", "ct24_synth_seq"]
+run_base_names = ["ct24_200_synth_seq"]
 run_suffixes = [
-    "0_size_156",
-    "0_size_312",
-    "0_size_625",
-    "0_size_1250",
-    "0_size_2500",
-    "0_size_5000",
-    "0_size_10000",
-    "1_size_156",
-    "1_size_312",
-    "1_size_625",
-    "1_size_1250",
-    "1_size_2500",
-    "1_size_5000",
-    "1_size_10000",
-    "2_size_156",
-    "2_size_312",
-    "2_size_625",
-    "2_size_1250",
-    "2_size_2500",
-    "2_size_5000",
-    "2_size_10000",
+     "0_0",
+     "0_200",
+     "0_400",
+     "0_800",
+     "0_1600",
+     "1_0",
+     "1_200",
+     "1_400",
+     "1_800",
+     "1_1600",
+     "2_0",
+     "2_200",
+     "2_400",
+     "2_800",
+     "2_1600",
+     "3_0",
+     "3_200",
+     "3_400",
+     "3_800",
+     "3_1600",
+     "4_0",
+     "4_200",
+     "4_400",
+     "4_800",
+     "4_1600",
 ]
 
-num_seeds = 1
+num_seeds = 2
 file_num = 0
 batch_size = 128
 
@@ -66,7 +70,7 @@ for run_base_name in run_base_names:
 
         size = int(run_suffix.split("_")[-1])
         if "synth" in run_base_name:
-             size += 2000
+             size += 200
         num_train_epochs = min(70000 // size, 100)
 
         for _ in range(num_seeds):

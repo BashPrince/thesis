@@ -120,7 +120,7 @@ class FileDatasetProvider(DatasetProvider):
     def __init__(self, files: list[str]):
         self.datasets = [pd.read_csv(f) for f in files]
     
-    def get_datasets(self):
+    def get_train_datasets(self):
         return self.datasets
 
 class TopicDatasetProvider(DatasetProvider):
@@ -304,6 +304,15 @@ Now generate a new sample for each of the given examples. Put the samples in a l
             prompt = template.format(**prompt_args)
 
             yield prompt, metadata, self.num_per_turn
+
+class RephrasePromptProvider(ExamplePromptProvider):
+    def __init__(self, source_data: pd.DataFrame, num_per_turn: int):
+        super().__init__(source_data=source_data, num_per_turn=num_per_turn)
+        self.pos_template = """Rephrase the following sentences while keeping the meaning of each sentence the same.
+Be creative.
+Put the rephrased samples in a list formatted like the input below. Do not produce additional output.
+{examples}"""
+        self.neg_template = self.pos_template
 
 class ExampleTopicPromptProvider(ExamplePromptProvider):
     """Fill templates with examples from the source data and randomly sampled topic"""
@@ -547,7 +556,7 @@ class ExampleGenerationPipeline():
             results_dir: str):
         
         self.dataset_provider = dataset_provider
-        self.datasets = dataset_provider.get_datasets()
+        self.datasets = dataset_provider.get_train_datasets()
         self.arg_providers = template_arg_providers
         self.generator = generator
         self.augment_sizes = augment_sizes
@@ -917,7 +926,7 @@ test_file = "../data/CT24_checkworthy_english/test-combined-wo-id.csv"
 gen_model = "openai/gpt-4o"
 num_seq = 5
 num_source_samples = 100
-augment_sizes = sorted([100]) # For examples
+augment_sizes = sorted([100, 200, 400, 800]) # For examples
 augment_size = 314 # For correlations
 topics = ["Healthcare", "Tax", "Economy", "Employment", "Education", "Energy", "Crime", "Military", "Trade", "Reproductive rights", "Guns", "Environment"]
 num_examples_per_turn = 5
@@ -926,8 +935,8 @@ balance_source_classes = True
 balance_gen_classes = False
 
 # Upload params
-artifact_base_name = "experiment_004"
-artifact_description = f"Sequence for cross-topic experiment. Topic-guiding with {gen_model}."
+artifact_base_name = "experiment_007"
+artifact_description = f"Sequence for back-translation experiment with {gen_model}."
 
 # Train config params
 num_seeds = 3
@@ -937,7 +946,7 @@ total_train_samples = 45000
 load_best_model = True
 
 # Enable/disable steps
-do_generate = True
+do_generate = False
 do_upload = True
 make_configs = True
 
@@ -956,38 +965,38 @@ if __name__ == "__main__":
     #     subset_size=num_source_samples,
     #     balance_classes=balance_source_classes)
     
-    # dataset_provider = FileDatasetProvider(
-    #     [
-    #         'sequences/experiment_001/sequence_0/seq_0_aug_0.csv',
-    #         'sequences/experiment_001/sequence_1/seq_1_aug_0.csv',
-    #         'sequences/experiment_001/sequence_2/seq_2_aug_0.csv',
-    #         'sequences/experiment_001/sequence_3/seq_3_aug_0.csv',
-    #         'sequences/experiment_001/sequence_4/seq_4_aug_0.csv',
-    #     ]
-    # )
+    dataset_provider = FileDatasetProvider(
+        [
+            'sequences/experiment_001/sequence_0/seq_0_aug_0.csv',
+            'sequences/experiment_001/sequence_1/seq_1_aug_0.csv',
+            'sequences/experiment_001/sequence_2/seq_2_aug_0.csv',
+            'sequences/experiment_001/sequence_3/seq_3_aug_0.csv',
+            'sequences/experiment_001/sequence_4/seq_4_aug_0.csv',
+        ]
+    )
     # dataset_provider = TopicDatasetProvider(
     #     train_path="../data/CT24_checkworthy_english/topic_correlation/train.csv",
     #     dev_path="../data/CT24_checkworthy_english/topic_correlation/dev.csv",
     #     test_path="../data/CT24_checkworthy_english/topic_correlation/test.csv",
     # )
-    dataset_provider = DuplicateTopicDatasetProvider(
-        train_path="../data/CT24_checkworthy_english/topic_correlation/train.csv",
-        dev_path="../data/CT24_checkworthy_english/topic_correlation/dev.csv",
-        test_path="../data/CT24_checkworthy_english/topic_correlation/test.csv",
-    )
+    # dataset_provider = DuplicateTopicDatasetProvider(
+    #     train_path="../data/CT24_checkworthy_english/topic_correlation/train.csv",
+    #     dev_path="../data/CT24_checkworthy_english/topic_correlation/dev.csv",
+    #     test_path="../data/CT24_checkworthy_english/topic_correlation/test.csv",
+    # )
 
     # arg_providers = [ExamplePromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
     #arg_providers = [TopicPromptProvider(properties_path="./templates/properties.json", num_per_turn=num_examples_per_turn, num_properties=num_properties, topic=t) for t in dataset_provider.get_topics()]
 
     arg_providers = []
-    for data, augment_topic in zip(dataset_provider.get_train_datasets(), dataset_provider.get_augment_topics()):
+    for data in dataset_provider.get_train_datasets():
         # Create arg provider with dataset as example source and single augment topic
-        arg_providers.append(ExampleTopicPromptProvider(source_data=data, num_per_turn=num_examples_per_turn, topics=[augment_topic]))
+        arg_providers.append(RephrasePromptProvider(source_data=data, num_per_turn=num_examples_per_turn))
 
     generator = SampleGenerator(model=gen_model)
-    # gen_strategy = ExampleGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_sizes=augment_sizes, balance_classes=balance_gen_classes, results_dir=results_dir)
+    gen_strategy = ExampleGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_sizes=augment_sizes, balance_classes=balance_gen_classes, results_dir=results_dir)
     #gen_strategy = CorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)
-    gen_strategy = ExampleCorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)
+    # gen_strategy = ExampleCorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)
 
     # Generate
     if do_generate:
@@ -1011,7 +1020,10 @@ if __name__ == "__main__":
         gen_strategy.upload(
             artifact_base_name=artifact_base_name,
             artifact_description=artifact_description,
-            metadata=metadata
+            metadata=metadata,
+            dev_file=dev_file,
+            dev_test_file=dev_test_file,
+            test_file=test_file
         )
     
     if make_configs:

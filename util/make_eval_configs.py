@@ -3,29 +3,40 @@ import json
 import wandb
 
 run_names = [
-    "train_wo_security_synth_security_5_0",
-    "train_wo_security_synth_security_4_1",
+    "ct24_200_synth_seq_0_0",
+    "ct24_200_synth_seq_0_200",
+    "ct24_200_synth_seq_0_400",
+    "ct24_200_synth_seq_0_800",
+    "ct24_200_synth_seq_0_1600",
+    "ct24_200_synth_seq_1_0",
+    "ct24_200_synth_seq_1_200",
+    "ct24_200_synth_seq_1_400",
+    "ct24_200_synth_seq_1_800",
+    "ct24_200_synth_seq_1_1600",
+    "ct24_200_synth_seq_2_0",
+    "ct24_200_synth_seq_2_200",
+    "ct24_200_synth_seq_2_400",
+    "ct24_200_synth_seq_2_800",
+    "ct24_200_synth_seq_2_1600",
+    "ct24_200_synth_seq_3_0",
+    "ct24_200_synth_seq_3_200",
+    "ct24_200_synth_seq_3_400",
+    "ct24_200_synth_seq_3_800",
+    "ct24_200_synth_seq_3_1600",
+    "ct24_200_synth_seq_4_0",
+    "ct24_200_synth_seq_4_200",
+    "ct24_200_synth_seq_4_400",
+    "ct24_200_synth_seq_4_800",
+    "ct24_200_synth_seq_4_1600",
 ]
 #wandb_run_group_name = "ct24_synth"
 model_name = "roberta-base"
 
 eval_datasets = [
-    # ("gc_source_microtext", "gc_source_microtext"),
-    # ("gc_source_various", "gc_source_various"),
-    # ("gc_source_essay", "gc_source_essay"),
-    # ("gc_source_wiki", "gc_source_wiki"),
-    # ("gc_source_livejournal", "gc_source_livejournal"),
-    # ("gc_style_semi", "gc_style_semi"),
-    # ("gc_style_structured", "gc_style_structured"),
-    # ("gc_source_fact_checks", "gc_source_fact_checks"),
-    # ("gc_topic_various", "gc_topic_various"),
-    # ("gc_topic_politics", "gc_topic_politics"),
-    # ("topic_separation_fiscal", "topic_separation_fiscal"),
-    ("topic_separation_security", "topic_separation_security"),
-    # ("topic_separation_government", "topic_separation_government"),
+    ("ct24_test_combined", "combined")
 ]
 
-wandb_eval_group_name = "topic_separation_eval"
+wandb_eval_group_name = "ct24_200_synth_combined_eval"
 test_file = "test.csv"
 
 def main():

@@ -1,0 +1,5 @@
+Rewrite a statement selected to undergo professional fact-checking. The statement may appear in neutral form e.g. as a headline, summary or reference to a statement. If that is the case rewrite the statement so it appears to have been made on Twitter (without hashtags), but retain the core claim.
+If the statement already appears to be a verbatim quote, reply with "---unchanged---".
+
+Statement:
+{statement}
