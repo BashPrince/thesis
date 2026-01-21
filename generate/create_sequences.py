@@ -381,8 +381,8 @@ Now generate a new sample for each of the given examples. Put the samples in a l
 
 class TopicPromptProvider(PromptProvider):
     """Fill templates with fixed topic and randomly sampled properties"""
-    def __init__(self, properties_path: str, num_per_turn: int, num_properties:int, topic: str):
-        self.topic = topic
+    def __init__(self, properties_path: str, num_per_turn: int, num_properties:int, topics: list[str]):
+        self.topics = topics
         self.num_per_turn = num_per_turn
         self.num_properties = num_properties
         with open(properties_path, 'r') as properties_file:
@@ -472,10 +472,11 @@ Now generate {num_examples} non-check-worthy claims.
 
             properties_joined = "\n".join([f"- {s}" for s in sampled_properties])
             
+            topic = random.sample(self.topics, 1)[0] # Sample random topic
             prompt_args = {
                 "properties": properties_joined,
                 "num_examples": self.num_per_turn,
-                "topic": self.topic
+                "topic": topic
             }
             
             format_example = "\n".join([f"- Context sentences. >> Claim {i}." for i in range(1, self.num_per_turn + 1)])
@@ -485,7 +486,7 @@ Now generate {num_examples} non-check-worthy claims.
             prompt = template.format(**prompt_args)
             metadata = {
                 #"properties": property_keys,
-                "topic": [self.topic] * self.num_per_turn
+                "topic": [topic] * self.num_per_turn
             }
 
             yield prompt, metadata, self.num_per_turn
@@ -690,6 +691,9 @@ class ExampleGenerationPipeline():
     def upload(self, artifact_base_name: str, artifact_description: str, metadata: dict[str], dev_file: str, dev_test_file: str, test_file: str):
         for root, _, files in os.walk(self.results_dir):
             for file in files:
+                if ".csv" not in file:
+                    continue
+
                 file_path = os.path.join(root, file)
                 files = {
                     "train": file_path,
@@ -712,6 +716,12 @@ class ExampleGenerationPipeline():
 
         for root, _, files in os.walk(self.results_dir):
             for file in files:
+                if ".csv" not in file:
+                    continue
+
+                # if "1600" not in file:# and "3200" not in file:
+                    # continue
+
                 file_path = os.path.join(root, file)
                 dataset_name = f"{artifact_base_name}_{file.replace('.csv', '')}"
 
@@ -926,7 +936,7 @@ test_file = "../data/CT24_checkworthy_english/test-combined-wo-id.csv"
 gen_model = "openai/gpt-4o"
 num_seq = 5
 num_source_samples = 100
-augment_sizes = sorted([100, 200, 400, 800]) # For examples
+augment_sizes = sorted([1600, 3200]) # For examples
 augment_size = 314 # For correlations
 topics = ["Healthcare", "Tax", "Economy", "Employment", "Education", "Energy", "Crime", "Military", "Trade", "Reproductive rights", "Guns", "Environment"]
 num_examples_per_turn = 5
@@ -935,8 +945,8 @@ balance_source_classes = True
 balance_gen_classes = False
 
 # Upload params
-artifact_base_name = "experiment_007"
-artifact_description = f"Sequence for back-translation experiment with {gen_model}."
+artifact_base_name = "experiment_002"
+artifact_description = f"Topic-guided prompting sequence with {gen_model}."
 
 # Train config params
 num_seeds = 3
@@ -947,7 +957,7 @@ load_best_model = True
 
 # Enable/disable steps
 do_generate = False
-do_upload = True
+do_upload = False
 make_configs = True
 
 results_dir = "./sequences/" + artifact_base_name
@@ -967,11 +977,11 @@ if __name__ == "__main__":
     
     dataset_provider = FileDatasetProvider(
         [
-            'sequences/experiment_001/sequence_0/seq_0_aug_0.csv',
-            'sequences/experiment_001/sequence_1/seq_1_aug_0.csv',
-            'sequences/experiment_001/sequence_2/seq_2_aug_0.csv',
-            'sequences/experiment_001/sequence_3/seq_3_aug_0.csv',
-            'sequences/experiment_001/sequence_4/seq_4_aug_0.csv',
+            'sequences/experiment_002/sequence_0/seq_0_aug_0.csv',
+            'sequences/experiment_002/sequence_1/seq_1_aug_0.csv',
+            'sequences/experiment_002/sequence_2/seq_2_aug_0.csv',
+            'sequences/experiment_002/sequence_3/seq_3_aug_0.csv',
+            'sequences/experiment_002/sequence_4/seq_4_aug_0.csv',
         ]
     )
     # dataset_provider = TopicDatasetProvider(
@@ -986,14 +996,14 @@ if __name__ == "__main__":
     # )
 
     # arg_providers = [ExamplePromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
-    #arg_providers = [TopicPromptProvider(properties_path="./templates/properties.json", num_per_turn=num_examples_per_turn, num_properties=num_properties, topic=t) for t in dataset_provider.get_topics()]
+    arg_providers = [TopicPromptProvider(properties_path="./templates/properties.json", num_per_turn=num_examples_per_turn, num_properties=num_properties, topics=topics) for _ in range(len(dataset_provider.get_train_datasets()))]
 
-    arg_providers = []
-    for data in dataset_provider.get_train_datasets():
-        # Create arg provider with dataset as example source and single augment topic
-        arg_providers.append(RephrasePromptProvider(source_data=data, num_per_turn=num_examples_per_turn))
+    # arg_providers = []
+    # for data in dataset_provider.get_train_datasets():
+    #     # Create arg provider with dataset as example source and single augment topic
+    #     arg_providers.append(RephrasePromptProvider(source_data=data, num_per_turn=num_examples_per_turn))
 
-    generator = SampleGenerator(model=gen_model)
+    generator = TopicSampleGenerator(model=gen_model)
     gen_strategy = ExampleGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_sizes=augment_sizes, balance_classes=balance_gen_classes, results_dir=results_dir)
     #gen_strategy = CorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)
     # gen_strategy = ExampleCorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)
