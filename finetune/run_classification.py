@@ -613,6 +613,10 @@ def main():
             desc="Running tokenizer on dataset",
         )
 
+        # Convert the string "0", "1" labels to integers
+        for split in raw_datasets:
+            raw_datasets[split] = raw_datasets[split].cast_column("label", Value("int64"))
+
     if training_args.do_train:
         if "train" not in raw_datasets:
             raise ValueError("--do_train requires a train dataset.")
