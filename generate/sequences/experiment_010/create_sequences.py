@@ -6,6 +6,7 @@ from typing import Callable
 import re
 import os
 import asyncio
+import random
 
 import litellm
 from tqdm import tqdm
@@ -22,7 +23,7 @@ RANDOM_SEED = 42
 
 # LLM Configuration
 MODEL = "gpt-4o"
-MAX_RETRIES = 10
+MAX_RETRIES = 5
 MAX_CONCURRENT_REQUESTS = 5
 
 # Load prompt templates
@@ -235,34 +236,39 @@ def generate_synthetic_samples(
 
         # Process each class
         for class_label, class_templates in [("Yes", yes_templates), ("No", no_templates)]:
-            # Flatten to list of template indices (repeated by num_needed)
-            to_generate = []
-            for template_idx, num_needed in class_templates:
-                to_generate.extend([template_idx] * num_needed)
+            # Track remaining samples needed per template
+            remaining = {idx: n for idx, n in class_templates}
 
-            # Process in batches
-            while to_generate:
-                batch_template_indices = to_generate[:batch_size]
-                to_generate = to_generate[batch_size:]
+            # Process in rounds - each round uses each template at most once
+            while any(r > 0 for r in remaining.values()):
+                # Get templates that still need samples
+                available = [idx for idx, r in remaining.items() if r > 0]
+                random.shuffle(available)
 
-                # Get texts for batch
-                batch_texts = [base_set.iloc[idx]["Text"] for idx in batch_template_indices]
+                # Process in batches (each batch has unique templates)
+                while available:
+                    batch_template_indices = available[:batch_size]
+                    available = available[batch_size:]
 
-                # Augment batch
-                augmented_texts = augmenter(batch_texts, class_label)
+                    # Get texts for batch
+                    batch_texts = [base_set.iloc[idx]["Text"] for idx in batch_template_indices]
 
-                # Store results
-                for idx, aug_text in zip(batch_template_indices, augmented_texts):
-                    gen_num = gen_counts.get(idx, 0)
-                    gen_counts[idx] = gen_num + 1
+                    # Augment batch
+                    augmented_texts = augmenter(batch_texts, class_label)
 
-                    synthetic_pool[(idx, gen_num)] = {
-                        "Text": aug_text,
-                        "class_label": base_set.iloc[idx]["class_label"],
-                        "example": base_set.iloc[idx]["Text"]
-                    }
+                    # Store results and decrement remaining counts
+                    for idx, aug_text in zip(batch_template_indices, augmented_texts):
+                        gen_num = gen_counts.get(idx, 0)
+                        gen_counts[idx] = gen_num + 1
+                        remaining[idx] -= 1
 
-                    selected.append((idx, gen_num, synthetic_pool[(idx, gen_num)]))
+                        synthetic_pool[(idx, gen_num)] = {
+                            "Text": aug_text,
+                            "class_label": base_set.iloc[idx]["class_label"],
+                            "example": base_set.iloc[idx]["Text"]
+                        }
+
+                        selected.append((idx, gen_num, synthetic_pool[(idx, gen_num)]))
 
     # Sort selected by (template_idx, gen_num) for consistent output
     selected.sort(key=lambda x: (x[0], x[1]))
@@ -334,15 +340,26 @@ async def generate_synthetic_samples_async(
         batches_to_process = []  # (batch_texts, class_label, batch_template_indices)
 
         for class_label, class_templates in [("Yes", yes_templates), ("No", no_templates)]:
-            to_generate = []
-            for template_idx, num_needed in class_templates:
-                to_generate.extend([template_idx] * num_needed)
+            # Track remaining samples needed per template
+            remaining = {idx: n for idx, n in class_templates}
 
-            while to_generate:
-                batch_template_indices = to_generate[:batch_size]
-                to_generate = to_generate[batch_size:]
-                batch_texts = [base_set.iloc[idx]["Text"] for idx in batch_template_indices]
-                batches_to_process.append((batch_texts, class_label, batch_template_indices))
+            # Process in rounds - each round uses each template at most once
+            while any(r > 0 for r in remaining.values()):
+                # Get templates that still need samples
+                available = [idx for idx, r in remaining.items() if r > 0]
+                random.shuffle(available)
+
+                # Create batches (each batch has unique templates)
+                while available:
+                    batch_template_indices = available[:batch_size]
+                    available = available[batch_size:]
+
+                    # Decrement remaining counts
+                    for idx in batch_template_indices:
+                        remaining[idx] -= 1
+
+                    batch_texts = [base_set.iloc[idx]["Text"] for idx in batch_template_indices]
+                    batches_to_process.append((batch_texts, class_label, batch_template_indices))
 
         # Step 3: Process all batches in parallel
         async def process_batch(batch_texts, class_label, batch_indices):

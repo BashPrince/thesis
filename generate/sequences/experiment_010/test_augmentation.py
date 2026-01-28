@@ -209,6 +209,31 @@ class TestClassRestrictedBatching:
             else:
                 assert class_label == "No", f"Expected No, got {class_label}"
 
+    def test_batches_have_diverse_templates(self):
+        """Batches should not contain duplicate templates (same text multiple times)."""
+        base_set = make_base_set(100)
+        synthetic_pool = {}
+
+        batches_seen = []
+
+        def tracking_augmenter(texts: list[str], class_label: str) -> list[str]:
+            batches_seen.append(texts)
+            return texts
+
+        generate_synthetic_samples(
+            base_set=base_set,
+            aug_size=800,  # 8 samples per template
+            synthetic_pool=synthetic_pool,
+            augmenter=tracking_augmenter,
+            batch_size=5,
+        )
+
+        # Check that no batch has duplicate texts
+        for batch in batches_seen:
+            assert len(batch) == len(set(batch)), (
+                f"Batch contains duplicate templates: {batch}"
+            )
+
 
 class TestParseLLMResponse:
     """Tests for LLM response parsing."""
