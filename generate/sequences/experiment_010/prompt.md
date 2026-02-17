@@ -1,0 +1,6 @@
+I would like to be able to extend existing augmented sequences.
+For example when changing the `SIZES` constant from `[100, 200, 400]` to `[50, 100, 200, 400, 800]` and the `AUG_SIZES` from `[400, 800]` to `[200, 400, 800, 1600]` I want the script to check the output folder for existing datasets, retain those in the sequences and then create new datasets in the sequence consistent with the current augmentation scheme. In other words the created sequences should be no different than if we had created them initially with the new size parameters.
+
+When running with previously saved sequences present I want to check for compatibility of the sizes, i.e. the base and aug sizes of already present sequences must be subsets of the new size parameters. If that is the case the script should prompt for deletion, extension or abortion otherwise only deletion and abortion should be offered.
+
+I recommend we refactor the script and get the bulk of the logic out of the main function into reusable methods which will also allow for easier testing.

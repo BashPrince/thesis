@@ -719,9 +719,6 @@ class ExampleGenerationPipeline():
                 if ".csv" not in file:
                     continue
 
-                # if "1600" not in file:# and "3200" not in file:
-                    # continue
-
                 file_path = os.path.join(root, file)
                 dataset_name = f"{artifact_base_name}_{file.replace('.csv', '')}"
 
@@ -936,7 +933,7 @@ test_file = "../data/CT24_checkworthy_english/test-combined-wo-id.csv"
 gen_model = "openai/gpt-4o"
 num_seq = 5
 num_source_samples = 100
-augment_sizes = sorted([1600, 3200]) # For examples
+augment_sizes = sorted([1600]) # For examples
 augment_size = 314 # For correlations
 topics = ["Healthcare", "Tax", "Economy", "Employment", "Education", "Energy", "Crime", "Military", "Trade", "Reproductive rights", "Guns", "Environment"]
 num_examples_per_turn = 5
@@ -945,8 +942,8 @@ balance_source_classes = True
 balance_gen_classes = False
 
 # Upload params
-artifact_base_name = "experiment_002"
-artifact_description = f"Topic-guided prompting sequence with {gen_model}."
+artifact_base_name = "experiment_011"
+artifact_description = f"Genetic algorithm with {gen_model}."
 
 # Train config params
 num_seeds = 3
@@ -957,7 +954,7 @@ load_best_model = True
 
 # Enable/disable steps
 do_generate = False
-do_upload = False
+do_upload = True
 make_configs = True
 
 results_dir = "./sequences/" + artifact_base_name
@@ -996,14 +993,14 @@ if __name__ == "__main__":
     # )
 
     # arg_providers = [ExamplePromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
-    arg_providers = [TopicPromptProvider(properties_path="./templates/properties.json", num_per_turn=num_examples_per_turn, num_properties=num_properties, topics=topics) for _ in range(len(dataset_provider.get_train_datasets()))]
+    arg_providers = [ExampleTopicPromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
 
     # arg_providers = []
     # for data in dataset_provider.get_train_datasets():
     #     # Create arg provider with dataset as example source and single augment topic
     #     arg_providers.append(RephrasePromptProvider(source_data=data, num_per_turn=num_examples_per_turn))
 
-    generator = TopicSampleGenerator(model=gen_model)
+    generator = SampleGenerator(model=gen_model)
     gen_strategy = ExampleGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_sizes=augment_sizes, balance_classes=balance_gen_classes, results_dir=results_dir)
     #gen_strategy = CorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)
     # gen_strategy = ExampleCorrelationGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_size=augment_size, results_dir=results_dir)

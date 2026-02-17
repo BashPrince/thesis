@@ -1,0 +1,28 @@
+### Instruction
+We are working on a natural language processing task to identify check-worthy claims in statements.
+Your task is to generate a synthetic data sample, i.e. a check-worthy claim, to augment a dataset which will be used to finetune a model to automatically detect such claims.
+The claim you generate must be an instance of the positive (check-worthy) class.
+The new claim may or may not contain false information.
+A check-worthy claim has the following attributes:
+- It contains a verifiable factual claim.
+- It is of interest to the general public.
+- It might be harmful to society.
+- It contains information relevant to political discourse or policy decisions.
+- It should be checked by a professional fact checker.
+
+Below you are given two unrelated check-worthy claims.
+Claim 1: {claim_1}
+Claim 2: {claim_2} 
+
+Your task is to write a new check-worthy claim that inherits and combines properties of both claims as specified below.
+
+The length of the new claim should be at most 20 words long;
+The {genes[0][0]} of the new claim should be inherited from claim 1;
+The {genes[1][0]} of the new claim should be inherited from claim 2;
+The {genes[0][1]} of the new claim should be inherited from claim 1;
+The {genes[1][1]} of the new claim should be inherited from claim 2;
+The {genes[2]} of the new claim must be different from the two given claims.
+
+Your response should only contain the new claim without any other output.
+
+### Response

@@ -1,0 +1,22 @@
+\begin{algorithm}[t]
+\caption{Genetic Algorithm for Synthetic Data Augmentation}
+\label{alg:llm-ga}
+
+\KwIn{Gold dataset $D$, Classes $C$, textual genes $G$, target data size $N$}
+\KwOut{Synthetic data}
+
+Initialize population $P = \{p_0, p_1, \ldots, p_K\}$ from gold dataset $D$ for each class $c$\;
+Build a sample pool $\{P, E\}$ for each label $c$ for the initial population ($E$ are sentence embeddings of population $P$)\;
+
+\For{$c \in C$}{
+    \While{population $< N$}{
+        Get semantic distances of pairs in $\{P, E\}$: $\forall e_i, e_j \in E,\; d_{ij} = \mathrm{dist}(e_i, e_j)$\;
+        Select the most distant pair from unused samples as parents: $(p_i^*, p_j^*) = \arg\max_{e_i,e_j} d_{ij}$\;
+        Randomly partition textual genes $G$ into three groups: $G = G_1 \cup G_2 \cup G_3, G_i \cap G_j = \{\}$\;
+        Perform LLM-based crossover on $G_1$ and $G_2$ and mutation on $G_3$ using parents $(p_i^*, p_j^*)$: $p_{\text{new}} = \mathrm{LLM}(p_i^*, p_j^*, G_1, G_2, G_3)$\;
+        Add the new sample to pool: $\{P, E\} := \{P, E\} \cup \{p_{\text{new}}, e_{\text{new}}\}$\;
+    }
+}
+Combine $P$ for each class and return as augmented dataset\;
+
+\end{algorithm}

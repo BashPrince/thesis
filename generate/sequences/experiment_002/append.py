@@ -1,10 +1,10 @@
 import pandas as pd
 
-append_sizes = [800, 1600]
+append_sizes = [800]
 
 for i in range(5):
     ex2 = pd.read_csv(f"./sequence_{i}/seq_{i}_aug_800.csv")
-    append_source = pd.read_csv(f"../experiment_009/sequence_{i}/seq_{i}_aug_3200.csv")
+    append_source = pd.read_csv(f"../experiment_009/sequence_{i}/seq_{i}_aug_1600.csv")
     # Drop the 'context' column if it exists
     if 'context' in append_source.columns:
         append_source = append_source.drop(columns=['context'])
