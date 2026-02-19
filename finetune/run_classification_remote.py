@@ -1,8 +1,7 @@
 import pexpect
 import sys
-import getpass  # Import getpass to securely prompt for sensitive input
-import os  # Import os to access environment variables
-import argparse  # Add argparse for argument parsing
+import os
+import argparse
 
 def ssh_execute_command(host_ip, username, command, expected_prompt=None):
     # Connect to the remote server using SSH
@@ -47,7 +46,7 @@ def setup_workspace(host_ip, username, code_src_path, code_target_base_path, wan
     ssh_execute_command(host_ip, username, f"rm -rf {code_target_path}")
 
     # Run the rsync command to copy files
-    rsync_command = f"rsync -av --exclude='.*' {code_src_path} {username}@{host_ip}:~/{code_target_base_path}"
+    rsync_command = f"rsync -av --exclude='.*' --exclude='secrets' {code_src_path} {username}@{host_ip}:~/{code_target_base_path}"
     pexpect.run(rsync_command, logfile=sys.stdout.buffer)
 
     if ssh_dir_exists(host_ip, username, f"{code_target_base_path}/.venv_backup"):
@@ -75,10 +74,9 @@ if __name__ == "__main__":
     username = args.username
     config = args.config
 
-    # Retrieve wandb_api_key from environment variable or prompt the user
-    wandb_api_key = os.getenv("WANDB_API_KEY")
-    if not wandb_api_key:
-        wandb_api_key = getpass.getpass("Enter your wandb API key: ")
+    secrets_path = os.path.join(os.path.dirname(__file__), 'secrets', 'wandb_api_key')
+    with open(secrets_path) as f:
+        wandb_api_key = f.read().strip()
 
     code_src_path = "../finetune"
     code_target_base_path = f"finetune_{args.gpu_idx}"

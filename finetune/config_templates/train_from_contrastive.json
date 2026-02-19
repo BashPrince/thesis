@@ -5,6 +5,9 @@
     "train_adapter": true,
     "adapter_config": "seq_bn",
 
+    "training_mode": "classification",
+    "contrastive_model_artifact": "entity/thesis/contrastive_adapter:latest",
+
     "do_train": true,
     "do_eval": true,
     "do_predict": true,
@@ -28,17 +31,16 @@
     "shuffle_train_dataset": true,
     "shuffle_seed": 42,
     "seed": 42,
-    
+
     "report_to": "wandb",
-    "run_name": "run_name",
+    "run_name": "run_name_from_contrastive",
     "data_artifact": "run_name:latest",
     "logging_steps": 1,
-    
+
     "record_dynamics": false,
     "record_prediction_split": "test",
     "prediction_model_artifact": null,
 
     "wandb_group_name": "group_name",
     "wandb_job_type": "train"
-
 }

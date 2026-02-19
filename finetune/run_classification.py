@@ -27,6 +27,8 @@ import jsonlines
 import datasets
 import evaluate
 import numpy as np
+import torch
+import torch.nn.functional as F
 from datasets import Value, load_dataset
 
 import wandb
@@ -69,6 +71,64 @@ class DynamicTrackingTrainer(AdapterTrainer):
             self.logits.extend(logits.tolist())
 
         return (loss, outputs) if return_outputs else loss
+
+
+class SupervisedContrastiveTrainer(AdapterTrainer):
+    """Trainer that optimises a supervised InfoNCE (SupCon) loss.
+
+    For every anchor in the batch, same-class samples are treated as positives
+    and different-class samples as negatives.  The loss is the mean over all
+    anchors that have at least one in-batch positive:
+
+        L = mean_i [ -1/|P(i)| * sum_{p in P(i)} log(
+                exp(z_i · z_p / τ) / sum_{j≠i} exp(z_i · z_j / τ) ) ]
+    """
+
+    def __init__(self, *args, temperature: float = 0.05, pooling: str = "cls", **kwargs):
+        super().__init__(*args, **kwargs)
+        self.temperature = temperature
+        self.pooling = pooling
+
+    def _pool(self, last_hidden_state: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
+        if self.pooling == "cls":
+            return last_hidden_state[:, 0, :]
+        # mean pooling over non-padding tokens
+        mask = attention_mask.unsqueeze(-1).float()
+        return (last_hidden_state * mask).sum(1) / mask.sum(1).clamp(min=1e-9)
+
+    def _supcon_loss(self, embeddings: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
+        z = F.normalize(embeddings, dim=-1)       # (N, D)
+        N = z.shape[0]
+
+        sim = torch.matmul(z, z.T) / self.temperature  # (N, N)
+
+        self_mask = torch.eye(N, dtype=torch.bool, device=z.device)
+        # same label, excluding self
+        pos_mask = (labels.unsqueeze(0) == labels.unsqueeze(1)) & ~self_mask  # (N, N)
+
+        # denominator: sum over all j ≠ i  (mask diagonal before logsumexp)
+        log_denom = torch.logsumexp(sim.masked_fill(self_mask, float("-inf")), dim=1)  # (N,)
+
+        # log p(positive | anchor) for every pair
+        log_prob = sim - log_denom.unsqueeze(1)  # (N, N)
+
+        num_positives = pos_mask.float().sum(dim=1)  # (N,)
+        loss_per_anchor = -(pos_mask.float() * log_prob).sum(dim=1) / num_positives.clamp(min=1)
+
+        has_positives = num_positives > 0
+        if not has_positives.any():
+            return torch.tensor(0.0, device=z.device, requires_grad=True)
+        return loss_per_anchor[has_positives].mean()
+
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+        labels = inputs.pop("labels")
+        outputs = model(**inputs, output_hidden_states=True)
+        # Use hidden_states[-1] rather than last_hidden_state: works for any output
+        # type (e.g. MaskedLMOutput returned by AutoAdapterModel on encoder models)
+        embeddings = self._pool(outputs.hidden_states[-1], inputs["attention_mask"])
+        loss = self._supcon_loss(embeddings, labels)
+        return (loss, outputs) if return_outputs else loss
+
 
 @dataclass
 class DataTrainingArguments:
@@ -276,6 +336,22 @@ class MyTrainingArguments(TrainingArguments):
         default=None,
         metadata={"help": "Optional model checkpoint artifact used for recording predictions on a dataset."},
     )
+    training_mode: str = field(
+        default="classification",
+        metadata={"help": "Training mode: 'classification' (default) or 'contrastive' (supervised SupCon pre-training)."},
+    )
+    contrastive_temperature: float = field(
+        default=0.05,
+        metadata={"help": "Temperature τ for the SupCon InfoNCE loss (used when training_mode='contrastive')."},
+    )
+    contrastive_pooling: str = field(
+        default="cls",
+        metadata={"help": "Sentence pooling for contrastive embeddings: 'cls' (default) or 'mean' (used when training_mode='contrastive')."},
+    )
+    contrastive_model_artifact: Optional[str] = field(
+        default=None,
+        metadata={"help": "WandB artifact path of a contrastive-pretrained adapter to load before classification fine-tuning."},
+    )
 
 
 def get_label_list(raw_dataset, split="train") -> List[str]:
@@ -348,6 +424,12 @@ def main():
     if training_args.prediction_model_artifact:
         artifact = run.use_artifact(training_args.prediction_model_artifact)
         prediction_model_path = artifact.download()
+
+    # Download a contrastive-pretrained adapter for classification fine-tuning if given
+    contrastive_adapter_path = None
+    if training_args.contrastive_model_artifact:
+        artifact = run.use_artifact(training_args.contrastive_model_artifact)
+        contrastive_adapter_path = artifact.download()
 
 
     # Download datasets from wandb and use the downloaded files in the remaining script
@@ -447,6 +529,9 @@ def main():
         else data_args.do_regression
     )
 
+    if training_args.training_mode == "contrastive" and is_regression:
+        raise ValueError("training_mode='contrastive' requires classification labels, not regression targets.")
+
     is_multi_label = False
     if is_regression:
         label_list = None
@@ -538,21 +623,36 @@ def main():
         ignore_mismatched_sizes=model_args.ignore_mismatched_sizes,
     )
 
-    if not prediction_model_path:
-        # Setup model for training
+    adapter_name, lang_adapter_name = None, None
+    if training_args.training_mode == "contrastive":
+        # Contrastive pre-training: train adapter without a classification head
+        adapter_name, lang_adapter_name = setup_adapter_training(model=model, adapter_args=adapter_args, adapter_name=data_args.task_name)
+    elif prediction_model_path:
+        # Eval-only with a pre-loaded model checkpoint
+        model.load_adapter(prediction_model_path + "/checkworthy")
+        model.set_active_adapters("checkworthy")
+        logger.info("Loaded adapter and head from " + prediction_model_path)
+    elif contrastive_adapter_path:
+        # Classification fine-tuning initialised from a contrastive-pretrained adapter
+        # If the artifact contains a task-named subdirectory (new format) use it,
+        # otherwise fall back to the artifact root (old format, pre-add_dir name fix)
+        adapter_load_path = os.path.join(contrastive_adapter_path, data_args.task_name)
+        if not os.path.isdir(adapter_load_path):
+            adapter_load_path = contrastive_adapter_path
+        model.load_adapter(adapter_load_path)
+        model.set_active_adapters(data_args.task_name)
+        model.add_classification_head(data_args.task_name, num_labels=num_labels)
+        model.train_adapter(data_args.task_name)
+        logger.info("Loaded contrastive adapter from " + contrastive_adapter_path)
+    else:
+        # Standard classification training
         model.add_classification_head(data_args.task_name, num_labels=num_labels)
         adapter_name, lang_adapter_name = setup_adapter_training(model=model, adapter_args=adapter_args, adapter_name=data_args.task_name)
 
-        if adapter_name is not None:
-            logger.info("Added adapters to the model: {}".format(adapter_name))
-        if lang_adapter_name is not None:
-            logger.info("Added language adapter to the model: {}".format(lang_adapter_name))
-    else:
-        # Load adapter and classification head from checkpoint
-        model.load_adapter(prediction_model_path + "/checkworthy")
-        model.set_active_adapters("checkworthy")
-
-        logger.info("Loaded adapter and head from " + prediction_model_path)
+    if adapter_name is not None:
+        logger.info("Added adapters to the model: {}".format(adapter_name))
+    if lang_adapter_name is not None:
+        logger.info("Added language adapter to the model: {}".format(lang_adapter_name))
 
 
     # Padding strategy
@@ -708,15 +808,28 @@ def main():
         data_collator = None
 
     # Initialize our Trainer
-    trainer = DynamicTrackingTrainer(
-        model=model,
-        args=training_args,
-        train_dataset=train_dataset if training_args.do_train else None,
-        eval_dataset=eval_dataset if training_args.do_eval else None,
-        compute_metrics=compute_metrics,
-        processing_class=tokenizer,
-        data_collator=data_collator,
-    )
+    if training_args.training_mode == "contrastive":
+        trainer = SupervisedContrastiveTrainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_dataset if training_args.do_train else None,
+            eval_dataset=None,
+            compute_metrics=None,
+            processing_class=tokenizer,
+            data_collator=data_collator,
+            temperature=training_args.contrastive_temperature,
+            pooling=training_args.contrastive_pooling,
+        )
+    else:
+        trainer = DynamicTrackingTrainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_dataset if training_args.do_train else None,
+            eval_dataset=eval_dataset if training_args.do_eval else None,
+            compute_metrics=compute_metrics,
+            processing_class=tokenizer,
+            data_collator=data_collator,
+        )
 
     # Training
     if training_args.do_train:
@@ -732,7 +845,16 @@ def main():
         )
         metrics["train_samples"] = min(max_train_samples, len(train_dataset))
 
-        if training_args.load_best_model_at_end:
+        if training_args.training_mode == "contrastive":
+            # Save adapter weights as a standalone wandb artifact for use in downstream classification runs
+            adapter_save_path = os.path.join(training_args.output_dir, data_args.task_name)
+            os.makedirs(adapter_save_path, exist_ok=True)
+            model.save_adapter(adapter_save_path, data_args.task_name)
+            artifact = wandb.Artifact(name=training_args.run_name, type="model")
+            artifact.add_dir(adapter_save_path, name=data_args.task_name)
+            run.log_artifact(artifact)
+            logger.info("Saved contrastive adapter to " + adapter_save_path)
+        elif training_args.load_best_model_at_end:
             if trainer.state.best_model_checkpoint:
                 # Create a wandb artifact and upload the best model checkpoint
                 logger.info("Logging best model at " + trainer.state.best_model_checkpoint)
@@ -798,7 +920,7 @@ def main():
     else:
         trainer.create_model_card(**kwargs)
     
-    if training_args.record_dynamics:
+    if training_args.record_dynamics and training_args.training_mode != "contrastive":
         logger.info("Recording dynamics of the model for dataset cartography ...")
         for e in range(training_args.num_train_epochs):
             logger.info(f"Collecting dynamics for epoch {e + 1} ...")
