@@ -51,9 +51,30 @@ def main():
         help='Number of runs to generate (default: 8)',
     )
     parser.add_argument(
+        '--epochs-contrastive', type=int, default=None,
+        help='If set, override the "num_train_epochs" field for contrastive pretraining configs',
+    )
+    parser.add_argument(
+        '--epochs-classify', type=int, default=None,
+        help='If set, override the "num_train_epochs" field for classification/fine-tuning configs',
+    )
+    parser.add_argument(
+        '--batch-size-contrastive', type=int, default=None,
+        help='If set, override the "per_device_train_batch_size" field for contrastive pre-training configs',
+    )
+    parser.add_argument(
+        '--grad-accum-contrastive', type=int, default=None,
+        help='If set, override the "gradient_accumulation_steps" field for contrastive pre-training configs',
+    )
+    parser.add_argument(
         '--contrastive', action='store_true',
         help='Generate contrastive pre-training + classification pairs '
              'instead of classification-only runs',
+    )
+    parser.add_argument(
+        '-a', '--append', action='store_true',
+        help='Append new configs to an existing output directory, '
+             'continuing index numbering from where the previous run left off',
     )
     parser.add_argument(
         '--output-dir', default=DEFAULT_OUTPUT_DIR,
@@ -68,7 +89,7 @@ def main():
 
     existing = [f for f in glob.glob(os.path.join(args.output_dir, '*.json'))
                 if os.path.isfile(f)]
-    if existing:
+    if existing and not args.append:
         print(f'Output directory already contains {len(existing)} JSON file(s):')
         for f in sorted(existing):
             print(f'  {os.path.basename(f)}')
@@ -81,8 +102,20 @@ def main():
             print('Aborted.')
             return
 
+    # In append mode, continue numbering from the highest existing index
+    if args.append:
+        indices = []
+        for f in existing:
+            stem = os.path.splitext(os.path.basename(f))[0]  # e.g. classify_03
+            try:
+                indices.append(int(stem.split('_')[-1]))
+            except ValueError:
+                pass
+        start_idx = max(indices) + 1 if indices else 1
+    else:
+        start_idx = 1
+
     seeds = random.sample(range(100_000), args.n_runs)
-    print(f'Sampled seeds: {seeds}')
 
     # Load templates
     with open(os.path.join(TEMPLATE_DIR, 'train.json')) as f:
@@ -93,16 +126,21 @@ def main():
         with open(os.path.join(TEMPLATE_DIR, 'train_from_contrastive.json')) as f:
             classify_from_contrastive_template = json.load(f)
 
-    dependencies = {}
+    dep_path = os.path.join(args.output_dir, 'dependencies.json')
+    if args.append and os.path.exists(dep_path):
+        with open(dep_path) as f:
+            dependencies = json.load(f)
+    else:
+        dependencies = {}
 
-    for i, seed in enumerate(seeds, start=1):
+    for i, seed in enumerate(seeds, start=start_idx):
         idx = f'{i:02d}'
 
         if args.contrastive:
-            contrastive_run_name = f'{args.name}_contrastive_{idx}'
-            classify_run_name    = f'{args.name}_{idx}'
+            contrastive_run_name = f'{args.name}_pretrain_{idx}'
+            classify_run_name    = f'{args.name}' # Do not append index to name of classification runs
 
-            contrastive_filename = f'contrastive_{idx}.json'
+            contrastive_filename = f'pretrain_{idx}.json'
             classify_filename    = f'classify_{idx}.json'
 
             # Contrastive pre-training config
@@ -112,11 +150,16 @@ def main():
             contrastive_cfg['run_name']         = contrastive_run_name
             contrastive_cfg['wandb_group_name'] = args.group
             contrastive_cfg['data_artifact']    = args.data_artifact
+            if args.epochs_contrastive is not None:
+                contrastive_cfg['num_train_epochs'] = args.epochs_contrastive
+            if args.batch_size_contrastive is not None:
+                contrastive_cfg['per_device_train_batch_size'] = args.batch_size_contrastive
+            if args.grad_accum_contrastive is not None:
+                contrastive_cfg['gradient_accumulation_steps'] = args.grad_accum_contrastive
 
             contrastive_path = os.path.join(args.output_dir, contrastive_filename)
             with open(contrastive_path, 'w') as f:
                 json.dump(contrastive_cfg, f, indent=4)
-            print(f'Wrote {contrastive_path}  (seed {seed})')
 
             # Classification fine-tuning config
             classify_cfg = dict(classify_from_contrastive_template)
@@ -126,16 +169,17 @@ def main():
             classify_cfg['wandb_group_name']           = args.group
             classify_cfg['data_artifact']              = args.data_artifact
             classify_cfg['contrastive_model_artifact'] = f'{contrastive_run_name}:latest'
+            if args.epochs_classify is not None:
+                classify_cfg['num_train_epochs'] = args.epochs_classify
 
             classify_path = os.path.join(args.output_dir, classify_filename)
             with open(classify_path, 'w') as f:
                 json.dump(classify_cfg, f, indent=4)
-            print(f'Wrote {classify_path}  (seed {seed})')
 
             dependencies[classify_filename] = [contrastive_filename]
 
         else:
-            classify_run_name = f'{args.name}_{idx}'
+            classify_run_name = f'{args.name}' # Do not append index to names of classification runs
             classify_filename = f'classify_{idx}.json'
 
             classify_cfg = dict(classify_only_template)
@@ -144,17 +188,15 @@ def main():
             classify_cfg['run_name']         = classify_run_name
             classify_cfg['wandb_group_name'] = args.group
             classify_cfg['data_artifact']    = args.data_artifact
+            if args.epochs_classify is not None:
+                classify_cfg['num_train_epochs'] = args.epochs_classify
 
             classify_path = os.path.join(args.output_dir, classify_filename)
             with open(classify_path, 'w') as f:
                 json.dump(classify_cfg, f, indent=4)
-            print(f'Wrote {classify_path}  (seed {seed})')
 
-    # Always write dependencies.json so a stale one from a previous run is overwritten
-    dep_path = os.path.join(args.output_dir, 'dependencies.json')
     with open(dep_path, 'w') as f:
         json.dump(dependencies, f, indent=4)
-    print(f'Wrote {dep_path}')
 
     n_configs = args.n_runs * (2 if args.contrastive else 1)
     print(f'\nGenerated {n_configs} configs for {args.n_runs} runs')
