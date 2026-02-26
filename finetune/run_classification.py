@@ -28,16 +28,21 @@ import datasets
 import evaluate
 import numpy as np
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 from datasets import Value, load_dataset
 
 import wandb
 import transformers
-from adapters import AdapterArguments, AdapterTrainer, AutoAdapterModel, setup_adapter_training
+import adapters as adapters_lib
+from adapters import AdapterArguments, AdapterTrainer, setup_adapter_training
 from transformers import (
     AutoConfig,
+    AutoModelForMaskedLM,
+    AutoModelForSequenceClassification,
     AutoTokenizer,
     DataCollatorWithPadding,
+    EarlyStoppingCallback,
     EvalPrediction,
     HfArgumentParser,
     TrainingArguments,
@@ -84,10 +89,25 @@ class SupervisedContrastiveTrainer(AdapterTrainer):
                 exp(z_i · z_p / τ) / sum_{j≠i} exp(z_i · z_j / τ) ) ]
     """
 
-    def __init__(self, *args, temperature: float = 0.05, pooling: str = "cls", **kwargs):
+    def __init__(self, *args, temperature: float = 0.05, pooling: str = "cls",
+                 proj_dim: int = 128, proj_type: str = "mlp", **kwargs):
         super().__init__(*args, **kwargs)
         self.temperature = temperature
         self.pooling = pooling
+
+        hidden = self.model.config.hidden_size
+        if proj_type == "mlp":
+            proj_head = nn.Sequential(
+                nn.Linear(hidden, hidden),
+                nn.ReLU(),
+                nn.Linear(hidden, proj_dim),
+            )
+        else:
+            proj_head = nn.Linear(hidden, proj_dim)
+        # Attach to model so its parameters are included in the optimizer alongside
+        # the adapter parameters.  model.save_adapter() will not persist this, so
+        # the projection head is naturally discarded at the end of contrastive training.
+        self.model.contrastive_proj = proj_head
 
     def _pool(self, last_hidden_state: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
         if self.pooling == "cls":
@@ -126,7 +146,9 @@ class SupervisedContrastiveTrainer(AdapterTrainer):
         # Use hidden_states[-1] rather than last_hidden_state: works for any output
         # type (e.g. MaskedLMOutput returned by AutoAdapterModel on encoder models)
         embeddings = self._pool(outputs.hidden_states[-1], inputs["attention_mask"])
-        loss = self._supcon_loss(embeddings, labels)
+        r = F.normalize(embeddings, dim=-1)          # normalize to unit hypersphere before projection
+        z = model.contrastive_proj(r)                # project to lower-dim space
+        loss = self._supcon_loss(z, labels)          # _supcon_loss normalizes z internally
         return (loss, outputs) if return_outputs else loss
 
 
@@ -351,6 +373,18 @@ class MyTrainingArguments(TrainingArguments):
     contrastive_model_artifact: Optional[str] = field(
         default=None,
         metadata={"help": "WandB artifact path of a contrastive-pretrained adapter to load before classification fine-tuning."},
+    )
+    contrastive_proj_dim: int = field(
+        default=128,
+        metadata={"help": "Output dimension of the contrastive projection head (used when training_mode='contrastive')."},
+    )
+    contrastive_proj_type: str = field(
+        default="mlp",
+        metadata={"help": "Projection head type: 'mlp' (2-layer MLP with ReLU, default) or 'linear' (single linear layer)."},
+    )
+    early_stopping_patience: Optional[int] = field(
+        default=None,
+        metadata={"help": "Stop training when the monitored metric has not improved for this many evaluations. Requires load_best_model_at_end=True."},
     )
 
 
@@ -612,7 +646,12 @@ def main():
         token=model_args.token,
         trust_remote_code=model_args.trust_remote_code,
     )
-    model = AutoAdapterModel.from_pretrained(
+    auto_model_cls = (
+        AutoModelForMaskedLM
+        if training_args.training_mode == "contrastive"
+        else AutoModelForSequenceClassification
+    )
+    model = auto_model_cls.from_pretrained(
         model_args.model_name_or_path,
         from_tf=bool(".ckpt" in model_args.model_name_or_path),
         config=config,
@@ -622,6 +661,7 @@ def main():
         trust_remote_code=model_args.trust_remote_code,
         ignore_mismatched_sizes=model_args.ignore_mismatched_sizes,
     )
+    adapters_lib.init(model)
 
     adapter_name, lang_adapter_name = None, None
     if training_args.training_mode == "contrastive":
@@ -641,12 +681,13 @@ def main():
             adapter_load_path = contrastive_adapter_path
         model.load_adapter(adapter_load_path)
         model.set_active_adapters(data_args.task_name)
-        model.add_classification_head(data_args.task_name, num_labels=num_labels)
         model.train_adapter(data_args.task_name)
+        # train_adapter() freezes all params including the classifier head; unfreeze it explicitly
+        for param in model.classifier.parameters():
+            param.requires_grad = True
         logger.info("Loaded contrastive adapter from " + contrastive_adapter_path)
     else:
         # Standard classification training
-        model.add_classification_head(data_args.task_name, num_labels=num_labels)
         adapter_name, lang_adapter_name = setup_adapter_training(model=model, adapter_args=adapter_args, adapter_name=data_args.task_name)
 
     if adapter_name is not None:
@@ -808,6 +849,10 @@ def main():
         data_collator = None
 
     # Initialize our Trainer
+    callbacks = []
+    if training_args.early_stopping_patience is not None:
+        callbacks.append(EarlyStoppingCallback(early_stopping_patience=training_args.early_stopping_patience))
+
     if training_args.training_mode == "contrastive":
         trainer = SupervisedContrastiveTrainer(
             model=model,
@@ -819,6 +864,9 @@ def main():
             data_collator=data_collator,
             temperature=training_args.contrastive_temperature,
             pooling=training_args.contrastive_pooling,
+            proj_dim=training_args.contrastive_proj_dim,
+            proj_type=training_args.contrastive_proj_type,
+            callbacks=callbacks if callbacks else None,
         )
     else:
         trainer = DynamicTrackingTrainer(
@@ -829,6 +877,7 @@ def main():
             compute_metrics=compute_metrics,
             processing_class=tokenizer,
             data_collator=data_collator,
+            callbacks=callbacks if callbacks else None,
         )
 
     # Training

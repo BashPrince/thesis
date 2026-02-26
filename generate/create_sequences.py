@@ -933,7 +933,7 @@ test_file = "../data/CT24_checkworthy_english/test-combined-wo-id.csv"
 gen_model = "openai/gpt-4o"
 num_seq = 5
 num_source_samples = 100
-augment_sizes = sorted([1600]) # For examples
+augment_sizes = sorted([5000]) # For examples
 augment_size = 314 # For correlations
 topics = ["Healthcare", "Tax", "Economy", "Employment", "Education", "Energy", "Crime", "Military", "Trade", "Reproductive rights", "Guns", "Environment"]
 num_examples_per_turn = 5
@@ -942,8 +942,8 @@ balance_source_classes = True
 balance_gen_classes = False
 
 # Upload params
-artifact_base_name = "experiment_011"
-artifact_description = f"Genetic algorithm with {gen_model}."
+artifact_base_name = "experiment_014"
+artifact_description = f"Contrastive learning on small base dataset augmented with {gen_model}."
 
 # Train config params
 num_seeds = 3
@@ -953,9 +953,9 @@ total_train_samples = 45000
 load_best_model = True
 
 # Enable/disable steps
-do_generate = False
+do_generate = True
 do_upload = True
-make_configs = True
+make_configs = False
 
 results_dir = "./sequences/" + artifact_base_name
 
@@ -992,8 +992,8 @@ if __name__ == "__main__":
     #     test_path="../data/CT24_checkworthy_english/topic_correlation/test.csv",
     # )
 
-    # arg_providers = [ExamplePromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
-    arg_providers = [ExampleTopicPromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
+    arg_providers = [ExamplePromptProvider(source_data=s, num_per_turn=num_examples_per_turn) for s in dataset_provider.get_train_datasets()]
+    # arg_providers = [ExampleTopicPromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
 
     # arg_providers = []
     # for data in dataset_provider.get_train_datasets():

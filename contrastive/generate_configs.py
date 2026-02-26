@@ -8,10 +8,10 @@ With    --contrastive: generates N contrastive pre-training runs each paired
                        contrastive run completes.
 
 Usage:
-    # 8 standard classification runs
+    # N standard classification runs
     python generate_configs.py --data-artifact mydata:latest --group exp1 --name baseline
 
-    # 8 contrastive pre-training + classification runs
+    # N contrastive pre-training + classification runs
     python generate_configs.py --data-artifact mydata:latest --group exp1 --name baseline --contrastive
 
 Seeds are sampled randomly. The chosen seeds are printed and saved to
