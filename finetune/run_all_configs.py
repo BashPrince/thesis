@@ -10,7 +10,10 @@ import argparse
 # Parse arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('-k', '--keep', action='store_true', help='Keep the cloud instance running after jobs complete')
+parser.add_argument('--configs', default='./configs', help='Directory containing config JSON files (default: ./configs)')
 args = parser.parse_args()
+
+configs_dir = args.configs
 
 with open('secrets/lambda_api_key') as f:
     api_key = f.read().strip()
@@ -42,15 +45,15 @@ num_gpus = instances[0]["instance_type"]["specs"]["gpus"]
 
 print(f"Found instance {instance_id} with ip {ip} and {num_gpus} gpus")
 
-# Load configs (all .json files in configs/ except dependencies.json)
-all_paths = sorted(glob.glob('./configs/*.json'))
+# Load configs (all .json files in configs_dir except dependencies.json)
+all_paths = sorted(glob.glob(os.path.join(configs_dir, '*.json')))
 paths = [p for p in all_paths if os.path.basename(p) != 'dependencies.json']
 print("Found configs:")
 print("\n".join(paths))
 
 # Load dependency map: { config_basename -> [dep_basename, ...] }
 # Only classify configs have entries; contrastive configs have no deps.
-dep_file = './configs/dependencies.json'
+dep_file = os.path.join(configs_dir, 'dependencies.json')
 dependencies = {}
 if os.path.exists(dep_file):
     with open(dep_file) as f:

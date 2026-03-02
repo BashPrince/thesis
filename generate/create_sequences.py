@@ -111,7 +111,7 @@ class SubsetDatasetProvider(DatasetProvider):
             self.subsets.append(subset)
 
 
-    def get_datasets(self) -> list[pd.DataFrame]:
+    def get_train_datasets(self) -> list[pd.DataFrame]:
         return self.subsets
 
 class FileDatasetProvider(DatasetProvider):
@@ -926,14 +926,14 @@ class ExampleCorrelationGenerationPipeline(CorrelationGenerationPipeline):
         return [topic_seq for _, topic_seq in sequences.items()]
 
 # Dataset params
-source = "../data/CT24_checkworthy_english/train.csv"
-dev_file = "../data/CT24_checkworthy_english/dev-wo-id.csv"
-dev_test_file = "../data/CT24_checkworthy_english/dev-test-wo-id.csv"
-test_file = "../data/CT24_checkworthy_english/test-combined-wo-id.csv"
+source = "../data/CT24_checkworthy_english/CT24_checkworthy_english_train.csv"
+dev_file = "../data/CT24_checkworthy_english/CT24_checkworthy_english_dev.csv"
+dev_test_file = "../data/CT24_checkworthy_english/CT24_checkworthy_english_dev-test.csv"
+test_file = "../data/CT24_checkworthy_english/CT24_checkworthy_english_test_gold.csv"
 gen_model = "openai/gpt-4o"
 num_seq = 5
-num_source_samples = 100
-augment_sizes = sorted([5000]) # For examples
+num_source_samples = 128
+augment_sizes = sorted([1024]) # For examples
 augment_size = 314 # For correlations
 topics = ["Healthcare", "Tax", "Economy", "Employment", "Education", "Energy", "Crime", "Military", "Trade", "Reproductive rights", "Guns", "Environment"]
 num_examples_per_turn = 5
@@ -942,20 +942,20 @@ balance_source_classes = True
 balance_gen_classes = False
 
 # Upload params
-artifact_base_name = "experiment_014"
-artifact_description = f"Contrastive learning on small base dataset augmented with {gen_model}."
+artifact_base_name = "unrestricted_wrup"
+artifact_description = f"Unrestricted example augmentation with {gen_model}."
 
 # Train config params
 num_seeds = 3
-batch_size = 64
-train_model = "roberta-base"
-total_train_samples = 45000
+batch_size = 16
+train_model = "answerdotai/ModernBERT-base"
+total_train_samples = 120000
 load_best_model = True
 
 # Enable/disable steps
-do_generate = True
+do_generate = False
 do_upload = True
-make_configs = False
+make_configs = True
 
 results_dir = "./sequences/" + artifact_base_name
 
@@ -974,11 +974,11 @@ if __name__ == "__main__":
     
     dataset_provider = FileDatasetProvider(
         [
-            'sequences/experiment_002/sequence_0/seq_0_aug_0.csv',
-            'sequences/experiment_002/sequence_1/seq_1_aug_0.csv',
-            'sequences/experiment_002/sequence_2/seq_2_aug_0.csv',
-            'sequences/experiment_002/sequence_3/seq_3_aug_0.csv',
-            'sequences/experiment_002/sequence_4/seq_4_aug_0.csv',
+            'sequences/unrestricted_wrup/sequence_0/seq_0_aug_0.csv',
+            'sequences/unrestricted_wrup/sequence_1/seq_1_aug_0.csv',
+            'sequences/unrestricted_wrup/sequence_2/seq_2_aug_0.csv',
+            'sequences/unrestricted_wrup/sequence_3/seq_3_aug_0.csv',
+            'sequences/unrestricted_wrup/sequence_4/seq_4_aug_0.csv',
         ]
     )
     # dataset_provider = TopicDatasetProvider(

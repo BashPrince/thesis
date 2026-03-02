@@ -104,7 +104,7 @@ def main():
         os.environ["OPENAI_API_KEY"] = key_file.read().strip()
 
     # Parameters (set these as needed)
-    output_dir = "sequences/experiment_007"  # Directory to save augmented datasets
+    output_dir = "sequences/backtranslate"  # Directory to save augmented datasets
     aug_factors = [1, 2, 4, 8]  # List of augmentation factors for partial saves
     source_lang = "English"  # Source language for back-translation
     # intermediate_lang = "German"  # Intermediate language for back-translation
@@ -113,11 +113,11 @@ def main():
     temperature = 1.0  # LLM temperature
     model = "gpt-4o"  # LLM model name
     input_files = [
-        "sequences/experiment_001/sequence_0/seq_0_aug_0.csv",
-        "sequences/experiment_001/sequence_1/seq_1_aug_0.csv",
-        "sequences/experiment_001/sequence_2/seq_2_aug_0.csv",
-        "sequences/experiment_001/sequence_3/seq_3_aug_0.csv",
-        "sequences/experiment_001/sequence_4/seq_4_aug_0.csv",
+        "sequences/unrestricted_wrup/sequence_0/seq_0_aug_0.csv",
+        "sequences/unrestricted_wrup/sequence_1/seq_1_aug_0.csv",
+        "sequences/unrestricted_wrup/sequence_2/seq_2_aug_0.csv",
+        "sequences/unrestricted_wrup/sequence_3/seq_3_aug_0.csv",
+        "sequences/unrestricted_wrup/sequence_4/seq_4_aug_0.csv",
     ]
 
     # Check if output_dir exists and prompt for deletion

@@ -21,9 +21,7 @@ from scipy.spatial.distance import cdist
 from tqdm import tqdm
 
 # Configuration
-BASE_SIZES = [50, 100]
-AUG_SIZES = [0]
-NUM_RESAMPLE = 3
+AUG_SIZES = [128, 256, 512, 1024]
 MAX_PARENT_SELECTION = 2
 MODEL = "gpt-4o"
 
@@ -475,31 +473,6 @@ class GeneticAugmenter:
         return selected_counts, iteration_counts
 
 
-def build_base_set(df: pd.DataFrame, size: int, rng: random.Random) -> pd.DataFrame:
-    """
-    Build a balanced base set from the data.
-
-    Args:
-        df: Full DataFrame with 'Text' and 'class_label' columns
-        size: Target size (will be split evenly between classes)
-        rng: Random number generator
-
-    Returns:
-        Balanced DataFrame with 'Text' and 'class_label' columns
-    """
-    half_size = size // 2
-
-    df_yes = df[df["class_label"] == "Yes"].sample(n=half_size, random_state=rng.randint(0, 2**31))
-    df_no = df[df["class_label"] == "No"].sample(n=half_size, random_state=rng.randint(0, 2**31))
-
-    base_set = pd.concat([df_yes, df_no], ignore_index=True)
-
-    # Remove Sentence_id if present
-    if "Sentence_id" in base_set.columns:
-        base_set = base_set.drop(columns=["Sentence_id"])
-
-    return base_set
-
 
 def create_augmented_dataset(
     base_set: pd.DataFrame,
@@ -565,10 +538,9 @@ def create_augmented_dataset(
 
 
 async def run_augmentation(
-    df: pd.DataFrame,
-    base_size: int,
+    base_set: pd.DataFrame,
+    seq_idx: int,
     aug_size: int,
-    resample_idx: int,
     output_dir: Path,
     embedding_model: SentenceTransformer,
     semaphore: asyncio.Semaphore,
@@ -577,10 +549,9 @@ async def run_augmentation(
     Run the genetic augmentation for a single configuration.
 
     Args:
-        df: Full training data
-        base_size: Size of the base set
+        base_set: Pre-built base set DataFrame with 'Text' and 'class_label' columns
+        seq_idx: Sequence index (for filename)
         aug_size: Number of synthetic samples to generate
-        resample_idx: Index of the resample (for filename)
         output_dir: Directory to save output
         embedding_model: SentenceTransformer model
         semaphore: Semaphore for rate limiting
@@ -588,10 +559,7 @@ async def run_augmentation(
     Returns:
         Path to the saved file
     """
-    rng = random.Random(RANDOM_SEED + resample_idx)
-
-    # Build base set
-    base_set = build_base_set(df, base_size, rng)
+    rng = random.Random(RANDOM_SEED + seq_idx)
 
     # Initialize augmenter
     augmenter = GeneticAugmenter(embedding_model, rng, max_selections=MAX_PARENT_SELECTION)
@@ -618,7 +586,7 @@ async def run_augmentation(
 
     # Save
     output_dir.mkdir(parents=True, exist_ok=True)
-    filename = output_dir / f"real_{base_size}_aug_{aug_size}_v{resample_idx}.csv"
+    filename = output_dir / f"seq_{seq_idx}_aug_{aug_size}.csv"
     augmented_df.to_csv(filename, index=False)
 
     return filename
@@ -630,8 +598,12 @@ async def main():
     with open('../../secrets/openai_api_key.txt', 'r') as key_file:
         os.environ["OPENAI_API_KEY"] = key_file.read().strip()
 
-    # Load training data
-    df = pd.read_csv("train.csv")
+    # Discover base set files from unrestricted_wrup
+    unrestricted_dir = SCRIPT_DIR.parent / "unrestricted_wrup"
+    base_files = sorted(unrestricted_dir.glob("sequence_*/seq_*_aug_0.csv"))
+    if not base_files:
+        print(f"No base set files found in {unrestricted_dir}")
+        return
 
     # Load embedding model
     print("Loading embedding model...")
@@ -668,26 +640,24 @@ async def main():
 
     # Build list of all configurations to run
     configurations = [
-        (base_size, aug_size, resample_idx)
-        for base_size in BASE_SIZES
+        (seq_idx, base_file, aug_size)
+        for seq_idx, base_file in enumerate(base_files)
         for aug_size in AUG_SIZES
-        for resample_idx in range(NUM_RESAMPLE)
     ]
 
     print(f"\nGenerating {len(configurations)} augmented datasets in parallel...")
-    print(f"BASE_SIZES: {BASE_SIZES}")
+    print(f"Base files: {[f.name for f in base_files]}")
     print(f"AUG_SIZES: {AUG_SIZES}")
-    print(f"NUM_RESAMPLE: {NUM_RESAMPLE}")
 
     # Create tasks for all configurations
-    async def run_config(base_size: int, aug_size: int, resample_idx: int) -> Path:
+    async def run_config(seq_idx: int, base_file: Path, aug_size: int) -> Path:
         """Run a single configuration and print progress."""
-        print(f"Starting: base={base_size}, aug={aug_size}, v{resample_idx}")
+        print(f"Starting: {base_file.name}, aug={aug_size}")
+        base_set = pd.read_csv(base_file)
         filepath = await run_augmentation(
-            df=df,
-            base_size=base_size,
+            base_set=base_set,
+            seq_idx=seq_idx,
             aug_size=aug_size,
-            resample_idx=resample_idx,
             output_dir=output_dir,
             embedding_model=embedding_model,
             semaphore=semaphore,
@@ -696,7 +666,7 @@ async def main():
         return filepath
 
     # Run all configurations in parallel (semaphore controls LLM rate limiting)
-    tasks = [run_config(bs, aus, ri) for bs, aus, ri in configurations]
+    tasks = [run_config(si, bf, aus) for si, bf, aus in configurations]
     await asyncio.gather(*tasks)
 
     print("\nDone!")

@@ -20,6 +20,7 @@ import logging
 import os
 import random
 import sys
+import tempfile
 from dataclasses import dataclass, field
 from typing import List, Optional
 import jsonlines
@@ -27,6 +28,7 @@ import jsonlines
 import datasets
 import evaluate
 import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -510,6 +512,15 @@ def main():
 
     for key in data_files.keys():
         logger.info(f"load a local file for {key}: {data_files[key]}")
+
+    # Strip all CSV files to only Text and class_label so columns are consistent
+    _tmp_dir = tempfile.mkdtemp()
+    for key, path in data_files.items():
+        df = pd.read_csv(path)
+        df = df[[c for c in ["Text", "class_label"] if c in df.columns]]
+        tmp_path = os.path.join(_tmp_dir, f"{key}.csv")
+        df.to_csv(tmp_path, index=False)
+        data_files[key] = tmp_path
 
     # Loading a dataset from local csv files
     raw_datasets = load_dataset(
