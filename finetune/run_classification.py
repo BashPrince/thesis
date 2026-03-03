@@ -21,6 +21,7 @@ import os
 import random
 import sys
 import tempfile
+from collections import Counter
 from dataclasses import dataclass, field
 from typing import List, Optional
 import jsonlines
@@ -32,6 +33,7 @@ import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.utils.data import WeightedRandomSampler
 from datasets import Value, load_dataset
 
 import wandb
@@ -92,10 +94,11 @@ class SupervisedContrastiveTrainer(AdapterTrainer):
     """
 
     def __init__(self, *args, temperature: float = 0.05, pooling: str = "cls",
-                 proj_dim: int = 128, proj_type: str = "mlp", **kwargs):
+                 proj_dim: int = 128, proj_type: str = "mlp", balanced_sampling: bool = False, **kwargs):
         super().__init__(*args, **kwargs)
         self.temperature = temperature
         self.pooling = pooling
+        self.balanced_sampling = balanced_sampling
 
         hidden = self.model.config.hidden_size
         if proj_type == "mlp":
@@ -140,7 +143,25 @@ class SupervisedContrastiveTrainer(AdapterTrainer):
         has_positives = num_positives > 0
         if not has_positives.any():
             return torch.tensor(0.0, device=z.device, requires_grad=True)
-        return loss_per_anchor[has_positives].mean()
+
+        loss = loss_per_anchor[has_positives].mean()
+
+        # Diagnostic metrics (detached — no gradient cost)
+        neg_mask = ~pos_mask & ~self_mask
+        cosim = torch.matmul(z, z.T)  # raw cosine similarities, unscaled
+        with torch.no_grad():
+            cosim_pos = cosim[pos_mask].mean() if pos_mask.any() else cosim.new_tensor(0.0)
+            cosim_neg = cosim[neg_mask].mean() if neg_mask.any() else cosim.new_tensor(0.0)
+            self._contrastive_metrics = {
+                "cosim_pos": cosim_pos.item(),
+                "cosim_neg": cosim_neg.item(),
+                "cosim_gap": (cosim_pos - cosim_neg).item(),
+                "num_positives_mean": num_positives.mean().item(),
+                "frac_anchors_with_positives": has_positives.float().mean().item(),
+                "loss_std": loss_per_anchor[has_positives].std().item(),
+            }
+
+        return loss
 
     def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
         labels = inputs.pop("labels")
@@ -152,6 +173,49 @@ class SupervisedContrastiveTrainer(AdapterTrainer):
         z = model.contrastive_proj(r)                # project to lower-dim space
         loss = self._supcon_loss(z, labels)          # _supcon_loss normalizes z internally
         return (loss, outputs) if return_outputs else loss
+
+    def log(self, logs, *args, **kwargs):
+        if self.model.training and hasattr(self, "_contrastive_metrics"):
+            logs.update(self._contrastive_metrics)
+        super().log(logs, *args, **kwargs)
+
+    def evaluate(self, eval_dataset=None, ignore_keys=None, metric_key_prefix="eval"):
+        eval_dataset = eval_dataset if eval_dataset is not None else self.eval_dataset
+        if eval_dataset is None:
+            return {}
+
+        eval_dataloader = self.get_eval_dataloader(eval_dataset)
+        self.model.eval()
+
+        accum = {k: 0.0 for k in ("cosim_pos", "cosim_neg", "cosim_gap",
+                                   "num_positives_mean", "frac_anchors_with_positives", "loss_std")}
+        n = 0
+        with torch.no_grad():
+            for inputs in eval_dataloader:
+                inputs = self._prepare_inputs(inputs)
+                self.compute_loss(self.model, {**inputs})
+                if hasattr(self, "_contrastive_metrics"):
+                    for k in accum:
+                        accum[k] += self._contrastive_metrics.get(k, 0.0)
+                    n += 1
+
+        metrics = {f"{metric_key_prefix}_{k}": v / n for k, v in accum.items()} if n > 0 else {}
+        metrics[f"{metric_key_prefix}_samples"] = len(eval_dataset)
+
+        # Log while model is still in eval mode so our log() override doesn't
+        # inject training-time _contrastive_metrics into the eval log entry.
+        self.log(metrics)
+        self.model.train()
+        self.control = self.callback_handler.on_evaluate(self.args, self.state, self.control, metrics)
+        return metrics
+
+    def _get_train_sampler(self):
+        if not self.balanced_sampling:
+            return super()._get_train_sampler()
+        labels = [int(self.train_dataset[i]["label"]) for i in range(len(self.train_dataset))]
+        counts = Counter(labels)
+        weights = [1.0 / counts[l] for l in labels]
+        return WeightedRandomSampler(weights, num_samples=len(weights), replacement=True)
 
 
 @dataclass
@@ -383,6 +447,10 @@ class MyTrainingArguments(TrainingArguments):
     contrastive_proj_type: str = field(
         default="mlp",
         metadata={"help": "Projection head type: 'mlp' (2-layer MLP with ReLU, default) or 'linear' (single linear layer)."},
+    )
+    contrastive_balanced_sampling: bool = field(
+        default=False,
+        metadata={"help": "Use class-balanced batch sampling during contrastive pre-training (WeightedRandomSampler)."},
     )
     early_stopping_patience: Optional[int] = field(
         default=None,
@@ -869,7 +937,7 @@ def main():
             model=model,
             args=training_args,
             train_dataset=train_dataset if training_args.do_train else None,
-            eval_dataset=None,
+            eval_dataset=eval_dataset if training_args.do_eval else None,
             compute_metrics=None,
             processing_class=tokenizer,
             data_collator=data_collator,
@@ -877,6 +945,7 @@ def main():
             pooling=training_args.contrastive_pooling,
             proj_dim=training_args.contrastive_proj_dim,
             proj_type=training_args.contrastive_proj_type,
+            balanced_sampling=training_args.contrastive_balanced_sampling,
             callbacks=callbacks if callbacks else None,
         )
     else:
