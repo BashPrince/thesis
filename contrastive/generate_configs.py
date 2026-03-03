@@ -67,6 +67,22 @@ def main():
         help='If set, override the "gradient_accumulation_steps" field for contrastive pre-training configs',
     )
     parser.add_argument(
+        '--eval-steps-contrastive', type=int, default=None,
+        help='If set, override the "eval_steps" field for contrastive pre-training configs',
+    )
+    parser.add_argument(
+        '--eval-steps-classify', type=int, default=None,
+        help='If set, override the "eval_steps" field for classification/fine-tuning configs',
+    )
+    parser.add_argument(
+        '--patience-contrastive', type=int, default=None,
+        help='If set, override the "early_stopping_patience" field for contrastive pre-training configs',
+    )
+    parser.add_argument(
+        '--patience-classify', type=int, default=None,
+        help='If set, override the "early_stopping_patience" field for classification/fine-tuning configs',
+    )
+    parser.add_argument(
         '--contrastive', action='store_true',
         help='Generate contrastive pre-training + classification pairs '
              'instead of classification-only runs',
@@ -123,8 +139,6 @@ def main():
     if args.contrastive:
         with open(os.path.join(TEMPLATE_DIR, 'contrastive.json')) as f:
             contrastive_template = json.load(f)
-        with open(os.path.join(TEMPLATE_DIR, 'train_from_contrastive.json')) as f:
-            classify_from_contrastive_template = json.load(f)
 
     dep_path = os.path.join(args.output_dir, 'dependencies.json')
     if args.append and os.path.exists(dep_path):
@@ -156,13 +170,18 @@ def main():
                 contrastive_cfg['per_device_train_batch_size'] = args.batch_size_contrastive
             if args.grad_accum_contrastive is not None:
                 contrastive_cfg['gradient_accumulation_steps'] = args.grad_accum_contrastive
+            if args.eval_steps_contrastive is not None:
+                contrastive_cfg['eval_steps'] = args.eval_steps_contrastive
+                contrastive_cfg['save_steps'] = args.eval_steps_contrastive
+            if args.patience_contrastive is not None:
+                contrastive_cfg['early_stopping_patience'] = args.patience_contrastive
 
             contrastive_path = os.path.join(args.output_dir, contrastive_filename)
             with open(contrastive_path, 'w') as f:
                 json.dump(contrastive_cfg, f, indent=4)
 
             # Classification fine-tuning config
-            classify_cfg = dict(classify_from_contrastive_template)
+            classify_cfg = dict(classify_only_template)
             classify_cfg['seed']                       = seed
             classify_cfg['shuffle_seed']               = seed
             classify_cfg['run_name']                   = classify_run_name
@@ -171,6 +190,11 @@ def main():
             classify_cfg['contrastive_model_artifact'] = f'{contrastive_run_name}:latest'
             if args.epochs_classify is not None:
                 classify_cfg['num_train_epochs'] = args.epochs_classify
+            if args.eval_steps_classify is not None:
+                classify_cfg['eval_steps'] = args.eval_steps_classify
+                classify_cfg['save_steps'] = args.eval_steps_classify
+            if args.patience_classify is not None:
+                classify_cfg['early_stopping_patience'] = args.patience_classify
 
             classify_path = os.path.join(args.output_dir, classify_filename)
             with open(classify_path, 'w') as f:
@@ -190,6 +214,11 @@ def main():
             classify_cfg['data_artifact']    = args.data_artifact
             if args.epochs_classify is not None:
                 classify_cfg['num_train_epochs'] = args.epochs_classify
+            if args.eval_steps_classify is not None:
+                classify_cfg['eval_steps'] = args.eval_steps_classify
+                classify_cfg['save_steps'] = args.eval_steps_classify
+            if args.patience_classify is not None:
+                classify_cfg['early_stopping_patience'] = args.patience_classify
 
             classify_path = os.path.join(args.output_dir, classify_filename)
             with open(classify_path, 'w') as f:
