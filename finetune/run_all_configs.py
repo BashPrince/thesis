@@ -11,39 +11,117 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-k', '--keep', action='store_true', help='Keep the cloud instance running after jobs complete')
 parser.add_argument('--configs', default='./configs', help='Directory containing config JSON files (default: ./configs)')
+parser.add_argument('--provider', choices=['lambda', 'runpod', 'auto'], default='auto',
+                    help='Cloud provider to use (default: auto)')
 args = parser.parse_args()
 
 configs_dir = args.configs
 
-with open('secrets/lambda_api_key') as f:
-    api_key = f.read().strip()
 
-auth_header = f"Bearer {api_key}"
+def discover_lambda(api_key):
+    """Discover a running Lambda Labs instance.
+    Returns (ip, instance_id, num_gpus, username, ssh_port) or None if no instances.
+    Raises if more than one instance is found.
+    """
+    url = "https://cloud.lambda.ai/api/v1/instances"
+    headers = {"accept": "application/json", "Authorization": f"Bearer {api_key}"}
+    response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        raise RuntimeError(f"Lambda API error: {response.status_code} {response.text}")
+    instances = response.json()["data"]
+    if len(instances) == 0:
+        return None
+    if len(instances) > 1:
+        raise RuntimeError(f"Found {len(instances)} Lambda instances (expected 0 or 1).")
+    inst = instances[0]
+    return (inst["ip"], inst["id"], inst["instance_type"]["specs"]["gpus"], "ubuntu", 22)
 
-# Retrieve all Lambda Labs instances
-instances_url = "https://cloud.lambda.ai/api/v1/instances"
-instances_headers = {
-    "accept": "application/json",
-    "Authorization": auth_header
-}
-instances_response = requests.get(instances_url, headers=instances_headers)
 
-if instances_response.status_code != 200:
-    raise RuntimeError(f"Failed to retrieve instances: {instances_response.status_code} {instances_response.text}")
+def discover_runpod(api_key):
+    """Discover a running Runpod pod.
+    Returns (publicIp, podId, gpu_count, username, ssh_port) or None if no pods.
+    Raises if more than one pod is found.
+    """
+    url = "https://rest.runpod.io/v1/pods?desiredStatus=RUNNING"
+    headers = {"accept": "application/json", "Authorization": f"Bearer {api_key}"}
+    response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        raise RuntimeError(f"Runpod API error: {response.status_code} {response.text}")
+    pods = response.json()
+    if len(pods) == 0:
+        return None
+    if len(pods) > 1:
+        raise RuntimeError(f"Found {len(pods)} Runpod pods (expected 0 or 1).")
+    pod = pods[0]
+    ssh_port = pod["portMappings"]["22"]
+    return (pod["publicIp"], pod["id"], pod["gpuCount"], "root", ssh_port)
 
-instance_json = instances_response.json()
-instances = instance_json["data"]
 
-num_instances = len(instances)
+def terminate_lambda(instance_id, api_key):
+    url = "https://cloud.lambda.ai/api/v1/instance-operations/terminate"
+    headers = {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "Authorization": f"Bearer {api_key}",
+    }
+    response = requests.post(url, headers=headers, json={"instance_ids": [instance_id]})
+    print(f"Lambda shutdown request sent. Status code: {response.status_code}")
 
-if num_instances != 1:
-    raise RuntimeError(f"Found {num_instances} running instances (expected 1).")
 
-ip = instances[0]["ip"]
-instance_id = instances[0]["id"]
-num_gpus = instances[0]["instance_type"]["specs"]["gpus"]
+def terminate_runpod(pod_id, api_key):
+    url = f"https://rest.runpod.io/v1/pods/{pod_id}"
+    headers = {"accept": "application/json", "Authorization": f"Bearer {api_key}"}
+    response = requests.delete(url, headers=headers)
+    print(f"Runpod shutdown request sent. Status code: {response.status_code}")
 
-print(f"Found instance {instance_id} with ip {ip} and {num_gpus} gpus")
+
+# Discover the running instance based on --provider
+if args.provider in ('lambda', 'auto'):
+    with open('secrets/lambda_api_key') as f:
+        lambda_api_key = f.read().strip()
+    lambda_result = discover_lambda(lambda_api_key)
+else:
+    lambda_api_key = None
+    lambda_result = None
+
+if args.provider in ('runpod', 'auto'):
+    with open('secrets/runpod_api_key') as f:
+        runpod_api_key = f.read().strip()
+    runpod_result = discover_runpod(runpod_api_key)
+else:
+    runpod_api_key = None
+    runpod_result = None
+
+if args.provider == 'lambda':
+    if lambda_result is None:
+        raise RuntimeError("No Lambda instances found.")
+    ip, instance_id, num_gpus, username, ssh_port = lambda_result
+    terminate_fn = lambda: terminate_lambda(instance_id, lambda_api_key)
+    print(f"Found Lambda instance {instance_id} at {ip} with {num_gpus} GPUs")
+elif args.provider == 'runpod':
+    if runpod_result is None:
+        raise RuntimeError("No Runpod pods found.")
+    ip, instance_id, num_gpus, username, ssh_port = runpod_result
+    terminate_fn = lambda: terminate_runpod(instance_id, runpod_api_key)
+    print(f"Found Runpod pod {instance_id} at {ip}:{ssh_port} with {num_gpus} GPUs")
+else:  # auto
+    found = []
+    if lambda_result is not None:
+        found.append(('lambda', lambda_result, lambda_api_key))
+    if runpod_result is not None:
+        found.append(('runpod', runpod_result, runpod_api_key))
+    if len(found) == 0:
+        raise RuntimeError("No running instances found on Lambda or Runpod.")
+    if len(found) > 1:
+        raise RuntimeError("Found running instances on multiple providers; use --provider to select one.")
+    pname, result, pkey = found[0]
+    ip, instance_id, num_gpus, username, ssh_port = result
+    if pname == 'lambda':
+        terminate_fn = lambda: terminate_lambda(instance_id, pkey)
+        print(f"Found Lambda instance {instance_id} at {ip} with {num_gpus} GPUs")
+    else:
+        terminate_fn = lambda: terminate_runpod(instance_id, pkey)
+        print(f"Found Runpod pod {instance_id} at {ip}:{ssh_port} with {num_gpus} GPUs")
 
 # Load configs (all .json files in configs_dir except dependencies.json)
 all_paths = sorted(glob.glob(os.path.join(configs_dir, '*.json')))
@@ -113,7 +191,8 @@ def spawn_next():
                     '../.venv/bin/python',
                     'run_classification_remote.py',
                     "--host_ip",  ip,
-                    "--username", "ubuntu",
+                    "--username", username,
+                    "--ssh_port", str(ssh_port),
                     "--config",   config_file,
                     "--gpu_idx",  str(gpu_idx),
                 ],
@@ -166,17 +245,6 @@ else:
 
 # Shutdown remote cloud instance unless --keep is set
 if not args.keep:
-    url = "https://cloud.lambda.ai/api/v1/instance-operations/terminate"
-    headers = {
-        "accept": "application/json",
-        "content-type": "application/json",
-        "Authorization": auth_header
-    }
-    data = {
-        "instance_ids": [instance_id]
-    }
-
-    response = requests.post(url, headers=headers, json=data)
-    print(f"Shutdown request sent. Status code: {response.status_code}")
+    terminate_fn()
 else:
     print("Skipping shutdown of cloud instance due to --keep flag.")
