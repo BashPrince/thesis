@@ -13,4 +13,6 @@ umap-learn
 seaborn
 bokeh
 wordcloud
+statsmodels
+pingouin
 git+https://github.com/BashPrince/BERTopic.git@master
