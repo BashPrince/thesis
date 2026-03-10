@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Generate experiment configs for a seed sweep.
 
-Without --contrastive: generates N standard classification runs.
-With    --contrastive: generates N contrastive pre-training runs each paired
-                       with a classification fine-tuning run, with dependencies
-                       set up so classification starts only after its paired
-                       contrastive run completes.
+Without --contrastive/--multi: generates N standard classification runs.
+With    --contrastive:         generates N contrastive pre-training runs each paired
+                               with a classification fine-tuning run, with dependencies
+                               set up so classification starts only after its paired
+                               contrastive run completes.
+With    --multi:               generates N joint CE + SupCon multi-task runs (single stage).
 
 Usage:
     # N standard classification runs
@@ -13,6 +14,9 @@ Usage:
 
     # N contrastive pre-training + classification runs
     python generate_configs.py --data-artifact mydata:latest --group exp1 --name baseline --contrastive
+
+    # N multi-task runs
+    python generate_configs.py --data-artifact mydata:latest --group exp1 --name baseline --multi
 
 Seeds are sampled randomly. The chosen seeds are printed and saved to
 seeds.json in the output directory for reproducibility.
@@ -82,10 +86,28 @@ def main():
         '--patience-classify', type=int, default=None,
         help='If set, override the "early_stopping_patience" field for classification/fine-tuning configs',
     )
-    parser.add_argument(
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument(
         '--contrastive', action='store_true',
         help='Generate contrastive pre-training + classification pairs '
              'instead of classification-only runs',
+    )
+    mode_group.add_argument(
+        '--multi', action='store_true',
+        help='Generate joint CE + SupCon multi-task runs (single stage) '
+             'instead of classification-only runs',
+    )
+    parser.add_argument(
+        '--multi-alpha', type=float, default=None,
+        help='If set, override the "multi_alpha" field (SupCon loss weight) for multi-task configs',
+    )
+    parser.add_argument(
+        '--batch-size-multi', type=int, default=None,
+        help='If set, override the "per_device_train_batch_size" field for multi-task configs',
+    )
+    parser.add_argument(
+        '--model', default=None,
+        help='If set, override the "model_name_or_path" field in all generated configs',
     )
     parser.add_argument(
         '-a', '--append', action='store_true',
@@ -139,6 +161,9 @@ def main():
     if args.contrastive:
         with open(os.path.join(TEMPLATE_DIR, 'contrastive.json')) as f:
             contrastive_template = json.load(f)
+    if args.multi:
+        with open(os.path.join(TEMPLATE_DIR, 'multi.json')) as f:
+            multi_template = json.load(f)
 
     dep_path = os.path.join(args.output_dir, 'dependencies.json')
     if args.append and os.path.exists(dep_path):
@@ -175,6 +200,8 @@ def main():
                 contrastive_cfg['save_steps'] = args.eval_steps_contrastive
             if args.patience_contrastive is not None:
                 contrastive_cfg['early_stopping_patience'] = args.patience_contrastive
+            if args.model is not None:
+                contrastive_cfg['model_name_or_path'] = args.model
 
             contrastive_path = os.path.join(args.output_dir, contrastive_filename)
             with open(contrastive_path, 'w') as f:
@@ -195,12 +222,42 @@ def main():
                 classify_cfg['save_steps'] = args.eval_steps_classify
             if args.patience_classify is not None:
                 classify_cfg['early_stopping_patience'] = args.patience_classify
+            if args.model is not None:
+                classify_cfg['model_name_or_path'] = args.model
 
             classify_path = os.path.join(args.output_dir, classify_filename)
             with open(classify_path, 'w') as f:
                 json.dump(classify_cfg, f, indent=4)
 
             dependencies[classify_filename] = [contrastive_filename]
+
+        elif args.multi:
+            multi_run_name = f'{args.name}'  # Do not append index to names of multi-task runs
+            multi_filename = f'multi_{idx}.json'
+
+            multi_cfg = dict(multi_template)
+            multi_cfg['seed']             = seed
+            multi_cfg['shuffle_seed']     = seed
+            multi_cfg['run_name']         = multi_run_name
+            multi_cfg['wandb_group_name'] = args.group
+            multi_cfg['data_artifact']    = args.data_artifact
+            if args.epochs_classify is not None:
+                multi_cfg['num_train_epochs'] = args.epochs_classify
+            if args.eval_steps_classify is not None:
+                multi_cfg['eval_steps'] = args.eval_steps_classify
+                multi_cfg['save_steps'] = args.eval_steps_classify
+            if args.patience_classify is not None:
+                multi_cfg['early_stopping_patience'] = args.patience_classify
+            if args.multi_alpha is not None:
+                multi_cfg['multi_alpha'] = args.multi_alpha
+            if args.batch_size_multi is not None:
+                multi_cfg['per_device_train_batch_size'] = args.batch_size_multi
+            if args.model is not None:
+                multi_cfg['model_name_or_path'] = args.model
+
+            multi_path = os.path.join(args.output_dir, multi_filename)
+            with open(multi_path, 'w') as f:
+                json.dump(multi_cfg, f, indent=4)
 
         else:
             classify_run_name = f'{args.name}' # Do not append index to names of classification runs
@@ -219,6 +276,8 @@ def main():
                 classify_cfg['save_steps'] = args.eval_steps_classify
             if args.patience_classify is not None:
                 classify_cfg['early_stopping_patience'] = args.patience_classify
+            if args.model is not None:
+                classify_cfg['model_name_or_path'] = args.model
 
             classify_path = os.path.join(args.output_dir, classify_filename)
             with open(classify_path, 'w') as f:
