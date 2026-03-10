@@ -931,9 +931,9 @@ dev_file = "../data/CT24_checkworthy_english/CT24_checkworthy_english_dev.csv"
 dev_test_file = "../data/CT24_checkworthy_english/CT24_checkworthy_english_dev-test.csv"
 test_file = "../data/CT24_checkworthy_english/CT24_checkworthy_english_test_gold.csv"
 gen_model = "openai/gpt-4o"
-num_seq = 5
+num_seq = 20
 num_source_samples = 128
-augment_sizes = sorted([1024]) # For examples
+augment_sizes = sorted([2048]) # For examples
 augment_size = 314 # For correlations
 topics = ["Healthcare", "Tax", "Economy", "Employment", "Education", "Energy", "Crime", "Military", "Trade", "Reproductive rights", "Guns", "Environment"]
 num_examples_per_turn = 5
@@ -942,8 +942,8 @@ balance_source_classes = True
 balance_gen_classes = False
 
 # Upload params
-artifact_base_name = "unrestricted_wrup"
-artifact_description = f"Unrestricted example augmentation with {gen_model}."
+artifact_base_name = "unrestricted_wrup_2048"
+artifact_description = f"Unrestricted example augmentation (2048) with {gen_model}."
 
 # Train config params
 num_seeds = 3
@@ -953,9 +953,9 @@ total_train_samples = 120000
 load_best_model = True
 
 # Enable/disable steps
-do_generate = False
+do_generate = True
 do_upload = True
-make_configs = True
+make_configs = False
 
 results_dir = "./sequences/" + artifact_base_name
 
@@ -966,21 +966,26 @@ if __name__ == "__main__":
 
     # Setup pipeline
 
-    # dataset_provider = SubsetDatasetProvider(
-    #     source_path=source,
-    #     num_subsets=num_seq,
-    #     subset_size=num_source_samples,
-    #     balance_classes=balance_source_classes)
+    dataset_provider = SubsetDatasetProvider(
+        source_path=source,
+        num_subsets=num_seq,
+        subset_size=num_source_samples,
+        balance_classes=balance_source_classes)
     
-    dataset_provider = FileDatasetProvider(
-        [
-            'sequences/unrestricted_wrup/sequence_0/seq_0_aug_0.csv',
-            'sequences/unrestricted_wrup/sequence_1/seq_1_aug_0.csv',
-            'sequences/unrestricted_wrup/sequence_2/seq_2_aug_0.csv',
-            'sequences/unrestricted_wrup/sequence_3/seq_3_aug_0.csv',
-            'sequences/unrestricted_wrup/sequence_4/seq_4_aug_0.csv',
-        ]
-    )
+    # dataset_provider = FileDatasetProvider(
+    #     [
+    #         'sequences/unrestricted_wrup/sequence_0/seq_0_aug_0.csv',
+    #         'sequences/unrestricted_wrup/sequence_1/seq_1_aug_0.csv',
+    #         'sequences/unrestricted_wrup/sequence_2/seq_2_aug_0.csv',
+    #         'sequences/unrestricted_wrup/sequence_3/seq_3_aug_0.csv',
+    #         'sequences/unrestricted_wrup/sequence_4/seq_4_aug_0.csv',
+    #         'sequences/unrestricted_wrup/sequence_5/seq_5_aug_0.csv',
+    #         'sequences/unrestricted_wrup/sequence_6/seq_6_aug_0.csv',
+    #         'sequences/unrestricted_wrup/sequence_7/seq_7_aug_0.csv',
+    #         'sequences/unrestricted_wrup/sequence_8/seq_8_aug_0.csv',
+    #         'sequences/unrestricted_wrup/sequence_9/seq_9_aug_0.csv',
+    #     ]
+    # )
     # dataset_provider = TopicDatasetProvider(
     #     train_path="../data/CT24_checkworthy_english/topic_correlation/train.csv",
     #     dev_path="../data/CT24_checkworthy_english/topic_correlation/dev.csv",
