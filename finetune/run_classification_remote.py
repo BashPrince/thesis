@@ -60,9 +60,10 @@ def setup_workspace(host_ip, username, code_src_path, code_target_base_path, wan
         # If a venv backup exists copy it back into the target path
         ssh_execute_command(host_ip, username, f"mv {code_target_base_path}/.venv_backup {code_target_path}/.venv", ssh_port)
     else:
-        # Use the ssh_execute_script function to install packages in a virtual environment
-        install_command = f"cd {code_target_path} && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt"
-        ssh_execute_command(host_ip, username, install_command, ssh_port)
+        ssh_execute_command(host_ip, username, f"cd {code_target_path} && python3 -m venv .venv", ssh_port)
+    # Always reinstall requirements to pick up any changes and ensure pip is up to date
+    install_command = f"cd {code_target_path} && source .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt"
+    ssh_execute_command(host_ip, username, install_command, ssh_port)
 
     # wandb login
     wandb_login_command = f'cd {code_target_path} && source .venv/bin/activate && wandb login {wandb_api_key}"'
@@ -94,5 +95,5 @@ if __name__ == "__main__":
 
     # Train on the remote server
     env_prefix = f"CUDA_VISIBLE_DEVICES={args.gpu_idx} "
-    train_command = f"cd {code_target_base_path}/finetune && python3 -m venv .venv && source .venv/bin/activate && {env_prefix}python run_classification.py {config}"
+    train_command = f"cd {code_target_base_path}/finetune && source .venv/bin/activate && {env_prefix}python run_classification.py {config}"
     ssh_execute_command(host_ip, username, train_command, ssh_port)

@@ -218,6 +218,42 @@ class SupervisedContrastiveTrainer(AdapterTrainer):
         return WeightedRandomSampler(weights, num_samples=len(weights), replacement=True)
 
 
+class MultiTaskTrainer(SupervisedContrastiveTrainer):
+    """Joint CE + SupCon trainer. loss = alpha * supcon + (1-alpha) * ce."""
+
+    def __init__(self, *args, alpha: float = 0.5, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.alpha = alpha
+
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+        labels = inputs.pop("labels")
+        outputs = model(**inputs, output_hidden_states=model.training)
+
+        # CE loss (computed manually since labels were popped)
+        ce_loss = F.cross_entropy(outputs.logits, labels)
+
+        if model.training:
+            # SupCon loss (only during training; hidden states not available at inference)
+            embeddings = self._pool(outputs.hidden_states[-1], inputs["attention_mask"])
+            r = F.normalize(embeddings, dim=-1)
+            z = model.contrastive_proj(r)
+            supcon_loss = self._supcon_loss(z, labels)
+            loss = self.alpha * supcon_loss + (1.0 - self.alpha) * ce_loss
+        else:
+            loss = ce_loss
+
+        return (loss, outputs) if return_outputs else loss
+
+    def evaluate(self, eval_dataset=None, ignore_keys=None, metric_key_prefix="eval"):
+        # Skip SupervisedContrastiveTrainer.evaluate (contrastive-only loop);
+        # use AdapterTrainer.evaluate (standard HF path with compute_metrics).
+        return super(SupervisedContrastiveTrainer, self).evaluate(
+            eval_dataset=eval_dataset,
+            ignore_keys=ignore_keys,
+            metric_key_prefix=metric_key_prefix,
+        )
+
+
 @dataclass
 class DataTrainingArguments:
     """
@@ -426,7 +462,8 @@ class MyTrainingArguments(TrainingArguments):
     )
     training_mode: str = field(
         default="classification",
-        metadata={"help": "Training mode: 'classification' (default) or 'contrastive' (supervised SupCon pre-training)."},
+        metadata={"help": "Training mode: 'classification' (default), 'contrastive' (supervised SupCon pre-training), "
+                          "or 'multi' (joint CE + SupCon multi-task learning)."},
     )
     contrastive_temperature: float = field(
         default=0.05,
@@ -451,6 +488,12 @@ class MyTrainingArguments(TrainingArguments):
     contrastive_balanced_sampling: bool = field(
         default=False,
         metadata={"help": "Use class-balanced batch sampling during contrastive pre-training (WeightedRandomSampler)."},
+    )
+    multi_alpha: float = field(
+        default=0.5,
+        metadata={"help": "SupCon loss weight in multi-task mode. "
+                          "loss = alpha * supcon + (1 - alpha) * ce. "
+                          "Only used when training_mode='multi'."},
     )
     early_stopping_patience: Optional[int] = field(
         default=None,
@@ -642,8 +685,8 @@ def main():
         else data_args.do_regression
     )
 
-    if training_args.training_mode == "contrastive" and is_regression:
-        raise ValueError("training_mode='contrastive' requires classification labels, not regression targets.")
+    if training_args.training_mode in ("contrastive", "multi") and is_regression:
+        raise ValueError("training_mode='contrastive' and 'multi' require classification labels, not regression targets.")
 
     is_multi_label = False
     if is_regression:
@@ -765,8 +808,8 @@ def main():
         for param in model.classifier.parameters():
             param.requires_grad = True
         logger.info("Loaded contrastive adapter from " + contrastive_adapter_path)
-    else:
-        # Standard classification training
+    elif training_args.training_mode in ("classification", "multi"):
+        # Standard classification training (or multi-task: always fresh adapter)
         adapter_name, lang_adapter_name = setup_adapter_training(model=model, adapter_args=adapter_args, adapter_name=data_args.task_name)
 
     if adapter_name is not None:
@@ -948,6 +991,23 @@ def main():
             balanced_sampling=training_args.contrastive_balanced_sampling,
             callbacks=callbacks if callbacks else None,
         )
+    elif training_args.training_mode == "multi":
+        trainer = MultiTaskTrainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_dataset if training_args.do_train else None,
+            eval_dataset=eval_dataset if training_args.do_eval else None,
+            compute_metrics=compute_metrics,
+            processing_class=tokenizer,
+            data_collator=data_collator,
+            temperature=training_args.contrastive_temperature,
+            pooling=training_args.contrastive_pooling,
+            proj_dim=training_args.contrastive_proj_dim,
+            proj_type=training_args.contrastive_proj_type,
+            balanced_sampling=training_args.contrastive_balanced_sampling,
+            alpha=training_args.multi_alpha,
+            callbacks=callbacks if callbacks else None,
+        )
     else:
         trainer = DynamicTrackingTrainer(
             model=model,
@@ -1026,7 +1086,7 @@ def main():
         trainer.save_metrics("test", metrics)
 
         # Report to wandb
-        if training_args.do_predict:
+        if training_args.do_predict or training_args.record_prediction_split:
             for key, value in metrics.items():
                 key = key.removeprefix("predict_")
                 wandb.log({f"test/{key}": value})
