@@ -931,9 +931,9 @@ dev_file = "../data/CT24_checkworthy_english/CT24_checkworthy_english_dev.csv"
 dev_test_file = "../data/CT24_checkworthy_english/CT24_checkworthy_english_dev-test.csv"
 test_file = "../data/CT24_checkworthy_english/CT24_checkworthy_english_test_gold.csv"
 gen_model = "openai/gpt-4o"
-num_seq = 20
+num_seq = 15
 num_source_samples = 128
-augment_sizes = sorted([2048]) # For examples
+augment_sizes = sorted([256]) # For examples
 augment_size = 314 # For correlations
 topics = ["Healthcare", "Tax", "Economy", "Employment", "Education", "Energy", "Crime", "Military", "Trade", "Reproductive rights", "Guns", "Environment"]
 num_examples_per_turn = 5
@@ -942,18 +942,18 @@ balance_source_classes = True
 balance_gen_classes = False
 
 # Upload params
-artifact_base_name = "unrestricted_wrup_2048"
-artifact_description = f"Unrestricted example augmentation (2048) with {gen_model}."
+artifact_base_name = "genetic_wrup_256"
+artifact_description = f"Genetic augmentation (256) with {gen_model}."
 
 # Train config params
 num_seeds = 3
 batch_size = 16
-train_model = "answerdotai/ModernBERT-base"
+train_model = "roberta-base"
 total_train_samples = 120000
 load_best_model = True
 
 # Enable/disable steps
-do_generate = True
+do_generate = False
 do_upload = True
 make_configs = False
 
@@ -997,13 +997,9 @@ if __name__ == "__main__":
     #     test_path="../data/CT24_checkworthy_english/topic_correlation/test.csv",
     # )
 
-    arg_providers = [ExamplePromptProvider(source_data=s, num_per_turn=num_examples_per_turn) for s in dataset_provider.get_train_datasets()]
-    # arg_providers = [ExampleTopicPromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
-
-    # arg_providers = []
-    # for data in dataset_provider.get_train_datasets():
-    #     # Create arg provider with dataset as example source and single augment topic
-    #     arg_providers.append(RephrasePromptProvider(source_data=data, num_per_turn=num_examples_per_turn))
+    #arg_providers = [ExamplePromptProvider(source_data=s, num_per_turn=num_examples_per_turn) for s in dataset_provider.get_train_datasets()]
+    #arg_providers = [ExampleTopicPromptProvider(source_data=s, num_per_turn=num_examples_per_turn, topics=topics) for s in dataset_provider.get_train_datasets()]
+    arg_providers = [RephrasePromptProvider(source_data=s, num_per_turn=num_examples_per_turn) for s in dataset_provider.get_train_datasets()]
 
     generator = SampleGenerator(model=gen_model)
     gen_strategy = ExampleGenerationPipeline(dataset_provider=dataset_provider, template_arg_providers=arg_providers, generator=generator, augment_sizes=augment_sizes, balance_classes=balance_gen_classes, results_dir=results_dir)

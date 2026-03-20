@@ -21,7 +21,7 @@ from scipy.spatial.distance import cdist
 from tqdm import tqdm
 
 # Configuration
-AUG_SIZES = [128, 256, 512, 1024]
+AUG_SIZES = [1024]
 MAX_PARENT_SELECTION = 2
 MODEL = "gpt-4o"
 
@@ -598,9 +598,9 @@ async def main():
     with open('../../secrets/openai_api_key.txt', 'r') as key_file:
         os.environ["OPENAI_API_KEY"] = key_file.read().strip()
 
-    # Discover base set files from unrestricted_wrup
-    unrestricted_dir = SCRIPT_DIR.parent / "unrestricted_wrup"
-    base_files = sorted(unrestricted_dir.glob("sequence_*/seq_*_aug_0.csv"))
+    # Discover base set files
+    unrestricted_dir = SCRIPT_DIR.parent.parent / "prompt_iteration" / "v7_output"
+    base_files = sorted(unrestricted_dir.glob("run_*/real.csv"))
     if not base_files:
         print(f"No base set files found in {unrestricted_dir}")
         return
