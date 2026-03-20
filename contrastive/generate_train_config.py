@@ -47,12 +47,19 @@ def main():
         help='WandB group name for this experiment sweep',
     )
     parser.add_argument(
-        '--name', required=True,
-        help='Base name for runs, e.g. "baseline" produces run names like "baseline_01"',
+        '--name', required=True, nargs='+',
+        help='Base name(s) for runs. A single value is used for all runs. '
+             'A list (length must match --n-runs) gives each run its own name.',
     )
     parser.add_argument(
         '--n-runs', type=int, default=8,
         help='Number of runs to generate (default: 8)',
+    )
+    parser.add_argument(
+        '--seeds', type=int, nargs='+', default=None,
+        help='Fixed init seeds, one per run (length must match --n-runs). '
+             'If omitted, seeds are sampled randomly. '
+             'When provided the seed is appended to each run name.',
     )
     parser.add_argument(
         '--epochs-contrastive', type=int, default=None,
@@ -120,6 +127,11 @@ def main():
     )
     args = parser.parse_args()
 
+    if len(args.name) > 1 and len(args.name) != args.n_runs:
+        parser.error(f'--name: got {len(args.name)} values but --n-runs is {args.n_runs}')
+    if args.seeds is not None and len(args.seeds) != args.n_runs:
+        parser.error(f'--seeds: got {len(args.seeds)} values but --n-runs is {args.n_runs}')
+
     if ':' not in args.data_artifact:
         args.data_artifact += ':latest'
 
@@ -153,7 +165,7 @@ def main():
     else:
         start_idx = 1
 
-    seeds = random.sample(range(100_000), args.n_runs)
+    seeds = args.seeds if args.seeds is not None else random.sample(range(100_000), args.n_runs)
 
     # Load templates
     with open(os.path.join(TEMPLATE_DIR, 'train.json')) as f:
@@ -172,12 +184,14 @@ def main():
     else:
         dependencies = {}
 
-    for i, seed in enumerate(seeds, start=start_idx):
+    for run_idx, (i, seed) in enumerate(zip(range(start_idx, start_idx + args.n_runs), seeds)):
         idx = f'{i:02d}'
+        base_name = args.name[run_idx] if len(args.name) > 1 else args.name[0]
+        seed_suffix = f'_seed{seed}' if args.seeds is not None else ''
 
         if args.contrastive:
-            contrastive_run_name = f'{args.name}_pretrain_{idx}'
-            classify_run_name    = f'{args.name}' # Do not append index to name of classification runs
+            contrastive_run_name = f'{base_name}_pretrain_{idx}'
+            classify_run_name    = f'{base_name}{seed_suffix}'
 
             contrastive_filename = f'pretrain_{idx}.json'
             classify_filename    = f'classify_{idx}.json'
@@ -232,7 +246,7 @@ def main():
             dependencies[classify_filename] = [contrastive_filename]
 
         elif args.multi:
-            multi_run_name = f'{args.name}'  # Do not append index to names of multi-task runs
+            multi_run_name = f'{base_name}{seed_suffix}'
             multi_filename = f'multi_{idx}.json'
 
             multi_cfg = dict(multi_template)
@@ -260,7 +274,7 @@ def main():
                 json.dump(multi_cfg, f, indent=4)
 
         else:
-            classify_run_name = f'{args.name}' # Do not append index to names of classification runs
+            classify_run_name = f'{base_name}{seed_suffix}'
             classify_filename = f'classify_{idx}.json'
 
             classify_cfg = dict(classify_only_template)
