@@ -30,7 +30,7 @@
     "overwrite_output_dir": true,
     "task_name": "checkworthy",
     "text_column_names": "Text",
-    "remove_columns": "Sentence_id,examples,example,source,context,topic,selected_count,iteration_count",
+    "remove_columns": "Sentence_id,examples,example,source,context,topic,selected_count,iteration_count,quality",
     "label_column_name": "class_label",
     "max_seq_length": 512,
     "shuffle_train_dataset": true,

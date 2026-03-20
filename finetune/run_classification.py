@@ -584,7 +584,7 @@ def main():
     artifact_dir = artifact.download()
     train_file = os.path.join(artifact_dir, "train.csv")
     validation_file = os.path.join(artifact_dir, "dev.csv")
-    test_file = os.path.join(artifact_dir, data_args.test_file if data_args.test_file else "dev-test.csv")
+    test_file = os.path.join(artifact_dir, data_args.test_file if data_args.test_file else "test.csv")
 
     # Log on each process the small summary:
     logger.warning(
