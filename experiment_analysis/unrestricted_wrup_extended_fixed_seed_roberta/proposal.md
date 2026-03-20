@@ -1,0 +1,4 @@
+- group_name: unrestricted_wrup_extended_fixed_seed_roberta
+- pattern: `seq_{i}_aug_{j}_seed{s}` where `aug_0` form the non-augmented baseline.
+- run_type: train
+- hypothesis: Synthetic augmentation of a check-worthy sentence dataset with LLM generations raises F1 on the test set.
