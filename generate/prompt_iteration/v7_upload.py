@@ -17,7 +17,7 @@ from pathlib import Path
 
 import wandb
 
-OUTPUT_DIR = Path(__file__).parent / "v7_output"
+OUTPUT_DIR = Path(__file__).parent / "v7_output_temp_1"
 DATA_DIR = Path(__file__).parent.parent.parent / "data" / "CT24_checkworthy_english"
 
 DEV_FILE      = DATA_DIR / "CT24_checkworthy_english_dev.csv"

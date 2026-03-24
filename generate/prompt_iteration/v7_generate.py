@@ -38,12 +38,12 @@ REAL_DATA_PATH = (
     Path(__file__).parent.parent.parent
     / "data" / "CT24_checkworthy_english" / "CT24_checkworthy_english_train.csv"
 )
-OUTPUT_DIR  = Path(__file__).parent / "v7_output_extend"
+OUTPUT_DIR  = Path(__file__).parent / "v7_output_temp_1"
 
 TARGET_N         = 1024   # total samples; split evenly between classes
 POOL_SIZE        = 5      # multiplier: generate POOL_SIZE × TARGET_N/2 per class
 BATCH_SIZE       = 8      # sentences per API call (all same class)
-NUM_WORKERS      = 10     # concurrent API calls
+NUM_WORKERS      = 15     # concurrent API calls
 
 FEW_SHOT_N            = 4    # real same-class examples shown per batch prompt
 
@@ -303,7 +303,6 @@ async def generate_batch(semaphore, system_prompt, user_prompt, expected_label, 
 async def generate_class_pool(n_total, few_shot_pool, label, semaphore):
     """Generate n_total candidates for a single class in one pass."""
     n_batches = max(1, -(-n_total // BATCH_SIZE))
-    rng = random.Random()
     topics = random.choices(TOPICS, k=n_batches)
 
     system = SYSTEM_YES if label == "Yes" else SYSTEM_NO
@@ -313,7 +312,7 @@ async def generate_class_pool(n_total, few_shot_pool, label, semaphore):
     pbar = tqdm(total=n_batches, desc=f"  [{label}] Generating ({n_batches} batches)")
 
     async def tracked(topic):
-        shots = rng.sample(few_shot_pool, min(FEW_SHOT_N, len(few_shot_pool)))
+        shots = random.sample(few_shot_pool, min(FEW_SHOT_N, len(few_shot_pool)))
         prompt = build_prompt(shots, topic)
         result = await generate_batch(semaphore, system, prompt, label, topic)
         pbar.update(1)
@@ -475,7 +474,11 @@ async def run_once(run_idx, run_dir, yes_texts, no_texts, backends, dry_run, sem
 
 
 # ── Main pipeline ─────────────────────────────────────────────────────────────
-async def main(dry_run=False, filter_method="tfidf", n_runs=1):
+async def main(dry_run=False, filter_method="tfidf", n_runs=1, seed=None):
+    if seed is not None:
+        print(f"Seeding RNG with {seed}")
+        random.seed(seed)
+        np.random.seed(seed)
     print("Loading real data…")
     yes_texts, no_texts = load_real_data()
     all_texts = yes_texts + no_texts
@@ -512,6 +515,10 @@ if __name__ == "__main__":
         "--runs", type=int, default=1,
         help="Number of sequential augmentation runs (default: 1)",
     )
+    parser.add_argument(
+        "--seed", type=int, default=None,
+        help="Random seed for reproducibility (default: None, fully random)",
+    )
     args = parser.parse_args()
 
     loop = asyncio.new_event_loop()
@@ -521,6 +528,7 @@ if __name__ == "__main__":
             dry_run=args.dry_run,
             filter_method=args.filter_method,
             n_runs=args.runs,
+            seed=args.seed,
         ))
     finally:
         pending = asyncio.all_tasks(loop)
