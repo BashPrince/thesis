@@ -1,0 +1,7 @@
+We augment 512 real data samples for a check-worthy sentence classification task with 4096 synthetic LLM generated sentences. 5 real datasets were sampled and augmented. This is an extension of a previous experiment that determined the best of many different augmentation methods (see v7_poolfilter_extend_analysis.md). Here we want to explore if the F1 performance increase we observed with a smaller dataset (128 real + 1024 synthetic) is still present when both splits are extended by the same 4x factor.
+- group_name: v7_poolfilter_large
+- pattern: `seq_{i}_aug_{a}_seed{s}` where `a` is a string denoting the augmentation method of which there exist the following:
+  - "none": The real data baseline without augmentation serving as comparison reference for the augmented datasets.
+  - "embed-multi": A large pool of synthetic samples is filtered with a embedding based filter that keeps synthetic samples close to the real samples while also maximizing diversity amongst synthetic samples. This method showed the highest F1 gain in an initial exploratory experiment. Uses a multi-task training approach on the with a supervised contrastive loss in addition to the default classification loss. This is the best method from a previous confirmatory experiment.
+- run_type: train
+- Hypothesis: Test set F1 results of the model trained on the augmented dataset set are improved over the baseline.
