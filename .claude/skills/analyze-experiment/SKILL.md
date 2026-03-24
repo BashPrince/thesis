@@ -8,7 +8,7 @@ disable-model-invocation: true
 We are working on a sentence classification task with a simulated low data scenario. We are investigating the effect of synthetic data augmentation methods on test set F1 performance. Our model is a BERT variant finetuned with adapters. Unless otherwise specified an experiment consists of a number of sequences of small non-overlapping base sets sampled from a bigger data source each of which is augmented with synthetic data in one or multiple augmentation steps.
 
 ## Goal
-Given an experiment proposal, fetch all WandB runs in the corresponding group, run analysis/analyze_experiment_metrics.py, perform additional analysis described in the proposal or as you see fit, and write a structured report. The script itself serves as a good illustration of the setup and naming of runs within an experiment group.
+Given an experiment proposal, fetch all WandB runs in the corresponding group, run analysis/analyze_experiment_metrics.py and analysis/analyze_predictions.py, perform additional analysis described in the proposal or as you see fit, and write a structured report. The scripts themselves serves as a good illustration of the setup and naming of runs within an experiment group.
 
 Runs result from running finetune/run_classification.py on a remote machine.
 
@@ -22,7 +22,7 @@ The most important metric of interest is test/f1 which evaluates a trained model
 - Read the proposal file. It should contain:
 - `group_name` name of the wandb group of the experiment
 - `pattern` exptected run naming pattern and which runs form the baseline
-- `run_type` stating if this is a train run or an eval run against an additional test set
+- `run_type` stating if this is a train run or an eval run against an additional test set (in this case various train metrics will not be present)
 - `hypotheses`
 
 ### 2. Perform default analysis
@@ -38,8 +38,24 @@ Options:
   --baseline-aug    Aug level used as comparison baseline (default: 0)
 ```
 
+Also run `analysis/analyze_predictions.py`. This produces threshold-free AP, oracle optimal-threshold F1, fixed-threshold rankings, and class-balance sensitivity analysis from recorded logits on the test set.
+
+```
+python analysis/analyze_predictions.py <group> --baseline-aug <baseline> [options]
+
+Options:
+  --entity          WandB entity (default: redstag)
+  --project         WandB project (default: thesis)
+  --baseline-aug    Aug level used as comparison baseline (default: none)
+  --artifact-split  Prediction artifact prefix, e.g. "test" -> "test_predictions" (default: test)
+  --cache-dir       Local directory for cached artifacts (default: ~/.cache/thesis_preds)
+  --thresholds      Fixed thresholds to evaluate (default: 0.1 0.2 0.3 0.4 0.5)
+  --positive-rates  Target positive rates for class-balance sensitivity (default: 0.13 0.25 0.50)
+  --workers         Parallel download threads (default: 16)
+```
+
 ### 3. Download and inspect metrics
-**This should only be performed when the experiment is the one that trained the models. Some groups are the result of evaluating against a different test set so they will not contain meaningful train or eval metricsc.**
+**This should only be performed when run_type is train otherwise training metrics are not available.**
 
 Inspect column names before assuming metric names — they vary by run type:
 
@@ -60,8 +76,8 @@ print("Columns:", hist.columns.tolist())
 
 Then download history for a suitable small representative subset of runs and look for any noteworthy patterns.
 
-### 4. Perform the analysis described in the proposal
-If the proposal lists any analysis perform it.
+### 4. Perform additional analysis described in the proposal
+If the proposal lists any additional suggestions for analysis or questions to investigate, do so.
 
 ### 5. Perform additional analysis (optional)
 You can investigate anything you find worthy of being investigated.
