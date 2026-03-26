@@ -3,85 +3,75 @@
 
 ## Results summary
 
-All 45 runs completed successfully (15 per temperature condition, 5 sequences × 3 seeds each).
+**Hypothesis**: LLM generation temperature affects downstream classification F1.
+**Verdict**: Not supported. Temperature had no statistically significant effect on test/f1 (RM-ANOVA p=0.261).
 
-**Per-temperature mean F1 (macro, test set):**
+| Condition | Mean test/f1 | Std | Mean AP | Mean epochs |
+|-----------|-------------|-----|---------|-------------|
+| temp=0.5  | 0.6602 | 0.028 | 0.7196 | 37.3 |
+| temp=1.0 (baseline) | 0.6746 | 0.037 | 0.7316 | 52.8 |
+| temp=1.25 | 0.6750 | 0.031 | 0.7476 | 50.8 |
 
-| Temperature | Mean F1 | Std F1 | Min F1 | Max F1 |
-|-------------|---------|--------|--------|--------|
-| 0.5         | 0.6602  | 0.0280 | 0.6069 | 0.7179 |
-| 1.0 (baseline) | 0.6746 | 0.0371 | 0.6014 | 0.7205 |
-| 1.25        | 0.6750  | 0.0314 | 0.6122 | 0.7285 |
+All differences are within one standard deviation. The best-performing condition per sequence is split 3/5 for temp=1.25 and 2/5 for temp=1.0; temp=0.5 never wins.
 
-Temperature 1.0 and 1.25 are nearly identical in mean F1 (difference: 0.0004). Temperature 0.5 is lower by 0.0144 relative to the baseline.
+## Metric / training analysis
 
-**Per-sequence mean F1:**
+### F1 (fixed-threshold)
 
-| Seq | temp=0.5 | temp=1.0 | temp=1.25 |
+The per-sequence F1 table shows no consistent ranking across sequences:
+
+| seq | temp=0.5 | temp=1.0 | temp=1.25 |
 |-----|----------|----------|-----------|
-| 0   | 0.6727   | 0.6818   | 0.6849    |
-| 1   | 0.6481   | 0.6951   | 0.6747    |
-| 2   | 0.6227   | 0.6217   | 0.6248    |
-| 3   | 0.6954   | 0.7182   | 0.6944    |
-| 4   | 0.6622   | 0.6563   | 0.6962    |
+| 0   | 0.6727   | 0.6818   | **0.6849** |
+| 1   | 0.6481   | **0.6951** | 0.6747 |
+| 2   | 0.6227   | 0.6217   | **0.6248** |
+| 3   | 0.6954   | **0.7182** | 0.6944 |
+| 4   | 0.6622   | 0.6563   | **0.6962** |
 
-The pattern is not consistent across sequences. For seq=1 and seq=3, temp=1.0 scores highest. For seq=4, temp=1.25 scores highest by a notable margin (0.040 over baseline). For seq=2, all three temperatures perform nearly identically. Temperature 0.5 wins on no sequence.
+RM-ANOVA yields F=1.596, p=0.261 (η²=0.056). Post-hoc Holm-corrected pairwise tests against temp=1.0: temp=1.25 p=0.286 (g=−0.47), temp=0.5 is not significantly different either. Seed variance is comparable across conditions (mean std ≈ 0.016–0.020).
 
-## Metric and training analysis
+### Average Precision (threshold-free)
 
-**Statistical tests (paired t-test, paired by sequence, n=5):**
+AP shows a small directional advantage for temp=1.25 (AP=0.7476 vs 0.7316 for temp=1.0), though the paired t-test is not significant (p=0.215, 4/5 sequences win). The only nominally significant finding is that **temp=0.5 has lower AP than temp=1.0** (p=0.046, mean diff=−0.012, 0/5 sequences win), suggesting reduced generation diversity at lower temperature slightly degrades the model's discriminative ability before thresholding.
 
-| Comparison | Mean diff | t | p |
-|------------|-----------|---|---|
-| temp=0.5 vs temp=1.0 | −0.0144 | −1.514 | 0.205 |
-| temp=1.25 vs temp=1.0 | +0.0004 | 0.033 | 0.975 |
-| temp=0.5 vs temp=1.25 | −0.0148 | −2.174 | 0.095 |
+This AP advantage for temp=1.25 is consistent across class-balance conditions:
 
-No comparison reaches p < 0.05. The difference between temp=0.5 and temp=1.25 approaches marginal significance (p=0.095) but does not cross the threshold with n=5 sequences.
+| Condition | temp=0.5 | temp=1.0 | temp=1.25 |
+|-----------|----------|----------|-----------|
+| AP orig (30.5%) | 0.7196 | 0.7316 | **0.7476** |
+| AP 13% pos rate | 0.5119 | 0.5311 | **0.5686** |
+| AP 25% pos rate | 0.6855 | 0.6850 | **0.7054** |
+| AP 50% pos rate | 0.8421 | 0.8554 | **0.8585** |
 
-**Win rate vs baseline (temp=1.0):**
-- temp=0.5: 2 wins, 3 losses (40%)
-- temp=1.25: 3 wins, 2 losses (60%)
+temp=1.25 ranks first in AP at all positive rates, which is notable even if individual comparisons lack power.
 
-**Contrastive training dynamics:**
+### Training dynamics
 
-| Temperature | Mean final cosim_gap | Mean max cosim_gap | Mean final cosim_neg | Mean training steps |
-|-------------|---------------------|-------------------|---------------------|---------------------|
-| 0.5         | 0.688               | 0.713             | 0.305               | 2680                |
-| 1.0         | 0.741               | 0.771             | 0.255               | 3783                |
-| 1.25        | 0.696               | 0.734             | 0.294               | 3644                |
+A clear difference appears in training duration:
+- **temp=0.5**: 37.3 ± 10.2 epochs to convergence
+- **temp=1.0**: 52.8 ± 17.0 epochs
+- **temp=1.25**: 50.8 ± 19.6 epochs
 
-Temperature 1.0 achieves the highest cosim_gap and the lowest cosim_neg, and runs the most training steps before early stopping. Temperature 0.5 trains the fewest steps and yields a smaller separation between positive and negative pairs.
+The earlier convergence for temp=0.5 likely reflects reduced diversity in the synthetic data (fewer distinct phrasings per class), making the decision boundary easier to fit but potentially less informative. This is consistent with the lower AP result. Final training losses are nearly identical across conditions (≈0.393–0.395), indicating all conditions converge to the same loss basin.
 
-Cosim_gap shows essentially no correlation with downstream test F1 (r=0.007 for final gap, r=0.058 for max gap), consistent with the known two-stage mismatch noted in the project.
-
-**Seed variance:**
-
-Mean within-condition seed std (averaged over sequences):
-- temp=0.5: 0.0162
-- temp=1.0: 0.0186
-- temp=1.25: 0.0195
-
-Seed variance is slightly higher at temp=1.25, but the differences are small relative to the between-sequence variance (which dominates).
+Eval F1 at best checkpoint is slightly higher for temp=1.25 (0.844) and temp=1.0 (0.833) vs temp=0.5 (0.824), consistent with the test AP trend.
 
 ## Hypothesis evaluation
 
-**Hypothesis: F1 performance on the test set is affected by temperature.**
+**Hypothesis**: F1 performance on the test set is affected by temperature.
 
-The data do not support this hypothesis at a statistically significant level. No pairwise comparison between temperatures reaches p < 0.05. The largest observed difference is between temp=0.5 and the baseline (−0.0144 mean F1), but this fails to reach significance with n=5 sequences (p=0.205). Temp=1.25 is effectively identical to temp=1.0 in terms of mean F1 (+0.0004, p=0.975).
+**Verdict**: Not supported. The primary metric (test/f1 at fixed threshold) shows no statistically significant temperature effect. However, the threshold-free AP metric provides a secondary signal: temp=0.5 is nominally significantly worse than temp=1.0 (p=0.046), and temp=1.25 shows a consistent but non-significant AP advantage across all resampled positive rates. The null result on F1 may partly reflect low statistical power (n=5 sequences per condition) combined with noisy threshold optimization.
 
-The magnitude of the temperature effect, where present at all, is smaller than the between-sequence variance (which ranges from approximately 0.01 to 0.05 within a given temperature condition). The direction of the effect is not consistent across sequences.
+The pattern — if taken directionally — is that **lower temperature hurts (less diverse data, faster convergence, lower AP) while higher temperature (1.25) does not hurt and may marginally help**. This is somewhat counter-intuitive relative to concerns about hallucination quality degrading at very high temperatures, but suggests that at moderate increases (1.0 → 1.25) the gain in lexical diversity outweighs any quality loss.
 
-## Conclusion and recommended next steps
+## Conclusion / recommended next steps
 
-**Conclusion:** Generation temperature in the range 0.5–1.25 does not meaningfully affect downstream classifier F1. The baseline temperature of 1.0 performs as well as or better than the alternatives on most sequences, and temp=1.25 produces essentially the same result as temp=1.0 overall. Temperature 0.5 shows a small, marginally non-significant decrease in performance.
+The experiment provides a null result: temperature in the range 0.5–1.25 does not produce a detectable difference in classification F1 under these conditions. The only robust finding is that **temp=0.5 is directionally harmful** (lower AP, faster/shallower convergence), suggesting that sufficient diversity in synthetic data matters.
 
-This experiment does not identify temperature as a useful lever for improving augmentation quality in this setup.
+For thesis reporting, this is a useful robustness finding: the pipeline is not sensitive to temperature within the tested range (1.0–1.25), but should avoid sub-1.0 temperatures that reduce output diversity. The directional advantage of temp=1.25 on AP (consistent across all resampling conditions) is worth noting as a secondary finding.
 
-**Recommended next steps:**
-
-1. **Do not pursue temperature tuning further.** The effect size is too small and inconsistent to justify additional experimentation along this axis. Retain temperature=1.0 as the generation setting.
-
-2. **Investigate the between-sequence variance.** Seq=2 consistently underperforms all other sequences across all temperatures (mean F1 ~0.62 vs. ~0.67–0.72 elsewhere). Understanding what makes seq=2 harder may be more informative than tuning generation hyperparameters.
-
-3. **Address the cosim_gap / F1 mismatch.** Contrastive training metrics (cosim_gap, cosim_pos, cosim_neg) show no correlation with downstream F1. Future experiments should consider whether the contrastive pre-training stage is contributing any useful signal, or whether the classification stage is operating independently of the adapter initialization.
+**Recommendations:**
+- For future augmentation runs, use temp=1.0 or 1.25 — avoid temperatures below 1.0.
+- If testing higher temperatures (1.5, 2.0) is feasible, this could complete the picture and potentially reveal the upper bound where quality degradation begins to dominate.
+- Increasing from n=5 to n=10 sequences would roughly double statistical power and make the AP difference testable (~0.016 mean diff vs 0.027 std).
+- The AP advantage for temp=1.25 at low positive rates (13%) is the largest signal (0.537 vs 0.569); if real this would matter most for deployment at imbalanced priors.

@@ -3,111 +3,120 @@
 
 ## Results summary
 
-105 runs, all finished. 7 augmentation conditions × 5 sequences × 3 seeds each. All combos complete.
+105 runs, all finished, 7 augmentation conditions × 5 sequences × 3 seeds. No missing data.
 
-| aug | mean F1 | std F1 | Δ vs none | p-value | win rate |
-|---|---|---|---|---|---|
-| **none** | **0.6154** | 0.0274 | — | — | — |
-| real | **0.7148** | 0.0135 | +0.099 | 0.0005 ** | 5/5 |
-| embed | 0.6458 | 0.0209 | +0.030 | 0.112 | 4/5 |
-| unfiltered | 0.6362 | 0.0352 | +0.021 | 0.330 | 4/5 |
-| tfidf | 0.6359 | 0.0254 | +0.021 | 0.345 | 3/5 |
-| free | 0.6164 | 0.0245 | +0.001 | 0.953 | 3/5 |
-| genetic | 0.5750 | 0.0246 | −0.040 | 0.015 * | 0/5 |
+| Method | Mean F1 | Δ vs none | p (paired t) | Win rate |
+|---|---|---|---|---|
+| **real** | **0.7148** | **+0.099** | **0.0005** | 5/5 |
+| embed | 0.6458 | +0.030 | 0.112 | 4/5 |
+| unfiltered | 0.6362 | +0.021 | 0.330 | 4/5 |
+| tfidf | 0.6359 | +0.021 | 0.345 | 3/5 |
+| free | 0.6164 | +0.001 | 0.953 | 3/5 |
+| **none (baseline)** | **0.6154** | — | — | — |
+| **genetic** | **0.5750** | **−0.040** | **0.015** | 0/5 |
 
-Statistical significance: paired t-test across 5 sequences (n=5). Only `real` significantly improves; `genetic` significantly hurts; all other synthetic methods are within noise.
+The RM-ANOVA confirms a significant overall effect of augmentation method (F=23.5, p<0.001, η²_g=0.83).
 
-### Per-sequence mean F1
+**Conclusion:** No synthetic augmentation method reaches statistical significance (p<0.05) on mean test F1. `embed` and the two unfiltered variants show modest non-significant gains. `genetic` is the only method that significantly *hurts* performance. The `real` condition — the only non-synthetic one — confirms that +10 F1 points are attainable with equivalent real-data volume.
 
-| seq | embed | free | genetic | none | real | tfidf | unfiltered |
-|---|---|---|---|---|---|---|---|
-| 0 | 0.646 | 0.604 | 0.587 | 0.637 | 0.728 | 0.615 | 0.595 |
-| 1 | 0.635 | 0.605 | 0.562 | 0.577 | 0.712 | 0.638 | 0.648 |
-| 2 | 0.672 | 0.640 | 0.555 | 0.605 | 0.698 | 0.656 | 0.637 |
-| 3 | 0.635 | 0.615 | 0.584 | 0.604 | 0.703 | 0.645 | 0.639 |
-| 4 | 0.642 | 0.619 | 0.588 | 0.655 | 0.733 | 0.625 | 0.662 |
-
-`real` is the best method on all 5 sequences. `embed` is second-best on 4/5 sequences. `genetic` is the worst on all 5.
+---
 
 ## Metric / training analysis
 
-### Precision-recall balance
+### Training dynamics
 
-All synthetic methods show a qualitatively different precision-recall profile than the `real` baseline:
-
-| aug | mean precision | mean recall | recall − precision |
+| Method | Mean final epoch | Mean peak eval F1 | Mean final eval loss |
 |---|---|---|---|
-| real | 0.708 | 0.724 | +0.017 |
-| none | 0.590 | 0.647 | +0.057 |
-| embed | 0.656 | 0.639 | −0.018 |
-| tfidf | 0.645 | 0.630 | −0.015 |
-| unfiltered | 0.655 | 0.622 | −0.033 |
-| free | 0.601 | 0.635 | +0.034 |
-| genetic | 0.559 | 0.598 | +0.039 |
+| none | 420.3 | 0.824 | 0.948 |
+| real | 46.4 | 0.911 | 0.328 |
+| embed | 47.1 | 0.867 | 0.668 |
+| tfidf | 47.7 | 0.865 | 0.669 |
+| unfiltered | 51.4 | 0.873 | 0.627 |
+| free | 43.2 | 0.833 | 0.846 |
+| genetic | 57.7 | 0.783 | 1.056 |
 
-The no-augmentation baseline (`none`) has a recall bias — the model is over-predicting checkworthy. Pool-filter methods (embed, tfidf) and unfiltered generation shift this toward precision-bias, suggesting their synthetic samples help constrain false positives. The `genetic` and `free` methods increase recall-bias, indicating their synthetic data may contain labelling noise or be otherwise easier to overfit.
+The `none` baseline runs ~420 epochs (early stopping on a much smaller training set), while all augmented conditions converge around 43–57 epochs. Despite the larger epoch count, `none` achieves a lower peak eval F1 (0.824) than all augmented methods except `genetic` (0.783). The gap between val F1 and test F1 is largest for `none` (0.824 → 0.615), pointing to significant overfitting or distribution mismatch on the small real-only training set.
 
-### Convergence
+The `genetic` method stands out: it has the worst eval F1 (0.783), the highest eval loss (1.056), and takes the longest to converge. Its poor test performance is consistent with training failure, not just test-time generalisation issues.
 
-From a single representative run per aug condition:
+The `free` method also shows a wider eval-to-test gap: peak eval F1 = 0.833 but test F1 = 0.616, nearly identical to the unaugmented baseline. Its training loss is also elevated relative to `embed`/`tfidf`/`unfiltered`, suggesting the unfiltered free-form synthetic sentences contain significant noise.
 
-| aug | best eval F1 | epoch at peak |
-|---|---|---|
-| real | 0.898 | ~26 |
-| embed | 0.861 | ~17 |
-| tfidf | 0.858 | ~17 |
-| unfiltered | 0.864 | ~34 |
-| none | 0.783 | ~232 |
-| free | 0.796 | ~34 |
-| genetic | 0.756 | ~34 |
+### Threshold calibration
 
-The baseline (none) converges much later (~232 epochs), reflecting the smaller effective training set. All augmented methods converge earlier due to the larger training set. The pool-filter methods (embed/tfidf) converge the fastest and at the highest eval F1 of the synthetic conditions, consistent with their test F1 advantage.
+Mean optimal decision threshold differs considerably across methods:
 
-### Seed variance
-
-| aug | mean std(F1) across seeds |
+| Method | Mean opt. threshold |
 |---|---|
-| none | 0.014 |
-| embed | 0.016 |
-| real | 0.019 |
-| free | 0.020 |
-| tfidf | 0.023 |
-| genetic | 0.022 |
-| unfiltered | 0.029 |
+| none | 0.42 |
+| real | 0.37 |
+| free | 0.33 |
+| genetic | 0.20 |
+| embed | 0.21 |
+| tfidf | 0.19 |
+| unfiltered | 0.17 |
 
-Seed variance is low and broadly similar across conditions. `unfiltered` is the noisiest, suggesting its gains are less reliable. `embed` is the most stable of the augmentation methods.
+Augmented models (especially pool-filtered and genetic) predict high positive-class probability less often, requiring a low threshold to recover recall. This suggests synthetic sentences shift the model's score distribution downward, possibly because synthetic data is less prototypically check-worthy than the real held-out test set. The fixed-threshold results (thr=0.1–0.5) show that `embed` is robust to threshold choice and consistently ranks second after `real` across all thresholds.
+
+### Seed and sequence variance
+
+Within-seed variance is comparable across methods (mean std ≈ 0.013–0.024). `unfiltered` has the highest seed variance (0.024), and `none` has the highest cross-sequence variance (std=0.027), reflecting the instability of learning from only 128 real samples. Filtering methods (embed, tfidf) reduce seed variance slightly relative to unfiltered and free.
+
+### AP and threshold-free analysis
+
+Average Precision (AUC-PR) rankings mirror F1:
+
+| Method | Mean AP | Δ vs none | p |
+|---|---|---|---|
+| real | 0.792 | +0.106 | <0.001 |
+| unfiltered | 0.701 | +0.014 | 0.382 |
+| tfidf | 0.699 | +0.013 | 0.246 |
+| embed | 0.697 | +0.011 | 0.271 |
+| free | 0.690 | +0.003 | 0.829 |
+| **none** | **0.686** | — | — |
+| genetic | 0.625 | −0.062 | 0.005 |
+
+In the threshold-free AP metric, `unfiltered` slightly outperforms both `embed` and `tfidf`, reversing the F1 ordering. This is a small difference (within noise), but it suggests the pool-filtering step does not improve the model's ranking ability.
+
+---
 
 ## Hypothesis evaluation
 
-**Hypothesis: each synthetic augmentation method improves F1 over baseline.**
+**H (embed, tfidf): Pool-filtering improves F1 over baseline.**
 
-| method | result |
-|---|---|
-| free | **Not confirmed.** Negligible gain (+0.001, p=0.95). Free generation adds no signal. |
-| tfidf | **Not confirmed (trend only).** +2.1pp, p=0.35; positive but noisy across sequences. |
-| embed | **Not confirmed (trend only).** +3.0pp, p=0.11; the strongest synthetic result but still below significance. |
-| genetic | **Rejected — harmful.** −4.0pp, p=0.015. Significantly hurts performance on all sequences. |
+*Partially rejected.* Both methods show positive trends (+0.020–0.030 F1), with `embed` winning 4/5 sequences, but neither reaches significance at p<0.05 after a paired t-test on 5 sequences. Critically, **unfiltered augmentation achieves essentially the same result** (tfidf vs unfiltered p=0.98, embed vs unfiltered p=0.54). The pool-filtering step provides no detectable additional benefit over simply using all generated synthetic data.
 
-The only condition that significantly improves F1 is `real` (+9.9pp, p=0.0005), confirming that genuine additional data from the same distribution is far more valuable than any synthetic strategy tested.
+**H (free): Simple unguided generation improves F1 over baseline.**
 
-### Why does genetic fail?
+*Rejected.* Mean improvement is +0.001 F1 (essentially zero), p=0.95. Free generation produces data that adds noise without benefit.
 
-`genetic` has the lowest precision (0.559) and a recall-bias consistent with the model over-predicting the checkworthy class. The genetic algorithm likely generates adversarial-style sentences optimised for model scores rather than natural distribution coverage, introducing harmful noise. This is also reflected in its high seed variance and poor convergence at eval F1 (0.756, lowest of all methods).
+**H (genetic): Genetic algorithm augmentation improves F1 over baseline.**
 
-### Why is the filtering advantage not significant?
+*Strongly rejected.* Genetic augmentation significantly *reduces* F1 by −0.040 (p=0.015), losing on all 5 sequences. Its elevated eval loss (1.056 vs ≤0.847 for other methods) indicates training instability, likely because the generated sentences are optimised for a proxy objective that does not align with the real test distribution.
 
-`embed` and `tfidf` show positive trends (win rates: 80% and 60%), but the variance across sequences is high relative to the effect size. With n=5 sequences the test is underpowered. The filtering principle is supported by the data — both methods outperform `unfiltered` on mean F1 (0.646/0.636 vs 0.636) — but the difference between filtered and unfiltered is itself minimal, suggesting the pool composition matters more than the filtering strategy.
+**H (real): Real data augmentation improves F1 over baseline.**
 
-## Conclusion / recommended next steps
+*Confirmed.* +0.099 F1 (p=0.0005), 5/5 sequences. This sets the practical ceiling for what any synthetic method could achieve with equivalent volume.
 
-1. **Synthetic augmentation offers at best a modest, unreliable benefit.** At 1024 samples the best synthetic strategy (embedding-based pool filter) gains ~3pp over no augmentation, but this is not statistically significant at n=5 sequences.
+---
 
-2. **Genetic algorithm augmentation is actively harmful** and should not be used in downstream experiments. The generated data likely shifts the label distribution or introduces out-of-distribution noise.
+## Conclusions and recommended next steps
 
-3. **Pool-filtering direction is worth preserving.** The embed filter is the most consistent synthetic method (80% win rate, lowest seed std among augmented conditions). If augmentation is to be explored further, this approach provides the best signal-to-noise ratio.
+### Main takeaways
 
-4. **The gap between `real` and all synthetic methods is large (~7pp).** This sets a clear ceiling on what data augmentation alone can achieve and motivates the contrastive pre-training strategy as a complementary approach that operates on the representation level rather than the data level.
+1. **Synthetic augmentation does not reliably improve checkworthiness classification.** Three methods show positive trends but none reaches significance with n=5 sequences. The effect size for pool-filtered methods (~0.020–0.030 F1) is smaller than the between-sequence variance (~0.027 for `none`).
 
-5. **Recommended next step:** Pair the embed-filtered augmentation with contrastive pretraining to test whether the representation-level signal and data-level signal are complementary. Alternatively, investigate whether increasing the pool size (currently 1024 pre-filter) improves filtering quality, which may narrow the gap.
+2. **Pool-filtering adds no value over unfiltered generation.** `embed`, `tfidf`, and `unfiltered` are statistically indistinguishable. The filtering step (which is computationally expensive) does not improve either F1 or AP. This is a negative result worth documenting — it suggests the quality signal captured by tf-idf or embedding similarity to real data is not predictive of downstream usefulness.
 
-6. **More sequences (or seeds) needed for power.** With n=5 sequences the t-test has very limited power (~30% at a 3pp effect size). Running 8–10 sequences would allow more reliable conclusions about the pool-filter methods.
+3. **Genetic augmentation is actively harmful.** This is consistent with the approach optimising for a surrogate fitness function misaligned with the classification objective. The high eval loss suggests the generated sentences may be adversarially difficult or distributional outliers.
+
+4. **The real-data gap is large (+10 F1 points).** This suggests the task is bottlenecked by label quality and distribution coverage, not volume per se. Synthetic data cannot replicate the distributional properties that make real check-worthy sentences identifiable.
+
+5. **Score distribution shifts across augmentation methods** (optimal thresholds 0.17–0.42) suggest that model calibration varies substantially. This could be exploited with calibration post-processing if threshold-free AP is the target metric.
+
+### Recommended next steps
+
+- **Do not pursue pool-filtering as a direction.** Results are negative and the computational cost is not justified.
+- **Investigate why genetic augmentation hurts.** Logging generated sentence quality metrics (perplexity, semantic similarity to real data) would help diagnose whether the issue is distribution mismatch or training instability.
+- **Focus on data quality rather than quantity.** The `free` baseline and `unfiltered` both use the same volume of synthetic data, yet `free` performs far worse — suggesting prompt design and generation quality matter more than filtering strategy. Future work should compare augmentation quality directly (e.g., human evaluation, off-the-shelf classifiers as filters).
+- **Consider the `real` condition as a practical baseline.** If even 1024 pooled real-world sentences are available (across datasets), that dominates all synthetic alternatives.
+- **Investigate threshold calibration.** The large threshold shifts (0.17 for unfiltered vs 0.42 for none) suggests that temperature scaling or Platt scaling could recover some performance at deployment thresholds.

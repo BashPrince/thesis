@@ -3,98 +3,100 @@
 
 ## Results summary
 
-All 180 runs finished successfully. 15 dataset sequences × 4 augmentation methods × 3 seeds = 180 runs. Every combo has exactly 3 seeds (complete).
+180 runs (15 sequences × 4 augmentation methods × 3 seeds), all finished with `test/f1` recorded.
 
-**Mean test F1 by method (across all 15 sequences, 3 seeds each):**
+| Method | Mean F1 | Δ vs none | p (t-test) | Win rate |
+|---|---|---|---|---|
+| none | 0.6296 | — | — | — |
+| unfiltered | 0.6364 | +0.0069 | 0.369 | 67% |
+| embed | 0.6512 | +0.0216 | **0.011** | 67% |
+| embed-multi | 0.6592 | +0.0296 | **0.004** | 87% |
 
-| Method       | Mean F1 | Std F1 | Mean diff vs none | Paired t (n=15) | p-value  |
-|--------------|---------|--------|-------------------|-----------------|----------|
-| none         | 0.6296  | 0.0484 | —                 | —               | —        |
-| embed        | 0.6512  | 0.0310 | +0.0216           | t=2.923         | p=0.0111 |
-| extend-multi | 0.6592  | 0.0362 | +0.0296           | t=3.396         | p=0.0043 |
-| unfiltered   | 0.6364  | 0.0355 | +0.0069           | t=0.928         | p=0.3694 |
+RM-ANOVA confirms a significant aug effect (F=6.84, p=0.00074, η²=0.114). **embed** and **embed-multi** both significantly outperform baseline. **unfiltered** does not (p=0.37).
 
-Paired t-tests treat each of the 15 sequences as a paired observation (comparing per-sequence mean F1 of the method against the per-sequence mean F1 of `none`).
+The unfiltered result is a clean control: adding 1024 random synthetic samples provides no reliable benefit, confirming that the filtering procedure — not simply the data volume — drives the performance improvement seen in `embed`.
 
-**Significant improvements (p < 0.05):** `embed` and `extend-multi`. `unfiltered` is not significant.
+---
 
-**Win rate (sequences where method beats baseline):**
+## Metric / training analysis
 
-| Method       | Wins | Ties | Losses | Win rate |
-|--------------|------|------|--------|----------|
-| embed        | 10   | 0    | 5      | 67%      |
-| extend-multi | 13   | 0    | 2      | 87%      |
-| unfiltered   | 10   | 0    | 5      | 67%      |
+### Precision–Recall shift
 
-`extend-multi` wins on 13/15 sequences. The two sequences where it falls short are seq_2 (−0.044) and seq_8 (−0.014), both sequences with higher-than-average baselines (0.684 and 0.675 respectively). `embed` loses on 5 sequences; all 5 losses are small in magnitude (largest: −0.021 on seq_11).
+| Method | Precision | Recall | P−R delta |
+|---|---|---|---|
+| none | 0.606 | 0.660 | −0.054 |
+| unfiltered | 0.649 | 0.628 | +0.022 |
+| embed | 0.645 | 0.661 | −0.016 |
+| embed-multi | 0.686 | 0.640 | +0.046 |
 
-**Best augmentation method per sequence:**
+The baseline is recall-heavy. `embed` roughly preserves this balance. `embed-multi` shifts substantially toward precision (+0.046 delta), consistent with its contrastive objective encouraging tighter, higher-confidence class clusters. This raises F1 overall but changes the operating point.
 
-| Best method  | Count (of 15 seqs) |
-|--------------|--------------------|
-| extend-multi | 9                  |
-| embed        | 3                  |
-| unfiltered   | 2                  |
-| none         | 1                  |
+### Optimal threshold shift
 
-## Metric/training analysis
+`embed-multi` uses a significantly lower optimal decision threshold (mean 0.243 vs 0.377 for none, p=0.047), indicating the model emits higher raw probabilities for checkworthy samples. Practically, if a downstream system relies on a fixed 0.5 threshold, `embed-multi` gains the most; if the threshold is calibrated, the advantage narrows. At the fixed thresholds evaluated (0.1–0.5), the ranking is stable: embed-multi > embed > unfiltered > none.
 
-### Precision vs recall shift
+### Class-balance sensitivity
 
-Augmentation methods shift the precision-recall trade-off relative to the no-augmentation baseline:
+At the original test positive rate (~26%), embed-multi leads. At a low positive rate (13%), `embed` overtakes embed-multi and none:
 
-| Method       | Mean precision | Mean recall | P − R  |
-|--------------|---------------|-------------|--------|
-| none         | 0.6061        | 0.6598      | −0.054 |
-| embed        | 0.6450        | 0.6614      | −0.016 |
-| extend-multi | 0.6855        | 0.6396      | +0.046 |
-| unfiltered   | 0.6492        | 0.6275      | +0.022 |
+| Method | orig (26%) AP | 13% AP | 25% AP | 50% AP |
+|---|---|---|---|---|
+| embed | 0.711 | **0.566** | **0.704** | **0.859** |
+| embed-multi | **0.729** | 0.534 | 0.692 | 0.839 |
+| none | 0.693 | 0.538 | 0.684 | 0.847 |
+| unfiltered | 0.696 | 0.537 | 0.688 | 0.852 |
 
-The baseline (`none`) and `embed` are recall-biased. `extend-multi` inverts this to precision-biased (+0.046 gap), with a substantial precision increase (+0.079 vs none) at a small recall cost (−0.020 vs none). The net result is still a positive F1 gain. `unfiltered` also shifts toward precision but less dramatically. This suggests the augmented data (especially with contrastive loss) may be pulling the model toward a higher-confidence decision boundary.
+embed-multi's precision bias becomes a liability in minority-class scenarios. `embed` is the more robust choice across class distributions.
 
-The precision-bias in `extend-multi` warrants noting: on individual high-recall-baseline sequences (e.g., seq_2, seq_8), switching to `extend-multi` reduces recall enough to lower F1 below the baseline despite substantially higher precision.
+### Training convergence
 
-### extend-multi training dynamics
+| Method | Mean epochs |
+|---|---|
+| none | 387.9 |
+| embed | 44.5 |
+| embed-multi | 42.9 |
+| unfiltered | 47.2 |
 
-The `extend-multi` method adds a supervised contrastive loss (SupCon) to the standard classification loss. Key observations from training histories:
+Augmentation dramatically shortens training (~9× fewer epochs). The `none` runs converge much more slowly on 128 real samples, with high seed variance in epochs (std=143). Augmented runs show tighter convergence.
 
-- **Epochs to convergence:** early-stopped by eval F1 on the validation set, runs trained for 20–75 epochs (mean 42.7 epochs). High variance in stopping point across sequences and seeds.
-- **Final cosim_gap:** 0.54–0.83 at termination. Higher cosim_gap generally indicates better class separation in the projected embedding space, but this is a by-product of training, not the stopping criterion.
-- **Positives per anchor:** ~7–10 same-class samples in each mini-batch (consistent with the 1024 augmented samples providing ample positives).
-- **Correlation of training epochs with test F1:** r = 0.24, p = 0.11. Epoch count does not reliably predict final test F1, indicating that validation F1 early stopping does not tightly track held-out test performance — likely due to the train/val/test split differences rather than a misaligned stopping criterion.
+### embed-multi contrastive quality
 
-### Seed variance
+The contrastive stage achieves strong separation: mean cosim_pos=0.993, cosim_neg=0.314, cosim_gap=0.678 (std=0.085). The cosim_gap moderately predicts downstream test F1 (r=0.369, p=0.013), suggesting that better representation learning does translate to better classification, though the relationship is noisy.
 
-| Method       | Mean seed std (F1) |
-|--------------|--------------------|
-| embed        | 0.0172             |
-| extend-multi | 0.0223             |
-| none         | 0.0233             |
-| unfiltered   | 0.0199             |
+Test/eval generalisation gaps: embed (0.469) < none (0.453) < embed-multi (0.523). embed-multi shows the largest test–eval gap, which may reflect that the multi-task objective partially overfits to the validation split used for early stopping.
 
-`embed` has the lowest seed variance (0.017), suggesting the embedding-filtered pool produces more consistent training sets. `extend-multi` variance (0.022) is comparable to the baseline. The highest individual seed variance cases are seq_14 for `extend-multi` (std=0.059) and seq_3 for `none` (std=0.050).
-
-### Filtering vs no filtering (embed vs unfiltered)
-
-`embed` (filtered) achieves a significant mean gain of +0.022 (p=0.011). `unfiltered` (random 1024 from the same pool) gains only +0.007 (p=0.369). The embedding filter therefore accounts for most of the benefit from the pool: the pool itself without filtering provides negligible improvement on average. This confirms the filtering is the active ingredient, not simply having a larger pool.
+---
 
 ## Hypothesis evaluation
 
-The hypothesis is: *F1 results on the test set are improved over the baseline for each method.*
+**H1 (embed improves F1 over none):** Confirmed. +0.022 F1, p=0.011, AP increase +0.019 (p=0.048). Significant and consistent.
 
-- **embed:** Hypothesis supported. Significant improvement (mean +0.022, p=0.011). Win rate 67%. Improvement is consistent but modest; 5/15 sequences show small regressions.
-- **extend-multi:** Hypothesis supported. Significant improvement (mean +0.030, p=0.004). Win rate 87%, best method on 9/15 sequences. Adds multi-task contrastive training on top of the filtered embed data.
-- **unfiltered:** Hypothesis not supported. Mean gain +0.007 (p=0.369) is not statistically significant. Win rate 67% but the losses include one large regression (seq_10: −0.064). Randomly sampling from the pool without filtering does not reliably improve over baseline.
+**H2 (unfiltered improves F1 over none):** Rejected. +0.007 F1, p=0.369. The pool itself adds no reliable value; the embedding-based filter is necessary.
+
+**H3 (embed-multi improves F1 over none):** Confirmed, and is the strongest single result. +0.030 F1, p=0.004, wins 9/15 sequences, AP +0.036 (p=0.003), optimal-threshold F1 +0.036 (p<0.001).
+
+### Gain is concentrated in weaker sequences
+
+There is a strong negative correlation between baseline F1 and augmentation gain:
+
+| Method | r(baseline, gain) |
+|---|---|
+| embed | −0.804 |
+| embed-multi | −0.735 |
+| unfiltered | −0.726 |
+
+Sequences already performing well (F1 > 0.68, e.g. seq 2, 3, 5, 8, 12) gain little or nothing from any augmentation method — the best method is often `none` or tied. The benefit is concentrated in sequences that struggle on real data alone (F1 < 0.63, e.g. seq 1, 4, 9, 13, 14), where gains of +0.05–+0.08 are observed. This suggests the augmented data helps fill in gaps in the real training signal but cannot improve upon already well-represented sequences.
+
+---
 
 ## Conclusion / recommended next steps
 
-**Main finding:** Embedding-based filtering of the synthetic pool is effective and necessary. Simply taking a random subset of the same pool (`unfiltered`) does not produce reliable gains, but filtered selection (`embed`) does. Adding a contrastive loss on the filtered data (`extend-multi`) provides the largest and most consistent improvement.
+1. **embed filtering is necessary and sufficient for a reliable boost.** Random subsampling of the same pool (unfiltered) is not enough.
 
-**extend-multi is the best-performing method overall.** It achieves the highest mean F1 (0.659), the highest win rate (87%), and the largest mean gain (+0.030). The precision shift it produces (high-precision, moderate-recall) appears to be net positive on most sequences, though it reverses on sequences where the baseline is already high-recall.
+2. **embed-multi is the best method by aggregate F1 and AP**, particularly where the test distribution matches training (~26% positive rate). Its contrastive objective improves representation quality and is worth pursuing further.
 
-**Considerations for next steps:**
+3. **embed-multi has a precision bias** that hurts recall and degrades at low positive rates. If the real-world positive rate is low (e.g. ~13%), `embed` is preferable. This is worth noting for the thesis given that checkworthiness datasets vary widely in base rate.
 
-1. **extend-multi is worth developing further.** The two sequences where it underperforms the baseline (seq_2, seq_8) are high-baseline sequences; a potential next direction is investigating whether the contrastive loss temperature or data mix can be tuned to avoid precision over-correction on easier datasets.
-2. **Validation F1 early stopping does not tightly predict test F1.** The lack of correlation between training epochs (determined by val F1) and test F1 suggests some train/val/test distribution gap. This is less concerning than the cosim_gap mismatch seen in pure contrastive runs, but is worth noting. Monitoring both val and test F1 during training would clarify whether this is a systematic bias.
-3. **embed alone is a simpler and competitive alternative.** If the two-stage training overhead of `extend-multi` is a concern, `embed` provides significant gains (p=0.011) with lower seed variance and no contrastive training cost.
-4. **The embed pool filter generalises across sequences.** Consistent improvements across 13–15 diverse sequences suggests the embedding filter is not over-fitted to any particular dataset; this is a positive signal for the method's robustness.
+4. **Gains are baseline-conditional.** A natural next question is whether this is a property of the sequences (data difficulty) or the datasets (topic/domain mismatch with the synthetic pool). Inspecting which sequences are weak baselines could reveal whether targeted synthetic data generation would help more.
+
+5. **embed-multi generalisation gap** (test loss 0.523 above eval) is larger than embed. If early stopping criteria were tuned against a held-out set rather than the dev split, this gap might close. Worth monitoring in future multi-task runs.
