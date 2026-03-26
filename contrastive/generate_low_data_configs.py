@@ -4,9 +4,9 @@ from pathlib import Path
 
 script = Path(__file__).parent / "generate_train_config.py"
 
-sequences = 15
+sequences = 5
 n_runs = 3
-aug_values = [{"name": "v7_output_extend", "size": "embed"}]
+aug_values = [{"name": "v7_temp_05", "data_aug": "embed", "name_aug": "embed-temp-05"}, {"name": "v7_temp_1", "data_aug": "embed", "name_aug": "embed-temp-1"}, {"name": "v7_temp_125", "data_aug": "embed", "name_aug": "embed-temp-125"}]
 model = "roberta-base"
 
 # Fixed init seeds per sequence, constant across aug levels so that differences
@@ -26,7 +26,7 @@ for j in aug_values:
     mode = "multi"
 
     for i in range(sequences):
-        run_name = f"seq_{i}_aug_{j['name']}"
+        run_name = f"seq_{i}_aug_{j['name_aug']}"
 
         if mode == "contrastive":
             run_name += "-contrastive"
@@ -35,8 +35,8 @@ for j in aug_values:
             
         args =  [
                     "python", str(script),
-                    "--data-artifact", f"{j['name']}_seq_{i}_aug_{j['size']}",
-                    "--group", "v7_poolfilter_extend",
+                    "--data-artifact", f"{j['name']}_seq_{i}_aug_{j['data_aug']}",
+                    "--group", "v7_poolfilter_temperature",
                     "--n-runs", str(n_runs),
                     "--name", run_name,
                     "--seeds", *[str(s) for s in init_seeds_by_seq[i]],
