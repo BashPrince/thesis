@@ -1,16 +1,19 @@
 # Analysis: v7_poolfilter_large
 *Proposal: experiment_analysis/v7_poolfilter_large/proposal.md*
 
+> **NOTE (2026-04-03):** The original `embed-multi` training runs used `dataloader_drop_last: true`, evaluating on a truncated test set. This analysis uses corrected metrics from re-evaluation group `v7_poolfilter_large_ct24_eval` (full test set). The eval analyses (13% test set) were unaffected.
+
 ## Results summary
 
-30 runs (5 sequences × 2 augmentation methods × 3 seeds), all finished with `test/f1` recorded.
+45 runs (5 sequences × 3 augmentation methods × 3 seeds), all finished with `test/f1` recorded.
 
 | Method | Mean F1 | Δ vs none | p (t-test) | Win rate |
 |---|---|---|---|---|
 | none | 0.6740 | — | — | — |
-| embed-multi | 0.6875 | +0.0135 | 0.441 | 60% (3/5) |
+| embed-multi | 0.6741 | +0.0001 | 0.994 | 20% (1/5) |
+| embed | 0.6865 | +0.0126 | 0.173 | 80% (4/5) |
 
-The aggregate improvement from embed-multi is not statistically significant at this data scale. However, the direction is consistently positive and the effect is concentrated (see below). This should be read alongside the optimal-threshold analysis, which tells a different story.
+Neither method reaches significance, but embed shows a much stronger directional effect than embed-multi (+0.013 vs +0.000), winning 4 of 5 sequences. The simpler filtering method outperforms the multi-task approach at this data scale.
 
 ---
 
@@ -21,27 +24,30 @@ The aggregate improvement from embed-multi is not statistically significant at t
 | Method | Precision | Recall | P−R delta |
 |---|---|---|---|
 | none | 0.665 | 0.687 | −0.023 |
-| embed-multi | 0.723 | 0.657 | +0.066 |
+| embed | 0.702 | 0.674 | +0.028 |
+| embed-multi | 0.689 | 0.661 | +0.028 |
 
-The baseline is recall-heavy. embed-multi shifts substantially toward precision (+0.066 delta), mirroring the pattern observed in the extend experiment (+0.046). This shift is larger at 512 real samples than at 128, suggesting the contrastive objective's high-confidence clustering effect is more pronounced with richer real data.
+Both augmented methods shift toward precision by the same amount (+0.028 delta). embed achieves higher absolute precision (0.702 vs 0.689) while retaining more recall (0.674 vs 0.661), resulting in a better F1.
 
 ### Optimal-threshold F1
 
 | Method | Mean opt-F1 | Δ vs none | p | Wins |
 |---|---|---|---|---|
 | none | 0.7011 | — | — | — |
-| embed-multi | 0.7283 | +0.0273 | **0.038** | 5/5 |
+| embed | 0.7166 | +0.0155 | 0.222 | 4/5 |
+| embed-multi | 0.7067 | +0.0056 | 0.537 | 3/5 |
 
-When the decision threshold is calibrated per-run, embed-multi is significantly better and wins all 5 sequences. The optimal threshold for embed-multi is lower (mean 0.153 vs 0.401 for none), indicating the model emits higher-probability scores for checkworthy samples — consistent with the precision bias. At all fixed thresholds tested (0.1–0.5), embed-multi ranks above none.
+Neither method is significant, but embed shows a larger and more consistent advantage. At all fixed thresholds tested (0.1–0.5), the ranking is embed > embed-multi > none.
 
 ### Class-balance sensitivity
 
 | Method | orig (25.8%) opt-F1 | 13% opt-F1 | 25% opt-F1 | 50% opt-F1 |
 |---|---|---|---|---|
-| embed-multi | **0.7283** | **0.5886** | 0.7007 | 0.8177 |
-| none | 0.7011 | 0.5842 | **0.7086** | **0.8194** |
+| embed | **0.7166** | **0.6123** | **0.7168** | **0.8282** |
+| embed-multi | 0.7067 | 0.5987 | 0.7058 | 0.8228 |
+| none | 0.7011 | 0.5984 | 0.7114 | 0.8208 |
 
-At the test set's observed positive rate (~26%), embed-multi leads. At lower positive rates (25%, 50% in the resampled analysis), none is marginally better. This is the same precision-bias liability observed in the extend experiment: embed-multi's tighter class clusters are calibrated toward the training positive rate, and performance degrades as the class becomes rarer.
+embed leads at all positive rates by both opt-F1 and AP (0.753 vs 0.746 at 26%, 0.618 vs 0.611 at 13%). embed-multi's precision bias hurts at low positive rates (13% opt-F1: embed 0.612 vs embed-multi 0.599), consistent with the pattern observed in the extend experiment.
 
 ### Training convergence
 
@@ -59,64 +65,65 @@ Augmented runs converge ~6× faster. At 128 real samples (extend experiment), th
 | embed-multi | 0.0289 |
 | none | 0.0125 |
 
-embed-multi seeds are considerably more variable than none. The contrastive pre-training introduces a source of variance that the baseline does not have, and with only 3 seeds this limits the precision of aggregate estimates.
-
-### Generalisation gap (test F1 − eval F1)
-
-| Method | Mean gap |
+| Method | Mean std(F1) across seeds |
 |---|---|
-| embed-multi | −0.175 |
-| none | −0.180 |
+| embed | 0.0268 |
+| embed-multi | 0.0259 |
+| none | 0.0125 |
 
-Both methods have near-identical test–eval gaps at this data scale. This is an improvement from the extend experiment where embed-multi had a noticeably larger gap (−0.523 vs −0.453 in loss units). At 512 real samples the multi-task objective no longer appears to overfit more than the baseline.
+Both augmented methods are considerably more variable than none. With only 3 seeds and 5 sequences, this high variance limits statistical power.
 
 ---
 
 ## Hypothesis evaluation
 
-**H1 (embed-multi improves test F1 over none at 512 real + 4096 synthetic):** Partially confirmed.
+**H1 (embed-multi improves test F1 over none at 512 real + 4096 synthetic):** Rejected.
 
-- Fixed-threshold (0.5) F1: +0.0135, p=0.441 — **not significant**. The aggregate gain observed in the extend experiment (+0.0296, p=0.004) does not replicate at 4x scale with a fixed threshold.
-- Optimal-threshold F1: +0.0273, p=0.038 — **significant**, wins 5/5 sequences. The ranking advantage is preserved when the threshold is calibrated.
-- AP (AUC-PR): +0.0221, p=0.124 — positive but not significant.
+- Fixed-threshold (0.5) F1: +0.0001, p=0.994 — **no effect**.
+- Optimal-threshold F1: +0.0056, p=0.537 — not significant.
+- AP (AUC-PR): −0.0015, p=0.893 — no effect (direction is negative).
 
-The hypothesis is rejected for fixed-threshold F1 but confirmed for threshold-calibrated evaluation. Whether this matters in practice depends on the deployment scenario.
+**H2 (embed improves test F1 over none at 512 real + 4096 synthetic):** Not confirmed, but directionally positive.
 
-### Gain is concentrated in weaker sequences
+- Fixed-threshold (0.5) F1: +0.0126, p=0.173 — not significant, wins 4/5.
+- Optimal-threshold F1: +0.0155, p=0.222 — not significant, wins 4/5.
+- AP (AUC-PR): +0.0061, p=0.678 — not significant.
 
-The negative correlation between baseline F1 and augmentation gain holds strongly (r=−0.807, p=0.099):
+embed outperforms embed-multi on all metrics. The simpler filtering method retains a modest benefit at 512 real samples while the contrastive multi-task approach does not.
 
-| Seq | Baseline F1 (none) | embed-multi F1 | Gain |
-|---|---|---|---|
-| 4 | 0.633 | 0.706 | **+0.073** |
-| 1 | 0.639 | 0.650 | +0.011 |
-| 3 | 0.687 | 0.696 | +0.009 |
-| 0 | 0.709 | 0.698 | −0.010 |
-| 2 | 0.702 | 0.687 | −0.015 |
+### Per-sequence gains
 
-Seq 4 (weakest baseline) accounts for almost all aggregate gain. Sequences with strong baselines (0 and 2, F1 > 0.70) are slightly hurt by augmentation. This is the same pattern found in the extend experiment (r=−0.804) and likely reflects the model's inability to improve on well-represented training signal.
+The negative correlation between baseline F1 and augmentation gain remains for both methods:
+
+| Seq | Baseline (none) | embed | Δ embed | embed-multi | Δ multi |
+|---|---|---|---|---|---|
+| 4 | 0.633 | 0.658 | **+0.025** | 0.691 | **+0.058** |
+| 1 | 0.639 | 0.648 | +0.009 | 0.636 | −0.004 |
+| 3 | 0.687 | 0.718 | **+0.031** | 0.683 | −0.004 |
+| 0 | 0.709 | 0.696 | −0.013 | 0.683 | −0.026 |
+| 2 | 0.702 | 0.713 | +0.011 | 0.678 | −0.024 |
+
+embed wins 4/5 sequences, losing only on the strongest baseline (seq 0). embed-multi wins only on the weakest (seq 4) and hurts all others. The key difference: embed's gains are distributed across sequences, while embed-multi's effect is concentrated in one sequence and negative elsewhere.
 
 ### Scale comparison with extend experiment
 
-| Scale | Real samples | Synthetic | Baseline F1 | embed-multi F1 | Gain | p |
-|---|---|---|---|---|---|---|
-| Small (extend) | 128 | 1024 | 0.630 | 0.659 | +0.030 | **0.004** |
-| Large (this) | 512 | 4096 | 0.674 | 0.688 | +0.014 | 0.441 |
+| Scale | Real | Synth | Baseline | embed | Δ embed | embed-multi | Δ multi |
+|---|---|---|---|---|---|---|---|
+| Small (extend, 15 seq) | 128 | 1024 | 0.630 | 0.651 | +0.022* | 0.645 | +0.015 |
+| Large (this, 5 seq) | 512 | 4096 | 0.674 | 0.687 | +0.013 | 0.674 | +0.000 |
 
-The absolute F1 rises with more real data (+0.044 for baseline, +0.029 for embed-multi), confirming that real data quality matters more than synthetic volume. The augmentation *gain* halves, consistent with diminishing returns: at 512 real samples, the model already extracts sufficient signal from real data alone, and synthetic samples fill a smaller gap.
+embed's gain halves from +0.022 to +0.013 but remains directionally positive (wins 4/5). embed-multi's gain drops to zero. The diminishing-returns pattern holds for both methods, but embed degrades more gracefully with increasing real data.
 
 ---
 
 ## Conclusion / recommended next steps
 
-1. **The augmentation benefit diminishes with real data volume.** At 128 real samples, embed-multi provided a reliable and significant +0.030 F1 gain. At 512, the aggregate gain is +0.014 and not significant. The effect is real but smaller.
+1. **embed outperforms embed-multi at 512 real samples.** embed gains +0.013 F1 (p=0.17, wins 4/5) while embed-multi gains +0.000 (p=0.99, wins 1/5). The contrastive multi-task approach actively hurts at this data scale, while the simpler filtering method retains a modest benefit.
 
-2. **Optimal-threshold F1 is still significantly better (p=0.038).** If the downstream system can calibrate its threshold, embed-multi remains the better choice at 512 real samples. This is practically achievable if a held-out calibration set is available.
+2. **Neither method reaches significance.** With only 5 sequences and high seed variance, statistical power is low. The directional consistency of embed (4/5 wins, positive at all fixed thresholds and resampled rates) is more informative than the p-value alone.
 
-3. **The precision bias is consistent and scales.** embed-multi's shift toward precision is larger at 512 samples (+0.066 P−R delta) than at 128 (+0.046). This is worth discussing in the thesis as a systematic property of the contrastive objective rather than a fluke.
+3. **embed degrades more gracefully with scale.** From 128→512 real samples, embed's gain halves (+0.022→+0.013) while embed-multi's vanishes (+0.015→+0.000). This suggests the simpler method is more robust to the diminishing-returns effect.
 
-4. **The weak-sequence effect is the strongest signal.** With r=−0.807, the gain-baseline correlation is nearly identical across both experiments. Augmentation reliably helps sequences that struggle on real data alone. For a thesis contribution, this suggests that augmentation should be recommended selectively — targeting cases where the real data is known to be sparse or unrepresentative — rather than as a universal default.
+4. **The eval analyses (13% test set) tell a different story.** On the harder test set, embed-multi shows a significant +0.022 F1 gain (p=0.027). An eval of embed on the 13% test set would determine whether embed also outperforms embed-multi at low base rates, as observed in the extend experiment.
 
-5. **With 5 sequences and high seed variance, statistical power is low.** The large experiment has fewer sequences than extend (5 vs 15), which reduces power. The non-significant result should not be interpreted as evidence that augmentation is harmful — the effect size is modest and consistent with the extend result if power is accounted for.
-
-6. **For the thesis narrative:** embed-multi is an effective method in the low-data regime (128 real samples). Its advantage shrinks but does not disappear as real data grows to 512. The practical takeaway is that synthetic augmentation is most valuable when real data is genuinely scarce.
+5. **For the thesis narrative:** the simpler embed method is consistently the better choice. It is the only significant method at 128 real samples, the stronger method at 512, and the most robust across class distributions. The contrastive multi-task objective adds complexity without benefit.

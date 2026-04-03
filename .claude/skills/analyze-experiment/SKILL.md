@@ -2,7 +2,7 @@
 name: analyze-experiment
 description: Analyse a completed synthetic data augmentation experiment using its proposal file. Downloads WandB runs for the experiment group, runs the analysis described in the proposal, and writes a report to experiment_analysis/.
 user-invocable: true
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 ## Setting
 We are working on a sentence classification task with a simulated low data scenario. We are investigating the effect of synthetic data augmentation methods on test set F1 performance. Our model is a BERT variant finetuned with adapters. Unless otherwise specified an experiment consists of a number of sequences of small non-overlapping base sets sampled from a bigger data source each of which is augmented with synthetic data in one or multiple augmentation steps.

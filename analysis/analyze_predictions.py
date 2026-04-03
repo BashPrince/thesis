@@ -483,6 +483,8 @@ def main():
     parser.add_argument("--expected-seeds", type=int, default=3)
     parser.add_argument("--workers", type=int, default=16,
                         help="Parallel download threads (default: 16)")
+    parser.add_argument("--allow-multi", action="store_true",
+                        help="Allow embed-multi runs (their training predictions have a known bug)")
     args = parser.parse_args()
 
     try:
@@ -506,6 +508,14 @@ def main():
     )
     if not pred_data:
         print("No prediction data found.", file=sys.stderr)
+        sys.exit(1)
+
+    # Safety: embed-multi training runs have buggy predictions (dataloader_drop_last)
+    if "embed-multi" in pred_data and not args.allow_multi:
+        print("ERROR: embed-multi detected in group. These training runs have buggy "
+              "predictions (dataloader_drop_last). Use corrected ct24_eval groups "
+              "or --allow-multi to override.",
+              file=sys.stderr)
         sys.exit(1)
 
     # Compute actual positive rate from first available run's labels

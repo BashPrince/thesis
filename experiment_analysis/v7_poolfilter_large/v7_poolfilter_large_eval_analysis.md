@@ -84,15 +84,15 @@ Seed variance is low and comparable across methods. This is a substantial improv
 
 The same trained models behave differently across the two test sets:
 
-| Metric | Original test (~26%) | This eval (~13%) |
+| Metric | Original test (~26%, corrected) | This eval (~13%) |
 |---|---|---|
-| embed-multi F1 gain | +0.014, p=0.441 (n.s.) | +0.022, p=0.027 (**sig.**) |
-| embed-multi opt-F1 gain | +0.027, p=0.038 (sig.) | +0.013, p=0.038 (sig.) |
-| AP gain | +0.022, p=0.124 (n.s.) | +0.020, p=0.023 (**sig.**) |
-| Fixed-threshold ranking | embed-multi > none at all thresholds | embed-multi > none at all thresholds |
-| Class-balance sensitivity | none marginally better at 25%/50% | embed-multi leads at all rates |
+| embed-multi F1 gain | +0.000, p=0.994 (n.s.) | +0.022, p=0.027 (**sig.**) |
+| embed-multi opt-F1 gain | +0.006, p=0.537 (n.s.) | +0.013, p=0.038 (sig.) |
+| AP gain | −0.002, p=0.893 (n.s.) | +0.020, p=0.023 (**sig.**) |
+| Fixed-threshold ranking | embed-multi > none at all thresholds (small margins) | embed-multi > none at all thresholds |
+| Class-balance sensitivity | none leads by AP at all rates | embed-multi leads at all rates |
 
-The key reversal: fixed-threshold F1 is not significant at 26% but is significant at 13%. The embed-multi precision bias, which was partially a liability on the 26% test (leading to the finding that gains only appeared after threshold calibration), is unambiguously beneficial at 13%. The ranking advantage is unconditional on this test set.
+The reversal is even starker after correction: on the 26% test, embed-multi provides **zero benefit** across all metrics. On the 13% test, all metrics are significant. The augmentation effect is entirely conditional on the evaluation setting — it only manifests when the task is hard enough (low base rate, more negatives to discriminate).
 
 ---
 
@@ -121,7 +121,7 @@ Notably, at the extend scale the embed-multi precision bias was less beneficial 
 - Win rate: 100% (5/5 sequences)
 - Fixed-threshold ranking: embed-multi leads at all thresholds
 
-Unlike on the original test set where only the threshold-calibrated metric was significant, all three primary evaluation metrics confirm the hypothesis on this test set. The result is unambiguous.
+Unlike on the corrected original test set where no metric reaches significance, all three primary evaluation metrics confirm the hypothesis on this harder test set. The result is unambiguous.
 
 ### Per-sequence gains
 
@@ -139,14 +139,14 @@ Unlike the original test set, where gains were heavily concentrated in seq 4 (th
 
 ## Conclusion / recommended next steps
 
-1. **embed-multi is significantly effective on the harder 13% test set at 512 real samples.** This is the cleaner result: all evaluation metrics align, win rate is 100%, and the result is not threshold-dependent. The ambiguity observed on the original 26% test set (significance only after threshold calibration) does not apply here.
+1. **embed-multi is significantly effective on the harder 13% test set at 512 real samples.** This is the cleaner result: all evaluation metrics align, win rate is 100%, and the result is not threshold-dependent. On the corrected 26% test set, embed-multi shows zero benefit — the 13% result is the only evidence of augmentation effectiveness at this data scale.
 
-2. **The augmentation benefit is larger at lower positive rates.** F1 gains at 13% (+0.022) exceed those at 26% (+0.014) for the same trained models. The mechanism is the embed-multi precision bias: at lower base rates, each false positive is relatively more costly, so any systematic improvement in precision yields greater F1 gains. This property makes embed-multi particularly well-suited for deployment contexts where checkworthy sentences are rare.
+2. **The augmentation benefit requires a challenging evaluation setting.** F1 gains at 13% (+0.022) are significant while gains at 26% are zero. The mechanism: at lower base rates, each false positive is relatively more costly, so any systematic improvement in precision yields greater F1 gains. Augmentation's value is conditional on both data scarcity and task difficulty.
 
-3. **Diminishing returns with real data volume hold across both test sets.** The gain on the 13% test halves from extend to large scale (+0.046 → +0.022), matching the pattern on the 26% test. This is a robust empirical finding: augmentation provides greater marginal benefit when real data is scarce.
+3. **Diminishing returns with real data volume hold on the 13% test set.** The gain halves from extend to large scale (+0.046 → +0.022). Augmentation provides greater marginal benefit when real data is scarce.
 
-4. **Class-balance sensitivity is unconditionally positive.** Unlike the 26% test set analysis where embed-multi's precision bias was a liability at simulated low positive rates, here embed-multi leads at all rates (13%–50%). The precision shift is not calibrated to a particular regime at the larger data scale.
+4. **Class-balance sensitivity is unconditionally positive on this test set.** embed-multi leads at all resampled rates (13%–50%).
 
 5. **Seed variance is low and comparable across methods.** The high seed variance observed for embed-multi on the 26% test set (std=0.029 vs 0.012 for none) does not replicate here (0.009 vs 0.007). At 13% positive rate the decision boundary is less threshold-sensitive, leading to more stable results.
 
-6. **For the thesis narrative:** The low-positive-rate eval provides the clearest validation of embed-multi. Both test sets combined show that: (a) augmentation is unconditionally beneficial at low base rates; (b) benefits are more ambiguous at the training-set positive rate (26%), primarily for threshold-sensitivity reasons; (c) the method is robust across deployment scenarios in terms of class-balance sensitivity. This forms a coherent picture for arguing augmentation as a low-cost improvement strategy in the low-data regime.
+6. **For the thesis narrative:** The corrected results sharpen the picture: augmentation with embed-multi provides no benefit at 512 real samples when evaluated on the training-distribution test set (26%), but is clearly effective on the harder 13% test. This interaction between data scale, base rate, and augmentation benefit is the key finding at this experimental tier.

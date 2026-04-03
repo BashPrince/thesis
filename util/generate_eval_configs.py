@@ -64,6 +64,7 @@ def main():
     parser.add_argument("--test-file", default="test.csv", help="Test file inside the dataset artifact (default: test.csv).")
     parser.add_argument("--model", default="roberta-base", help="Model name (default: roberta-base).")
     parser.add_argument("--output-dir", default=OUTPUT_DIR, help="Directory to write eval configs to.")
+    parser.add_argument("--group-suffix", default="eval", help="Suffix to append to source group name separated by underscore")
     args = parser.parse_args()
 
     with open(TEMPLATE_PATH) as f:
@@ -81,7 +82,7 @@ def main():
 
     total_written = 0
     for group in args.groups:
-        eval_group = f"{group}_eval"
+        eval_group = f"{group}_{args.group_suffix}"
         print(f"Querying WandB group '{group}'...")
         runs_artifacts = get_runs_with_artifacts(WANDB_ENTITY, WANDB_PROJECT, group)
 

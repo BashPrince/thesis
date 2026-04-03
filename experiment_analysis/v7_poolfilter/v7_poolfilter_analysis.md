@@ -23,6 +23,22 @@ The RM-ANOVA confirms a significant overall effect of augmentation method (F=23.
 
 ## Metric / training analysis
 
+### Precision–Recall decomposition
+
+| Method | Precision | Recall | P−R delta |
+|---|---|---|---|
+| real | 0.708 | 0.724 | −0.017 |
+| embed | 0.656 | 0.639 | +0.018 |
+| unfiltered | 0.655 | 0.622 | +0.033 |
+| tfidf | 0.645 | 0.630 | +0.015 |
+| free | 0.601 | 0.635 | −0.034 |
+| none | 0.590 | 0.647 | −0.057 |
+| genetic | 0.559 | 0.598 | −0.039 |
+
+The baseline (`none`) is recall-heavy (P−R delta = −0.057). All three augmented methods (`embed`, `tfidf`, `unfiltered`) shift the balance toward precision: they raise precision by +0.055–0.066 while recall stays flat or drops slightly (−0.008 to −0.025). The `real` condition achieves both the highest precision and highest recall — real data improves both axes. `free` and `genetic` remain recall-heavy like the baseline, with lower precision, explaining their inability to lift F1.
+
+This pattern — precision up, recall flat — is the mechanism behind the augmentation effect. Synthetic data does not help the model discover new check-worthy claim types (recall unchanged), but it sharpens the class boundary to reduce false positives (precision improved). This effect becomes significant on the harder 13% eval set where false positives are more costly (see eval analysis).
+
 ### Training dynamics
 
 | Method | Mean final epoch | Mean peak eval F1 | Mean final eval loss |
@@ -76,6 +92,33 @@ Average Precision (AUC-PR) rankings mirror F1:
 | genetic | 0.625 | −0.062 | 0.005 |
 
 In the threshold-free AP metric, `unfiltered` slightly outperforms both `embed` and `tfidf`, reversing the F1 ordering. This is a small difference (within noise), but it suggests the pool-filtering step does not improve the model's ranking ability.
+
+---
+
+### Gain-baseline correlation
+
+There is a strong negative correlation between a sequence's baseline F1 and the gain from augmentation:
+
+| Method | r(baseline, gain) | p |
+|---|---|---|
+| tfidf | −0.957 | 0.011 |
+| free | −0.902 | 0.036 |
+| embed | −0.893 | 0.042 |
+| real | −0.893 | 0.041 |
+| genetic | −0.880 | 0.049 |
+| unfiltered | −0.802 | 0.102 |
+
+All methods show r < −0.80, and most reach significance despite only 5 sequences. This means augmentation helps most when the sequence's real data is weakest. For `embed`, the weakest sequences (seq 1, 2, 3 with baseline F1 < 0.61) gain +0.032 to +0.067, while the strongest sequence (seq 4, baseline 0.655) is slightly hurt (−0.014).
+
+| Seq | Baseline F1 | embed gain | tfidf gain | unfiltered gain |
+|---|---|---|---|---|
+| 1 | 0.577 | +0.058 | +0.061 | +0.071 |
+| 3 | 0.604 | +0.032 | +0.041 | +0.036 |
+| 2 | 0.605 | +0.067 | +0.052 | +0.032 |
+| 0 | 0.637 | +0.009 | −0.022 | −0.042 |
+| 4 | 0.655 | −0.014 | −0.030 | +0.007 |
+
+This effect is consistent across experiments: r = −0.804 in v7_poolfilter_extend (15 sequences) and r = −0.807 in v7_poolfilter_large (5 sequences). The pattern suggests augmentation fills gaps in sparse real training data but cannot improve upon already well-represented sequences.
 
 ---
 

@@ -393,6 +393,8 @@ def main():
                         help="Aug level/technique to use as baseline for comparisons (default: 'none')")
     parser.add_argument("--exclude-aug", nargs="+", default=[],
                         help="Aug levels/techniques to exclude from analysis (e.g. --exclude-aug real)")
+    parser.add_argument("--allow-multi", action="store_true",
+                        help="Allow embed-multi runs (their training predictions have a known bug)")
     args = parser.parse_args()
     try:
         args.baseline_aug = int(args.baseline_aug)
@@ -418,6 +420,14 @@ def main():
             for m in metric_data:
                 metric_data[m].pop(aug, None)
         print(f"Excluded aug levels: {args.exclude_aug}")
+
+    # Safety: embed-multi training runs have buggy predictions (dataloader_drop_last)
+    if "embed-multi" in data and not args.allow_multi:
+        print("ERROR: embed-multi detected in group. These training runs have buggy "
+              "predictions (dataloader_drop_last). Use corrected ct24_eval groups, "
+              "--exclude-aug embed-multi, or --allow-multi to override.",
+              file=sys.stderr)
+        sys.exit(1)
 
     # 2. Completion check
     check_completion(data, expected_seeds=args.expected_seeds)

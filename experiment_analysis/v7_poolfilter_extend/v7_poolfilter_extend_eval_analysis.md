@@ -95,20 +95,20 @@ Seed variance is comparable across methods. `unfiltered` has the lowest variance
 
 The most striking finding from this eval is how the picture changes at 13% positive rate:
 
-| | Original test (~26%) | This eval (~13%) |
+| | Original test (~26%, corrected) | This eval (~13%) |
 |---|---|---|
 | unfiltered vs none | p=0.37, not significant | p<0.0001, +0.042 F1 |
 | embed vs none | p=0.011, +0.022 F1 | p<0.0001, +0.044 F1 |
-| embed-multi vs none | p=0.004, +0.030 F1 | p<0.0001, +0.046 F1 |
-| Best method | embed-multi | All tied (embed leads by AP) |
-| embed-multi precision bias | +0.046 P−R delta (beneficial) | Slightly less recall, no clear advantage |
+| embed-multi vs none | p=0.102, +0.015 F1 | p<0.0001, +0.046 F1 |
+| Best method | embed | All tied (embed leads by AP) |
+| embed-multi precision bias | +0.009 P−R delta (modest) | Slightly less recall, no clear advantage |
 | embed lead at low base rate | Predicted | Confirmed |
 
 **Unfiltered becomes significant.** At the higher positive rate, random augmentation failed to reliably improve F1. On this harder test set — with fewer positives, a larger test corpus (637k pooled samples), and greater signal demands on precision — even random augmentation provides a meaningful boost. The filtering advantage that distinguished `embed` from `unfiltered` narrows substantially.
 
-**embed-multi loses its edge.** On the 26% test, embed-multi's precision bias was an asset; it emitted higher-confidence predictions for checkworthy samples and led by F1 and AP. At 13%, all three methods converge to virtually identical performance. The contrastive multi-task objective no longer confers a measurable advantage at the aggregate level, though embed remains nominally first on AP and at all fixed thresholds below 0.5.
+**embed-multi converges with other methods.** On the corrected 26% test, embed-multi was not significant (p=0.10, +0.015 F1). At 13%, all three methods converge to virtually identical performance (all p<0.0001, all ~+0.04 F1). The contrastive multi-task objective does not confer a measurable advantage at either base rate, though embed remains nominally first on AP and at all fixed thresholds below 0.5.
 
-**Absolute gains are larger here.** All methods show ~+0.04 F1 vs none on this test set, compared to +0.007–0.030 on the original. The low base rate amplifies the value of any precision improvement, so augmentation's effect is more visible.
+**Absolute gains are larger here.** All methods show ~+0.04 F1 vs none on this test set, compared to +0.007–0.022 on the original. The low base rate amplifies the value of any precision improvement, so augmentation's effect is more visible.
 
 **embed is the most robust method across conditions.** It leads by AP at every positive rate (13%–50%), leads at most fixed thresholds, and was previously identified as the safer choice at low base rates. That prediction is confirmed.
 
