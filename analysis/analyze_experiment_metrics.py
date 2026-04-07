@@ -127,12 +127,12 @@ def check_completion(data, expected_seeds=3):
 # Statistical analysis
 # ---------------------------------------------------------------------------
 
-def build_results_df(data, metric_data=None, baseline_aug=0):
-    """Compute per-aug-level paired t-tests vs baseline aug level.
+def build_summary_df(data, metric_data=None, baseline_aug=0):
+    """Compute per-aug-level descriptive statistics (no significance tests).
 
     Returns a DataFrame with columns:
         aug, n_seq, mean_precision, mean_recall, mean_accuracy,
-        mean_f1, std_f1, mean_diff, std_diff, t, p, seq_means
+        mean_f1, std_f1, mean_diff, std_diff, seq_means
     """
     aug_levels = sorted(data.keys())
     if baseline_aug not in data:
@@ -144,10 +144,6 @@ def build_results_df(data, metric_data=None, baseline_aug=0):
         a0 = np.array([np.mean(data[baseline_aug][s]) for s in common_seqs])
         a1 = np.array([np.mean(data[aug][s]) for s in common_seqs])
         diff = a1 - a0
-        if len(common_seqs) >= 2 and aug != baseline_aug:
-            t, p = stats.ttest_rel(a1, a0)
-        else:
-            t, p = float("nan"), float("nan")
         row = {
             "aug": aug,
             "n_seq": len(common_seqs),
@@ -155,8 +151,6 @@ def build_results_df(data, metric_data=None, baseline_aug=0):
             "std_f1": a1.std(),
             "mean_diff": diff.mean(),
             "std_diff": diff.std(),
-            "t": t,
-            "p": p,
             "seq_means": a1,
         }
         if metric_data:
@@ -181,32 +175,55 @@ def build_seq_df(data):
     return df
 
 
+def run_pairwise_vs_baseline(seq_df, baseline_aug=0):
+    """Holm-corrected paired t-tests: each method vs baseline.
+
+    Returns a DataFrame with columns: aug, T, dof, p-unc, p-corr (Holm), hedges g.
+    """
+    try:
+        import pingouin as pg
+    except ImportError:
+        print("  (pingouin not installed — skipping paired t-tests)", file=sys.stderr)
+        return None
+
+    # Run uncorrected pairwise tests via pingouin
+    posthoc = pg.pairwise_tests(
+        data=seq_df, dv="f1", within="aug", subject="seq",
+        parametric=True, padjust="none"
+    )
+    # Filter to vs-baseline comparisons only
+    mask = (posthoc["A"] == baseline_aug) | (posthoc["B"] == baseline_aug)
+    vs_baseline = posthoc[mask].copy()
+    # normalise so baseline is always in column A
+    swap = vs_baseline["B"] == baseline_aug
+    vs_baseline.loc[swap, ["A", "B"]] = vs_baseline.loc[swap, ["B", "A"]].values
+
+    # Apply Holm correction across only the vs-baseline family
+    from statsmodels.stats.multitest import multipletests
+    reject, p_holm, _, _ = multipletests(vs_baseline["p_unc"].values, method="holm")
+    vs_baseline["p_holm"] = p_holm
+
+    keep = ["B", "T", "dof", "p_unc", "p_holm", "hedges"]
+    keep = [c for c in keep if c in vs_baseline.columns]
+    vs_baseline = vs_baseline[keep]
+    rename = {"B": "aug", "p_unc": "p-unc", "p_holm": "p-corr (Holm)", "hedges": "hedges g"}
+    vs_baseline = vs_baseline.rename(columns=rename)
+    return vs_baseline
+
+
 def run_rm_anova(seq_df):
-    """Repeated-measures ANOVA with post-hoc pairwise tests vs aug=0."""
+    """Repeated-measures ANOVA (diagnostic: effect size and sphericity check).
+
+    Returns the ANOVA table DataFrame, or None if pingouin is unavailable.
+    """
     try:
         import pingouin as pg
     except ImportError:
         print("  (pingouin not installed — skipping RM-ANOVA)", file=sys.stderr)
-        return None, None
+        return None
 
     rm = pg.rm_anova(data=seq_df, dv="f1", within="aug", subject="seq", detailed=True)
-    posthoc = pg.pairwise_tests(
-        data=seq_df, dv="f1", within="aug", subject="seq",
-        parametric=True, padjust="holm"
-    )
-    baseline_aug = seq_df["aug"].min()
-    mask = (posthoc["A"] == baseline_aug) | (posthoc["B"] == baseline_aug)
-    vs_zero = posthoc[mask].copy()
-    # normalise so baseline is always in column A
-    swap = vs_zero["B"] == baseline_aug
-    vs_zero.loc[swap, ["A", "B"]] = vs_zero.loc[swap, ["B", "A"]].values
-    p_corr_col = "p_corr" if "p_corr" in vs_zero.columns else "p_unc"
-    keep = ["B", "T", "dof", "p_unc", p_corr_col, "hedges"]
-    keep = [c for c in keep if c in vs_zero.columns]
-    vs_zero = vs_zero[keep]
-    rename = {"B": "aug", "p_unc": "p-unc", "p_corr": "p-corr (Holm)", "hedges": "hedges g"}
-    vs_zero = vs_zero.rename(columns=rename)
-    return rm, vs_zero
+    return rm
 
 
 def win_rate_table(data, baseline_aug=0):
@@ -261,6 +278,41 @@ def best_aug_per_seq(data, baseline_aug=0):
     return pd.DataFrame(rows)
 
 
+def gain_baseline_correlation(data, baseline_aug=0):
+    """Pearson correlation between sequence baseline F1 and augmentation gain.
+
+    For each method, computes r(baseline_f1, method_f1 - baseline_f1) across sequences.
+    A strong negative correlation means augmentation helps weak sequences most.
+
+    Returns a DataFrame with columns: aug, r, p, n_seq.
+    """
+    if baseline_aug not in data:
+        return None
+    aug_levels = [a for a in sorted(data.keys()) if a != baseline_aug]
+    rows = []
+    for aug in aug_levels:
+        common_seqs = sorted(set(data[aug].keys()) & set(data[baseline_aug].keys()))
+        if len(common_seqs) < 3:
+            continue
+        baseline_f1 = np.array([np.mean(data[baseline_aug][s]) for s in common_seqs])
+        aug_f1 = np.array([np.mean(data[aug][s]) for s in common_seqs])
+        gain = aug_f1 - baseline_f1
+        r, p = stats.pearsonr(baseline_f1, gain)
+        rows.append({"aug": aug, "r": r, "p": p, "n_seq": len(common_seqs)})
+    return pd.DataFrame(rows) if rows else None
+
+
+def print_gain_baseline(gain_df):
+    print_section("Gain-baseline correlation (r between seq baseline F1 and gain)")
+    if gain_df is None or gain_df.empty:
+        print("  Not enough data.")
+        return
+    fmt = gain_df.copy()
+    fmt["r"] = fmt["r"].map("{:+.3f}".format)
+    fmt["p"] = fmt["p"].map("{:.4f}".format)
+    print(fmt.to_string(index=False))
+
+
 def seed_variance_table(data):
     """Compute per-(seq, aug) std of F1 across seeds."""
     rows = [
@@ -287,46 +339,48 @@ def print_section(title):
     print('=' * 60)
 
 
-def print_results(df, baseline_aug=0):
-    print_section("Results by augmentation level (paired t-test vs baseline)")
+def print_summary(df, baseline_aug=0):
+    print_section("Descriptive statistics by augmentation level")
     cols = ["aug", "n_seq"]
     for m in ("mean_precision", "mean_recall", "mean_accuracy"):
         if m in df.columns:
             cols.append(m)
-    cols += ["mean_f1", "std_f1", "mean_diff", "std_diff", "t", "p"]
+    cols += ["mean_f1", "std_f1", "mean_diff", "std_diff"]
 
     display = df[cols].copy()
     for col in ("mean_precision", "mean_recall", "mean_accuracy", "mean_f1", "std_f1", "std_diff"):
         if col in display.columns:
             display[col] = display[col].map(lambda x: f"{x:.4f}" if not np.isnan(x) else "—")
     display["mean_diff"] = display["mean_diff"].map("{:+.4f}".format)
-    display["t"] = display["t"].map(lambda x: f"{x:.3f}" if not np.isnan(x) else "—")
-    display["p"] = display["p"].map(lambda x: f"{x:.4f}" if not np.isnan(x) else "—")
     print(display.to_string(index=False))
 
-    # Flag any significant results
-    sig = df[(~df["p"].isna()) & (df["p"] < 0.05)]
+
+def print_pairwise(vs_baseline):
+    print_section("Paired t-tests vs baseline (Holm-corrected)")
+    if vs_baseline is None:
+        return
+    fmt = vs_baseline.copy()
+    for col in ["T", "dof", "p-unc", "p-corr (Holm)", "hedges g"]:
+        if col in fmt.columns:
+            fmt[col] = fmt[col].map(lambda x: f"{x:.4f}" if not np.isnan(x) else "—")
+    print(fmt.to_string(index=False))
+
+    # Flag significant results
+    p_col = "p-corr (Holm)" if "p-corr (Holm)" in vs_baseline.columns else "p-unc"
+    sig = vs_baseline[vs_baseline[p_col] < 0.05]
     if not sig.empty:
-        print(f"\n  ** Significant improvement vs aug={baseline_aug} (p<0.05): aug={sig['aug'].tolist()}")
+        print(f"\n  ** Significant vs baseline (Holm-corrected p<0.05): {sig['aug'].tolist()}")
     else:
-        print(f"\n  No significant differences vs aug={baseline_aug} (all p >= 0.05)")
+        print(f"\n  No significant differences vs baseline (all Holm-corrected p >= 0.05)")
 
 
-def print_rm_anova(rm, vs_zero):
-    print_section("Repeated-measures ANOVA")
+def print_rm_anova(rm):
+    print_section("RM-ANOVA (diagnostic)")
     if rm is None:
         return
     cols = ["Source", "SS", "DF", "MS", "F", "p_unc", "p_GG_corr", "ng2", "eps", "sphericity"]
     available = [c for c in cols if c in rm.columns]
     print(rm[available].to_string(index=False))
-
-    print("\nPost-hoc pairwise vs baseline (Holm correction):")
-    # Format floats
-    fmt = vs_zero.copy()
-    for col in ["T", "dof", "p-unc", "p-corr (Holm)", "hedges g"]:
-        if col in fmt.columns:
-            fmt[col] = fmt[col].map(lambda x: f"{x:.4f}" if not np.isnan(x) else "—")
-    print(fmt.to_string(index=False))
 
 
 def print_seed_variance(std_table):
@@ -435,23 +489,31 @@ def main():
     # 3. Per-sequence summary
     print_per_seq_summary(data)
 
-    # 4. Paired t-tests
-    df = build_results_df(data, metric_data=metric_data, baseline_aug=args.baseline_aug)
-    print_results(df, baseline_aug=args.baseline_aug)
+    # 4. Descriptive statistics
+    df = build_summary_df(data, metric_data=metric_data, baseline_aug=args.baseline_aug)
+    print_summary(df, baseline_aug=args.baseline_aug)
 
-    # 5. RM-ANOVA
+    # 5. Paired t-tests vs baseline (Holm-corrected) — primary inference
     seq_df = build_seq_df(data)
-    rm, vs_zero = run_rm_anova(seq_df)
-    print_rm_anova(rm, vs_zero)
+    vs_baseline = run_pairwise_vs_baseline(seq_df, baseline_aug=args.baseline_aug)
+    print_pairwise(vs_baseline)
 
-    # 6. Win rate & best aug per sequence
+    # 6. RM-ANOVA — diagnostic (effect size, sphericity)
+    rm = run_rm_anova(seq_df)
+    print_rm_anova(rm)
+
+    # 7. Win rate & best aug per sequence
     win_df = win_rate_table(data, baseline_aug=args.baseline_aug)
     print_win_rate(win_df)
 
     best_df = best_aug_per_seq(data, baseline_aug=args.baseline_aug)
     print_best_aug(best_df)
 
-    # 7. Seed variance
+    # 8. Gain-baseline correlation
+    gain_df = gain_baseline_correlation(data, baseline_aug=args.baseline_aug)
+    print_gain_baseline(gain_df)
+
+    # 9. Seed variance
     std_table = seed_variance_table(data)
     print_seed_variance(std_table)
 
