@@ -101,7 +101,9 @@ class SupervisedContrastiveTrainer(AdapterTrainer):
         self.balanced_sampling = balanced_sampling
 
         hidden = self.model.config.hidden_size
-        if proj_type == "mlp":
+        if proj_type == "none":
+            proj_head = nn.Identity()
+        elif proj_type == "mlp":
             proj_head = nn.Sequential(
                 nn.Linear(hidden, hidden),
                 nn.ReLU(),
@@ -483,7 +485,7 @@ class MyTrainingArguments(TrainingArguments):
     )
     contrastive_proj_type: str = field(
         default="mlp",
-        metadata={"help": "Projection head type: 'mlp' (2-layer MLP with ReLU, default) or 'linear' (single linear layer)."},
+        metadata={"help": "Projection head type: 'mlp' (2-layer MLP with ReLU, default), 'linear' (single linear layer), or 'none' (no projection, loss on pooled embeddings directly)."},
     )
     contrastive_balanced_sampling: bool = field(
         default=False,
