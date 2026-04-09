@@ -60,7 +60,7 @@ def setup_workspace(host_ip, username, code_src_path, code_target_base_path, wan
         # If a venv backup exists copy it back into the target path
         ssh_execute_command(host_ip, username, f"mv {code_target_base_path}/.venv_backup {code_target_path}/.venv", ssh_port)
     else:
-        ssh_execute_command(host_ip, username, f"cd {code_target_path} && python3 -m venv .venv", ssh_port)
+        ssh_execute_command(host_ip, username, f"cd {code_target_path} && python3 -m venv --system-site-packages .venv", ssh_port)
     # Always reinstall requirements to pick up any changes and ensure pip is up to date
     install_command = f"cd {code_target_path} && source .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt"
     ssh_execute_command(host_ip, username, install_command, ssh_port)
