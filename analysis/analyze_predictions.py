@@ -283,11 +283,13 @@ def pool_predictions(pred_data, aug):
 # ---------------------------------------------------------------------------
 
 def aggregate_by_aug(run_df, metric, baseline_aug):
-    """For a given metric, compute per-aug stats and paired t-test vs baseline.
+    """For a given metric, compute per-aug stats and Holm-corrected paired t-tests vs baseline.
 
     Averages over seeds first (per seq), then tests across sequences.
     Returns a DataFrame sorted by aug.
     """
+    from statsmodels.stats.multitest import multipletests
+
     seq_means = run_df.groupby(["aug", "seq"])[metric].mean().reset_index()
     augs = sorted(seq_means["aug"].unique(), key=lambda a: (str(a) != str(baseline_aug), str(a)))
 
@@ -309,10 +311,25 @@ def aggregate_by_aug(run_df, metric, baseline_aug):
             "std": aligned["aug"].std(),
             "mean_diff": diff.mean() if aug != baseline_aug else float("nan"),
             "t": t,
-            "p": p,
+            "p-unc": p,
             "wins": f"{wins}/{len(aligned)}" if wins is not None else "—",
         })
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+
+    # Apply Holm correction across vs-baseline comparisons
+    mask = df["aug"] != baseline_aug
+    p_unc = df.loc[mask, "p-unc"].values
+    if len(p_unc) > 0 and not all(np.isnan(p_unc)):
+        _, p_holm, _, _ = multipletests(p_unc, method="holm")
+        df.loc[mask, "p-holm"] = p_holm
+    else:
+        df["p-holm"] = float("nan")
+    # Baseline row gets NaN
+    df.loc[~mask, "p-holm"] = float("nan")
+
+    # Ensure consistent column order
+    df = df[["aug", "n_seq", "mean", "std", "mean_diff", "t", "p-unc", "p-holm", "wins"]]
+    return df
 
 
 # ---------------------------------------------------------------------------
@@ -338,15 +355,18 @@ def print_metric_table(df, metric_label, baseline_aug):
     display["std"] = display["std"].map(lambda x: fmt_float(x, 4))
     display["mean_diff"] = display["mean_diff"].map(lambda x: fmt_float(x, 4, sign=True))
     display["t"] = display["t"].map(lambda x: fmt_float(x, 3))
-    display["p"] = display["p"].map(lambda x: fmt_float(x, 4))
-    display.columns = ["aug", "n_seq", metric_label, "std", f"diff_vs_{baseline_aug}", "t", "p", "wins"]
+    display["p-unc"] = display["p-unc"].map(lambda x: fmt_float(x, 4))
+    display["p-holm"] = display["p-holm"].map(lambda x: fmt_float(x, 4))
+    display.columns = ["aug", "n_seq", metric_label, "std", f"diff_vs_{baseline_aug}",
+                        "t", "p-unc", "p-holm", "wins"]
     print(display.to_string(index=False))
 
-    sig = df[(~df["p"].isna()) & (df["p"] < 0.05)]
+    p_col = "p-holm" if "p-holm" in df.columns else "p-unc"
+    sig = df[(~df[p_col].isna()) & (df[p_col] < 0.05)]
     if not sig.empty:
-        print(f"\n  ** Significant vs {baseline_aug} (p<0.05): {sig['aug'].tolist()}")
+        print(f"\n  ** Significant vs {baseline_aug} (Holm p<0.05): {sig['aug'].tolist()}")
     else:
-        print(f"\n  No significant differences vs {baseline_aug} (all p >= 0.05)")
+        print(f"\n  No significant differences vs {baseline_aug} (all Holm p >= 0.05)")
 
 
 def print_threshold_ranking(run_df, thresholds, baseline_aug):
@@ -483,6 +503,8 @@ def main():
     parser.add_argument("--expected-seeds", type=int, default=3)
     parser.add_argument("--workers", type=int, default=16,
                         help="Parallel download threads (default: 16)")
+    parser.add_argument("--exclude-aug", nargs="+", default=[],
+                        help="Aug levels/techniques to exclude from analysis (e.g. --exclude-aug real)")
     parser.add_argument("--allow-multi", action="store_true",
                         help="Allow embed-multi runs (their training predictions have a known bug)")
     args = parser.parse_args()
@@ -491,6 +513,14 @@ def main():
         args.baseline_aug = int(args.baseline_aug)
     except ValueError:
         pass
+
+    exclude = set()
+    for v in args.exclude_aug:
+        try:
+            exclude.add(int(v))
+        except ValueError:
+            exclude.add(v)
+    args.exclude_aug = exclude
 
     if args.positive_rates == ["none"]:
         positive_rates = []
@@ -517,6 +547,11 @@ def main():
               "or --allow-multi to override.",
               file=sys.stderr)
         sys.exit(1)
+
+    if args.exclude_aug:
+        for aug in args.exclude_aug:
+            pred_data.pop(aug, None)
+        print(f"Excluded aug levels: {args.exclude_aug}")
 
     # Compute actual positive rate from first available run's labels
     orig_pos_rate = None
