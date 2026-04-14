@@ -116,11 +116,17 @@ def analyze_sequence(seq, dfs, model, methods):
     real_pos_emb = model.encode(real_pos_texts, normalize_embeddings=True)
     real_neg_emb = model.encode(real_neg_texts, normalize_embeddings=True)
 
-    # Real-vs-real reference
+    # Real-vs-real reference (all four class combinations)
     rp_rp = real_pos_emb @ real_pos_emb.T
     np.fill_diagonal(rp_rp, 0)
-    n = rp_rp.shape[0]
-    rp_rp_mean = rp_rp.sum() / (n * (n - 1))
+    n_rp = rp_rp.shape[0]
+    rp_rp_mean = rp_rp.sum() / (n_rp * (n_rp - 1))
+
+    rn_rn = real_neg_emb @ real_neg_emb.T
+    np.fill_diagonal(rn_rn, 0)
+    n_rn = rn_rn.shape[0]
+    rn_rn_mean = rn_rn.sum() / (n_rn * (n_rn - 1))
+
     rp_rn_mean = float((real_pos_emb @ real_neg_emb.T).mean())
 
     results = []
@@ -166,6 +172,7 @@ def analyze_sequence(seq, dfs, model, methods):
             # Reference
             "rp_rp_ref": float(rp_rp_mean),
             "rp_rn_ref": float(rp_rn_mean),
+            "rn_rn_ref": float(rn_rn_mean),
             # Lexical
             "synth_ttr": compute_ttr(synth["Text"].tolist()),
             "synth_ttr_pos": compute_ttr(synth_pos),
@@ -258,6 +265,43 @@ F1_GAINS = {
 }
 
 
+def fetch_per_seq_gains(group, methods, entity="redstag", project="thesis"):
+    """Fetch per-(seq, aug) mean test/f1 from WandB and return per-seq gain vs none.
+
+    Returns dict[method] -> list of per-sequence (seed-averaged) gains over baseline.
+    """
+    api = wandb.Api()
+    runs = api.runs(f"{entity}/{project}", filters={"group": group})
+    # (seq, aug) -> list of test/f1 across seeds
+    from collections import defaultdict
+    f1_map = defaultdict(list)
+    for r in runs:
+        if r.state != "finished":
+            continue
+        try:
+            seq = int(r.name.split("seq_")[1].split("_")[0])
+            aug = r.name.split("aug_")[1].split("_seed")[0]
+        except (IndexError, ValueError):
+            continue
+        v = r.summary.get("test/f1")
+        if v is None:
+            continue
+        f1_map[(seq, aug)].append(float(v))
+    # Average over seeds
+    seq_f1 = {k: float(np.mean(v)) for k, v in f1_map.items()}
+    seqs = sorted({k[0] for k in seq_f1 if k[1] == "none"})
+    gains = {}
+    for m in methods:
+        if m == "none":
+            continue
+        vals = []
+        for s in seqs:
+            if (s, m) in seq_f1 and (s, "none") in seq_f1:
+                vals.append(seq_f1[(s, m)] - seq_f1[(s, "none")])
+        gains[m] = vals
+    return gains
+
+
 def _method_agg(rdf, col):
     """Return (mean, se) per method for a column."""
     out = {}
@@ -274,8 +318,7 @@ def plot_heatmap(rdf, output_dir):
     fig, ax = plt.subplots(figsize=(6, 3.5))
 
     cols = ["sp_rp", "sp_rn", "sn_rp", "sn_rn"]
-    col_labels = ["Synth+ → Real+", "Synth+ → Real−",
-                   "Synth− → Real+", "Synth− → Real−"]
+    col_labels = ["SP-RP", "SP-RN", "SN-RP", "SN-RN"]
     methods = [m for m in METHOD_ORDER if m in rdf["method"].values]
 
     data = np.zeros((len(methods), len(cols)))
@@ -286,7 +329,7 @@ def plot_heatmap(rdf, output_dir):
 
     im = ax.imshow(data, cmap="YlOrRd", aspect="auto", vmin=0.05, vmax=0.20)
     ax.set_xticks(range(len(cols)))
-    ax.set_xticklabels(col_labels, fontsize=9, rotation=25, ha="right")
+    ax.set_xticklabels(col_labels, fontsize=10)
     ax.set_yticks(range(len(methods)))
     ax.set_yticklabels(methods, fontsize=10)
 
@@ -335,7 +378,7 @@ def plot_similarity_violins(rdf, output_dir):
         ax.set_xticks(positions)
         ax.set_xticklabels(methods, fontsize=9)
         ax.set_title(class_label, fontsize=10)
-        ax.set_ylabel("Max cosine sim to same-class real" if ax == axes[0] else "")
+        ax.set_ylabel("Max cosine similarity (SP-RP / SN-RN, per sample)" if ax == axes[0] else "")
         ax.grid(True, alpha=0.3, axis="y")
 
     fig.suptitle("Per-sample similarity to nearest real same-class sample", fontsize=11)
@@ -441,7 +484,7 @@ def plot_lexical_bars(rdf, output_dir):
     plt.close(fig)
 
 
-def plot_gap_vs_f1(rdf, output_dir):
+def plot_gap_vs_f1(rdf, output_dir, f1_gains_per_seq=None):
     """Fig 5: Class separation gap vs F1 gain scatter."""
     fig, ax = plt.subplots(figsize=(5.5, 4.5))
 
@@ -450,14 +493,23 @@ def plot_gap_vs_f1(rdf, output_dir):
         sub = rdf[rdf["method"] == m]
         gap = sub["pos_gap"].mean()
         gap_se = sub["pos_gap"].std() / np.sqrt(len(sub))
-        f1 = F1_GAINS[m]
-        ax.errorbar(gap, f1, xerr=gap_se, fmt="o", markersize=11,
+        if f1_gains_per_seq and m in f1_gains_per_seq and len(f1_gains_per_seq[m]) > 1:
+            vals = np.asarray(f1_gains_per_seq[m], dtype=float)
+            f1 = float(vals.mean())
+            f1_se = float(vals.std(ddof=1) / np.sqrt(len(vals)))
+        else:
+            f1 = F1_GAINS[m]
+            f1_se = None
+        ax.errorbar(gap, f1, xerr=gap_se, yerr=f1_se, fmt="o", markersize=11,
                     color=METHOD_COLORS.get(m, "gray"), capsize=3, capthick=1.2,
                     zorder=5, label=m)
 
     # Correlation
+    if f1_gains_per_seq:
+        f1s = np.array([np.mean(f1_gains_per_seq[m]) for m in methods])
+    else:
+        f1s = np.array([F1_GAINS[m] for m in methods])
     gaps = np.array([rdf[rdf["method"] == m]["pos_gap"].mean() for m in methods])
-    f1s = np.array([F1_GAINS[m] for m in methods])
     from scipy import stats
     r, p = stats.pearsonr(gaps, f1s)
     ax.text(0.05, 0.95, f"r = {r:.2f}, p = {p:.3f}",
@@ -477,7 +529,7 @@ def plot_gap_vs_f1(rdf, output_dir):
     plt.close(fig)
 
 
-def generate_plots(rdf, output_dir):
+def generate_plots(rdf, output_dir, f1_gains_per_seq=None):
     """Generate all figures."""
     if not HAS_MPL:
         print("matplotlib not installed — skipping plots.", file=sys.stderr)
@@ -488,7 +540,7 @@ def generate_plots(rdf, output_dir):
     plot_similarity_violins(rdf, output_dir)
     plot_class_separation(rdf, output_dir)
     plot_lexical_bars(rdf, output_dir)
-    plot_gap_vs_f1(rdf, output_dir)
+    plot_gap_vs_f1(rdf, output_dir, f1_gains_per_seq=f1_gains_per_seq)
 
 
 # ---------------------------------------------------------------------------
@@ -547,7 +599,10 @@ def main():
     if not args.no_plots:
         fig_dir = Path(args.fig_dir) if args.fig_dir else Path(__file__).resolve().parent
         print()
-        generate_plots(rdf, fig_dir)
+        print("Fetching per-sequence F1 gains for quality-vs-F1 plot...")
+        f1_gains_per_seq = fetch_per_seq_gains(args.group, args.methods,
+                                                args.entity, args.project)
+        generate_plots(rdf, fig_dir, f1_gains_per_seq=f1_gains_per_seq)
 
 
 if __name__ == "__main__":
