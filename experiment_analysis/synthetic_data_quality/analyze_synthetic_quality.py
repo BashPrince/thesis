@@ -102,6 +102,31 @@ def compute_ttr(texts):
     return len(set(tokens)) / len(tokens)
 
 
+def compute_hdd(texts, sample_size=42):
+    """HD-D (hypergeometric distribution diversity; McCarthy & Jarvis 2010).
+
+    Expected number of distinct word types in a random sample of `sample_size`
+    tokens drawn without replacement from the text, computed analytically via
+    the hypergeometric distribution. Canonical HD-D output is the raw sum of
+    per-type probabilities (not divided by n; cf. McCarthy & Jarvis 2010, p. 384).
+    Length-robust per Bestgen (2023).
+    """
+    from collections import Counter
+    from scipy.stats import hypergeom
+
+    tokens = " ".join(texts).lower().split()
+    N = len(tokens)
+    if N < sample_size:
+        return float("nan")
+    counts = Counter(tokens)
+    # Expected number of distinct types in a sample of sample_size tokens:
+    #   E[#types] = sum_t P(type t appears at least once)
+    #             = sum_t (1 - hypergeom.pmf(0; N, c_t, sample_size))
+    return sum(
+        1.0 - hypergeom.pmf(0, N, c_t, sample_size) for c_t in counts.values()
+    )
+
+
 def analyze_sequence(seq, dfs, model, methods):
     """Analyze synthetic data quality for one sequence.
 
@@ -150,6 +175,18 @@ def analyze_sequence(seq, dfs, model, methods):
         sn_rn = sn_emb @ real_neg_emb.T
         sn_rp = sn_emb @ real_pos_emb.T
 
+        # Intra-class pairwise similarity within synthetic pools (Han et al. 2025
+        # use intra-class avg pairwise cosine similarity as a diversity criterion).
+        sp_sp = sp_emb @ sp_emb.T
+        np.fill_diagonal(sp_sp, 0)
+        n_sp = sp_sp.shape[0]
+        sp_sp_mean = sp_sp.sum() / (n_sp * (n_sp - 1)) if n_sp > 1 else float("nan")
+
+        sn_sn = sn_emb @ sn_emb.T
+        np.fill_diagonal(sn_sn, 0)
+        n_sn_ = sn_sn.shape[0]
+        sn_sn_mean = sn_sn.sum() / (n_sn_ * (n_sn_ - 1)) if n_sn_ > 1 else float("nan")
+
         results.append({
             "seq": seq,
             "method": method,
@@ -169,15 +206,23 @@ def analyze_sequence(seq, dfs, model, methods):
             # Per-sample max similarities (for distribution plots)
             "sp_rp_max_all": sp_rp.max(axis=1).tolist(),
             "sn_rn_max_all": sn_rn.max(axis=1).tolist(),
+            # Intra-class synthetic similarity (Han et al. 2025 diversity criterion)
+            "sp_sp": float(sp_sp_mean),
+            "sn_sn": float(sn_sn_mean),
             # Reference
             "rp_rp_ref": float(rp_rp_mean),
             "rp_rn_ref": float(rp_rn_mean),
             "rn_rn_ref": float(rn_rn_mean),
-            # Lexical
+            # Lexical: raw TTR (length-biased, kept for reference) and HD-D
+            # (length-robust; McCarthy & Jarvis 2007, Bestgen 2023).
             "synth_ttr": compute_ttr(synth["Text"].tolist()),
             "synth_ttr_pos": compute_ttr(synth_pos),
             "synth_ttr_neg": compute_ttr(synth_neg),
             "real_ttr": compute_ttr(real_df["Text"].tolist()),
+            "synth_hdd": compute_hdd(synth["Text"].tolist()),
+            "synth_hdd_pos": compute_hdd(synth_pos),
+            "synth_hdd_neg": compute_hdd(synth_neg),
+            "real_hdd": compute_hdd(real_df["Text"].tolist()),
             "synth_avg_len": float(synth["Text"].str.split().str.len().mean()),
             "synth_std_len": float(synth["Text"].str.split().str.len().std()),
             "real_avg_len": float(real_df["Text"].str.split().str.len().mean()),
@@ -217,12 +262,26 @@ def print_results(rdf):
 
     print()
     print("--- Lexical Metrics (mean +/- SE) ---")
-    print(f"{'':>12} | {'Synth TTR':>12} | {'Real TTR':>12} | {'Synth avg len':>14}")
-    print("-" * 60)
+    print(f"{'':>12} | {'Synth HD-D':>12} | {'Real HD-D':>12} | "
+          f"{'Synth TTR':>12} | {'Real TTR':>12} | {'Synth avg len':>14}")
+    print("-" * 90)
     for method in methods:
         sub = rdf[rdf["method"] == method]
-        print(f"{method:>12} | {fmt(sub['synth_ttr']):>12} | {fmt(sub['real_ttr']):>12} "
+        print(f"{method:>12} | {fmt(sub['synth_hdd']):>12} | {fmt(sub['real_hdd']):>12} "
+              f"| {fmt(sub['synth_ttr']):>12} | {fmt(sub['real_ttr']):>12} "
               f"| {fmt(sub['synth_avg_len']):>14}")
+
+    print()
+    print("--- Intra-class Pairwise Cosine Similarity (lower = more diverse) ---")
+    print(f"{'':>12} | {'SP-SP':>12} | {'SN-SN':>12}")
+    print("-" * 45)
+    for method in methods:
+        sub = rdf[rdf["method"] == method]
+        print(f"{method:>12} | {fmt(sub['sp_sp']):>12} | {fmt(sub['sn_sn']):>12}")
+    ref_rp = rdf.groupby("seq")["rp_rp_ref"].first()
+    ref_rn = rdf.groupby("seq")["rn_rn_ref"].first()
+    print(f"  real-real ref: RP-RP={ref_rp.mean():.3f}+/-{ref_rp.std()/np.sqrt(len(ref_rp)):.3f}"
+          f"  RN-RN={ref_rn.mean():.3f}+/-{ref_rn.std()/np.sqrt(len(ref_rn)):.3f}")
 
     print()
     print("--- Class Balance ---")
@@ -430,46 +489,70 @@ def plot_class_separation(rdf, output_dir):
 
 
 def plot_lexical_bars(rdf, output_dir):
-    """Fig 4: TTR and sentence length bar chart (synthetic vs real reference line)."""
+    """Fig 4: HD-D, intra-class pairwise similarity, and sentence length bar charts
+    (synthetic vs real reference line)."""
     methods = [m for m in METHOD_ORDER if m in rdf["method"].values]
-    fig, axes = plt.subplots(1, 2, figsize=(9, 4))
+    fig, axes = plt.subplots(1, 3, figsize=(13, 4))
+    x = np.arange(len(methods))
+    colors = [METHOD_COLORS.get(m, "gray") for m in methods]
 
     # Real reference values (same across methods)
-    real_ttr_mean = rdf.groupby("seq")["real_ttr"].first().mean()
-    real_ttr_se = rdf.groupby("seq")["real_ttr"].first().std() / np.sqrt(5)
+    real_hdd_mean = rdf.groupby("seq")["real_hdd"].first().mean()
+    real_hdd_se = rdf.groupby("seq")["real_hdd"].first().std() / np.sqrt(5)
+    real_rp_mean = rdf.groupby("seq")["rp_rp_ref"].first().mean()
+    real_rp_se = rdf.groupby("seq")["rp_rp_ref"].first().std() / np.sqrt(5)
+    real_rn_mean = rdf.groupby("seq")["rn_rn_ref"].first().mean()
+    real_rn_se = rdf.groupby("seq")["rn_rn_ref"].first().std() / np.sqrt(5)
     real_len_mean = rdf.groupby("seq")["real_avg_len"].first().mean()
     real_len_se = rdf.groupby("seq")["real_avg_len"].first().std() / np.sqrt(5)
 
-    # TTR
+    # Panel 1: HD-D (length-robust lexical diversity)
     ax = axes[0]
-    x = np.arange(len(methods))
-    synth_ttr = [rdf[rdf["method"] == m]["synth_ttr"].mean() for m in methods]
-    synth_ttr_se = [rdf[rdf["method"] == m]["synth_ttr"].std() / np.sqrt(5) for m in methods]
-
-    ax.bar(x, synth_ttr, yerr=synth_ttr_se, capsize=3,
-           color=[METHOD_COLORS.get(m, "gray") for m in methods], alpha=0.8)
-    ax.axhline(real_ttr_mean, color="black", ls="--", linewidth=1.2, label="Real (128 samples)")
-    ax.axhspan(real_ttr_mean - real_ttr_se, real_ttr_mean + real_ttr_se,
+    synth_hdd = [rdf[rdf["method"] == m]["synth_hdd"].mean() for m in methods]
+    synth_hdd_se = [rdf[rdf["method"] == m]["synth_hdd"].std() / np.sqrt(5) for m in methods]
+    ax.bar(x, synth_hdd, yerr=synth_hdd_se, capsize=3, color=colors, alpha=0.8)
+    ax.axhline(real_hdd_mean, color="black", ls="--", linewidth=1.2, label="Real")
+    ax.axhspan(real_hdd_mean - real_hdd_se, real_hdd_mean + real_hdd_se,
                alpha=0.15, color="black")
-
     ax.set_xticks(x)
     ax.set_xticklabels(methods, fontsize=9)
-    ax.set_ylabel("Type-token ratio", fontsize=10)
+    ax.set_ylabel("HD-D (expected \\# types in $n=42$ sample)", fontsize=10)
     ax.set_title("Lexical diversity", fontsize=11)
     ax.legend(fontsize=9)
     ax.grid(True, alpha=0.3, axis="y")
 
-    # Sentence length
+    # Panel 2: Intra-class pairwise cosine similarity (lower = more diverse)
     ax = axes[1]
+    bar_w = 0.38
+    sp_sp = [rdf[rdf["method"] == m]["sp_sp"].mean() for m in methods]
+    sp_sp_se = [rdf[rdf["method"] == m]["sp_sp"].std() / np.sqrt(5) for m in methods]
+    sn_sn = [rdf[rdf["method"] == m]["sn_sn"].mean() for m in methods]
+    sn_sn_se = [rdf[rdf["method"] == m]["sn_sn"].std() / np.sqrt(5) for m in methods]
+    ax.bar(x - bar_w/2, sp_sp, bar_w, yerr=sp_sp_se, capsize=2,
+           color=colors, alpha=0.85, label="Positives (SP-SP)",
+           edgecolor="white", linewidth=0.5)
+    ax.bar(x + bar_w/2, sn_sn, bar_w, yerr=sn_sn_se, capsize=2,
+           color=colors, alpha=0.55, label="Negatives (SN-SN)",
+           edgecolor="white", linewidth=0.5, hatch="//")
+    ax.axhline(real_rp_mean, color="black", ls="--", linewidth=1.0,
+               label=f"Real RP-RP ({real_rp_mean:.2f})")
+    ax.axhline(real_rn_mean, color="gray", ls=":", linewidth=1.0,
+               label=f"Real RN-RN ({real_rn_mean:.2f})")
+    ax.set_xticks(x)
+    ax.set_xticklabels(methods, fontsize=9)
+    ax.set_ylabel("Mean intra-class cosine similarity", fontsize=10)
+    ax.set_title("Semantic diversity (lower = more diverse)", fontsize=11)
+    ax.legend(fontsize=8, loc="upper left")
+    ax.grid(True, alpha=0.3, axis="y")
+
+    # Panel 3: Sentence length
+    ax = axes[2]
     synth_len = [rdf[rdf["method"] == m]["synth_avg_len"].mean() for m in methods]
     synth_len_se = [rdf[rdf["method"] == m]["synth_avg_len"].std() / np.sqrt(5) for m in methods]
-
-    ax.bar(x, synth_len, yerr=synth_len_se, capsize=3,
-           color=[METHOD_COLORS.get(m, "gray") for m in methods], alpha=0.8)
-    ax.axhline(real_len_mean, color="black", ls="--", linewidth=1.2, label="Real (128 samples)")
+    ax.bar(x, synth_len, yerr=synth_len_se, capsize=3, color=colors, alpha=0.8)
+    ax.axhline(real_len_mean, color="black", ls="--", linewidth=1.2, label="Real")
     ax.axhspan(real_len_mean - real_len_se, real_len_mean + real_len_se,
                alpha=0.15, color="black")
-
     ax.set_xticks(x)
     ax.set_xticklabels(methods, fontsize=9)
     ax.set_ylabel("Mean sentence length (words)", fontsize=10)
