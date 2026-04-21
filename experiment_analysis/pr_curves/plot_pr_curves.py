@@ -43,12 +43,12 @@ except ImportError:
 
 
 METHOD_STYLES = {
-    "none": {"color": "#888888", "ls": "--", "label": "none (baseline)"},
+    "none": {"color": "#888888", "ls": "--", "label": "baseline"},
     "real": {"color": "#009e73", "ls": "-", "label": "real"},
     "embed": {"color": "#0072b2", "ls": "-", "label": "embed"},
     "tfidf": {"color": "#56b4e9", "ls": "-", "label": "tfidf"},
     "unfiltered": {"color": "#e69f00", "ls": "-", "label": "unfiltered"},
-    "free": {"color": "#cc79a7", "ls": "-", "label": "free"},
+    "free": {"color": "#cc79a7", "ls": "-", "label": "naive"},
     "genetic": {"color": "#d55e00", "ls": "-", "label": "genetic"},
     "embed-multi": {"color": "#d55e00", "ls": "-", "label": "embed-multi"},
 }

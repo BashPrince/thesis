@@ -102,7 +102,7 @@ def plot_f1_base_rate(results, base_rates, title=None, output_path=None,
     fig, ax = plt.subplots(figsize=(7, 4.5))
 
     method_styles = {
-        "none": {"color": "#888888", "ls": "--", "label": "none (baseline)"},
+        "none": {"color": "#888888", "ls": "--", "label": "baseline"},
         "unfiltered": {"color": "#e69f00", "ls": "-", "label": "unfiltered"},
         "embed": {"color": "#0072b2", "ls": "-", "label": "embed"},
         "embed-multi": {"color": "#d55e00", "ls": "-", "label": "embed-multi"},
@@ -154,6 +154,10 @@ def main():
     parser.add_argument("--title", default=None)
     parser.add_argument("--fixed-threshold", type=float, default=None,
                         help="Use F1 at this fixed threshold instead of optimal-threshold F1")
+    parser.add_argument("--exclude-aug", nargs="+", default=[],
+                        help="Aug levels/techniques to exclude from analysis (e.g. --exclude-aug embed-multi)")
+    parser.add_argument("--allow-multi", action="store_true",
+                        help="Allow embed-multi runs (their training predictions have a known bug)")
     args = parser.parse_args()
 
     cache_dir = Path(args.cache_dir) / args.group
@@ -167,6 +171,18 @@ def main():
     if not pred_data:
         print("No prediction data found.", file=sys.stderr)
         sys.exit(1)
+
+    if "embed-multi" in pred_data and not args.allow_multi:
+        print("ERROR: embed-multi detected in group. These training runs have buggy "
+              "predictions (dataloader_drop_last). Use corrected ct24_eval groups, "
+              "--exclude-aug embed-multi, or --allow-multi to override.",
+              file=sys.stderr)
+        sys.exit(1)
+
+    if args.exclude_aug:
+        for aug in args.exclude_aug:
+            pred_data.pop(aug, None)
+        print(f"Excluded aug levels: {args.exclude_aug}")
 
     base_rates = np.linspace(args.min_rate, args.max_rate, args.n_steps)
 
@@ -183,7 +199,7 @@ def main():
         suffix = f"_thr{args.fixed_threshold:.1f}" if args.fixed_threshold else ""
         output = str(Path(__file__).resolve().parent / f"{args.group}_f1_base_rate{suffix}.pdf")
 
-    ylabel = f"F1 (threshold={args.fixed_threshold})" if args.fixed_threshold else "Optimal-threshold F1"
+    ylabel = "F1"
     plot_f1_base_rate(results, base_rates, title=args.title,
                       output_path=output, ylabel=ylabel)
 
